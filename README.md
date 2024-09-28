@@ -5,5 +5,6 @@ libraries:
 
 - 🪞 `@coven/compare` — Minimalistic deep comparison.
 - 📖 `@coven/constants` — Spell book of shared constants.
+- 💫 `@coven/parsers` — Parsing charms.
 - 🖌️ `@coven/terminal` — Delightfully simple terminal text styles.
 - 📚 `@coven/types` — Arcane types codex.
