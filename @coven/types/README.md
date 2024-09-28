@@ -2,3 +2,11 @@
 
 📚 Arcane types codex used across [Coven Engineering](https://coven.engineering)
 libraries.
+
+## Example
+
+```typescript
+import type { Unary } from "@coven/types";
+
+const next: Unary<[input: number], number> = (input) => input + 1;
+```

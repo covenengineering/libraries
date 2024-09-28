@@ -7,7 +7,7 @@ background, color and style. The utils can be used as tag functions for
 [template literals][template-literals] like this:
 
 ```typescript
-import { bold, red } from "cuterminal";
+import { bold, red } from "@coven/terminal";
 
 onsole.log(red`Hello ${bold`world`}!`);
 // ^ Logs "Hello world!" in red text with the word "world" in bold.

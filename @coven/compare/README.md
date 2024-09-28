@@ -9,3 +9,11 @@ with all the differences between said values. The differences are represented by
 - **Create:** Missing `left` and existing `right`.
 - **Update:** Different `left` and `right` values.
 - **Delete:** Existing `left` and missing `right`.
+
+## Example
+
+```typescript
+import { compare } from "@coven/compare";
+
+compare("Coven", "Engineering"); // Yields { kind: "UPDATE", left: "Coven", right: "Engineering" }
+```
