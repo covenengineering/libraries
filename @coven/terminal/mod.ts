@@ -1,18 +1,3 @@
-/**
- * @module 🖌️ Delightfully simple terminal text styles.
- *
- * `@coven/terminal` uses [ANSI escape codes][ansi-escape-code] to format CLI
- * text background, color and style. The utils can be used as tag functions for
- * [template literals][template-literals] like this:
- *
- * ```typescript
- * import { bold, red } from "cuterminal";
- *
- * onsole.log(red`Hello ${bold`world`}!`);
- * // ^ Logs "Hello world!" in red text with the word "world" in bold.
- * ```
- */
-
 export type { Background } from "./Background.ts";
 export { black } from "./black.ts";
 export { blackBack } from "./blackBack.ts";

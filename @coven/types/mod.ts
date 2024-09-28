@@ -1,8 +1,3 @@
-/**
- * @module 📚 Arcane types codex used across
- * [Coven Engineering](https://coven.engineering) libraries.
- */
-
 export type { Add } from "./Add.ts";
 export type { ArrayLikeIndexFallback } from "./ArrayLikeIndexFallback.ts";
 export type { Awaitable } from "./Awaitable.ts";
