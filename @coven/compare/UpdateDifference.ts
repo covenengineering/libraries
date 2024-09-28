@@ -1,4 +1,4 @@
-import type { KIND, LEFT, RIGHT, UPDATE } from "./constants.ts";
+import type { UPDATE } from "./constants.ts";
 import type { DifferencePath } from "./DifferencePath.ts";
 
 /**
@@ -20,13 +20,13 @@ export type UpdateDifference<Left = unknown, Right = unknown> = {
 	/**
 	 * Update kind.
 	 */
-	readonly [KIND]: typeof UPDATE;
+	readonly kind: typeof UPDATE;
 	/**
 	 * Original value.
 	 */
-	readonly [LEFT]: Left;
+	readonly left: Left;
 	/**
 	 * New value.
 	 */
-	readonly [RIGHT]: Right;
+	readonly right: Right;
 } & DifferencePath;

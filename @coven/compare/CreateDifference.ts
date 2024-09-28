@@ -1,4 +1,4 @@
-import type { CREATE, KIND, RIGHT } from "./constants.ts";
+import type { CREATE } from "./constants.ts";
 import type { DifferencePath } from "./DifferencePath.ts";
 
 /**
@@ -18,9 +18,9 @@ export type CreateDifference<Right = unknown> = {
 	/**
 	 * Creation kind.
 	 */
-	readonly [KIND]: typeof CREATE;
+	readonly kind: typeof CREATE;
 	/**
 	 * New value.
 	 */
-	readonly [RIGHT]: Right;
+	readonly right: Right;
 } & DifferencePath;

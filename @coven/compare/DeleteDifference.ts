@@ -1,4 +1,4 @@
-import type { DELETE, KIND, LEFT } from "./constants.ts";
+import type { DELETE } from "./constants.ts";
 import type { DifferencePath } from "./DifferencePath.ts";
 
 /**
@@ -18,9 +18,9 @@ export type DeleteDifference<Left = unknown> = {
 	/**
 	 * Deletion kind.
 	 */
-	readonly [KIND]: typeof DELETE;
+	readonly kind: typeof DELETE;
 	/**
 	 * Original value.
 	 */
-	readonly [LEFT]: Left;
+	readonly left: Left;
 } & DifferencePath;
