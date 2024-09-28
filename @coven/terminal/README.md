@@ -1,4 +1,4 @@
-<img alt="Coven Engineering Terminal logo" src="./logo.svg" height="108" />
+<img alt="Coven Engineering Terminal logo" src="https://raw.githubusercontent.com/covenengineering/libraries/main/@coven/terminal/logo.svg" height="108" />
 
 🖌️ Delightfully simple terminal text styles.
 
@@ -27,24 +27,24 @@ bold("Example") === bold`Example`;
 These functions set the foreground and background color of a string. The full
 list of available foreground and background functions:
 
-| Color                                                 | Foreground      | Background          |
-| ----------------------------------------------------- | --------------- | ------------------- |
-| ![Black](./black.svg) Black                           | `black`         | `blackBack`         |
-| ![White](./white.svg) White                           | `white`         | `whiteBack`         |
-| ![Gray](./gray.svg) Gray                              | `gray`          | `grayBack`          |
-| ![Bright gray](./brightGray.svg) Bright Gray          | `brightGray`    | `brightGrayBack`    |
-| ![Red](./red.svg) Red                                 | `red`           | `redBack`           |
-| ![Bright red](./brightRed.svg) Bright Red             | `brightRed`     | `brightRedBack`     |
-| ![Yellow](./yellow.svg) Yellow                        | `yellow`        | `yellowBack`        |
-| ![Bright yellow](./brightYellow.svg) Bright Yellow    | `brightYellow`  | `brightYellowBack`  |
-| ![Green](./green.svg) Green                           | `green`         | `greenBack`         |
-| ![Bright green](./brightGreen.svg) Bright Green       | `brightGreen`   | `brightGreenBack`   |
-| ![Cyan](./cyan.svg) Cyan                              | `cyan`          | `cyanBack`          |
-| ![Bright cyan](./brightCyan.svg) Bright Cyan          | `brightCyan`    | `brightCyanBack`    |
-| ![Blue](./blue.svg) Blue                              | `blue`          | `blueBack`          |
-| ![Bright blue](./brightBlue.svg) Bright Blue          | `brightBlue`    | `brightBlueBack`    |
-| ![Magenta](./magenta.svg) Magenta                     | `magenta`       | `magentaBack`       |
-| ![Bright magenta](./brightMagenta.svg) Bright Magenta | `brightMagenta` | `brightMagentaBack` |
+| Color                                                                                                                                        | Foreground      | Background          |
+| -------------------------------------------------------------------------------------------------------------------------------------------- | --------------- | ------------------- |
+| ![Black](https://raw.githubusercontent.com/covenengineering/libraries/main/@coven/terminal/colors/black.svg) Black                           | `black`         | `blackBack`         |
+| ![White](https://raw.githubusercontent.com/covenengineering/libraries/main/@coven/terminal/colors/white.svg) White                           | `white`         | `whiteBack`         |
+| ![Gray](https://raw.githubusercontent.com/covenengineering/libraries/main/@coven/terminal/colors/gray.svg) Gray                              | `gray`          | `grayBack`          |
+| ![Bright gray](https://raw.githubusercontent.com/covenengineering/libraries/main/@coven/terminal/colors/brightGray.svg) Bright Gray          | `brightGray`    | `brightGrayBack`    |
+| ![Red](https://raw.githubusercontent.com/covenengineering/libraries/main/@coven/terminal/colors/red.svg) Red                                 | `red`           | `redBack`           |
+| ![Bright red](https://raw.githubusercontent.com/covenengineering/libraries/main/@coven/terminal/colors/brightRed.svg) Bright Red             | `brightRed`     | `brightRedBack`     |
+| ![Yellow](https://raw.githubusercontent.com/covenengineering/libraries/main/@coven/terminal/colors/yellow.svg) Yellow                        | `yellow`        | `yellowBack`        |
+| ![Bright yellow](https://raw.githubusercontent.com/covenengineering/libraries/main/@coven/terminal/colors/brightYellow.svg) Bright Yellow    | `brightYellow`  | `brightYellowBack`  |
+| ![Green](https://raw.githubusercontent.com/covenengineering/libraries/main/@coven/terminal/colors/green.svg) Green                           | `green`         | `greenBack`         |
+| ![Bright green](https://raw.githubusercontent.com/covenengineering/libraries/main/@coven/terminal/colors/brightGreen.svg) Bright Green       | `brightGreen`   | `brightGreenBack`   |
+| ![Cyan](https://raw.githubusercontent.com/covenengineering/libraries/main/@coven/terminal/colors/cyan.svg) Cyan                              | `cyan`          | `cyanBack`          |
+| ![Bright cyan](https://raw.githubusercontent.com/covenengineering/libraries/main/@coven/terminal/colors/brightCyan.svg) Bright Cyan          | `brightCyan`    | `brightCyanBack`    |
+| ![Blue](https://raw.githubusercontent.com/covenengineering/libraries/main/@coven/terminal/colors/blue.svg) Blue                              | `blue`          | `blueBack`          |
+| ![Bright blue](https://raw.githubusercontent.com/covenengineering/libraries/main/@coven/terminal/colors/brightBlue.svg) Bright Blue          | `brightBlue`    | `brightBlueBack`    |
+| ![Magenta](https://raw.githubusercontent.com/covenengineering/libraries/main/@coven/terminal/colors/magenta.svg) Magenta                     | `magenta`       | `magentaBack`       |
+| ![Bright magenta](https://raw.githubusercontent.com/covenengineering/libraries/main/@coven/terminal/colors/brightMagenta.svg) Bright Magenta | `brightMagenta` | `brightMagentaBack` |
 
 ### Style Functions
 

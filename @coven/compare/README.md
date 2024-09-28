@@ -1,4 +1,4 @@
-<img alt="Coven Engineering Comparison logo" src="./logo.svg" height="108" />
+<img alt="Coven Engineering Compare logo" src="https://raw.githubusercontent.com/covenengineering/libraries/main/@coven/compare/logo.svg" height="108" />
 
 🪞 Minimalistic deep comparison.
 
