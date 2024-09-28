@@ -1,0 +1,18 @@
+import type { ReadonlyRecord } from "@coven/types";
+
+/**
+ * Check if the given key is present in the given object (not inherited).
+ *
+ * @example
+ * ```typescript
+ * const isPropertyOfFoo = isPropertyOf({ "🟢": "🟩" });
+ * isPropertyOfFoo("🟢"); // true
+ * isPropertyOfFoo("🟩"); // false
+ * ```
+ * @param object Object to check.
+ * @returns Curried function with `context` set.
+ */
+export const isPropertyOf = <Key extends PropertyKey>(
+	object: ReadonlyRecord<Key>,
+): (key: Key) => boolean =>
+(key) => Object.hasOwn(object, key);

@@ -135,6 +135,7 @@
 		"./@coven/compare",
 		"./@coven/constants",
 		"./@coven/parsers",
+		"./@coven/predicates",
 		"./@coven/terminal",
 		"./@coven/types"
 	]
