@@ -17,6 +17,8 @@ jobs:
 
             - name: Set up Deno
               uses: denoland/setup-deno@v1
+              with:
+                  deno-version: 2.0.0-rc.5
 
             - name: Format
               run: deno fmt --check
