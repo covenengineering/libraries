@@ -21,6 +21,9 @@
 		"singleQuote": false,
 		"useTabs": true
 	},
+	"imports": {
+		"@std/assert": "jsr:@std/assert@^1.0.6"
+	},
 	"lint": {
 		"rules": {
 			"include": [
@@ -131,10 +134,8 @@
 	"workspace": [
 		"./@coven/compare",
 		"./@coven/constants",
+		"./@coven/parsers",
 		"./@coven/terminal",
 		"./@coven/types"
-	],
-	"imports": {
-		"@std/assert": "jsr:@std/assert@^1.0.6"
-	}
+	]
 }
