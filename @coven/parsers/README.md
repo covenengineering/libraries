@@ -1,13 +1,16 @@
-<img alt="Coven Engineering Parsers logo" src="https://raw.githubusercontent.com/covenengineering/libraries/main/@coven/predicates/logo.svg" height="108" />
+<img alt="Coven Engineering Parsers logo" src="https://raw.githubusercontent.com/covenengineering/libraries/main/@coven/parsers/logo.svg" height="108" />
 
-🛡️ Predicate wards.
+💫 Parsing charms.
+
+Instead of throwing or returning values like `NaN`, the parsers in this library
+either return the expected parsed value or `undefined` (making use of the
+[Maybe](https://jsr.io/@coven/types/doc/~/Maybe) type).
 
 ## Example
 
 ```typescript
-import { isBoolean } from "@coven/predicates";
+import { parseDecimal } from "@coven/parsers";
 
-isBoolean(true); // true
-isBoolean(false); // true
-isBoolean(undefined); // false
+parseDecimal("101"); // 101
+parseDecimal("nope"); // undefined
 ```
