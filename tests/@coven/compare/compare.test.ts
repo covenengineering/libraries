@@ -1,5 +1,4 @@
 import {
-	compare,
 	CREATE,
 	DELETE,
 	KIND,
@@ -9,19 +8,11 @@ import {
 	UPDATE,
 } from "@coven/compare";
 import { assertEquals } from "@std/assert";
+import { _compare } from "./utils.ts";
 
 const property1 = "property1";
 const property2 = "property2";
 const object = {};
-
-/**
- * Deno's `assertEquals` can't deal with iterators, so let's turn them into arrays.
- */
-const _compare = (left: unknown) => (right: unknown) =>
-	[...compare(left)(right)].map(({ [PATH]: path, ...difference }) => ({
-		...difference,
-		...(path ? ({ [PATH]: [...path] }) : undefined),
-	}));
 
 Deno.test("Comparing same string yields nothing", () =>
 	assertEquals(_compare("witch")("witch"), []));

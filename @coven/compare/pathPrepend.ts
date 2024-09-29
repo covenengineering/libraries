@@ -25,6 +25,6 @@ export const pathPrepend = <SourceDifference extends Difference>(
 	...difference,
 	[PATH]: (function* (): ReadonlyIterator<PropertyKey> {
 		yield prepend;
-		path === undefined ? path : yield* path;
+		if (path !== undefined) yield* path;
 	})(),
 } as SourceDifference);
