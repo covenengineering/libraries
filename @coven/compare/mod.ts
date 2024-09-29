@@ -1,4 +1,3 @@
-export { basePath } from "./basePath.ts";
 export { compare } from "./compare.ts";
 export { compareIterables } from "./compareIterables.ts";
 export { compareObjects } from "./compareObjects.ts";
