@@ -34,5 +34,4 @@ export { isTruthy } from "./isTruthy.ts";
 export { isType } from "./isType.ts";
 export type { IsTypeFunction } from "./IsTypeFunction.ts";
 export { isUndefined } from "./isUndefined.ts";
-export { match } from "./match.ts";
 export { test } from "./test.ts";
