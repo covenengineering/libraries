@@ -10,7 +10,7 @@ jobs:
         runs-on: ubuntu-latest
         permissions:
             contents: read
-            id-token: write # The OIDC ID token is used for authentication with JSR.
+            id-token: write
         steps:
             - name: Clone repository
               uses: actions/checkout@v4
@@ -24,7 +24,15 @@ jobs:
               run: deno fmt --check
 
             - name: Test
-              run: deno test
+              run: deno test --coverage
+
+            - name: Generate Coverage
+              run: deno coverage --lcov coverage/ > coverage.lcov
+
+            - name: Publish Coverage
+              uses: coverallsapp/github-action@v2
+              with:
+                  github-token: ${{ secrets.GITHUB_TOKEN }}
 
             - name: Publish to JSR
               run: deno publish
