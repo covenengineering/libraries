@@ -3,7 +3,6 @@ export { has } from "./has.ts";
 export { hasAsyncIteratorSymbol } from "./hasAsyncIteratorSymbol.ts";
 export type { HasFunction } from "./HasFunction.ts";
 export { hasIteratorSymbol } from "./hasIteratorSymbol.ts";
-export { hasPrototype } from "./hasPrototype.ts";
 export { is } from "./is.ts";
 export { isArray } from "./isArray.ts";
 export { isAsyncIterable } from "./isAsyncIterable.ts";
