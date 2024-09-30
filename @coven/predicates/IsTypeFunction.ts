@@ -1,4 +1,4 @@
-import type { TypeOfDictionary } from "../types/mod.ts";
+import type { TypeOfDictionary } from "@coven/types";
 
 /**
  * Function that maps the given `input` value to a type of

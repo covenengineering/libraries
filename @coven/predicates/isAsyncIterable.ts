@@ -1,3 +1,4 @@
+import type { ReadonlyAsyncIterable } from "@coven/types";
 import { hasAsyncIteratorSymbol } from "./hasAsyncIteratorSymbol.ts";
 import { isFunction } from "./isFunction.ts";
 import { isObject } from "./isObject.ts";
@@ -19,7 +20,7 @@ import { isObject } from "./isObject.ts";
  */
 export const isAsyncIterable = <Item>(
 	input: unknown,
-): input is Readonly<AsyncIterable<Item>> =>
+): input is ReadonlyAsyncIterable<Item> =>
 	isObject(input) &&
 	hasAsyncIteratorSymbol(input) &&
 	isFunction(input[Symbol.asyncIterator]);
