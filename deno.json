@@ -137,6 +137,7 @@
 		"./@coven/parsers",
 		"./@coven/predicates",
 		"./@coven/terminal",
-		"./@coven/types"
+		"./@coven/types",
+		"./@coven/utils"
 	]
 }
