@@ -4,9 +4,9 @@
 
 ## Constants
 
-- `EMPTY_ARRAY`: A frozen empty array (`[]`).
-- `EMPTY_OBJECT`: A frozen empty plain object (`{}`).
-- `EMPTY_STRING`: An empty string (`""`).
+-   `EMPTY_ARRAY`: A frozen empty array (`[]`).
+-   `EMPTY_OBJECT`: A frozen empty plain object (`{}`).
+-   `EMPTY_STRING`: An empty string (`""`).
 
 ## Example
 

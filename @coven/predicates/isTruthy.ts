@@ -14,6 +14,5 @@ import { isFalsy } from "./isFalsy.ts";
  * @param input Value to check.
  * @returns Returns `true` if truthy, `false` otherwise.
  */
-export const isTruthy = <Input>(
-	input: Input,
-): input is Exclude<Input, Falsy> => !isFalsy(input);
+export const isTruthy = <Input>(input: Input): input is Exclude<Input, Falsy> =>
+	!isFalsy(input);

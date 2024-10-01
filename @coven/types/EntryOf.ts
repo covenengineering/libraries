@@ -19,15 +19,15 @@ import type { ReadonlyArrayLike } from "./ReadonlyArrayLike.ts";
  * @template Object Object to get the entry from.
  */
 export type EntryOf<Object extends object> = {
-	readonly [
-		/**
-		 * @see {@link EntryOf} property that shouldn't be referenced directly
-		 */
-		Property in KeyOf<Object>
-	]: Entry<
+	/**
+	 * @see {@link EntryOf} property that shouldn't be referenced directly
+	 */
+	readonly [Property in KeyOf<Object>]: Entry<
 		Property,
-		Property extends keyof Object ? Object[Property]
-			: Object extends ReadonlyArrayLike ? Object[number]
+		Property extends keyof Object
+			? Object[Property]
+			: Object extends ReadonlyArrayLike
+			? Object[number]
 			: never
 	>;
 }[KeyOf<Object>];

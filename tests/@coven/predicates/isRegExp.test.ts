@@ -2,10 +2,8 @@ import { isRegExp } from "@coven/predicates";
 import { assert, assertFalse } from "@std/assert";
 
 Deno.test("Regular expressions", () =>
-	assert(
-		isRegExp(/expression/u) &&
-			isRegExp(new RegExp("expression", "u")),
-	));
+	assert(isRegExp(/expression/u) && isRegExp(new RegExp("expression", "u"))),
+);
 
 Deno.test("Other types", () =>
 	assertFalse(
@@ -14,11 +12,13 @@ Deno.test("Other types", () =>
 			// AsyncIterator
 			isRegExp((async function* (): AsyncGenerator {})()) ||
 			// BigInt
-			isRegExp(BigInt(13)) || isRegExp(BigInt("13")) ||
+			isRegExp(BigInt(13)) ||
+			isRegExp(BigInt("13")) ||
 			isRegExp(13n) ||
 			// Boolean
 			// deno-lint-ignore no-boolean-literal-for-arguments
-			isRegExp(true) || isRegExp(false) ||
+			isRegExp(true) ||
+			isRegExp(false) ||
 			// Date
 			isRegExp(new Date()) ||
 			// Function
@@ -33,16 +33,22 @@ Deno.test("Other types", () =>
 			// Null
 			isRegExp(null) ||
 			// Number
-			isRegExp(13) || isRegExp(Infinity) || isRegExp(NaN) ||
+			isRegExp(13) ||
+			isRegExp(Infinity) ||
+			isRegExp(NaN) ||
 			// Object
-			isRegExp({}) || isRegExp(Object.create(null)) ||
+			isRegExp({}) ||
+			isRegExp(Object.create(null)) ||
 			// Promise
 			isRegExp(Promise.resolve()) ||
 			// String
-			isRegExp("string") || isRegExp(`string`) ||
+			isRegExp("string") ||
+			isRegExp(`string`) ||
 			// Symbol
-			isRegExp(Symbol("description")) || isRegExp(Symbol()) ||
+			isRegExp(Symbol("description")) ||
+			isRegExp(Symbol()) ||
 			isRegExp(Symbol.iterator) ||
 			// Undefined
 			isRegExp(undefined),
-	));
+	),
+);

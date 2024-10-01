@@ -13,10 +13,9 @@ import type { IsPrototypeOfFunction } from "./IsPrototypeOfFunction.ts";
  * @param constructor Constructor to check.
  * @returns Returns a curried function with `constructor` in context.
  */
-export const isPrototypeOf = <
-	Expected extends ReadonlyRecord<"prototype", unknown>,
->(
-	constructor: Expected,
-): IsPrototypeOfFunction<Expected> =>
-(object): object is Expected =>
-	constructor.prototype === Object.getPrototypeOf(object);
+export const isPrototypeOf =
+	<Expected extends ReadonlyRecord<"prototype", unknown>>(
+		constructor: Expected,
+	): IsPrototypeOfFunction<Expected> =>
+	(object): object is Expected =>
+		constructor.prototype === Object.getPrototypeOf(object);

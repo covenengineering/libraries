@@ -12,19 +12,21 @@ import { PATH } from "./constants.ts";
  * @param prepend Property to prepend.
  * @returns Curried generator with `prepend` in context.
  */
-export const pathPrepend = <SourceDifference extends Difference>(
-	prepend: PropertyKey,
-): (difference: SourceDifference) => SourceDifference =>
-/**
- * Curried {@link pathPrepend} with `prepend` in context
- *
- * @param Difference to add the `prepend` to.
- * @yields Difference's path with prepended `prepend`.
- */
-({ [PATH]: path, ...difference }) => ({
-	...difference,
-	[PATH]: (function* (): ReadonlyIterator<PropertyKey> {
-		yield prepend;
-		if (path !== undefined) yield* path;
-	})(),
-} as SourceDifference);
+export const pathPrepend =
+	<SourceDifference extends Difference>(
+		prepend: PropertyKey,
+	): ((difference: SourceDifference) => SourceDifference) =>
+	/**
+	 * Curried {@link pathPrepend} with `prepend` in context
+	 *
+	 * @param Difference to add the `prepend` to.
+	 * @yields Difference's path with prepended `prepend`.
+	 */
+	({ [PATH]: path, ...difference }) =>
+		({
+			...difference,
+			[PATH]: (function* (): ReadonlyIterator<PropertyKey> {
+				yield prepend;
+				if (path !== undefined) yield* path;
+			})(),
+		} as SourceDifference);

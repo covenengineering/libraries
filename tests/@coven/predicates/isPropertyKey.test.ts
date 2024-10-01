@@ -4,14 +4,18 @@ import { assert, assertFalse } from "@std/assert";
 Deno.test("Promise", () =>
 	assert(
 		// Number
-		isPropertyKey(13) && isPropertyKey(Infinity) &&
+		isPropertyKey(13) &&
+			isPropertyKey(Infinity) &&
 			isPropertyKey(NaN) &&
 			// String
-			isPropertyKey("string") && isPropertyKey(`string`) &&
+			isPropertyKey("string") &&
+			isPropertyKey(`string`) &&
 			// Symbol
-			isPropertyKey(Symbol("description")) && isPropertyKey(Symbol()) &&
+			isPropertyKey(Symbol("description")) &&
+			isPropertyKey(Symbol()) &&
 			isPropertyKey(Symbol.iterator),
-	));
+	),
+);
 
 Deno.test("Other types", () =>
 	assertFalse(
@@ -20,11 +24,13 @@ Deno.test("Other types", () =>
 			// AsyncIterator
 			isPropertyKey((async function* (): AsyncGenerator {})()) ||
 			// BigInt
-			isPropertyKey(BigInt(13)) || isPropertyKey(BigInt("13")) ||
+			isPropertyKey(BigInt(13)) ||
+			isPropertyKey(BigInt("13")) ||
 			isPropertyKey(13n) ||
 			// Boolean
 			// deno-lint-ignore no-boolean-literal-for-arguments
-			isPropertyKey(true) || isPropertyKey(false) ||
+			isPropertyKey(true) ||
+			isPropertyKey(false) ||
 			// Date
 			isPropertyKey(new Date()) ||
 			// Function
@@ -39,7 +45,8 @@ Deno.test("Other types", () =>
 			// Null
 			isPropertyKey(null) ||
 			// Object
-			isPropertyKey({}) || isPropertyKey(Object.create(null)) ||
+			isPropertyKey({}) ||
+			isPropertyKey(Object.create(null)) ||
 			// Promise
 			isPropertyKey(Promise.resolve()) ||
 			// RegExp
@@ -47,4 +54,5 @@ Deno.test("Other types", () =>
 			isPropertyKey(new RegExp("expression", "u")) ||
 			// Undefined
 			isPropertyKey(undefined),
-	));
+	),
+);

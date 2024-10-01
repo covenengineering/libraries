@@ -6,13 +6,16 @@ const testNumbersRegExp = test(/\d+/u);
 const testWithErrors = test({ source: "('", flags: "u" });
 
 Deno.test("test based on string and a number", () =>
-	assert(testNumbersString("123")));
+	assert(testNumbersString("123")),
+);
 
 Deno.test("test based on string and a string with no numbers", () =>
-	assertFalse(testNumbersString("foo")));
+	assertFalse(testNumbersString("foo")),
+);
 
 Deno.test("test based on a regular expression and a number", () =>
-	assert(testNumbersRegExp("123")));
+	assert(testNumbersRegExp("123")),
+);
 
 Deno.test(
 	"test based on a regular expression and a string with no numbers",

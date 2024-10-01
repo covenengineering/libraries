@@ -7,8 +7,10 @@ Deno.test("Iterables", () =>
 		isIterable([]) &&
 			isIterable((function* (): Generator {})()) &&
 			// String
-			isIterable("string") && isIterable(`string`),
-	));
+			isIterable("string") &&
+			isIterable(`string`),
+	),
+);
 
 Deno.test("Other types", () =>
 	assertFalse(
@@ -20,7 +22,8 @@ Deno.test("Other types", () =>
 			isIterable(13n) ||
 			// Boolean
 			// deno-lint-ignore no-boolean-literal-for-arguments
-			isIterable(true) || isIterable(false) ||
+			isIterable(true) ||
+			isIterable(false) ||
 			// Date
 			isIterable(new Date()) ||
 			// Function
@@ -33,7 +36,8 @@ Deno.test("Other types", () =>
 			// Null
 			isIterable(null) ||
 			// Number
-			isIterable(13) || isIterable(Infinity) ||
+			isIterable(13) ||
+			isIterable(Infinity) ||
 			isIterable(NaN) ||
 			// Object
 			isIterable({}) ||
@@ -49,4 +53,5 @@ Deno.test("Other types", () =>
 			isIterable(Symbol.iterator) ||
 			// Undefined
 			isIterable(undefined),
-	));
+	),
+);

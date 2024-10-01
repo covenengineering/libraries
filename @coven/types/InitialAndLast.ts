@@ -29,15 +29,17 @@ export type InitialAndLast<ArrayLike extends ReadonlyArrayLike> =
 	ArrayLike extends readonly [...infer InitialItems, infer LastItem]
 		? readonly [initial: InitialItems, last: LastItem]
 		: ArrayLike extends EmptyArray | EmptyString
-			? readonly [initial: undefined, last: undefined]
+		? readonly [initial: undefined, last: undefined]
 		: ArrayLike extends `${infer FirstCharacter}${infer RestOfString}`
-			? readonly [
-				initial: `${RestOfString extends EmptyString ? EmptyString
+		? readonly [
+				initial: `${RestOfString extends EmptyString
+					? EmptyString
 					: FirstCharacter}${UndefinedFallback<
 					Head<InitialAndLast<RestOfString>>,
 					EmptyString
 				>}`,
-				last: `${RestOfString extends EmptyString ? FirstCharacter
+				last: `${RestOfString extends EmptyString
+					? FirstCharacter
 					: Last<RestOfString>}`,
-			]
+		  ]
 		: readonly [initial: Maybe<ArrayLike>, last: Maybe<ArrayLike[number]>];

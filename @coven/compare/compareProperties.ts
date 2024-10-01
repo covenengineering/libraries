@@ -25,12 +25,12 @@ export const compareProperties = (left: object): CurriedComparison<object> => {
 	 * @param right Right/New object.
 	 * @yields Differences.
 	 */
-	return (right) =>
-		new Set([...ownKeysLeft, ...getKeys(right)]).values().flatMap((key) =>
-			compare(
-				key in left ? left[key as keyof typeof left] : MISSING,
-			)(key in right ? right[key as keyof typeof right] : MISSING).map(
-				pathPrepend(key),
-			)
-		);
+	return right =>
+		new Set([...ownKeysLeft, ...getKeys(right)])
+			.values()
+			.flatMap(key =>
+				compare(key in left ? left[key as keyof typeof left] : MISSING)(
+					key in right ? right[key as keyof typeof right] : MISSING,
+				).map(pathPrepend(key)),
+			);
 };

@@ -27,17 +27,17 @@ export const compareObjects = (left: object): CurriedComparison<object> => {
 		: undefined;
 
 	return leftIsIterator
-		/**
-		 * Curried {@link compareObjects} with `left` set in context.
-		 * @param right Right/New object.
-		 * @returns Generator with differences.
-		 */
-		? function* (right): ReadonlyIterator<Difference> {
-			yield* Symbol.iterator in right
-				? (compareIterableLeft as Just<typeof compareIterableLeft>)(
-					right as ReadonlyIterable,
-				)
-				: comparePropertiesLeft(right);
-		}
+		? /**
+		   * Curried {@link compareObjects} with `left` set in context.
+		   * @param right Right/New object.
+		   * @returns Generator with differences.
+		   */
+		  function* (right): ReadonlyIterator<Difference> {
+				yield* Symbol.iterator in right
+					? (compareIterableLeft as Just<typeof compareIterableLeft>)(
+							right as ReadonlyIterable,
+					  )
+					: comparePropertiesLeft(right);
+		  }
 		: comparePropertiesLeft;
 };

@@ -12,6 +12,5 @@ import type { IsInstanceOfFunction } from "./IsInstanceOfFunction.ts";
  * ```
  * @returns `true` if the given value is an instance of `RegExp`, `false` otherwise.
  */
-export const isRegExp: IsInstanceOfFunction<RegExpConstructor> = isInstanceOf(
-	RegExp,
-);
+export const isRegExp: IsInstanceOfFunction<RegExpConstructor> =
+	isInstanceOf(RegExp);

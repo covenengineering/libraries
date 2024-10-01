@@ -2,7 +2,8 @@ import { isString } from "@coven/predicates";
 import { assert, assertFalse } from "@std/assert";
 
 Deno.test("Regular expressions", () =>
-	assert(isString("string") && isString(`string`)));
+	assert(isString("string") && isString(`string`)),
+);
 
 Deno.test("Other types", () =>
 	assertFalse(
@@ -11,11 +12,13 @@ Deno.test("Other types", () =>
 			// AsyncIterator
 			isString((async function* (): AsyncGenerator {})()) ||
 			// BigInt
-			isString(BigInt(13)) || isString(BigInt("13")) ||
+			isString(BigInt(13)) ||
+			isString(BigInt("13")) ||
 			isString(13n) ||
 			// Boolean
 			// deno-lint-ignore no-boolean-literal-for-arguments
-			isString(true) || isString(false) ||
+			isString(true) ||
+			isString(false) ||
 			// Date
 			isString(new Date()) ||
 			// Function
@@ -30,17 +33,22 @@ Deno.test("Other types", () =>
 			// Null
 			isString(null) ||
 			// Number
-			isString(13) || isString(Infinity) || isString(NaN) ||
+			isString(13) ||
+			isString(Infinity) ||
+			isString(NaN) ||
 			// Object
-			isString({}) || isString(Object.create(null)) ||
+			isString({}) ||
+			isString(Object.create(null)) ||
 			// Promise
 			isString(Promise.resolve()) ||
 			// RegExp
 			isString(/expression/u) ||
 			isString(new RegExp("expression", "u")) ||
 			// Symbol
-			isString(Symbol("description")) || isString(Symbol()) ||
+			isString(Symbol("description")) ||
+			isString(Symbol()) ||
 			isString(Symbol.iterator) ||
 			// Undefined
 			isString(undefined),
-	));
+	),
+);

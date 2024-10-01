@@ -9,8 +9,10 @@ Deno.test("Isomorphic iterables", () =>
 			isIsomorphicIterable((async function* (): AsyncGenerator {})()) &&
 			isIsomorphicIterable((function* (): Generator {})()) &&
 			// String
-			isIsomorphicIterable("string") && isIsomorphicIterable(`string`),
-	));
+			isIsomorphicIterable("string") &&
+			isIsomorphicIterable(`string`),
+	),
+);
 
 Deno.test("Other types", () =>
 	assertFalse(
@@ -20,7 +22,8 @@ Deno.test("Other types", () =>
 			isIsomorphicIterable(13n) ||
 			// Boolean
 			// deno-lint-ignore no-boolean-literal-for-arguments
-			isIsomorphicIterable(true) || isIsomorphicIterable(false) ||
+			isIsomorphicIterable(true) ||
+			isIsomorphicIterable(false) ||
 			// Date
 			isIsomorphicIterable(new Date()) ||
 			// Function
@@ -33,7 +36,8 @@ Deno.test("Other types", () =>
 			// Null
 			isIsomorphicIterable(null) ||
 			// Number
-			isIsomorphicIterable(13) || isIsomorphicIterable(Infinity) ||
+			isIsomorphicIterable(13) ||
+			isIsomorphicIterable(Infinity) ||
 			isIsomorphicIterable(NaN) ||
 			// Object
 			isIsomorphicIterable({}) ||
@@ -49,4 +53,5 @@ Deno.test("Other types", () =>
 			isIsomorphicIterable(Symbol.iterator) ||
 			// Undefined
 			isIsomorphicIterable(undefined),
-	));
+	),
+);

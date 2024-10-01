@@ -13,12 +13,13 @@ import { attempt } from "@coven/parsers";
  * @param regularExpression Instance of `RegExp` or a string.
  * @returns `true` if the string matches the regular expression, `false` otherwise.
  */
-export const test = (
-	{ flags, source }: Pick<Readonly<RegExp>, "flags" | "source">,
-): (text: string) => boolean => {
+export const test = ({
+	flags,
+	source,
+}: Pick<Readonly<RegExp>, "flags" | "source">): ((text: string) => boolean) => {
 	const attemptTest = attempt((text: string) =>
-		new RegExp(source, flags).test(text)
+		new RegExp(source, flags).test(text),
 	);
 
-	return (text) => attemptTest(text) ?? false;
+	return text => attemptTest(text) ?? false;
 };

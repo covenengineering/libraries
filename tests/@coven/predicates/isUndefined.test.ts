@@ -10,11 +10,13 @@ Deno.test("Other types", () =>
 			// AsyncIterator
 			isUndefined((async function* (): AsyncGenerator {})()) ||
 			// BigInt
-			isUndefined(BigInt(13)) || isUndefined(BigInt("13")) ||
+			isUndefined(BigInt(13)) ||
+			isUndefined(BigInt("13")) ||
 			isUndefined(13n) ||
 			// Boolean
 			// deno-lint-ignore no-boolean-literal-for-arguments
-			isUndefined(true) || isUndefined(false) ||
+			isUndefined(true) ||
+			isUndefined(false) ||
 			// Date
 			isUndefined(new Date()) ||
 			// Function
@@ -29,17 +31,23 @@ Deno.test("Other types", () =>
 			// Null
 			isUndefined(null) ||
 			// Number
-			isUndefined(13) || isUndefined(Infinity) || isUndefined(NaN) ||
+			isUndefined(13) ||
+			isUndefined(Infinity) ||
+			isUndefined(NaN) ||
 			// Object
-			isUndefined({}) || isUndefined(Object.create(null)) ||
+			isUndefined({}) ||
+			isUndefined(Object.create(null)) ||
 			// Promise
 			isUndefined(Promise.resolve()) ||
 			// RegExp
 			isUndefined(/expression/u) ||
 			isUndefined(new RegExp("expression", "u")) ||
 			// String
-			isUndefined("string") || isUndefined(`string`) ||
+			isUndefined("string") ||
+			isUndefined(`string`) ||
 			// Symbol
-			isUndefined(Symbol("description")) || isUndefined(Symbol()) ||
+			isUndefined(Symbol("description")) ||
+			isUndefined(Symbol()) ||
 			isUndefined(Symbol.iterator),
-	));
+	),
+);

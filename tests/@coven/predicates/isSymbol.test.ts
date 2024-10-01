@@ -3,9 +3,11 @@ import { assert, assertFalse } from "@std/assert";
 
 Deno.test("Regular expressions", () =>
 	assert(
-		isSymbol(Symbol("description")) && isSymbol(Symbol()) &&
+		isSymbol(Symbol("description")) &&
+			isSymbol(Symbol()) &&
 			isSymbol(Symbol.iterator),
-	));
+	),
+);
 
 Deno.test("Other types", () =>
 	assertFalse(
@@ -14,11 +16,13 @@ Deno.test("Other types", () =>
 			// AsyncIterator
 			isSymbol((async function* (): AsyncGenerator {})()) ||
 			// BigInt
-			isSymbol(BigInt(13)) || isSymbol(BigInt("13")) ||
+			isSymbol(BigInt(13)) ||
+			isSymbol(BigInt("13")) ||
 			isSymbol(13n) ||
 			// Boolean
 			// deno-lint-ignore no-boolean-literal-for-arguments
-			isSymbol(true) || isSymbol(false) ||
+			isSymbol(true) ||
+			isSymbol(false) ||
 			// Date
 			isSymbol(new Date()) ||
 			// Function
@@ -33,16 +37,21 @@ Deno.test("Other types", () =>
 			// Null
 			isSymbol(null) ||
 			// Number
-			isSymbol(13) || isSymbol(Infinity) || isSymbol(NaN) ||
+			isSymbol(13) ||
+			isSymbol(Infinity) ||
+			isSymbol(NaN) ||
 			// Object
-			isSymbol({}) || isSymbol(Object.create(null)) ||
+			isSymbol({}) ||
+			isSymbol(Object.create(null)) ||
 			// Promise
 			isSymbol(Promise.resolve()) ||
 			// RegExp
 			isSymbol(/expression/u) ||
 			isSymbol(new RegExp("expression", "u")) ||
 			// String
-			isSymbol("string") || isSymbol(`string`) ||
+			isSymbol("string") ||
+			isSymbol(`string`) ||
 			// Undefined
 			isSymbol(undefined),
-	));
+	),
+);

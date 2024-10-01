@@ -16,22 +16,29 @@ const missingString = "missingString";
 const missingNumber = 2;
 
 Deno.test("Symbol that exist in the given object", () =>
-	assert(isPropertyOfObject(symbol)));
+	assert(isPropertyOfObject(symbol)),
+);
 
 Deno.test("String that exist in the given object", () =>
-	assert(isPropertyOfObject(string)));
+	assert(isPropertyOfObject(string)),
+);
 
 Deno.test("Number that exist in the given object", () =>
-	assert(isPropertyOfObject(number)));
+	assert(isPropertyOfObject(number)),
+);
 
 Deno.test("Symbol that doesn't exist in the given object", () =>
-	assertFalse(isPropertyOfObject(missingSymbol)));
+	assertFalse(isPropertyOfObject(missingSymbol)),
+);
 
 Deno.test("String that doesn't exist in the given object", () =>
-	assertFalse(isPropertyOfObject(missingString)));
+	assertFalse(isPropertyOfObject(missingString)),
+);
 
 Deno.test("Number that doesn't exist in the given object", () =>
-	assertFalse(isPropertyOfObject(missingNumber)));
+	assertFalse(isPropertyOfObject(missingNumber)),
+);
 
 Deno.test("String property on an empty object", () =>
-	assertFalse(isPropertyOf({} as ReadonlyRecord)(string)));
+	assertFalse(isPropertyOf({} as ReadonlyRecord)(string)),
+);

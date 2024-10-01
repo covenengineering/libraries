@@ -3,7 +3,8 @@ import { assert, assertFalse } from "@std/assert";
 
 Deno.test("Booleans", () =>
 	// deno-lint-ignore no-boolean-literal-for-arguments
-	assert(isBoolean(true) && isBoolean(false)));
+	assert(isBoolean(true) && isBoolean(false)),
+);
 
 Deno.test("Other types", () =>
 	assertFalse(
@@ -12,7 +13,8 @@ Deno.test("Other types", () =>
 			// AsyncIterator
 			isBoolean((async function* (): AsyncGenerator {})()) ||
 			// BigInt
-			isBoolean(BigInt(13)) || isBoolean(BigInt("13")) ||
+			isBoolean(BigInt(13)) ||
+			isBoolean(BigInt("13")) ||
 			isBoolean(13n) ||
 			// Date
 			isBoolean(new Date()) ||
@@ -28,19 +30,25 @@ Deno.test("Other types", () =>
 			// Null
 			isBoolean(null) ||
 			// Number
-			isBoolean(13) || isBoolean(Infinity) || isBoolean(NaN) ||
+			isBoolean(13) ||
+			isBoolean(Infinity) ||
+			isBoolean(NaN) ||
 			// Object
-			isBoolean({}) || isBoolean(Object.create(null)) ||
+			isBoolean({}) ||
+			isBoolean(Object.create(null)) ||
 			// Promise
 			isBoolean(Promise.resolve()) ||
 			// RegExp
 			isBoolean(/expression/u) ||
 			isBoolean(new RegExp("expression", "u")) ||
 			// String
-			isBoolean("string") || isBoolean(`string`) ||
+			isBoolean("string") ||
+			isBoolean(`string`) ||
 			// Symbol
-			isBoolean(Symbol("description")) || isBoolean(Symbol()) ||
+			isBoolean(Symbol("description")) ||
+			isBoolean(Symbol()) ||
 			isBoolean(Symbol.iterator) ||
 			// Undefined
 			isBoolean(undefined),
-	));
+	),
+);

@@ -31,7 +31,4 @@ import type { UpdateDifference } from "./UpdateDifference.ts";
  * @see {@link DeleteDifference}
  * @see {@link UpdateDifference}
  */
-export type Difference =
-	| CreateDifference
-	| DeleteDifference
-	| UpdateDifference;
+export type Difference = CreateDifference | DeleteDifference | UpdateDifference;

@@ -21,6 +21,6 @@ const sha256ToNumber = (sha256: ArrayBuffer) =>
  * @returns Pseudo-random number from seed.
  */
 export const cryptoNumber = (seed: string): Promise<number> =>
-	crypto.subtle.digest("SHA-256", textEncoder.encode(seed)).then(
-		sha256ToNumber,
-	);
+	crypto.subtle
+		.digest("SHA-256", textEncoder.encode(seed))
+		.then(sha256ToNumber);

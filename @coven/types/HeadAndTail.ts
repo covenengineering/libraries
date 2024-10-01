@@ -20,12 +20,11 @@ import type { ReadonlyArrayLike } from "./ReadonlyArrayLike.ts";
  * @see {@link ReadonlyArrayLike}
  * @template ArrayLike `ReadonlyArrayLike` to get the head and tail.
  */
-export type HeadAndTail<ArrayLike extends ReadonlyArrayLike> = ArrayLike extends
-	(
-		readonly [head: infer HeadItem, ...tail: infer TailItems]
-	) ? readonly [head: HeadItem, tail: TailItems]
-	: ArrayLike extends `${infer FirstCharacter}${infer RestOfString}`
+export type HeadAndTail<ArrayLike extends ReadonlyArrayLike> =
+	ArrayLike extends readonly [head: infer HeadItem, ...tail: infer TailItems]
+		? readonly [head: HeadItem, tail: TailItems]
+		: ArrayLike extends `${infer FirstCharacter}${infer RestOfString}`
 		? readonly [head: FirstCharacter, tail: RestOfString]
-	: ArrayLike extends EmptyArray | EmptyString
+		: ArrayLike extends EmptyArray | EmptyString
 		? readonly [head: undefined, tail: undefined]
-	: readonly [head: Maybe<ArrayLike[number]>, tail: Maybe<ArrayLike>];
+		: readonly [head: Maybe<ArrayLike[number]>, tail: Maybe<ArrayLike>];

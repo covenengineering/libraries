@@ -16,8 +16,7 @@ import { isObject } from "./isObject.ts";
  * ```
  * @returns Curried function with `property` in context.
  */
-export const has = <Property extends PropertyKey>(
-	property: Property,
-): HasFunction<Property> =>
-(object): object is ReadonlyRecord<Property, unknown> =>
-	isObject(object) && property in object;
+export const has =
+	<Property extends PropertyKey>(property: Property): HasFunction<Property> =>
+	(object): object is ReadonlyRecord<Property, unknown> =>
+		isObject(object) && property in object;

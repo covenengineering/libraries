@@ -10,11 +10,13 @@ Deno.test("Other types", () =>
 			// AsyncIterator
 			isNull((async function* (): AsyncGenerator {})()) ||
 			// BigInt
-			isNull(BigInt(13)) || isNull(BigInt("13")) ||
+			isNull(BigInt(13)) ||
+			isNull(BigInt("13")) ||
 			isNull(13n) ||
 			// Boolean
 			// deno-lint-ignore no-boolean-literal-for-arguments
-			isNull(true) || isNull(false) ||
+			isNull(true) ||
+			isNull(false) ||
 			// Date
 			isNull(new Date()) ||
 			// Function
@@ -27,19 +29,25 @@ Deno.test("Other types", () =>
 			// Iterator
 			isNull((function* (): Generator {})()) ||
 			// Number
-			isNull(13) || isNull(Infinity) || isNull(NaN) ||
+			isNull(13) ||
+			isNull(Infinity) ||
+			isNull(NaN) ||
 			// Object
-			isNull({}) || isNull(Object.create(null)) ||
+			isNull({}) ||
+			isNull(Object.create(null)) ||
 			// Promise
 			isNull(Promise.resolve()) ||
 			// RegExp
 			isNull(/expression/u) ||
 			isNull(new RegExp("expression", "u")) ||
 			// String
-			isNull("string") || isNull(`string`) ||
+			isNull("string") ||
+			isNull(`string`) ||
 			// Symbol
-			isNull(Symbol("description")) || isNull(Symbol()) ||
+			isNull(Symbol("description")) ||
+			isNull(Symbol()) ||
 			isNull(Symbol.iterator) ||
 			// Undefined
 			isNull(undefined),
-	));
+	),
+);

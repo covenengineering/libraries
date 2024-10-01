@@ -6,9 +6,11 @@ const objectWithoutIteratorSymbol = {};
 const array = [] as ReadonlyArray<unknown>;
 
 Deno.test("Object with an iterator symbol", () =>
-	assert(hasIteratorSymbol(objectWithIteratorSymbol)));
+	assert(hasIteratorSymbol(objectWithIteratorSymbol)),
+);
 
 Deno.test("Object without an iterator symbol", () =>
-	assertFalse(hasIteratorSymbol(objectWithoutIteratorSymbol)));
+	assertFalse(hasIteratorSymbol(objectWithoutIteratorSymbol)),
+);
 
 Deno.test("Array", () => assert(hasIteratorSymbol(array)));

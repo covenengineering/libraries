@@ -30,30 +30,32 @@ export const compare = (left: unknown): CurriedComparison<unknown> => {
 	const compareObjectsLeft = leftIsObject ? compareObjects(left) : undefined;
 
 	return leftIsObject
-		/**
-		 * Curried {@link compare} with `left` set in context.
-		 *
-		 * @param right Right/New value.
-		 * @yields Differences.
-		 */
-		? function* (right): ReadonlyIterator<Difference> {
-			Object.is(left, right)
-				? undefined
-				: isObject(right) && left.constructor === right.constructor
-				? yield* (
-					compareObjectsLeft as Just<typeof compareObjectsLeft>
-				)(right)
-				: yield valuesToDifferenceLeft(right);
-		}
-		/**
-		 * Curried {@link compare} with `left` set in context.
-		 *
-		 * @param right Right/New value.
-		 * @yields Differences.
-		 */
-		: function* (right): ReadonlyIterator<Difference> {
-			Object.is(left, right) ? undefined : (
-				yield valuesToDifferenceLeft(right)
-			);
-		};
+		? /**
+		   * Curried {@link compare} with `left` set in context.
+		   *
+		   * @param right Right/New value.
+		   * @yields Differences.
+		   */
+		  function* (right): ReadonlyIterator<Difference> {
+				Object.is(left, right)
+					? undefined
+					: isObject(right) && left.constructor === right.constructor
+					? yield* (
+							compareObjectsLeft as Just<
+								typeof compareObjectsLeft
+							>
+					  )(right)
+					: yield valuesToDifferenceLeft(right);
+		  }
+		: /**
+		   * Curried {@link compare} with `left` set in context.
+		   *
+		   * @param right Right/New value.
+		   * @yields Differences.
+		   */
+		  function* (right): ReadonlyIterator<Difference> {
+				Object.is(left, right)
+					? undefined
+					: yield valuesToDifferenceLeft(right);
+		  };
 };

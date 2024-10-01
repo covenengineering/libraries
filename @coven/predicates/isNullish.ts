@@ -13,6 +13,5 @@ import { isNull } from "./isNull.ts";
  * ```
  * @returns `true` if nullish, `false` otherwise.
  */
-export const isNullish = (
-	input: unknown = null,
-): input is Nullish => isNull(input);
+export const isNullish = (input: unknown = null): input is Nullish =>
+	isNull(input);

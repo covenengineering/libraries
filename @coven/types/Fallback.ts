@@ -15,8 +15,11 @@ import type { Single } from "./Single.ts";
  * @template MaybeWrong Type to check.
  * @template FallbackType Fallback if `MaybeWrong` extends `Wrong`.
  */
-export type Fallback<Wrong, MaybeWrong, FallbackType> = Single<Wrong> extends
-	Single<never> ? Single<MaybeWrong> extends Single<Wrong> ? FallbackType
-	: MaybeWrong
-	: MaybeWrong extends Wrong ? FallbackType
-	: MaybeWrong;
+export type Fallback<Wrong, MaybeWrong, FallbackType> =
+	Single<Wrong> extends Single<never>
+		? Single<MaybeWrong> extends Single<Wrong>
+			? FallbackType
+			: MaybeWrong
+		: MaybeWrong extends Wrong
+		? FallbackType
+		: MaybeWrong;

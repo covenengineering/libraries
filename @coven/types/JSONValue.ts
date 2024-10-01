@@ -13,10 +13,10 @@ import type { Primitive } from "./Primitive.ts";
  */
 export type JSONValue =
 	| {
-		/**
-		 * @see {@link JSONValue} untyped property.
-		 */
-		readonly [property: string]: JSONValue;
-	}
+			/**
+			 * @see {@link JSONValue} untyped property.
+			 */
+			readonly [property: string]: JSONValue;
+	  }
 	| Exclude<Primitive, bigint | symbol | undefined>
 	| ReadonlyArray<JSONValue>;

@@ -20,9 +20,6 @@ jobs:
               with:
                   deno-version: 2.0.0-rc.5
 
-            - name: Format
-              run: deno fmt --check
-
             - name: Test
               run: deno test --coverage
 

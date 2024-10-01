@@ -16,6 +16,4 @@ import type { Falsy } from "@coven/types";
  * @param input Value to check.
  * @returns Returns `true` if falsy, `false` otherwise.
  */
-export const isFalsy = (
-	input: unknown,
-): input is Falsy => !input;
+export const isFalsy = (input: unknown): input is Falsy => !input;

@@ -10,11 +10,13 @@ Deno.test("Other types", () =>
 			// AsyncIterator
 			isPromise((async function* (): AsyncGenerator {})()) ||
 			// BigInt
-			isPromise(BigInt(13)) || isPromise(BigInt("13")) ||
+			isPromise(BigInt(13)) ||
+			isPromise(BigInt("13")) ||
 			isPromise(13n) ||
 			// Boolean
 			// deno-lint-ignore no-boolean-literal-for-arguments
-			isPromise(true) || isPromise(false) ||
+			isPromise(true) ||
+			isPromise(false) ||
 			// Date
 			isPromise(new Date()) ||
 			// Function
@@ -29,17 +31,23 @@ Deno.test("Other types", () =>
 			// Null
 			isPromise(null) ||
 			// Number
-			isPromise(13) || isPromise(Infinity) || isPromise(NaN) ||
+			isPromise(13) ||
+			isPromise(Infinity) ||
+			isPromise(NaN) ||
 			// Object
-			isPromise({}) || isPromise(Object.create(null)) ||
+			isPromise({}) ||
+			isPromise(Object.create(null)) ||
 			// RegExp
 			isPromise(/expression/u) ||
 			isPromise(new RegExp("expression", "u")) ||
 			// String
-			isPromise("string") || isPromise(`string`) ||
+			isPromise("string") ||
+			isPromise(`string`) ||
 			// Symbol
-			isPromise(Symbol("description")) || isPromise(Symbol()) ||
+			isPromise(Symbol("description")) ||
+			isPromise(Symbol()) ||
 			isPromise(Symbol.iterator) ||
 			// Undefined
 			isPromise(undefined),
-	));
+	),
+);

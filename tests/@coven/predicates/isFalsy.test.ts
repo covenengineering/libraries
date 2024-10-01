@@ -4,17 +4,25 @@ import { assert, assertFalse } from "@std/assert";
 Deno.test("Falsies", () =>
 	assert(
 		// Bigint
-		isFalsy(BigInt(0)) && isFalsy(BigInt("0")) && isFalsy(0n) &&
+		isFalsy(BigInt(0)) &&
+			isFalsy(BigInt("0")) &&
+			isFalsy(0n) &&
 			// Boolean
 			// deno-lint-ignore no-boolean-literal-for-arguments
 			isFalsy(false) &&
 			// Nullish
-			isFalsy(null) && isFalsy(undefined) &&
+			isFalsy(null) &&
+			isFalsy(undefined) &&
 			// Number
-			isFalsy(0) && isFalsy(-0) && isFalsy(+0) && isFalsy(NaN) &&
+			isFalsy(0) &&
+			isFalsy(-0) &&
+			isFalsy(+0) &&
+			isFalsy(NaN) &&
 			// String
-			isFalsy("") && isFalsy(``),
-	));
+			isFalsy("") &&
+			isFalsy(``),
+	),
+);
 
 Deno.test("Truthy", () =>
 	assertFalse(
@@ -23,7 +31,8 @@ Deno.test("Truthy", () =>
 			// AsyncIterator
 			isFalsy((async function* (): AsyncGenerator {})()) ||
 			// BigInt
-			isFalsy(BigInt(13)) || isFalsy(BigInt("13")) ||
+			isFalsy(BigInt(13)) ||
+			isFalsy(BigInt("13")) ||
 			isFalsy(13n) ||
 			// Boolean
 			// deno-lint-ignore no-boolean-literal-for-arguments
@@ -40,17 +49,22 @@ Deno.test("Truthy", () =>
 			// Iterator
 			isFalsy((function* (): Generator {})()) ||
 			// Number
-			isFalsy(13) || isFalsy(Infinity) ||
+			isFalsy(13) ||
+			isFalsy(Infinity) ||
 			// Object
-			isFalsy({}) || isFalsy(Object.create(null)) ||
+			isFalsy({}) ||
+			isFalsy(Object.create(null)) ||
 			// Promise
 			isFalsy(Promise.resolve()) ||
 			// RegExp
 			isFalsy(/expression/u) ||
 			isFalsy(new RegExp("expression", "u")) ||
 			// String
-			isFalsy("string") || isFalsy(`string`) ||
+			isFalsy("string") ||
+			isFalsy(`string`) ||
 			// Symbol
-			isFalsy(Symbol("description")) || isFalsy(Symbol()) ||
+			isFalsy(Symbol("description")) ||
+			isFalsy(Symbol()) ||
 			isFalsy(Symbol.iterator),
-	));
+	),
+);

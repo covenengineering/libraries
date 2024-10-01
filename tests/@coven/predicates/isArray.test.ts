@@ -8,10 +8,13 @@ Deno.test("Other types", () =>
 		// AsyncIterator
 		isArray((async function* (): AsyncGenerator {})()) ||
 			// BigInt
-			isArray(BigInt(13)) || isArray(BigInt("13")) || isArray(13n) ||
+			isArray(BigInt(13)) ||
+			isArray(BigInt("13")) ||
+			isArray(13n) ||
 			// Boolean
 			// deno-lint-ignore no-boolean-literal-for-arguments
-			isArray(true) || isArray(false) ||
+			isArray(true) ||
+			isArray(false) ||
 			// Date
 			isArray(new Date()) ||
 			// Function
@@ -26,19 +29,25 @@ Deno.test("Other types", () =>
 			// Null
 			isArray(null) ||
 			// Number
-			isArray(13) || isArray(Infinity) || isArray(NaN) ||
+			isArray(13) ||
+			isArray(Infinity) ||
+			isArray(NaN) ||
 			// Object
-			isArray({}) || isArray(Object.create(null)) ||
+			isArray({}) ||
+			isArray(Object.create(null)) ||
 			// Promise
 			isArray(Promise.resolve()) ||
 			// RegExp
 			isArray(/expression/u) ||
 			isArray(new RegExp("expression", "u")) ||
 			// String
-			isArray("string") || isArray(`string`) ||
+			isArray("string") ||
+			isArray(`string`) ||
 			// Symbol
-			isArray(Symbol("description")) || isArray(Symbol()) ||
+			isArray(Symbol("description")) ||
+			isArray(Symbol()) ||
 			isArray(Symbol.iterator) ||
 			// Undefined
 			isArray(undefined),
-	));
+	),
+);

@@ -10,11 +10,13 @@ Deno.test("Other types", () =>
 			// AsyncIterator
 			isNullish((async function* (): AsyncGenerator {})()) ||
 			// BigInt
-			isNullish(BigInt(13)) || isNullish(BigInt("13")) ||
+			isNullish(BigInt(13)) ||
+			isNullish(BigInt("13")) ||
 			isNullish(13n) ||
 			// Boolean
 			// deno-lint-ignore no-boolean-literal-for-arguments
-			isNullish(true) || isNullish(false) ||
+			isNullish(true) ||
+			isNullish(false) ||
 			// Date
 			isNullish(new Date()) ||
 			// Function
@@ -27,17 +29,23 @@ Deno.test("Other types", () =>
 			// Iterator
 			isNullish((function* (): Generator {})()) ||
 			// Number
-			isNullish(13) || isNullish(Infinity) || isNullish(NaN) ||
+			isNullish(13) ||
+			isNullish(Infinity) ||
+			isNullish(NaN) ||
 			// Object
-			isNullish({}) || isNullish(Object.create(null)) ||
+			isNullish({}) ||
+			isNullish(Object.create(null)) ||
 			// Promise
 			isNullish(Promise.resolve()) ||
 			// RegExp
 			isNullish(/expression/u) ||
 			isNullish(new RegExp("expression", "u")) ||
 			// String
-			isNullish("string") || isNullish(`string`) ||
+			isNullish("string") ||
+			isNullish(`string`) ||
 			// Symbol
-			isNullish(Symbol("description")) || isNullish(Symbol()) ||
+			isNullish(Symbol("description")) ||
+			isNullish(Symbol()) ||
 			isNullish(Symbol.iterator),
-	));
+	),
+);

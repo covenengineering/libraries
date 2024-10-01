@@ -17,17 +17,21 @@ Deno.test("Objects", () =>
 			isObject(/expression/u) &&
 			isObject(new RegExp("expression", "u")) &&
 			// Object
-			isObject({}) && isObject(Object.create(null)),
-	));
+			isObject({}) &&
+			isObject(Object.create(null)),
+	),
+);
 
 Deno.test("Other types", () =>
 	assertFalse(
 		// BigInt
-		isObject(BigInt(13)) || isObject(BigInt("13")) ||
+		isObject(BigInt(13)) ||
+			isObject(BigInt("13")) ||
 			isObject(13n) ||
 			// Boolean
 			// deno-lint-ignore no-boolean-literal-for-arguments
-			isObject(true) || isObject(false) ||
+			isObject(true) ||
+			isObject(false) ||
 			// Function
 			isObject(() => undefined) ||
 			isObject(async () => await undefined) ||
@@ -38,12 +42,17 @@ Deno.test("Other types", () =>
 			// Null
 			isObject(null) ||
 			// Number
-			isObject(13) || isObject(Infinity) || isObject(NaN) ||
+			isObject(13) ||
+			isObject(Infinity) ||
+			isObject(NaN) ||
 			// String
-			isObject("string") || isObject(`string`) ||
+			isObject("string") ||
+			isObject(`string`) ||
 			// Symbol
-			isObject(Symbol("description")) || isObject(Symbol()) ||
+			isObject(Symbol("description")) ||
+			isObject(Symbol()) ||
 			isObject(Symbol.iterator) ||
 			// Undefined
 			isObject(undefined),
-	));
+	),
+);
