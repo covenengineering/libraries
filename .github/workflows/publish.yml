@@ -20,6 +20,12 @@ jobs:
               with:
                   deno-version: 2.0.0-rc.5
 
+            - name: Lint
+              run: deno lint
+
+            - name: Prettify
+              run: deno run prettify
+
             - name: Test
               run: deno test --coverage
 
