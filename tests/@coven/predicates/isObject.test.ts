@@ -31,6 +31,7 @@ Deno.test("Other types", () =>
 			// Boolean
 			// deno-lint-ignore no-boolean-literal-for-arguments
 			isObject(true) ||
+			// deno-lint-ignore no-boolean-literal-for-arguments
 			isObject(false) ||
 			// Function
 			isObject(() => undefined) ||

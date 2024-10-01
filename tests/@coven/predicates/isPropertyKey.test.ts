@@ -30,6 +30,7 @@ Deno.test("Other types", () =>
 			// Boolean
 			// deno-lint-ignore no-boolean-literal-for-arguments
 			isPropertyKey(true) ||
+			// deno-lint-ignore no-boolean-literal-for-arguments
 			isPropertyKey(false) ||
 			// Date
 			isPropertyKey(new Date()) ||

@@ -16,6 +16,7 @@ Deno.test("Other types", () =>
 			// Boolean
 			// deno-lint-ignore no-boolean-literal-for-arguments
 			isNullish(true) ||
+			// deno-lint-ignore no-boolean-literal-for-arguments
 			isNullish(false) ||
 			// Date
 			isNullish(new Date()) ||

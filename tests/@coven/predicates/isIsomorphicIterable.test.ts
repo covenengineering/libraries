@@ -23,6 +23,7 @@ Deno.test("Other types", () =>
 			// Boolean
 			// deno-lint-ignore no-boolean-literal-for-arguments
 			isIsomorphicIterable(true) ||
+			// deno-lint-ignore no-boolean-literal-for-arguments
 			isIsomorphicIterable(false) ||
 			// Date
 			isIsomorphicIterable(new Date()) ||

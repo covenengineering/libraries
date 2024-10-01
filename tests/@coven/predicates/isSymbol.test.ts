@@ -22,6 +22,7 @@ Deno.test("Other types", () =>
 			// Boolean
 			// deno-lint-ignore no-boolean-literal-for-arguments
 			isSymbol(true) ||
+			// deno-lint-ignore no-boolean-literal-for-arguments
 			isSymbol(false) ||
 			// Date
 			isSymbol(new Date()) ||

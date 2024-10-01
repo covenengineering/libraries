@@ -16,6 +16,7 @@ Deno.test("Other types", () =>
 			// Boolean
 			// deno-lint-ignore no-boolean-literal-for-arguments
 			isAsyncIterable(true) ||
+			// deno-lint-ignore no-boolean-literal-for-arguments
 			isAsyncIterable(false) ||
 			// Date
 			isAsyncIterable(new Date()) ||

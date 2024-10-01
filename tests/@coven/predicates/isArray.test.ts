@@ -14,6 +14,7 @@ Deno.test("Other types", () =>
 			// Boolean
 			// deno-lint-ignore no-boolean-literal-for-arguments
 			isArray(true) ||
+			// deno-lint-ignore no-boolean-literal-for-arguments
 			isArray(false) ||
 			// Date
 			isArray(new Date()) ||

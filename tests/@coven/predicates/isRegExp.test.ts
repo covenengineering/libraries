@@ -18,6 +18,7 @@ Deno.test("Other types", () =>
 			// Boolean
 			// deno-lint-ignore no-boolean-literal-for-arguments
 			isRegExp(true) ||
+			// deno-lint-ignore no-boolean-literal-for-arguments
 			isRegExp(false) ||
 			// Date
 			isRegExp(new Date()) ||

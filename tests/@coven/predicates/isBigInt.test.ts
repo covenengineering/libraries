@@ -14,6 +14,7 @@ Deno.test("Other types", () =>
 			// Boolean
 			// deno-lint-ignore no-boolean-literal-for-arguments
 			isBigInt(true) ||
+			// deno-lint-ignore no-boolean-literal-for-arguments
 			isBigInt(false) ||
 			// Date
 			isBigInt(new Date()) ||

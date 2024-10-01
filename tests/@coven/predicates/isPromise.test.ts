@@ -16,6 +16,7 @@ Deno.test("Other types", () =>
 			// Boolean
 			// deno-lint-ignore no-boolean-literal-for-arguments
 			isPromise(true) ||
+			// deno-lint-ignore no-boolean-literal-for-arguments
 			isPromise(false) ||
 			// Date
 			isPromise(new Date()) ||
