@@ -1,7 +1,6 @@
 /**
  * Identity function.
  *
- * @category Functions
  * @example
  * ```typescript
  * identity("foo"); // "foo"

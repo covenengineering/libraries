@@ -8,7 +8,6 @@ const sha256ToNumber = (sha256: ArrayBuffer) =>
  *
  * **⚠️ IMPORTANT:** This only works in secure contexts.
  *
- * @category Numbers
  * @example
  * ```typescript
  * const seededRandom1 = await random("some seed");

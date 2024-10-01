@@ -1,7 +1,6 @@
 /**
  * Function to encapsulate object mutations.
  *
- * @category Objects
  * @example
  * ```typescript
  * const state = { a: 1 };

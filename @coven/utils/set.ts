@@ -1,7 +1,6 @@
 /**
  * Set the value of a property in an object (read only).
  *
- * @category Objects
  * @example
  * ```typescript
  * const setFoo = set("foo");

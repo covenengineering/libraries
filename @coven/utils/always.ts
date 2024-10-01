@@ -4,7 +4,6 @@ import { thunk } from "./thunk.ts";
 /**
  * Returns a function that always returns the same value.
  *
- * @category Functions
  * @example
  * ```typescript
  * const alwaysFoo = always("foo");

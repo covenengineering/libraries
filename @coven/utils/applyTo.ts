@@ -3,7 +3,6 @@ import type { Unary } from "@coven/types";
 /**
  * Takes a value and applies a function to it.
  *
- * @category Functions
  * @example
  * ```typescript
  * const applyTo10 = applyTo(10);

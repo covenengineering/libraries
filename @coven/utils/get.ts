@@ -3,7 +3,6 @@ import type { ReadonlyRecord } from "@coven/types";
 /**
  * Get the value of a property in an object.
  *
- * @category Objects
  * @example
  * ```typescript
  * const getFoo = get("foo");

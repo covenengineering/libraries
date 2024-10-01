@@ -3,7 +3,6 @@ import type { Unary } from "@coven/types";
 /**
  * Delayed evaluation function.
  *
- * @category Functions
  * @example
  * ```typescript
  * const always = thunk(id);

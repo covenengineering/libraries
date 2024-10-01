@@ -3,7 +3,6 @@ import type { Unary } from "@coven/types";
 /**
  * Memoize function return values for expensive operations.
  *
- * @category Functions
  * @example
  * ```typescript
  * const expensiveOperation = (value: number) => value * 2;
