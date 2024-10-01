@@ -38,7 +38,6 @@ export type ReadonlyArrayLike<
 	readonly length: Length;
 } & ReadonlyRecord<
 	NeverFallback<Exclude<Enumerate<Length>, Length>, number> & PropertyKey,
-	Exclude<Enumerate<Length>, Length> extends Single<never>
-		? Maybe<Item>
-		: Item
+	Exclude<Enumerate<Length>, Length> extends Single<never> ? Maybe<Item>
+	:	Item
 >;

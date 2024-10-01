@@ -124,7 +124,7 @@
 		}
 	},
 	"tasks": {
-		"prettify": "deno run --allow-env --allow-read --allow-sys --allow-write ./tasks/prettify.ts"
+		"prettify": "prettier . --write"
 	},
 	"workspace": [
 		"./@coven/compare",

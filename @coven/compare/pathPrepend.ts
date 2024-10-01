@@ -29,4 +29,4 @@ export const pathPrepend =
 				yield prepend;
 				if (path !== undefined) yield* path;
 			})(),
-		} as SourceDifference);
+		}) as SourceDifference;

@@ -9,7 +9,5 @@
  * @template Argument Tuple with name and type of the argument of the unary function.
  * @template ReturnType Type of the output of the unary function.
  */
-export type Unary<
-	Argument extends readonly [unknown],
-	ReturnType,
-> = Argument["length"] extends 1 ? (..._: Argument) => ReturnType : never;
+export type Unary<Argument extends readonly [unknown], ReturnType> =
+	Argument["length"] extends 1 ? (..._: Argument) => ReturnType : never;

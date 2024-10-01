@@ -24,10 +24,8 @@ export type EntryOf<Object extends object> = {
 	 */
 	readonly [Property in KeyOf<Object>]: Entry<
 		Property,
-		Property extends keyof Object
-			? Object[Property]
-			: Object extends ReadonlyArrayLike
-			? Object[number]
-			: never
+		Property extends keyof Object ? Object[Property]
+		: Object extends ReadonlyArrayLike ? Object[number]
+		: never
 	>;
 }[KeyOf<Object>];

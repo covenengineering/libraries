@@ -10,6 +10,5 @@ import type { IndexArray } from "./IndexArray.ts";
  * ```
  * @template To Last number of the union (starts at `0`).
  */
-export type Enumerate<To extends number = 0> = To extends 0
-	? To
-	: IndexArray<To>[keyof IndexArray<To> & number] | To;
+export type Enumerate<To extends number = 0> =
+	To extends 0 ? To : IndexArray<To>[keyof IndexArray<To> & number] | To;

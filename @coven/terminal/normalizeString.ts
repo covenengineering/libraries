@@ -25,10 +25,10 @@ export const normalizeString = <
 	input: Input,
 	...expressions: ReadonlyArray<Stringable>
 ): Fallback<ReadonlyTemplateStringsArray, Input, string> =>
-	(typeof input === "string"
-		? input
-		: input.reduce(
-				(output, string, index) =>
-					`${output}${string}${expressions[index] ?? EMPTY_STRING}`,
-				EMPTY_STRING,
-		  )) as Fallback<ReadonlyTemplateStringsArray, Input, string>;
+	(typeof input === "string" ? input : (
+		input.reduce(
+			(output, string, index) =>
+				`${output}${string}${expressions[index] ?? EMPTY_STRING}`,
+			EMPTY_STRING,
+		)
+	)) as Fallback<ReadonlyTemplateStringsArray, Input, string>;

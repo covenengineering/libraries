@@ -20,6 +20,11 @@ jobs:
               with:
                   deno-version: 2.0.0-rc.5
 
+            - name: Instal npm:prettier
+              run:
+                  deno install --global --allow-env --allow-read --allow-sys
+                  --allow-write npm:prettier@latest
+
             - name: Lint
               run: deno lint
 

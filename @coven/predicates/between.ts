@@ -19,17 +19,13 @@ export const between =
 	<NumericOrString extends Numeric | string>(
 		start: NumericOrString,
 	): ((
-		end: NumericOrString extends string
-			? string
-			: NumericOrString extends number
-			? number
-			: bigint,
+		end: NumericOrString extends string ? string
+		: NumericOrString extends number ? number
+		: bigint,
 	) => (
-		value: NumericOrString extends string
-			? string
-			: NumericOrString extends number
-			? number
-			: bigint,
+		value: NumericOrString extends string ? string
+		: NumericOrString extends number ? number
+		: bigint,
 	) => boolean) =>
 	end =>
 	value =>

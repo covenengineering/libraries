@@ -22,4 +22,4 @@ export const set =
 	) => Omit<Source, Key> & Record<Key, Value>) =>
 	<const Value>(value: Value) =>
 	<const Source extends object>(object: Source) =>
-		({ ...object, [key]: value } as Omit<Source, Key> & Record<Key, Value>);
+		({ ...object, [key]: value }) as Omit<Source, Key> & Record<Key, Value>;

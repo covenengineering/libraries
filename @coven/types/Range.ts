@@ -14,14 +14,10 @@ import type { NeverFallback } from "./NeverFallback.ts";
  * @template From Origin value (inclusive).
  * @template To Last value (inclusive).
  */
-export type Range<
-	From extends number = 0,
-	To extends number = From,
-> = From extends To
-	? From
-	: From extends 0
-	? Enumerate<To>
+export type Range<From extends number = 0, To extends number = From> =
+	From extends To ? From
+	: From extends 0 ? Enumerate<To>
 	: NeverFallback<
 			Exclude<Enumerate<To>, Exclude<Enumerate<From>, From>>,
 			Exclude<Enumerate<From>, Exclude<Enumerate<To>, To>>
-	  >;
+		>;
