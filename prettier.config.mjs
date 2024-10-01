@@ -1,5 +1,5 @@
 /**
- * @import { Options } from "npm:prettier";
+ * @import { Options } from "prettier";
  */
 
 /**
