@@ -1,14 +1,14 @@
 import { parseDecimal } from "@coven/parsers";
 import { assertEquals } from "@std/assert";
 
-Deno.test("Valid decimal string returns correct value", () =>
+Deno.test("Parsing valid decimal string returns parsed value", () =>
 	assertEquals(parseDecimal("101"), 101),
 );
 
-Deno.test("Decimal string with a dot returns correct value", () =>
+Deno.test("Parsing decimal string with a dot returns parsed value", () =>
 	assertEquals(parseDecimal("101.5"), 101),
 );
 
-Deno.test("Invalid string returns correct value", () =>
+Deno.test("Parsing invalid string returns undefined", () =>
 	assertEquals(parseDecimal("invalid"), undefined),
 );

@@ -1,14 +1,14 @@
 import { parseFloatingPoint } from "@coven/parsers";
 import { assertEquals } from "@std/assert";
 
-Deno.test("Valid float point string returns correct value", () =>
+Deno.test("Parsing valid float point string returns parsed value", () =>
 	assertEquals(parseFloatingPoint("101"), 101),
 );
 
-Deno.test("float point string with a dot returns correct value", () =>
+Deno.test("Parsing float point string with a dot returns parsed value", () =>
 	assertEquals(parseFloatingPoint("101.5"), 101.5),
 );
 
-Deno.test("Invalid string returns correct value", () =>
+Deno.test("Parsing invalid string returns undefined", () =>
 	assertEquals(parseFloatingPoint("invalid"), undefined),
 );

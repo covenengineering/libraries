@@ -1,28 +1,34 @@
 import { clone } from "@coven/parsers";
+import type { StructuredData } from "@coven/types";
 import { assertEquals } from "@std/assert";
 
-Deno.test("Empty object returns copy of object", () =>
+Deno.test("Cloning empty object returns copy of object", () =>
 	assertEquals(clone({}), {}),
 );
 
-Deno.test("Object with a string returns copy of object", () =>
+Deno.test("Cloning object with a string returns copy of object", () =>
 	assertEquals(clone({ foo: "bar" }), { foo: "bar" }),
 );
 
-Deno.test("Empty array returns copy of empty array", () =>
+Deno.test("Cloning empty array returns copy of empty array", () =>
 	assertEquals(clone([]), []),
 );
 
-Deno.test("Array with numbers returns copy of array", () =>
+Deno.test("Cloning array with numbers returns copy of array", () =>
 	assertEquals(clone([1, 2, 3]), [1, 2, 3]),
 );
 
-Deno.test("String returns copy of string", () =>
+Deno.test("Cloning string returns copy of string", () =>
 	assertEquals(clone("string"), "string"),
 );
 
-Deno.test("Non serializable object returns undefined", () =>
-	assertEquals(clone({ function: () => undefined }), undefined),
+Deno.test("Cloning non serializable object returns undefined", () =>
+	assertEquals(
+		clone({ function: () => undefined } as unknown as StructuredData),
+		undefined,
+	),
 );
 
-Deno.test("Number returns a copy of number", () => assertEquals(clone(1), 1));
+Deno.test("Cloning number returns a copy of number", () =>
+	assertEquals(clone(13), 13),
+);

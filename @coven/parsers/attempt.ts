@@ -21,7 +21,7 @@ export const attempt =
 	<Arguments extends ReadonlyArray, Output>(
 		wrappedFunction: (...wrappedArguments: Arguments) => Output,
 	): ((...parameters: Arguments) => Maybe<Output>) =>
-	(...parameters): Maybe<Output> => {
+	(...parameters) => {
 		try {
 			return wrappedFunction(...parameters) as Just<Output>;
 		} catch {

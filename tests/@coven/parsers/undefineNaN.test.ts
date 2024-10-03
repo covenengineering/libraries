@@ -1,7 +1,7 @@
 import { undefineNaN } from "@coven/parsers";
 import { assertEquals } from "@std/assert";
 
-Deno.test("Valid number returns correct value", () =>
+Deno.test("Number returns the same number", () =>
 	assertEquals(undefineNaN(13), 13),
 );
 

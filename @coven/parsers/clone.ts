@@ -1,9 +1,9 @@
-import type { Maybe } from "@coven/types";
+import type { Maybe, StructuredData } from "@coven/types";
 import { attempt } from "./attempt.ts";
 
 /**
  * This util makes use of `structuredClone` to clone the given value, but
- * instead of throwing a `DataCloneError`, it simply returns `undefined` when
+ * instead of throwing a `DOMException`, it simply returns `undefined` when
  * the value is not serializable.
  *
  * @example
@@ -17,6 +17,6 @@ import { attempt } from "./attempt.ts";
  * @param value Value to be cloned.
  * @returns Clone of the value or `undefined` if can't be serialized.
  */
-export const clone = attempt(structuredClone) as <Type>(
+export const clone = attempt(structuredClone) as <Type extends StructuredData>(
 	value: Type,
 ) => Maybe<Type>;

@@ -6,30 +6,39 @@ Deno.test(
 	() => assertEquals(parseJSON('{"__proto__":"😈"}'), {}),
 );
 
-Deno.test("JSON with an empty object returns empty object", () =>
+Deno.test("Parsing JSON with an empty object returns empty object", () =>
 	assertEquals(parseJSON("{}"), {}),
 );
 
-Deno.test("JSON with an object returns empty object", () =>
-	assertEquals(parseJSON('{"foo":"bar"}'), { foo: "bar" }),
+Deno.test("Parsing JSON with an object returns empty object", () =>
+	assertEquals(parseJSON('{"🧙🏻‍♀️":"🎃"}'), { "🧙🏻‍♀️": "🎃" }),
 );
 
-Deno.test("JSON with an empty array returns empty array", () =>
+Deno.test("Parsing JSON with an empty array returns empty array", () =>
 	assertEquals(parseJSON("[]"), []),
 );
 
-Deno.test("JSON with an array with numbers returns array", () =>
-	assertEquals(parseJSON("[1,2,3]"), [1, 2, 3]),
+Deno.test("Parsing JSON with an array with numbers returns array", () =>
+	assertEquals(parseJSON("[13,42,665]"), [13, 42, 665]),
 );
 
-Deno.test("JSON with a string returns a string", () =>
-	assertEquals(parseJSON('"string"'), "string"),
+Deno.test("Parsing JSON with a string returns a string", () =>
+	assertEquals(parseJSON('"🧙🏻‍♀️"'), "🧙🏻‍♀️"),
 );
 
-Deno.test("invalid JSON returns undefined", () =>
+Deno.test("Parsing invalid JSON returns undefined and `SyntaxError`", () =>
 	assertEquals(parseJSON("invalid"), undefined),
 );
 
-Deno.test("JSON with a number returns a number", () =>
-	assertEquals(parseJSON("1"), 1),
+Deno.test("Parsing JSON with a number returns a number", () =>
+	assertEquals(parseJSON("13"), 13),
+);
+
+Deno.test("Parsing JSON with custom reviver", () =>
+	assertEquals(
+		parseJSON('{"url":"https://coven.engineering"}', (key, value) =>
+			key === "url" && typeof value === "string" ? new URL(value) : value,
+		),
+		{ url: new URL("https://coven.engineering") },
+	),
 );

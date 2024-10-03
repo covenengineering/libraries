@@ -12,13 +12,13 @@ const throwingFunction = (shouldThrow: boolean) => {
 const safeFunction = attempt(throwingFunction);
 
 Deno.test(
-	"Function that could throw, not throwing returns expected value",
+	"When a function that could throw doesn't throw, it returns the expected value",
 	() =>
 		// deno-lint-ignore no-boolean-literal-for-arguments
 		assertEquals(safeFunction(false), "success"),
 );
 
-Deno.test("Function that could throw, throwing returns undefined", () =>
+Deno.test("When a function that could throw throws, it returns undefined", () =>
 	// deno-lint-ignore no-boolean-literal-for-arguments
 	assertEquals(safeFunction(true), undefined),
 );

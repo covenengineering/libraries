@@ -17,8 +17,17 @@ import { omitProtoReviver } from "./omitProtoReviver.ts";
  * @param string String to be parsed.
  * @returns Parsed string or `undefined` if invalid JSON.
  */
-export const parseJSON: <Output extends JSONValue = JSONValue>(
-	string: string,
-) => Maybe<Output> = attempt<[string: string], JSONValue>(string =>
-	JSON.parse(string, omitProtoReviver),
+export const parseJSON: {
+	<Output extends JSONValue = JSONValue>(string: string): Maybe<Output>;
+	<Output>(
+		string: string,
+		reviver?: (key: string, value: unknown) => unknown,
+	): Maybe<Output>;
+} = attempt<
+	[string: string, reviver?: (key: string, value: unknown) => unknown],
+	JSONValue
+>((string, reviver) =>
+	JSON.parse(string, (key, value) =>
+		omitProtoReviver(key, reviver?.(key, value) ?? value),
+	),
 ) as <Output extends JSONValue = JSONValue>(string: string) => Maybe<Output>;
