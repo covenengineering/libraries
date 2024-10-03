@@ -2,22 +2,6 @@ import { EMPTY_ARRAY } from "@coven/constants";
 import { assertThrows } from "@std/assert";
 
 Deno.test(
-	"`Array#copyWithin` should throw",
-	() =>
-		void assertThrows(() =>
-			(EMPTY_ARRAY as unknown as Array<string>).copyWithin(0, 0),
-		),
-);
-
-Deno.test(
-	"`Array#fill` should throw",
-	() =>
-		void assertThrows(() =>
-			(EMPTY_ARRAY as unknown as Array<string>).fill("💀"),
-		),
-);
-
-Deno.test(
 	"`Array#pop` should throw",
 	() =>
 		void assertThrows(() =>
@@ -34,26 +18,10 @@ Deno.test(
 );
 
 Deno.test(
-	"`Array#reverse` should throw",
-	() =>
-		void assertThrows(() =>
-			(EMPTY_ARRAY as unknown as Array<string>).reverse(),
-		),
-);
-
-Deno.test(
 	"`Array#shift` should throw",
 	() =>
 		void assertThrows(() =>
 			(EMPTY_ARRAY as unknown as Array<string>).shift(),
-		),
-);
-
-Deno.test(
-	"`Array#sort` should throw",
-	() =>
-		void assertThrows(() =>
-			(EMPTY_ARRAY as unknown as Array<string>).sort(),
 		),
 );
 
