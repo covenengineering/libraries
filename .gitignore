@@ -1,3 +1,4 @@
 coverage/
 coverage.lcov
 deno.lock
+.DS_Store
