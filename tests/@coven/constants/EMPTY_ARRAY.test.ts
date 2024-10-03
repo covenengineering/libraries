@@ -2,7 +2,7 @@ import { EMPTY_ARRAY } from "@coven/constants";
 import { assertThrows } from "@std/assert";
 
 Deno.test(
-	"Array#copyWithin should throw",
+	"`Array#copyWithin` should throw",
 	() =>
 		void assertThrows(() =>
 			(EMPTY_ARRAY as unknown as Array<string>).copyWithin(0, 0),
@@ -10,7 +10,7 @@ Deno.test(
 );
 
 Deno.test(
-	"Array#fill should throw",
+	"`Array#fill` should throw",
 	() =>
 		void assertThrows(() =>
 			(EMPTY_ARRAY as unknown as Array<string>).fill("💀"),
@@ -18,7 +18,7 @@ Deno.test(
 );
 
 Deno.test(
-	"Array#pop should throw",
+	"`Array#pop` should throw",
 	() =>
 		void assertThrows(() =>
 			(EMPTY_ARRAY as unknown as Array<string>).pop(),
@@ -26,7 +26,7 @@ Deno.test(
 );
 
 Deno.test(
-	"Array#push should throw",
+	"`Array#push` should throw",
 	() =>
 		void assertThrows(() =>
 			(EMPTY_ARRAY as unknown as Array<string>).push("💀"),
@@ -34,7 +34,7 @@ Deno.test(
 );
 
 Deno.test(
-	"Array#reverse should throw",
+	"`Array#reverse` should throw",
 	() =>
 		void assertThrows(() =>
 			(EMPTY_ARRAY as unknown as Array<string>).reverse(),
@@ -42,7 +42,7 @@ Deno.test(
 );
 
 Deno.test(
-	"Array#shift should throw",
+	"`Array#shift` should throw",
 	() =>
 		void assertThrows(() =>
 			(EMPTY_ARRAY as unknown as Array<string>).shift(),
@@ -50,7 +50,7 @@ Deno.test(
 );
 
 Deno.test(
-	"Array#sort should throw",
+	"`Array#sort` should throw",
 	() =>
 		void assertThrows(() =>
 			(EMPTY_ARRAY as unknown as Array<string>).sort(),
@@ -58,7 +58,7 @@ Deno.test(
 );
 
 Deno.test(
-	"Array#splice should throw",
+	"`Array#splice` should throw",
 	() =>
 		void assertThrows(() =>
 			(EMPTY_ARRAY as unknown as Array<string>).splice(0),
@@ -66,7 +66,7 @@ Deno.test(
 );
 
 Deno.test(
-	"Array#unshift should throw",
+	"`Array#unshift` should throw",
 	() =>
 		void assertThrows(() =>
 			(EMPTY_ARRAY as unknown as Array<string>).unshift(),
@@ -82,7 +82,7 @@ Deno.test(
 );
 
 Deno.test(
-	"Using `defineProperty` should throw",
+	"Using `Object.defineProperty` should throw",
 	() =>
 		void assertThrows(() =>
 			Object.defineProperty(EMPTY_ARRAY, "test", { value: "💀" }),
