@@ -69,6 +69,7 @@ export type { Seconds } from "./Seconds.ts";
 export type { Single } from "./Single.ts";
 export type { Stringable } from "./Stringable.ts";
 export type { StringJoin } from "./StringJoin.ts";
+export type { StructuredData } from "./StructuredData.ts";
 export type { Tagger } from "./Tagger.ts";
 export type { Tail } from "./Tail.ts";
 export type { TypeOfDictionary } from "./TypeOfDictionary.ts";
