@@ -8,7 +8,7 @@
  * const maybeNumber = 13 as const satisfies MaybeNumber;
  * const notNumber = "13" as const satisfies MaybeNumber;
  * ```
- * @template Right The "correct" type.
+ * @template Right The "success" type.
  * @template Left The "error" type.
  */
 export type Either<Right, Left> = Left | Right;

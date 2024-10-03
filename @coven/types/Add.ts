@@ -3,7 +3,7 @@ import type { IndexArray } from "./IndexArray.ts";
 import type { ReadonlyArray } from "./ReadonlyArray.ts";
 
 /**
- * Recursively generates the result of adding `Addend1` to `Addend2`. This is
+ * Recursively generates the result of adding `Addend` to `Augend`. This is
  * expensive and has the same limit TypeScript has for recursive types.
  *
  * @example
