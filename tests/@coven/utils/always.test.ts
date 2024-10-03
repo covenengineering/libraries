@@ -1,12 +1,12 @@
 import { always } from "@coven/utils";
 import { assertEquals } from "@std/assert";
 
-Deno.test("always with a string returns said string when called", () =>
+Deno.test("When passing a string, that string is returned when calling", () =>
 	assertEquals(always("🧙🏻‍♀️")(), "🧙🏻‍♀️"),
 );
 
 Deno.test(
-	"an array and an always with a string return array filled with string",
+	"When passing as a mapper function for an array it acts like fill",
 	() =>
 		assertEquals([0, 1, 2, 3].map(always("🧙🏻‍♀️")), ["🧙🏻‍♀️", "🧙🏻‍♀️", "🧙🏻‍♀️", "🧙🏻‍♀️"]),
 );
