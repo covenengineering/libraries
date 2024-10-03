@@ -11,19 +11,19 @@ import type { ReadonlyArray } from "./ReadonlyArray.ts";
  * type thirteen = Add<10, 3>; // 13
  * ```
  * @see {@link ReadonlyArray}
- * @template Addend1 First addend of the add operation.
- * @template Addend2 Second addend of the add operation.
+ * @template Addend Addend of the add operation.
+ * @template Augend Augend of the add operation.
  * @template _Accumulator **⚠️ INTERNAL:** Accumulator for the recursion.
  * @template _Total **⚠️ INTERNAL:** Total so far.
  */
 export type Add<
-	Addend1 extends number,
-	Addend2 extends number,
+	Addend extends number,
+	Augend extends number,
 	_Accumulator extends ReadonlyArray = EmptyArray,
-	_Total extends ReadonlyArray = IndexArray<Addend1>,
+	_Total extends ReadonlyArray = IndexArray<Addend>,
 > =
-	_Accumulator["length"] extends Addend2 ?
+	_Accumulator["length"] extends Augend ?
 		_Total["length"] extends number ?
 			_Total["length"]
 		:	never
-	:	Add<Addend1, Addend2, [..._Accumulator, never], [..._Total, never]>;
+	:	Add<Addend, Augend, [..._Accumulator, never], [..._Total, never]>;
