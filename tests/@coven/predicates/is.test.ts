@@ -1,13 +1,13 @@
 import { is } from "@coven/predicates";
 import { assert, assertFalse } from "@std/assert";
 
-const value = "foo";
-const valueCopy = value;
-const otherValue = "bar";
+const witch = "🧙🏻‍♀️";
+const witchCopy = witch;
+const pumpkin = "🎃";
 
-Deno.test("Equal values", () => assert(is(value)(valueCopy)));
+Deno.test("Equal values", () => assert(is(witch)(witchCopy)));
 
-Deno.test("Different dates", () => assertFalse(is(value)(otherValue)));
+Deno.test("Different strings", () => assertFalse(is(witch)(pumpkin)));
 
 Deno.test("Equal objects", () => assertFalse(is({})({})));
 

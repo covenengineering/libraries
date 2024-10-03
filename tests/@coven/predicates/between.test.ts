@@ -1,76 +1,65 @@
 import { between } from "@coven/predicates";
 import { assert, assertFalse } from "@std/assert";
 
-const between1 = between(1);
-const betweenFoo = between("foo");
-const between1And1 = between1(1);
-const betweenFooAndFoo = betweenFoo("foo");
-const between1And10 = between1(10);
-const between1AndNegative10 = between1(-10);
+const between13 = between(13);
+const betweenWitch = between("🧙🏻‍♀️");
+const between13And13 = between13(13);
+const betweenWitchAndWitch = betweenWitch("🧙🏻‍♀️");
+const between13And42 = between13(42);
+const between13AndNegative13 = between13(-13);
 
-Deno.test("The same number twice and receiving that number returns true", () =>
-	assert(between1And1(1)),
+Deno.test("Between 13 and 13, receiving 13 returns true", () =>
+	assert(between13And13(13)),
 );
 
-Deno.test("The same string twice and receiving that string returns true", () =>
-	assert(betweenFooAndFoo("foo")),
+Deno.test('Between "🧙🏻‍♀️" and "🧙🏻‍♀️", receiving "🧙🏻‍♀️" returns true', () =>
+	assert(betweenWitchAndWitch("🧙🏻‍♀️")),
 );
 
-Deno.test(
-	"The same number twice and receiving another number returns false",
-	() => assertFalse(between1And1(2)),
+Deno.test("Between 13 and 13, receiving 42 returns false", () =>
+	assertFalse(between13And13(42)),
 );
 
-Deno.test(
-	"The same string twice and receiving another string returns false",
-	() => assertFalse(betweenFooAndFoo("bar")),
+Deno.test('Between "🧙🏻‍♀️" and "🧙🏻‍♀️", receiving "🎃" returns true', () =>
+	assertFalse(betweenWitchAndWitch("🎃")),
 );
 
-Deno.test(
-	"Lower to bigger and a number inside of that range returns true",
-	() => assert(between1And10(5)),
+Deno.test("Between 13 and 42, receiving 29 returns true", () =>
+	assert(between13And42(29)),
 );
 
-Deno.test(
-	"Lower to bigger and a number equal to the lower bound returns true",
-	() => assert(between1And10(1)),
+Deno.test("Between 13 and 42, receiving 13 returns true", () =>
+	assert(between13And42(13)),
 );
 
-Deno.test(
-	"Lower to bigger and a number equal to the higher bound returns true",
-	() => assert(between1And10(10)),
+Deno.test("Between 13 and 42, receiving 42 returns true", () =>
+	assert(between13And42(42)),
 );
 
-Deno.test(
-	"Lower to bigger and a number lower to the lower bound returns false",
-	() => assertFalse(between1And10(0)),
+Deno.test("Between 13 and 42, receiving 0 returns false", () =>
+	assertFalse(between13And42(0)),
 );
 
-Deno.test(
-	"Lower to bigger and a number bigger to the higher bound returns false",
-	() => assertFalse(between1And10(11)),
+Deno.test("Between 13 and 42, receiving 69 returns false", () =>
+	assertFalse(between13And42(69)),
 );
 
-Deno.test("Bigger to lower and a number inside the bounds returns true", () =>
-	assert(between1AndNegative10(-5)),
+Deno.test("Between 13 and -13, receiving -5 returns true", () =>
+	assert(between13AndNegative13(-5)),
 );
 
-Deno.test(
-	"Bigger to lower and a number equal to the lower bound returns true",
-	() => assert(between1AndNegative10(1)),
+Deno.test("Between 13 and -13, receiving 5 returns true", () =>
+	assert(between13AndNegative13(5)),
 );
 
-Deno.test(
-	"Bigger to lower and a number equal to the higher bound returns true",
-	() => assert(between1AndNegative10(-10)),
+Deno.test("Between 13 and -13, receiving -13 returns true", () =>
+	assert(between13AndNegative13(-13)),
 );
 
-Deno.test(
-	"Bigger to lower and a number lower to the lower bound returns false",
-	() => assertFalse(between1AndNegative10(2)),
+Deno.test("Between 13 and -13, receiving -42 returns false", () =>
+	assertFalse(between13AndNegative13(-42)),
 );
 
-Deno.test(
-	"Bigger to lower and a number bigger to the higher bound returns false",
-	() => assertFalse(between1AndNegative10(-11)),
+Deno.test("Between 13 and -13, receiving 42 returns false", () =>
+	assertFalse(between13AndNegative13(42)),
 );

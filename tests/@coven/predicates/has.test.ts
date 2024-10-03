@@ -1,24 +1,24 @@
 import { has } from "@coven/predicates";
 import { assert, assertFalse } from "@std/assert";
 
-const string = "foo";
-const symbol = Symbol(string);
+const witch = "🧙🏻‍♀️";
+const witchSymbol = Symbol(witch);
 const number = 1;
 
-const objectWithString = { [string]: string };
-const objectWithSymbol = { [symbol]: symbol };
+const objectWithString = { [witch]: witch };
+const objectWithSymbol = { [witchSymbol]: witchSymbol };
 const objectWithNumber = { [number]: number };
-const arrayWith2Items = [string, string];
-const arrayWith1Item = [string];
+const arrayWith2Items = [witch, witch];
+const arrayWith1Item = [witch];
 const emptyObject = {};
 const emptyArray = [] as const;
 
 Deno.test("Object with string key when looking for a string key", () =>
-	assert(has(string)(objectWithString)),
+	assert(has(witch)(objectWithString)),
 );
 
 Deno.test("Object with symbol key when looking for a symbol key", () =>
-	assert(has(symbol)(objectWithSymbol)),
+	assert(has(witchSymbol)(objectWithSymbol)),
 );
 
 Deno.test("Object with number key when looking for a number key", () =>
@@ -38,11 +38,11 @@ Deno.test("Empty array looking for a number key", () =>
 );
 
 Deno.test("Empty object when looking for a string key", () =>
-	assertFalse(has(string)(emptyObject)),
+	assertFalse(has(witch)(emptyObject)),
 );
 
 Deno.test("Empty object when looking for a symbol key", () =>
-	assertFalse(has(symbol)(emptyObject)),
+	assertFalse(has(witchSymbol)(emptyObject)),
 );
 
 Deno.test("Empty object when looking for a number key", () =>
@@ -50,11 +50,11 @@ Deno.test("Empty object when looking for a number key", () =>
 );
 
 Deno.test("Object with symbol key when looking for a string key", () =>
-	assertFalse(has(string)(objectWithSymbol)),
+	assertFalse(has(witch)(objectWithSymbol)),
 );
 
 Deno.test("Object with number key when looking for a symbol key", () =>
-	assertFalse(has(symbol)(objectWithNumber)),
+	assertFalse(has(witchSymbol)(objectWithNumber)),
 );
 
 Deno.test("Object with string key when looking for a number key", () =>
