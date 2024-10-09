@@ -5,6 +5,7 @@ libraries:
 
 -   🪞 `@coven/compare` — Minimalistic deep comparison.
 -   📖 `@coven/constants` — Shared constants scrolls.
+-   🌪️ `@coven/iterables` — Iteration rituals.
 -   💫 `@coven/parsers` — Parsing charms.
 -   🛡️ `@coven/predicates` — Predicate wards.
 -   🖌️ `@coven/terminal` — Delightfully simple terminal text styles.
