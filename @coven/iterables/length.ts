@@ -11,4 +11,6 @@ import { reduce } from "./reduce.ts";
  * @param iterable Iterable to get the length from.
  * @returns Promise with the length of the iterable.
  */
-export const length = reduce(always((total: number) => total + 1))(0);
+export const length: <Item>(iterable: Iterable<Item>) => number = reduce(
+	always((total: number) => total + 1),
+)(0);
