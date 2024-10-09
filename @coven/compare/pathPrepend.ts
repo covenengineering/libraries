@@ -1,4 +1,4 @@
-import type { ReadonlyIterator } from "@coven/types";
+import { prepend } from "@coven/iterables";
 import type { Difference } from "./Difference.ts";
 import { PATH } from "./constants.ts";
 
@@ -12,21 +12,20 @@ import { PATH } from "./constants.ts";
  * @param prepend Property to prepend.
  * @returns Curried generator with `prepend` in context.
  */
-export const pathPrepend =
-	<SourceDifference extends Difference>(
-		prepend: PropertyKey,
-	): ((difference: SourceDifference) => SourceDifference) =>
+export const pathPrepend = <SourceDifference extends Difference>(
+	property: PropertyKey,
+): ((difference: SourceDifference) => SourceDifference) => {
+	const prependProperty = prepend([property]);
+
 	/**
 	 * Curried {@link pathPrepend} with `prepend` in context
 	 *
 	 * @param Difference to add the `prepend` to.
 	 * @yields Difference's path with prepended `prepend`.
 	 */
-	({ [PATH]: path, ...difference }) =>
+	return ({ [PATH]: path, ...difference }) =>
 		({
 			...difference,
-			[PATH]: (function* (): ReadonlyIterator<PropertyKey> {
-				yield prepend;
-				if (path !== undefined) yield* path;
-			})(),
+			[PATH]: prependProperty(path ?? []),
 		}) as SourceDifference;
+};

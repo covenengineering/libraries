@@ -1,4 +1,3 @@
-import type { ReadonlyIterable } from "@coven/types";
 import { hasIteratorSymbol } from "./hasIteratorSymbol.ts";
 import { isFunction } from "./isFunction.ts";
 import { isObject } from "./isObject.ts";
@@ -15,9 +14,7 @@ import { isString } from "./isString.ts";
  * @param input Value to check.
  * @returns `true` when is an `Iterable`, `false` otherwise.
  */
-export const isIterable = <Item>(
-	input: unknown,
-): input is ReadonlyIterable<Item> =>
+export const isIterable = <Item>(input: unknown): input is Iterable<Item> =>
 	isString(input) ||
 	(isObject(input) &&
 		hasIteratorSymbol(input) &&

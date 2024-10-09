@@ -1,4 +1,5 @@
-import type { Just, ReadonlyIterable, ReadonlyIterator } from "@coven/types";
+import { isIterable } from "@coven/predicates";
+import type { Just } from "@coven/types";
 import { compareIterables } from "./compareIterables.ts";
 import { compareProperties } from "./compareProperties.ts";
 import type { CurriedComparison } from "./CurriedComparison.ts";
@@ -21,9 +22,9 @@ export const compareObjects = (left: object): CurriedComparison<object> => {
 	const comparePropertiesLeft = compareProperties(left) as (
 		right: object,
 	) => Generator<Difference>;
-	const leftIsIterator = Symbol.iterator in left;
+	const leftIsIterator = isIterable(left);
 	const compareIterableLeft =
-		leftIsIterator ? compareIterables(left as ReadonlyIterable) : undefined;
+		leftIsIterator ? compareIterables(left) : undefined;
 
 	return leftIsIterator ?
 			/**
@@ -31,10 +32,10 @@ export const compareObjects = (left: object): CurriedComparison<object> => {
 			 * @param right Right/New object.
 			 * @returns Generator with differences.
 			 */
-			function* (right): ReadonlyIterator<Difference> {
+			function* (right): Generator<Difference> {
 				yield* Symbol.iterator in right ?
 					(compareIterableLeft as Just<typeof compareIterableLeft>)(
-						right as ReadonlyIterable,
+						right as Iterable<object>,
 					)
 				:	comparePropertiesLeft(right);
 			}
