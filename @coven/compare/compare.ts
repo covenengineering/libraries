@@ -1,4 +1,4 @@
-import type { Just, ReadonlyIterator } from "@coven/types";
+import type { Just } from "@coven/types";
 import type { CurriedComparison } from "./CurriedComparison.ts";
 import type { Difference } from "./Difference.ts";
 import { compareObjects } from "./compareObjects.ts";
@@ -36,7 +36,7 @@ export const compare = (left: unknown): CurriedComparison<unknown> => {
 			 * @param right Right/New value.
 			 * @yields Differences.
 			 */
-			function* (right): ReadonlyIterator<Difference> {
+			function* (right): Generator<Difference> {
 				Object.is(left, right) ? undefined
 				: isObject(right) && left.constructor === right.constructor ?
 					yield* (
@@ -50,7 +50,7 @@ export const compare = (left: unknown): CurriedComparison<unknown> => {
 			 * @param right Right/New value.
 			 * @yields Differences.
 			 */
-		:	function* (right): ReadonlyIterator<Difference> {
+		:	function* (right): Generator<Difference> {
 				Object.is(left, right) ? undefined : (
 					yield valuesToDifferenceLeft(right)
 				);
