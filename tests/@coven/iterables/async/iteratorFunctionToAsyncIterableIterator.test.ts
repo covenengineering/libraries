@@ -19,6 +19,13 @@ const asyncIterableIteratorNumbers = iteratorFunctionToAsyncIterableIterator(
 		}
 	},
 );
+const iterableIteratorSimple = iteratorFunctionToAsyncIterableIterator(() => {
+	let done = false;
+
+	return {
+		next: () => ({ done: done || ((done = true), false), value: 13 }),
+	};
+});
 
 Deno.test(
 	"Iterable iterator that we'll run twice returns the values twice",
@@ -41,5 +48,17 @@ Deno.test(
 				...(await iterableToArray(asyncIterableIteratorNumbers)),
 			],
 			[0, 1, 2, 3, 0, 1, 2, 3],
+		),
+);
+
+Deno.test(
+	"Iterator that only has next returns as many times as it's called",
+	async () =>
+		assertEquals(
+			[
+				...(await iterableToArray(iterableIteratorSimple)),
+				...(await iterableToArray(iterableIteratorSimple)),
+			],
+			[13, 13],
 		),
 );

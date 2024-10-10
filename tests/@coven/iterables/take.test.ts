@@ -1,7 +1,11 @@
 import { iterableToArray, take } from "@coven/iterables";
 import { assertEquals } from "@std/assert";
-import { infiniteIterable } from "./utils.ts";
 
+const infiniteIterable = function* <Item>(item: Item): Iterable<Item> {
+	for (;;) {
+		yield item;
+	}
+};
 const take2 = take(2);
 const takeNone = take(0);
 const takeAll = take(Infinity);

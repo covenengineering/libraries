@@ -1,7 +1,6 @@
 import { every } from "@coven/iterables";
 import { isNumber } from "@coven/predicates";
 import { assertEquals } from "@std/assert";
-import { iterateArray } from "./utils.ts";
 
 const everyNumbers = every(isNumber);
 const numbersArray = [0, 1, 2, 3];
@@ -18,11 +17,11 @@ Deno.test("an array of numbers with a string on it returns false", () =>
 );
 
 Deno.test("an iterable of numbers returns true", () =>
-	// deno-lint-ignore no-boolean-literal-for-arguments
-	assertEquals(everyNumbers(iterateArray(numbersArray)), true),
+	// deno-lint-ignore no-boolean-literal-for-arguments, no-undef
+	assertEquals(everyNumbers(Iterator.from(numbersArray)), true),
 );
 
 Deno.test("an iterable of numbers with a string on it returns false", () =>
-	// deno-lint-ignore no-boolean-literal-for-arguments
-	assertEquals(everyNumbers(iterateArray(numbersWithStringArray)), false),
+	// deno-lint-ignore no-boolean-literal-for-arguments, no-undef
+	assertEquals(everyNumbers(Iterator.from(numbersWithStringArray)), false),
 );

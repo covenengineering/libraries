@@ -1,6 +1,5 @@
 import { includes } from "@coven/iterables";
 import { assertEquals } from "@std/assert";
-import { iterateArray } from "./utils.ts";
 
 const includesFoo = includes("foo");
 
@@ -18,12 +17,12 @@ Deno.test(
 
 Deno.test(
 	"a string and an iterable of strings containing that string returns true",
-	// deno-lint-ignore no-boolean-literal-for-arguments
-	() => assertEquals(includesFoo(iterateArray(["foo", "bar"])), true),
+	// deno-lint-ignore no-boolean-literal-for-arguments, no-undef
+	() => assertEquals(includesFoo(Iterator.from(["foo", "bar"])), true),
 );
 
 Deno.test(
 	"a string and an iterable not containing that string returns false",
-	// deno-lint-ignore no-boolean-literal-for-arguments
-	() => assertEquals(includesFoo(iterateArray(["baz", "bar"])), false),
+	// deno-lint-ignore no-boolean-literal-for-arguments, no-undef
+	() => assertEquals(includesFoo(Iterator.from(["baz", "bar"])), false),
 );

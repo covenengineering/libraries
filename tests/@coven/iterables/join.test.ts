@@ -1,6 +1,5 @@
 import { join } from "@coven/iterables";
 import { assertEquals } from "@std/assert";
-import { iterateArray } from "./utils.ts";
 
 const spaceJoin = join(" ");
 const array = [0, 1, 2, 3];
@@ -11,7 +10,8 @@ Deno.test("an array of numbers returns those numbers separated by spaces", () =>
 
 Deno.test(
 	"an iterable of numbers returns those numbers separated by spaces",
-	() => assertEquals(spaceJoin(iterateArray(array)), "0 1 2 3"),
+	// deno-lint-ignore no-undef
+	() => assertEquals(spaceJoin(Iterator.from(array)), "0 1 2 3"),
 );
 
 Deno.test("an empty array returns empty string", () =>
@@ -19,18 +19,21 @@ Deno.test("an empty array returns empty string", () =>
 );
 
 Deno.test("an empty iterable returns empty string", () =>
-	assertEquals(spaceJoin(iterateArray([])), ""),
+	// deno-lint-ignore no-undef
+	assertEquals(spaceJoin(Iterator.from([])), ""),
 );
 
 Deno.test("an iterable with empty strings returns spaces for each value", () =>
-	assertEquals(spaceJoin(iterateArray(["", "", ""])), "  "),
+	// deno-lint-ignore no-undef
+	assertEquals(spaceJoin(Iterator.from(["", "", ""])), "  "),
 );
 
 Deno.test(
 	"an iterable with undefined values returns empty stringified undefined values",
 	() =>
 		assertEquals(
-			spaceJoin(iterateArray([undefined, undefined])),
+			// deno-lint-ignore no-undef
+			spaceJoin(Iterator.from([undefined, undefined])),
 			"undefined undefined",
 		),
 );

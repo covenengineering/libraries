@@ -1,6 +1,5 @@
 import { length, range } from "@coven/iterables";
 import { assertStrictEquals } from "@std/assert";
-import { iterateArray } from "./utils.ts";
 
 const array = [0, 1, 2];
 
@@ -15,5 +14,6 @@ Deno.test("an iterable returns length", () =>
 Deno.test("an empty array returns 0", () => assertStrictEquals(length([]), 0));
 
 Deno.test("an empty iterable returns 0", () =>
-	assertStrictEquals(length(iterateArray([])), 0),
+	// deno-lint-ignore no-undef
+	assertStrictEquals(length(Iterator.from([])), 0),
 );
