@@ -59,6 +59,7 @@ export type { ReadonlyArray } from "./ReadonlyArray.ts";
 export type { ReadonlyArrayLike } from "./ReadonlyArrayLike.ts";
 export type { ReadonlyRecord } from "./ReadonlyRecord.ts";
 export type { ReadonlyTemplateStringsArray } from "./ReadonlyTemplateStringsArray.ts";
+export type { RegularExpressionFlags } from "./RegularExpressionFlags.ts";
 export type { Replace } from "./Replace.ts";
 export type { Seconds } from "./Seconds.ts";
 export type { Single } from "./Single.ts";

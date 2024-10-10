@@ -5,6 +5,7 @@ libraries:
 
 -   🪞 `@coven/compare` — Minimalistic deep comparison.
 -   📖 `@coven/constants` — Shared constants scrolls.
+-   🧙🏻‍♀️ `@coven/expression` — Magically build regular expressions.
 -   🌪️ `@coven/iterables` — Iteration rituals.
 -   💀 `@coven/math` — Math witchcraft.
 -   💫 `@coven/parsers` — Parsing charms.

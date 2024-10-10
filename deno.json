@@ -129,6 +129,7 @@
 	"workspace": [
 		"./@coven/compare",
 		"./@coven/constants",
+		"./@coven/expression",
 		"./@coven/iterables",
 		"./@coven/math",
 		"./@coven/parsers",

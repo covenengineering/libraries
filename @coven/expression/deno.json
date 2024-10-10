@@ -1,0 +1,5 @@
+{
+	"name": "@coven/expression",
+	"version": "0.0.5",
+	"exports": "./mod.ts"
+}
