@@ -22,8 +22,11 @@ import { preciseToNumber } from "./preciseToNumber.ts";
  * @returns Curried function with `augendBase` and `augendExponent` in context.
  */
 export const preciseAdd =
-	(augendBase: MaybeInfinity, augendExponent = 0n) =>
-	(addendBase: MaybeInfinity, addendExponent = 0n): Precise => {
+	(
+		augendBase: MaybeInfinity,
+		augendExponent = 0n,
+	): ((addendBase: MaybeInfinity, addendExponent?: bigint) => Precise) =>
+	(addendBase, addendExponent = 0n) => {
 		const commonExponent = bigIntMin(addendExponent, augendExponent);
 
 		return createPrecise(

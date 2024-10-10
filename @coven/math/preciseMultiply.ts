@@ -19,8 +19,14 @@ import { createPrecise } from "./createPrecise.ts";
  * @returns Curried function with `multiplierBase` and `multiplierExponent` in context.
  */
 export const preciseMultiply =
-	(multiplierBase: MaybeInfinity, multiplierExponent = 0n) =>
-	(multiplicandBase: MaybeInfinity, multiplicandExponent = 0n): Precise =>
+	(
+		multiplierBase: MaybeInfinity,
+		multiplierExponent = 0n,
+	): ((
+		multiplicandBase: MaybeInfinity,
+		multiplicandExponent?: bigint,
+	) => Precise) =>
+	(multiplicandBase, multiplicandExponent = 0n) =>
 		isBigInt(multiplicandBase) && isBigInt(multiplierBase) ?
 			createPrecise(
 				multiplicandBase * multiplierBase,
