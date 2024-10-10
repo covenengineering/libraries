@@ -130,6 +130,7 @@
 		"./@coven/compare",
 		"./@coven/constants",
 		"./@coven/iterables",
+		"./@coven/math",
 		"./@coven/parsers",
 		"./@coven/predicates",
 		"./@coven/terminal",

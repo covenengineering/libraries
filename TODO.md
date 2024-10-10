@@ -7,7 +7,7 @@ clean stuff up, and once everything feels good and working, we can finally move
 to `1.0.0` for everything. Now about the actual "to do":
 
 -   [x] Move `@lou.codes/iterables` as `@coven/iterables`.
--   [ ] Move `@lou.codes/math` as `@coven/math`.
+-   [x] Move `@lou.codes/math` as `@coven/math`.
 -   [ ] Move `functional-expression` as `@coven/expression`.
 -   [ ] Move `@lou.codes/cron` as `@coven/cron`.
 -   [ ] Move `@lou.codes/notify` as `@simulcast/core`.
