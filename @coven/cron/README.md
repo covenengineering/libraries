@@ -1,5 +1,8 @@
 <img alt="Coven Engineering Cron logo" src="https://raw.githubusercontent.com/covenengineering/libraries/main/@coven/cron/logo.svg" height="108" />
 
+[![JSR](https://jsr.io/badges/@coven/cron)](https://jsr.io/@coven/cron)
+[![JSR Score](https://jsr.io/badges/@coven/cron/score)](https://jsr.io/@coven/cron/score)
+
 ⏳ A fantastic cron parser and constructor.
 
 ## Example
