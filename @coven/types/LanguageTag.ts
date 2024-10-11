@@ -1,5 +1,4 @@
 import type { LanguageCode } from "./LanguageCode.ts";
-import type { MaybeEmptyString } from "./MaybeEmptyString.ts";
 
 /**
  * BCP 47 Language Tag. When using i18n tools, this is a stricter union type
@@ -13,4 +12,4 @@ import type { MaybeEmptyString } from "./MaybeEmptyString.ts";
  * @see [ISO 639](https://en.wikipedia.org/wiki/IETF_language_tag)
  * @see [IETF BCP 47](https://en.wikipedia.org/wiki/ISO_639)
  */
-export type LanguageTag = `${LanguageCode}${MaybeEmptyString<`-${string}`>}`;
+export type LanguageTag = LanguageCode | `${LanguageCode}-${string}`;

@@ -43,7 +43,6 @@ export type { LanguageCode } from "./LanguageCode.ts";
 export type { LanguageTag } from "./LanguageTag.ts";
 export type { Last } from "./Last.ts";
 export type { Maybe } from "./Maybe.ts";
-export type { MaybeEmptyString } from "./MaybeEmptyString.ts";
 export type { Milliseconds } from "./Milliseconds.ts";
 export type { MinimumLengthNumberString } from "./MinimumLengthNumberString.ts";
 export type { Minutes } from "./Minutes.ts";

@@ -1,4 +1,8 @@
-import type { MaybeEmptyString } from "@coven/types";
-
+/**
+ * Valid quantities for the quantity search.
+ */
 export type StringQuantity =
-	`${number}${MaybeEmptyString<",">}${MaybeEmptyString<`${number}`>}`;
+	| `${number}`
+	| `${number}${number}`
+	| `${number},${number}`
+	| `${number},`;

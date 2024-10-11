@@ -1,5 +1,5 @@
-import type { EMPTY_STRING } from "@coven/constants";
 import type {
+	EmptyString,
 	ReadonlyArray,
 	RegularExpressionFlags,
 	Replace,
@@ -21,7 +21,7 @@ export const build =
 		RegExp,
 		{
 			readonly flags: Flags;
-			readonly source: StringJoin<Tokens, typeof EMPTY_STRING>;
+			readonly source: StringJoin<Tokens, EmptyString>;
 		}
 	>) =>
 	<const Tokens extends ReadonlyArray<Stringable>>(...tokens: Tokens) =>
@@ -29,6 +29,6 @@ export const build =
 			RegExp,
 			{
 				readonly flags: Flags;
-				readonly source: StringJoin<Tokens, typeof EMPTY_STRING>;
+				readonly source: StringJoin<Tokens, EmptyString>;
 			}
 		>;

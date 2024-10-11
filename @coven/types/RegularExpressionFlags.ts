@@ -1,5 +1,3 @@
-import type { MaybeEmptyString } from "./MaybeEmptyString.ts";
-
 /**
  * Type union stricter than `string` type for RegExp flags. The unicode flag is
  * mandatory to ensure unicode characters are always supported.
@@ -14,4 +12,19 @@ import type { MaybeEmptyString } from "./MaybeEmptyString.ts";
  * @see [Regular Expressions](https://mdn.io/Regular%20expressions)
  */
 export type RegularExpressionFlags =
-	`${MaybeEmptyString<"g">}${MaybeEmptyString<"i">}${MaybeEmptyString<"m">}${MaybeEmptyString<"s">}u`;
+	| "u"
+	| "su"
+	| "mu"
+	| "msu"
+	| "iu"
+	| "isu"
+	| "imu"
+	| "imsu"
+	| "gu"
+	| "gsu"
+	| "gmu"
+	| "gmsu"
+	| "giu"
+	| "gisu"
+	| "gimu"
+	| "gimsu";
