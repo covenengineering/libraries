@@ -9,8 +9,8 @@ to `1.0.0` for everything. Now about the actual "to do":
 - [x] Move `@lou.codes/iterables` as `@coven/iterables`.
 - [x] Move `@lou.codes/math` as `@coven/math`.
 - [x] Move `functional-expression` as `@coven/expression`.
-- [ ] Move `@lou.codes/cron` as `@coven/cron`.
-- [ ] Move `@lou.codes/notify` as `@simulcast/core`.
+- [x] Move `@lou.codes/cron` as `@coven/cron`.
+- [x] Move `@lou.codes/notify` as `@simulcast/core`.
 - [ ] Move `react-pair` as `@coven/react-pair`.
 - [ ] Move `preact-pair` as `@coven/preact-pair`.
 - [ ] Check if is worth it to create `@coven/solid-pair`.

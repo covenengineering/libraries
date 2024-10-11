@@ -139,6 +139,7 @@
 		"./@coven/predicates",
 		"./@coven/terminal",
 		"./@coven/types",
-		"./@coven/utils"
+		"./@coven/utils",
+		"./@simulcast/core"
 	]
 }
