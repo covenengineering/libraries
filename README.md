@@ -3,9 +3,7 @@
 [![Coverage Status](https://coveralls.io/repos/github/covenengineering/libraries/badge.svg?branch=main)](https://coveralls.io/github/covenengineering/libraries?branch=main)
 
 Monorepo of all the [Coven Engineering](https://coven.engineering) JSR
-libraries:[![Coven Engineering logo](./logo.svg)](https://coven.engineering/)
-
-Some of our libraries:
+libraries:
 
 - 🪞 [`@coven/compare`](https://jsr.io/@coven/compare) — Minimalistic deep
   comparison.
