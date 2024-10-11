@@ -15,6 +15,7 @@ libraries:
   build regular expressions.
 - 🌪️ [`@coven/iterables`](https://jsr.io/@coven/iterables) — Iteration rituals.
 - 💀 [`@coven/math`](https://jsr.io/@coven/math) — Math witchcraft.
+- 🧩 [`@coven/pair`](https://jsr.io/@coven/pair) — Paired hook pattern helper.
 - 💫 [`@coven/parsers`](https://jsr.io/@coven/parsers) — Parsing charms.
 - 🛡️ [`@coven/predicates`](https://jsr.io/@coven/predicates) — Predicate wards.
 - 🖌️ [`@coven/terminal`](https://jsr.io/@coven/terminal) — Delightfully simple

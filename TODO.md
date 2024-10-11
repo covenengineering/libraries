@@ -11,9 +11,8 @@ to `1.0.0` for everything. Now about the actual "to do":
 - [x] Move `functional-expression` as `@coven/expression`.
 - [x] Move `@lou.codes/cron` as `@coven/cron`.
 - [x] Move `@lou.codes/notify` as `@simulcast/core`.
-- [ ] Move `react-pair` as `@coven/react-pair`.
-- [ ] Move `preact-pair` as `@coven/preact-pair`.
-- [ ] Check if is worth it to create `@coven/solid-pair`.
+- [x] Move `*-pair` as `@coven/pair`.
+- [x] Check if is worth it to create `@coven/solid-pair` (they don't need this).
 - [ ] Cleanup tests.
 - [ ] Cleanup docs.
 - [ ] Start working on new `@simulcast/{name}` libs:

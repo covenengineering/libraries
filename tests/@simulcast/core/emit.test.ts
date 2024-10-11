@@ -8,7 +8,6 @@ type TestRegistry = { [TEST_EVENT]: never };
 Deno.test("emit with listeners calls the listeners", () => {
 	let called = false;
 	emit<TestRegistry>({
-		// eslint-disable-next-line no-param-reassign
 		[TEST_EVENT]: [() => (called = true)],
 	})(TEST_EVENT)();
 
