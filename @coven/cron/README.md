@@ -29,4 +29,4 @@ parse("* * 31 2 *"); // undefined because 2/31 is invalid
 
 ## Other links
 
--   [Coverage](https://coveralls.io/github/covenengineering/libraries).
+- [Coverage](https://coveralls.io/github/covenengineering/libraries).
