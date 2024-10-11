@@ -17,3 +17,7 @@ import { compare } from "@coven/compare";
 
 compare("Coven", "Engineering"); // Yields { kind: "UPDATE", left: "Coven", right: "Engineering" }
 ```
+
+## Other links
+
+-   [Coverage](https://coveralls.io/github/covenengineering/libraries).

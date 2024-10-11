@@ -11,3 +11,7 @@ const getWitch = get("🧙🏻‍♀️");
 
 getWitch({ "🧙🏻‍♀️": "🎃" }); // "🎃"
 ```
+
+## Other links
+
+-   [Coverage](https://coveralls.io/github/covenengineering/libraries).

@@ -11,3 +11,7 @@ isBoolean(true); // true
 isBoolean(false); // true
 isBoolean(undefined); // false
 ```
+
+## Other links
+
+-   [Coverage](https://coveralls.io/github/covenengineering/libraries).

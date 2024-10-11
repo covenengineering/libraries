@@ -69,6 +69,10 @@ const boldRedWhiteBack = mix(bold, red, whiteBack);
 boldRedWhiteBack`Coven Engineering`; // The string "Coven Engineering", with bold style, red color and white background
 ```
 
+## Other links
+
+-   [Coverage](https://coveralls.io/github/covenengineering/libraries).
+
 <!-- Reference -->
 
 [ansi-escape-code]: https://en.wikipedia.org/wiki/ANSI_escape_code

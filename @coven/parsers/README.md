@@ -14,3 +14,7 @@ import { parseDecimal } from "@coven/parsers";
 parseDecimal("101"); // 101
 parseDecimal("nope"); // undefined
 ```
+
+## Other links
+
+-   [Coverage](https://coveralls.io/github/covenengineering/libraries).
