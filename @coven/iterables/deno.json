@@ -1,7 +1,6 @@
 {
-	"$schema": "https://raw.githubusercontent.com/denoland/deno/refs/tags/v1.41.0/cli/schemas/config-file.v1.json",
 	"name": "@coven/iterables",
-	"version": "0.0.6",
+	"version": "0.0.7",
 	"exports": {
 		".": "./mod.ts",
 		"./async": "./async/mod.ts"

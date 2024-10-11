@@ -1,5 +1,8 @@
 <img alt="Coven Engineering Compare logo" src="https://raw.githubusercontent.com/covenengineering/libraries/main/@coven/compare/logo.svg" height="108" />
 
+[![JSR](https://jsr.io/badges/@coven/compare)](https://jsr.io/@coven/compare)
+[![JSR Score](https://jsr.io/badges/@coven/compare/score)](https://jsr.io/@coven/compare)
+
 🪞 Minimalistic deep comparison.
 
 This library takes 2 values (a `left` and a `right`) and returns an iterator

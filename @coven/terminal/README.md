@@ -1,5 +1,8 @@
 <img alt="Coven Engineering Terminal logo" src="https://raw.githubusercontent.com/covenengineering/libraries/main/@coven/terminal/logo.svg" height="108" />
 
+[![JSR](https://jsr.io/badges/@coven/terminal)](https://jsr.io/@coven/terminal)
+[![JSR Score](https://jsr.io/badges/@coven/terminal/score)](https://jsr.io/@coven/terminal)
+
 🖌️ Delightfully simple terminal text styles.
 
 `@coven/terminal` uses [ANSI escape codes][ansi-escape-code] to format CLI text

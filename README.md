@@ -1,5 +1,7 @@
 <img src="./logo.svg" height="96" />
 
+[![Coverage Status](https://coveralls.io/repos/github/covenengineering/libraries/badge.svg?branch=main)](https://coveralls.io/github/covenengineering/libraries?branch=main)
+
 Monorepo of all the [Coven Engineering](https://coven.engineering) JSR
 libraries:
 

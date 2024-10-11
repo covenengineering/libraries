@@ -1,5 +1,8 @@
 <img alt="Coven Engineering Constants logo" src="https://raw.githubusercontent.com/covenengineering/libraries/main/@coven/constants/logo.svg" height="108" />
 
+[![JSR](https://jsr.io/badges/@coven/constants)](https://jsr.io/@coven/constants)
+[![JSR Score](https://jsr.io/badges/@coven/constants/score)](https://jsr.io/@coven/constants)
+
 📖 Shared constants scrolls.
 
 ## Constants
