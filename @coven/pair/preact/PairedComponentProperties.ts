@@ -3,7 +3,11 @@ import type { PairedRenderFunction } from "./PairedRenderFunction.ts";
 /**
  * Paired component properties (just children with the paired hook render function).
  *
- * @category Internal
+ * @example
+ * ```typescript
+ * const Example = ({ children }: PairedComponentProperties<() => number>) => children(() => 13);
+ * ```
+ * @template Hook Hook function.
  */
 export type PairedComponentProperties<
 	Hook extends (...attributes: never) => unknown,

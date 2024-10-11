@@ -4,7 +4,11 @@ import type { createElement } from "react";
 /**
  * Function that receives the paired hook and must return a `ReactElement`.
  *
- * @category Internal
+ * @example
+ * ```tsx
+ * const Example: PairedRenderFunction<() => number> = hook => <>{hook()}</>;
+ * ```
+ * @template Hook Hook function.
  */
 export type PairedRenderFunction<
 	Hook extends (...attributes: never) => unknown,
