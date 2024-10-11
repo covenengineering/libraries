@@ -29,10 +29,10 @@ export const compareProperties = (left: object): CurriedComparison<object> => {
 	return function* (right): Generator<Difference> {
 		yield* new Set([...ownKeysLeft, ...getKeys(right)])
 			.values()
-			.flatMap(key =>
+			.flatMap((key) =>
 				compare(key in left ? left[key as keyof typeof left] : MISSING)(
 					key in right ? right[key as keyof typeof right] : MISSING,
-				).map(pathPrepend(key)),
+				).map(pathPrepend(key))
 			);
 	};
 };

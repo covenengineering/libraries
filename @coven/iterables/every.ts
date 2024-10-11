@@ -14,13 +14,13 @@ import { getIterator } from "./getIterator.ts";
  * @param predicate Predicate function to evaluate each item.
  * @returns Curried function with `predicate` set in context.
  */
-export const every = (<Item>(predicate: Unary<[item: Item], boolean>) =>
-	(iterable: Iterable<Item>) =>
-		getIterator(iterable).every(predicate)) as {
-	<Item, Predicated extends Item>(
-		predicate: Predicate<Item, Predicated>,
-	): (iterable: Iterable<Item>) => iterable is Iterable<Predicated>;
-	<Item>(
-		predicate: Unary<[item: Item], boolean>,
-	): (iterable: Iterable<Item>) => boolean;
-};
+export const every =
+	(<Item>(predicate: Unary<[item: Item], boolean>) =>
+	(iterable: Iterable<Item>) => getIterator(iterable).every(predicate)) as {
+		<Item, Predicated extends Item>(
+			predicate: Predicate<Item, Predicated>,
+		): (iterable: Iterable<Item>) => iterable is Iterable<Predicated>;
+		<Item>(
+			predicate: Unary<[item: Item], boolean>,
+		): (iterable: Iterable<Item>) => boolean;
+	};

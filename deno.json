@@ -12,10 +12,15 @@
 		"verbatimModuleSyntax": true
 	},
 	"exclude": [".git"],
-	"imports": {
-		"@std/assert": "jsr:@std/assert@^1.0.6",
-		"prettier": "npm:prettier@^3.3.3"
+	"fmt": {
+		"indentWidth": 4,
+		"lineWidth": 80,
+		"proseWrap": "always",
+		"semiColons": true,
+		"singleQuote": false,
+		"useTabs": true
 	},
+	"imports": { "@std/assert": "jsr:@std/assert@^1.0.6" },
 	"lint": {
 		"rules": {
 			"include": [
@@ -122,9 +127,6 @@
 				"verbatim-module-syntax"
 			]
 		}
-	},
-	"tasks": {
-		"prettify": "prettier . --write"
 	},
 	"workspace": [
 		"./@coven/compare",

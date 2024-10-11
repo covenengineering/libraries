@@ -29,14 +29,14 @@ import {
  */
 export const valueToDifference = (
 	left: unknown,
-): ((right: unknown) => Difference) =>
-	left === MISSING ?
+): (right: unknown) => Difference =>
+	left === MISSING
 		/**
 		 * Curried {@link valueToDifference} with `left` in context.
 		 * @param right Right/New value.
 		 * @returns Difference object.
 		 */
-		(right: unknown) =>
+		? (right: unknown) =>
 			({
 				...(right === MISSING ? undefined : (
 					{ [KIND]: CREATE, [RIGHT]: right }
@@ -47,10 +47,10 @@ export const valueToDifference = (
 		 * @param right Right/New value.
 		 * @returns Difference object.
 		 */
-	:	(right: unknown) =>
+		: (right: unknown) =>
 			({
 				[LEFT]: left,
-				...(right === MISSING ?
-					{ [KIND]: DELETE }
-				:	{ [KIND]: UPDATE, [RIGHT]: right }),
+				...(right === MISSING
+					? { [KIND]: DELETE }
+					: { [KIND]: UPDATE, [RIGHT]: right }),
 			}) as Difference;

@@ -16,5 +16,6 @@ import type { ReadonlyArrayLike } from "./ReadonlyArrayLike.ts";
  * @see {@link ReadonlyArrayLike}
  * @template ArrayLike Type of the array to get the tail.
  */
-export type Tail<ArrayLike extends ReadonlyArrayLike> =
-	HeadAndTail<ArrayLike>[1];
+export type Tail<ArrayLike extends ReadonlyArrayLike> = HeadAndTail<
+	ArrayLike
+>[1];

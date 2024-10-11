@@ -22,10 +22,9 @@ export const head = <const Iterable extends AwaitableIterable>(
 	iterable: Iterable,
 ): Promise<
 	Iterable extends ReadonlyArray ? Head<Iterable>
-	:	Maybe<IterableItem<Iterable>>
-> =>
-	Promise.resolve(getIterator(iterable).next()).then(
-		({ value }) =>
-			value as Iterable extends ReadonlyArray ? Head<Iterable>
-			:	Maybe<IterableItem<Iterable>>,
-	);
+		: Maybe<IterableItem<Iterable>>
+> => Promise.resolve(getIterator(iterable).next()).then(
+	({ value }) =>
+		value as Iterable extends ReadonlyArray ? Head<Iterable>
+			: Maybe<IterableItem<Iterable>>,
+);

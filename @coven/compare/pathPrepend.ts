@@ -14,7 +14,7 @@ import { PATH } from "./constants.ts";
  */
 export const pathPrepend = <SourceDifference extends Difference>(
 	property: PropertyKey,
-): ((difference: SourceDifference) => SourceDifference) => {
+): (difference: SourceDifference) => SourceDifference => {
 	const prependProperty = prepend([property]);
 
 	/**

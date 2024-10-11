@@ -4,13 +4,12 @@
 
 ## Constants
 
--   `EMPTY_ARRAY`: Empty read-only array. The array is read-only in runtime by
-    `Object.freeze`, so trying to do mutations will throw.
--   `EMPTY_OBJECT`: Empty read-only `null` prototype object. The object is
-    read-only in runtime by `Object.freeze`, so trying to do mutations will
-    throw.
--   `EMPTY_STRING`: Empty string. This one exists to have something more
-    readable than `""`.
+- `EMPTY_ARRAY`: Empty read-only array. The array is read-only in runtime by
+  `Object.freeze`, so trying to do mutations will throw.
+- `EMPTY_OBJECT`: Empty read-only `null` prototype object. The object is
+  read-only in runtime by `Object.freeze`, so trying to do mutations will throw.
+- `EMPTY_STRING`: Empty string. This one exists to have something more readable
+  than `""`.
 
 ## Example
 
@@ -24,4 +23,4 @@ console.log(EMPTY_STRING); // ""
 
 ## Other links
 
--   [Coverage](https://coveralls.io/github/covenengineering/libraries).
+- [Coverage](https://coveralls.io/github/covenengineering/libraries).

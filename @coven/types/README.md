@@ -8,9 +8,9 @@ libraries.
 ```typescript
 import type { Unary } from "@coven/types";
 
-const next: Unary<[input: number], number> = input => input + 1;
+const next: Unary<[input: number], number> = (input) => input + 1;
 ```
 
 ## Other links
 
--   [Coverage](https://coveralls.io/github/covenengineering/libraries).
+- [Coverage](https://coveralls.io/github/covenengineering/libraries).

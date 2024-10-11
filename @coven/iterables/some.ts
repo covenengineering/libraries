@@ -15,12 +15,11 @@ import { getIterator } from "./getIterator.ts";
  * @returns Curried function with `predicate` set in context.
  */
 export const some = (<Item, Predicated extends Item = never>(
-		predicate: Single<Predicated> extends Single<never> ?
-			Unary<[item: Item], boolean>
-		:	Predicate<Item, Predicated>,
-	): ((iterable: Iterable<Item>) => boolean) =>
-	(iterable: Iterable<Item>) =>
-		getIterator(iterable).some(predicate)) as {
+	predicate: Single<Predicated> extends Single<never>
+		? Unary<[item: Item], boolean>
+		: Predicate<Item, Predicated>,
+): (iterable: Iterable<Item>) => boolean =>
+(iterable: Iterable<Item>) => getIterator(iterable).some(predicate)) as {
 	<Item, Predicated extends Item>(
 		predicate: Predicate<Item, Predicated>,
 	): (iterable: Iterable<Item>) => iterable is Iterable<Item & Predicated>;

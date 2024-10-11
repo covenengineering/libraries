@@ -13,9 +13,7 @@ import { getIterator } from "./getIterator.ts";
  * @param callback Function to be called for every item of the iterable.
  * @returns Curried function that expects an iterable to loop over and has `callback` set in context.
  */
-export const forEach =
-	<Item>(
-		callback: Unary<[item: Item], void>,
-	): ((iterable: Iterable<Item>) => void) =>
-	iterable =>
-		getIterator(iterable).forEach(callback);
+export const forEach = <Item>(
+	callback: Unary<[item: Item], void>,
+): (iterable: Iterable<Item>) => void =>
+(iterable) => getIterator(iterable).forEach(callback);

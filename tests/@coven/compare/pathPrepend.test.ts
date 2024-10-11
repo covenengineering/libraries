@@ -16,13 +16,11 @@ Deno.test("Prepend key to existing path", () =>
 			}),
 		),
 		{ kind: DELETE, left: "🧙🏻‍♀️", path: [13, 42] },
-	),
-);
+	));
 
 Deno.test("Prepend key to missing path", () =>
 	assertEquals(flatCompare(prepend13({ kind: DELETE, left: "🧙🏻‍♀️" })), {
 		kind: DELETE,
 		left: "🧙🏻‍♀️",
 		path: [13],
-	}),
-);
+	}));

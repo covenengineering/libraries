@@ -12,9 +12,7 @@ import type { ReadonlyRecord } from "@coven/types";
  * @param object Object to check.
  * @returns Curried function with `context` set.
  */
-export const isPropertyOf =
-	<Key extends PropertyKey>(
-		object: ReadonlyRecord<Key>,
-	): ((key: Key) => boolean) =>
-	key =>
-		Object.hasOwn(object, key);
+export const isPropertyOf = <Key extends PropertyKey>(
+	object: ReadonlyRecord<Key>,
+): (key: Key) => boolean =>
+(key) => Object.hasOwn(object, key);

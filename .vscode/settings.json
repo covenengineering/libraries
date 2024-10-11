@@ -3,10 +3,6 @@
 	"editor.codeActionsOnSave": {
 		"source.organizeImports": "explicit"
 	},
-	"editor.defaultFormatter": "esbenp.prettier-vscode",
-	"editor.formatOnSave": true,
-	"prettier.prettierPath": "~/Library/Caches/deno/npm/registry.npmjs.org/prettier/3.3.3",
-	"[typescript]": {
-		"editor.defaultFormatter": "esbenp.prettier-vscode"
-	}
+	"editor.defaultFormatter": "denoland.vscode-deno",
+	"editor.formatOnSave": true
 }

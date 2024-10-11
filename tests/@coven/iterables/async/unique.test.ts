@@ -13,9 +13,7 @@ Deno.test(
 );
 
 Deno.test("an array without duplicated elements returns same array", async () =>
-	assertEquals(await iterableToArray(unique(array)), array),
-);
+	assertEquals(await iterableToArray(unique(array)), array));
 
 Deno.test("an empty array returns same array", async () =>
-	assertEquals(await iterableToArray(unique([])), []),
-);
+	assertEquals(await iterableToArray(unique([])), []));

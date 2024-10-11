@@ -2,8 +2,7 @@ import { isAsyncIterable } from "@coven/predicates";
 import { assert, assertFalse } from "@std/assert";
 
 Deno.test("AsyncGenerator", () =>
-	assert(isAsyncIterable((async function* (): AsyncGenerator {})())),
-);
+	assert(isAsyncIterable((async function* (): AsyncGenerator {})())));
 
 Deno.test("Other types", () =>
 	assertFalse(
@@ -52,5 +51,4 @@ Deno.test("Other types", () =>
 			isAsyncIterable(Symbol.iterator) ||
 			// Undefined
 			isAsyncIterable(undefined),
-	),
-);
+	));

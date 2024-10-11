@@ -23,11 +23,10 @@ export const filter: {
 	<Item>(
 		predicate: Unary<[item: Item], boolean>,
 	): (iterable: Iterable<Item>) => IterableIterator<Item>;
-} =
-	<Item>(
-		predicate: Unary<[item: Item], boolean>,
-	): ((iterable: Iterable<Item>) => IterableIterator<Item>) =>
-	iterable =>
-		iteratorFunctionToIterableIterator(() =>
-			getIterator(iterable).filter(predicate),
-		);
+} = <Item>(
+	predicate: Unary<[item: Item], boolean>,
+): (iterable: Iterable<Item>) => IterableIterator<Item> =>
+(iterable) =>
+	iteratorFunctionToIterableIterator(() =>
+		getIterator(iterable).filter(predicate)
+	);

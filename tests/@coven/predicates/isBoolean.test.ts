@@ -3,8 +3,7 @@ import { assert, assertFalse } from "@std/assert";
 
 Deno.test("Booleans", () =>
 	// deno-lint-ignore no-boolean-literal-for-arguments
-	assert(isBoolean(true) && isBoolean(false)),
-);
+	assert(isBoolean(true) && isBoolean(false)));
 
 Deno.test("Other types", () =>
 	assertFalse(
@@ -50,5 +49,4 @@ Deno.test("Other types", () =>
 			isBoolean(Symbol.iterator) ||
 			// Undefined
 			isBoolean(undefined),
-	),
-);
+	));

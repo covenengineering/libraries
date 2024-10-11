@@ -12,5 +12,5 @@ import type { AwaitableIterator } from "./AwaitableIterator.ts";
  * @see {@link AwaitableIterator}
  * @template Iterator `AwaitableIterator` to get the item type from.
  */
-export type IteratorItem<Iterator extends AwaitableIterator> =
-	Iterator extends AwaitableIterator<infer Item> ? Item : never;
+export type IteratorItem<Iterator extends AwaitableIterator> = Iterator extends
+	AwaitableIterator<infer Item> ? Item : never;

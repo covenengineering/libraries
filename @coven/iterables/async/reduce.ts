@@ -14,25 +14,24 @@ import { forEach } from "./forEach.ts";
  * @param reducer Reducer function.
  * @returns Curried function with `reducer` in context.
  */
-export const reduce =
-	<Item, Accumulator>(
-		reducer: Unary<
-			[item: Item],
-			Unary<[accumulator: Accumulator], Awaitable<Accumulator>>
-		>,
-	): ((
-		initialValue: Accumulator,
-	) => <Iterable extends AwaitableIterable<Item>>(
-		iterable: Iterable,
-	) => Promise<Accumulator>) =>
-	(initialValue: Accumulator) =>
-	async <Iterable extends AwaitableIterable<Item>>(iterable: Iterable) => {
-		let accumulator: Accumulator = initialValue;
+export const reduce = <Item, Accumulator>(
+	reducer: Unary<
+		[item: Item],
+		Unary<[accumulator: Accumulator], Awaitable<Accumulator>>
+	>,
+): (
+	initialValue: Accumulator,
+) => <Iterable extends AwaitableIterable<Item>>(
+	iterable: Iterable,
+) => Promise<Accumulator> =>
+(initialValue: Accumulator) =>
+async <Iterable extends AwaitableIterable<Item>>(iterable: Iterable) => {
+	let accumulator: Accumulator = initialValue;
 
-		await forEach(
-			async (item: Item) =>
-				void (accumulator = await reducer(item)(accumulator)),
-		)(iterable);
+	await forEach(
+		async (item: Item) =>
+			void (accumulator = await reducer(item)(accumulator)),
+	)(iterable);
 
-		return accumulator;
-	};
+	return accumulator;
+};

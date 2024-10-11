@@ -20,5 +20,4 @@ Deno.test(
 
 Deno.test("When a function that could throw throws, it returns undefined", () =>
 	// deno-lint-ignore no-boolean-literal-for-arguments
-	assertEquals(safeFunction(true), undefined),
-);
+	assertEquals(safeFunction(true), undefined));

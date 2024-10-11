@@ -48,5 +48,4 @@ Deno.test("Other types", () =>
 			isNullish(Symbol("description")) ||
 			isNullish(Symbol()) ||
 			isNullish(Symbol.iterator),
-	),
-);
+	));

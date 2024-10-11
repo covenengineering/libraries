@@ -50,5 +50,4 @@ Deno.test("Other types", () =>
 			isPromise(Symbol.iterator) ||
 			// Undefined
 			isPromise(undefined),
-	),
-);
+	));

@@ -16,4 +16,4 @@ import { some } from "./some.ts";
  */
 export const includes = <SearchItem>(
 	searchItem: SearchItem,
-): ((iterable: AwaitableIterable) => Promise<boolean>) => some(is(searchItem));
+): (iterable: AwaitableIterable) => Promise<boolean> => some(is(searchItem));

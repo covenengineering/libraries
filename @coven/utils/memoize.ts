@@ -26,7 +26,10 @@ export const memoize = <
 
 	return ((input: Parameters<MemoizedFunction>[0]) =>
 		cache.get(input) ??
-		cache
-			.set(input, unary(input as never) as ReturnType<MemoizedFunction>)
-			.get(input)) as unknown as MemoizedFunction;
+			cache
+				.set(
+					input,
+					unary(input as never) as ReturnType<MemoizedFunction>,
+				)
+				.get(input)) as unknown as MemoizedFunction;
 };

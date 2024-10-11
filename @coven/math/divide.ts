@@ -15,5 +15,6 @@ import { preciseDivide } from "./preciseDivide.ts";
  * @param divisor Divisor to be used in the division.
  * @returns Curried function with `divisor` in context.
  */
-export const divide: (divisor: number) => (dividend: number) => number =
-	pipe(preciseDivide);
+export const divide: (divisor: number) => (dividend: number) => number = pipe(
+	preciseDivide,
+);

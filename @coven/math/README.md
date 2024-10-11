@@ -16,4 +16,4 @@ add(0.1, 0.2); // 0.3 🤯
 
 ## Other links
 
--   [Coverage](https://coveralls.io/github/covenengineering/libraries).
+- [Coverage](https://coveralls.io/github/covenengineering/libraries).

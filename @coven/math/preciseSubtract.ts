@@ -20,5 +20,5 @@ import { preciseAdd } from "./preciseAdd.ts";
 export const preciseSubtract = (
 	subtrahendBase: MaybeInfinity,
 	subtrahendExponent = 0n,
-): ((minuendBase: MaybeInfinity, minuendExponent?: bigint) => Precise) =>
+): (minuendBase: MaybeInfinity, minuendExponent?: bigint) => Precise =>
 	preciseAdd(-subtrahendBase, subtrahendExponent);

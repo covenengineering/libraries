@@ -21,22 +21,21 @@ import { preciseToNumber } from "./preciseToNumber.ts";
  * @param augendExponent Augend exponent to use in the right side of the addition.
  * @returns Curried function with `augendBase` and `augendExponent` in context.
  */
-export const preciseAdd =
-	(
-		augendBase: MaybeInfinity,
-		augendExponent = 0n,
-	): ((addendBase: MaybeInfinity, addendExponent?: bigint) => Precise) =>
-	(addendBase, addendExponent = 0n) => {
-		const commonExponent = bigIntMin(addendExponent, augendExponent);
+export const preciseAdd = (
+	augendBase: MaybeInfinity,
+	augendExponent = 0n,
+): (addendBase: MaybeInfinity, addendExponent?: bigint) => Precise =>
+(addendBase, addendExponent = 0n) => {
+	const commonExponent = bigIntMin(addendExponent, augendExponent);
 
-		return createPrecise(
-			BigInt(
-				preciseToNumber(addendBase, addendExponent - commonExponent) +
-					preciseToNumber(
-						augendBase,
-						augendExponent - commonExponent,
-					),
-			),
-			commonExponent,
-		);
-	};
+	return createPrecise(
+		BigInt(
+			preciseToNumber(addendBase, addendExponent - commonExponent) +
+				preciseToNumber(
+					augendBase,
+					augendExponent - commonExponent,
+				),
+		),
+		commonExponent,
+	);
+};

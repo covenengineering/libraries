@@ -11,8 +11,7 @@ Deno.test("Awaitable iterables", () =>
 			// String
 			isAwaitableIterable("string") &&
 			isAwaitableIterable(`string`),
-	),
-);
+	));
 
 Deno.test("Other types", () =>
 	assertFalse(
@@ -54,5 +53,4 @@ Deno.test("Other types", () =>
 			isAwaitableIterable(Symbol.iterator) ||
 			// Undefined
 			isAwaitableIterable(undefined),
-	),
-);
+	));

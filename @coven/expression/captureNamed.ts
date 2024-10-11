@@ -6,7 +6,7 @@ import { captureType } from "./captureType.ts";
  */
 export const captureNamed = <const Name extends Stringable>(
 	name: Name,
-): (<const Captured extends ReadonlyArray<Stringable>>(
+): <const Captured extends ReadonlyArray<Stringable>>(
 	...captured: Captured
-) => `(?<${Name}>${StringJoin<Captured, EmptyString>})`) =>
+) => `(?<${Name}>${StringJoin<Captured, EmptyString>})` =>
 	captureType(`<${name}>`);

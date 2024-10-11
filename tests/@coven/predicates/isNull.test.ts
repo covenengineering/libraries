@@ -50,5 +50,4 @@ Deno.test("Other types", () =>
 			isNull(Symbol.iterator) ||
 			// Undefined
 			isNull(undefined),
-	),
-);
+	));

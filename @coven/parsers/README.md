@@ -17,4 +17,4 @@ parseDecimal("nope"); // undefined
 
 ## Other links
 
--   [Coverage](https://coveralls.io/github/covenengineering/libraries).
+- [Coverage](https://coveralls.io/github/covenengineering/libraries).

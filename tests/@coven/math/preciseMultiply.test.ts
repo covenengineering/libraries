@@ -9,77 +9,58 @@ const preciseMultiplyNegativeFloat = preciseMultiply(-2n, -1n);
 Deno.test("1 * 2 = 2", () => assertEquals(preciseMultiplyPositive(1n), [2n]));
 
 Deno.test("-1 * 2 = -2", () =>
-	assertEquals(preciseMultiplyPositive(-1n), [-2n]),
-);
+	assertEquals(preciseMultiplyPositive(-1n), [-2n]));
 
 Deno.test("0.1 * 2 = 0.2", () =>
-	assertEquals(preciseMultiplyPositive(1n, -1n), [2n, -1n]),
-);
+	assertEquals(preciseMultiplyPositive(1n, -1n), [2n, -1n]));
 
 Deno.test("-0.1 * 2 = -0.2", () =>
-	assertEquals(preciseMultiplyPositive(-1n, -1n), [-2n, -1n]),
-);
+	assertEquals(preciseMultiplyPositive(-1n, -1n), [-2n, -1n]));
 
 Deno.test("1 * -2 = -2", () =>
-	assertEquals(preciseMultiplyNegative(1n), [-2n]),
-);
+	assertEquals(preciseMultiplyNegative(1n), [-2n]));
 
 Deno.test("-1 * -2 = 2", () =>
-	assertEquals(preciseMultiplyNegative(-1n), [2n]),
-);
+	assertEquals(preciseMultiplyNegative(-1n), [2n]));
 
 Deno.test("0.1 * -2 = -0.2", () =>
-	assertEquals(preciseMultiplyNegative(1n, -1n), [-2n, -1n]),
-);
+	assertEquals(preciseMultiplyNegative(1n, -1n), [-2n, -1n]));
 
 Deno.test("-0.1 * -2 = 0.2", () =>
-	assertEquals(preciseMultiplyNegative(-1n, -1n), [2n, -1n]),
-);
+	assertEquals(preciseMultiplyNegative(-1n, -1n), [2n, -1n]));
 
 Deno.test("1 * 0.2 = 0.2", () =>
-	assertEquals(preciseMultiplyFloat(1n), [2n, -1n]),
-);
+	assertEquals(preciseMultiplyFloat(1n), [2n, -1n]));
 
 Deno.test("-1 * 0.2 = -0.2", () =>
-	assertEquals(preciseMultiplyFloat(-1n), [-2n, -1n]),
-);
+	assertEquals(preciseMultiplyFloat(-1n), [-2n, -1n]));
 
 Deno.test("0.1 * 0.2 = 0.02", () =>
-	assertEquals(preciseMultiplyFloat(1n, -1n), [2n, -2n]),
-);
+	assertEquals(preciseMultiplyFloat(1n, -1n), [2n, -2n]));
 
 Deno.test("-0.1 * 0.2 = -0.02", () =>
-	assertEquals(preciseMultiplyFloat(-1n, -1n), [-2n, -2n]),
-);
+	assertEquals(preciseMultiplyFloat(-1n, -1n), [-2n, -2n]));
 
 Deno.test("1 * -0.2 = -0.2", () =>
-	assertEquals(preciseMultiplyNegativeFloat(1n), [-2n, -1n]),
-);
+	assertEquals(preciseMultiplyNegativeFloat(1n), [-2n, -1n]));
 
 Deno.test("-1 * -0.2 = 0.2", () =>
-	assertEquals(preciseMultiplyNegativeFloat(-1n), [2n, -1n]),
-);
+	assertEquals(preciseMultiplyNegativeFloat(-1n), [2n, -1n]));
 
 Deno.test("0.1 * -0.2 = -0.02", () =>
-	assertEquals(preciseMultiplyNegativeFloat(1n, -1n), [-2n, -2n]),
-);
+	assertEquals(preciseMultiplyNegativeFloat(1n, -1n), [-2n, -2n]));
 
 Deno.test("-0.1 * -0.2 = 0.02", () =>
-	assertEquals(preciseMultiplyNegativeFloat(-1n, -1n), [2n, -2n]),
-);
+	assertEquals(preciseMultiplyNegativeFloat(-1n, -1n), [2n, -2n]));
 
 Deno.test("5 * 0.00001 = 0.00005", () =>
-	assertEquals(preciseMultiply(1n, -5n)(5n), [5n, -5n]),
-);
+	assertEquals(preciseMultiply(1n, -5n)(5n), [5n, -5n]));
 
 Deno.test("0.00001 * 5 = 0.00005", () =>
-	assertEquals(preciseMultiply(5n)(1n, -5n), [5n, -5n]),
-);
+	assertEquals(preciseMultiply(5n)(1n, -5n), [5n, -5n]));
 
 Deno.test("Infinity * Infinity = [Infinity]", () =>
-	assertEquals(preciseMultiply(Infinity)(Infinity), [Infinity]),
-);
+	assertEquals(preciseMultiply(Infinity)(Infinity), [Infinity]));
 
 Deno.test("13 * Infinity = [Infinity]", () =>
-	assertEquals(preciseMultiply(Infinity)(13), [Infinity]),
-);
+	assertEquals(preciseMultiply(Infinity)(13), [Infinity]));

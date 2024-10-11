@@ -13,5 +13,6 @@ import type { ReadonlyArrayLike } from "./ReadonlyArrayLike.ts";
  * @see {@link ReadonlyArrayLike}
  * @template ArrayLike `ReadonlyArrayLike` to get the last item from.
  */
-export type Last<ArrayLike extends ReadonlyArrayLike> =
-	InitialAndLast<ArrayLike>[1];
+export type Last<ArrayLike extends ReadonlyArrayLike> = InitialAndLast<
+	ArrayLike
+>[1];

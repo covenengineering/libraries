@@ -32,14 +32,14 @@ export const compareIterables = <LeftItem>(
 
 		for (
 			let index = 0,
-				{ [DONE]: leftDone = false, [VALUE]: leftValue } =
-					leftIterator[NEXT](),
+				{ [DONE]: leftDone = false, [VALUE]: leftValue } = leftIterator
+					[NEXT](),
 				{ [DONE]: rightDone = false, [VALUE]: rightValue } =
 					rightIterator[NEXT]();
 			!(leftDone && rightDone);
 			index += 1,
-				{ [DONE]: leftDone = false, [VALUE]: leftValue } =
-					leftIterator[NEXT](),
+				{ [DONE]: leftDone = false, [VALUE]: leftValue } = leftIterator
+					[NEXT](),
 				{ [DONE]: rightDone = false, [VALUE]: rightValue } =
 					rightIterator[NEXT]()
 		) {

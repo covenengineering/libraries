@@ -13,5 +13,6 @@ import { thunk } from "./thunk.ts";
  * ```
  * @returns Function that always return the given value.
  */
-export const always: <const Input>(input: Input) => () => Input =
-	thunk(identity);
+export const always: <const Input>(input: Input) => () => Input = thunk(
+	identity,
+);

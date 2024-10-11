@@ -19,8 +19,7 @@ Deno.test("Objects", () =>
 			// Object
 			isObject({}) &&
 			isObject(Object.create(null)),
-	),
-);
+	));
 
 Deno.test("Other types", () =>
 	assertFalse(
@@ -55,5 +54,4 @@ Deno.test("Other types", () =>
 			isObject(Symbol.iterator) ||
 			// Undefined
 			isObject(undefined),
-	),
-);
+	));

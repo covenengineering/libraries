@@ -21,16 +21,15 @@ export const every: {
 	<Item>(
 		predicate: Unary<[item: Item], boolean>,
 	): (iterable: AwaitableIterable<Item>) => Promise<boolean>;
-} =
-	<Item>(
-		predicate: Unary<[item: Item], boolean>,
-	): ((iterable: AwaitableIterable<Item>) => Promise<boolean>) =>
-	async iterable => {
-		for await (const item of iterable) {
-			if (!predicate(item)) {
-				return false;
-			}
+} = <Item>(
+	predicate: Unary<[item: Item], boolean>,
+): (iterable: AwaitableIterable<Item>) => Promise<boolean> =>
+async (iterable) => {
+	for await (const item of iterable) {
+		if (!predicate(item)) {
+			return false;
 		}
+	}
 
-		return true;
-	};
+	return true;
+};

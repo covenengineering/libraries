@@ -14,9 +14,8 @@ import { getIterator } from "./getIterator.ts";
 export const head = <IterableToGetHead extends Iterable<unknown>>(
 	iterable: IterableToGetHead,
 ): IterableToGetHead extends ReadonlyArray ? Head<IterableToGetHead>
-:	Maybe<IterableItem<IterableToGetHead>> =>
+	: Maybe<IterableItem<IterableToGetHead>> =>
 	getIterator(iterable).next().value as IterableToGetHead extends (
 		ReadonlyArray
-	) ?
-		Head<IterableToGetHead>
-	:	Maybe<IterableItem<IterableToGetHead>>;
+	) ? Head<IterableToGetHead>
+		: Maybe<IterableItem<IterableToGetHead>>;

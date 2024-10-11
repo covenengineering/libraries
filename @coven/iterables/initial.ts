@@ -15,28 +15,27 @@ import { iteratorFunctionToIterableIterator } from "./iteratorFunctionToIterable
 export const initial = <IterableToGetInitial extends Iterable<unknown>>(
 	iterable: IterableToGetInitial,
 ): IterableIterator<
-	IterableToGetInitial extends ReadonlyArray ?
-		Initial<IterableToGetInitial> extends ReadonlyArray ?
-			Initial<IterableToGetInitial>[number]
-		:	IterableItem<IterableToGetInitial>
-	:	IterableItem<IterableToGetInitial>
-> =>
-	iteratorFunctionToIterableIterator(function* (): Generator {
-		const iterator = getIterator(iterable);
+	IterableToGetInitial extends ReadonlyArray
+		? Initial<IterableToGetInitial> extends ReadonlyArray
+			? Initial<IterableToGetInitial>[number]
+		: IterableItem<IterableToGetInitial>
+		: IterableItem<IterableToGetInitial>
+> => iteratorFunctionToIterableIterator(function* (): Generator {
+	const iterator = getIterator(iterable);
 
-		let item = iterator.next();
+	let item = iterator.next();
 
-		for (; !item.done; ) {
-			const value = item.value;
+	for (; !item.done;) {
+		const value = item.value;
 
-			item = iterator.next();
+		item = iterator.next();
 
-			item.done ? undefined : yield value;
-		}
-	}) as IterableIterator<
-		IterableToGetInitial extends ReadonlyArray ?
-			Initial<IterableToGetInitial> extends ReadonlyArray ?
-				Initial<IterableToGetInitial>[number]
-			:	IterableItem<IterableToGetInitial>
-		:	IterableItem<IterableToGetInitial>
-	>;
+		item.done ? undefined : yield value;
+	}
+}) as IterableIterator<
+	IterableToGetInitial extends ReadonlyArray
+		? Initial<IterableToGetInitial> extends ReadonlyArray
+			? Initial<IterableToGetInitial>[number]
+		: IterableItem<IterableToGetInitial>
+		: IterableItem<IterableToGetInitial>
+>;

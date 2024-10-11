@@ -71,7 +71,7 @@ boldRedWhiteBack`Coven Engineering`; // The string "Coven Engineering", with bol
 
 ## Other links
 
--   [Coverage](https://coveralls.io/github/covenengineering/libraries).
+- [Coverage](https://coveralls.io/github/covenengineering/libraries).
 
 <!-- Reference -->
 

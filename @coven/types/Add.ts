@@ -21,9 +21,7 @@ export type Add<
 	Augend extends number,
 	_Accumulator extends ReadonlyArray = EmptyArray,
 	_Total extends ReadonlyArray = IndexArray<Addend>,
-> =
-	_Accumulator["length"] extends Augend ?
-		_Total["length"] extends number ?
-			_Total["length"]
-		:	never
-	:	Add<Addend, Augend, [..._Accumulator, never], [..._Total, never]>;
+> = _Accumulator["length"] extends Augend
+	? _Total["length"] extends number ? _Total["length"]
+	: never
+	: Add<Addend, Augend, [..._Accumulator, never], [..._Total, never]>;

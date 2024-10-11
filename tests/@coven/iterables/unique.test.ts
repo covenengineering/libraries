@@ -9,9 +9,7 @@ Deno.test(
 );
 
 Deno.test("an array without duplicated elements returns same array", () =>
-	assertEquals(iterableToArray(unique(array)), array),
-);
+	assertEquals(iterableToArray(unique(array)), array));
 
 Deno.test("an empty array returns same array", () =>
-	assertEquals(iterableToArray(unique([])), []),
-);
+	assertEquals(iterableToArray(unique([])), []));

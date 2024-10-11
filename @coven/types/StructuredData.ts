@@ -12,10 +12,10 @@ import type { Primitive } from "./Primitive.ts";
  */
 export type StructuredData =
 	| {
-			/**
-			 * @see {@link StructuredData} untyped property.
-			 */
-			readonly [property: string]: StructuredData;
-	  }
+		/**
+		 * @see {@link StructuredData} untyped property.
+		 */
+		readonly [property: string]: StructuredData;
+	}
 	| Exclude<Primitive, symbol>
 	| ReadonlyArray<StructuredData>;

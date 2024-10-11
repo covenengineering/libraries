@@ -42,5 +42,4 @@ Deno.test(
 );
 
 Deno.test("Tuple of not normalized values returns number", () =>
-	assertStrictEquals(preciseToNumber(-13_000n, 0n), -13_000),
-);
+	assertStrictEquals(preciseToNumber(-13_000n, 0n), -13_000));

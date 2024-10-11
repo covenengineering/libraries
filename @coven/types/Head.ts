@@ -16,5 +16,6 @@ import type { ReadonlyArrayLike } from "./ReadonlyArrayLike.ts";
  * @see {@link ReadonlyArrayLike}
  * @template ArrayLike `ReadonlyArrayLike` value (such as `Array` or `string`).
  */
-export type Head<ArrayLike extends ReadonlyArrayLike> =
-	HeadAndTail<ArrayLike>[0];
+export type Head<ArrayLike extends ReadonlyArrayLike> = HeadAndTail<
+	ArrayLike
+>[0];

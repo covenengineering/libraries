@@ -24,12 +24,10 @@ import { preciseToNumber } from "./preciseToNumber.ts";
 export const preciseDivide = (
 	divisorBase: MaybeInfinity,
 	divisorExponent = 0n,
-): ((dividendBase: MaybeInfinity, dividendExponent?: bigint) => Precise) =>
-	divisorBase === 0n ?
-		() => [Infinity]
-	:	preciseMultiply(
-			...numberToPrecise(
-				preciseToNumber(1n, -divisorExponent) /
-					preciseToNumber(divisorBase, 0n),
-			),
-		);
+): (dividendBase: MaybeInfinity, dividendExponent?: bigint) => Precise =>
+	divisorBase === 0n ? () => [Infinity] : preciseMultiply(
+		...numberToPrecise(
+			preciseToNumber(1n, -divisorExponent) /
+				preciseToNumber(divisorBase, 0n),
+		),
+	);

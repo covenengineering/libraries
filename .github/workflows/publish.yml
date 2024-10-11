@@ -18,18 +18,13 @@ jobs:
             - name: Set up Deno
               uses: denoland/setup-deno@v1
               with:
-                  deno-version: 2.0.0-rc.5
-
-            - name: Instal npm:prettier
-              run:
-                  deno install --global --allow-env --allow-read --allow-sys
-                  --allow-write npm:prettier@latest
+                  deno-version: 2.0.0
 
             - name: Lint
               run: deno lint
 
-            - name: Prettify
-              run: deno run prettify
+            - name: Format
+              run: deno fmt --check
 
             - name: Test
               run: deno test --coverage

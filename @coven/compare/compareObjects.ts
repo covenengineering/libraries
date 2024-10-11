@@ -23,21 +23,22 @@ export const compareObjects = (left: object): CurriedComparison<object> => {
 		right: object,
 	) => Generator<Difference>;
 	const leftIsIterator = isIterable(left);
-	const compareIterableLeft =
-		leftIsIterator ? compareIterables(left) : undefined;
+	const compareIterableLeft = leftIsIterator
+		? compareIterables(left)
+		: undefined;
 
-	return leftIsIterator ?
-			/**
-			 * Curried {@link compareObjects} with `left` set in context.
-			 * @param right Right/New object.
-			 * @returns Generator with differences.
-			 */
-			function* (right): Generator<Difference> {
-				yield* Symbol.iterator in right ?
-					(compareIterableLeft as Just<typeof compareIterableLeft>)(
-						right as Iterable<object>,
-					)
-				:	comparePropertiesLeft(right);
-			}
-		:	comparePropertiesLeft;
+	return leftIsIterator
+		/**
+		 * Curried {@link compareObjects} with `left` set in context.
+		 * @param right Right/New object.
+		 * @returns Generator with differences.
+		 */
+		? function* (right): Generator<Difference> {
+			yield* Symbol.iterator in right
+				? (compareIterableLeft as Just<typeof compareIterableLeft>)(
+					right as Iterable<object>,
+				)
+				: comparePropertiesLeft(right);
+		}
+		: comparePropertiesLeft;
 };

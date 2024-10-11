@@ -12,9 +12,7 @@ import type { Unary } from "@coven/types";
  * ```
  * @returns Function that expects a function that will receive the `input`.
  */
-export const applyTo =
-	<const Input>(
-		input: Input,
-	): (<const Output>(unary: Unary<[input: Input], Output>) => Output) =>
-	unary =>
-		unary(input);
+export const applyTo = <const Input>(
+	input: Input,
+): <const Output>(unary: Unary<[input: Input], Output>) => Output =>
+(unary) => unary(input);

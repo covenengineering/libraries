@@ -24,13 +24,12 @@ export type StringJoin<
 	Glue extends string = EmptyString,
 	_Accumulator extends string = `${StringableArray[0]}`,
 	_Tracker extends ReadonlyArray<number> = IndexArray<1>,
-> =
-	StringableArray["length"] extends 0 ? EmptyString
+> = StringableArray["length"] extends 0 ? EmptyString
 	: StringableArray["length"] extends 1 ? _Accumulator
 	: _Tracker["length"] extends StringableArray["length"] ? _Accumulator
 	: StringJoin<
-			StringableArray,
-			Glue,
-			`${_Accumulator}${Glue}${StringableArray[_Tracker["length"]]}`,
-			[..._Tracker, _Tracker["length"]]
-		>;
+		StringableArray,
+		Glue,
+		`${_Accumulator}${Glue}${StringableArray[_Tracker["length"]]}`,
+		[..._Tracker, _Tracker["length"]]
+	>;

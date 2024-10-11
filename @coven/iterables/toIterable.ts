@@ -22,14 +22,15 @@ export const toIterable = <const ValueOrIterable>(
 	valueOrIterable: ValueOrIterable,
 ): IterableIterator<
 	ValueOrIterable extends AwaitableIterable ? IterableItem<ValueOrIterable>
-	:	ValueOrIterable
-> =>
-	iteratorFunctionToIterableIterator(function* (): Generator {
-		isIterable(valueOrIterable) ?
-			yield* valueOrIterable
-		:	yield valueOrIterable;
+		: ValueOrIterable
+> => iteratorFunctionToIterableIterator(
+	function* (): Generator {
+		isIterable(valueOrIterable)
+			? yield* valueOrIterable
+			: yield valueOrIterable;
 	} as () => Generator<
-		ValueOrIterable extends AwaitableIterable ?
-			IterableItem<ValueOrIterable>
-		:	ValueOrIterable
-	>);
+		ValueOrIterable extends AwaitableIterable
+			? IterableItem<ValueOrIterable>
+			: ValueOrIterable
+	>,
+);

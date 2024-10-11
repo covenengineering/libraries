@@ -32,8 +32,10 @@ export const format = ((open, close) => {
 	 * @returns Formatted `input` string.
 	 */
 	return (input, ...expressions) =>
-		`${sgrOpen}${normalizeString(input, ...expressions).replaceAll(
-			sgrClose,
-			sgrOpen,
-		)}${sgrClose}`;
+		`${sgrOpen}${
+			normalizeString(input, ...expressions).replaceAll(
+				sgrClose,
+				sgrOpen,
+			)
+		}${sgrClose}`;
 }) as FormatFunction;

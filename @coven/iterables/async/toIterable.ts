@@ -21,16 +21,17 @@ import { iteratorFunctionToAsyncIterableIterator } from "./iteratorFunctionToAsy
 export const toIterable = <const ValueOrAsyncIterable>(
 	valueOrIterable: ValueOrAsyncIterable,
 ): AsyncIterableIterator<
-	ValueOrAsyncIterable extends AwaitableIterable ?
-		IterableItem<ValueOrAsyncIterable>
-	:	ValueOrAsyncIterable
-> =>
-	iteratorFunctionToAsyncIterableIterator(async function* (): AsyncGenerator {
-		isAwaitableIterable(valueOrIterable) ?
-			yield* valueOrIterable
-		:	yield valueOrIterable;
+	ValueOrAsyncIterable extends AwaitableIterable
+		? IterableItem<ValueOrAsyncIterable>
+		: ValueOrAsyncIterable
+> => iteratorFunctionToAsyncIterableIterator(
+	async function* (): AsyncGenerator {
+		isAwaitableIterable(valueOrIterable)
+			? yield* valueOrIterable
+			: yield valueOrIterable;
 	} as () => AsyncGenerator<
-		ValueOrAsyncIterable extends AwaitableIterable ?
-			IterableItem<ValueOrAsyncIterable>
-		:	ValueOrAsyncIterable
-	>);
+		ValueOrAsyncIterable extends AwaitableIterable
+			? IterableItem<ValueOrAsyncIterable>
+			: ValueOrAsyncIterable
+	>,
+);

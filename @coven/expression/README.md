@@ -12,4 +12,4 @@ build("gu")(group(or("this", "that"))); // /(?:this|that)/gu
 
 ## Other links
 
--   [Coverage](https://coveralls.io/github/covenengineering/libraries).
+- [Coverage](https://coveralls.io/github/covenengineering/libraries).

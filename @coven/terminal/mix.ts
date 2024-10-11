@@ -17,25 +17,24 @@ import type { Formatter } from "./Formatter.ts";
  * @param formatters Array of formatters to be composed.
  * @returns Formatter composed of the given formatters.
  */
-export const mix =
-	(...formatters: ReadonlyArray<Formatter>): Formatter =>
-	/**
-	 * Function with formatters set in context.
-	 *
-	 * @example
-	 * ```typescript
-	 * redWhiteBack("Coven Engineering");
-	 * // It can also be used as a tag function for tagged templates:
-	 * redWhiteBack`Coven Engineering`;
-	 * ```
-	 * @see {@link mix}
-	 *
-	 * @param input String or template string.
-	 * @param expressions Possible values passed to the template string.
-	 * @returns Formatted string.
-	 */
-	(input, ...expressions) =>
-		formatters.reduce(
-			(output, formatter) => formatter(output, ...expressions),
-			input,
-		) as string;
+export const mix = (...formatters: ReadonlyArray<Formatter>): Formatter =>
+/**
+ * Function with formatters set in context.
+ *
+ * @example
+ * ```typescript
+ * redWhiteBack("Coven Engineering");
+ * // It can also be used as a tag function for tagged templates:
+ * redWhiteBack`Coven Engineering`;
+ * ```
+ * @see {@link mix}
+ *
+ * @param input String or template string.
+ * @param expressions Possible values passed to the template string.
+ * @returns Formatted string.
+ */
+(input, ...expressions) =>
+	formatters.reduce(
+		(output, formatter) => formatter(output, ...expressions),
+		input,
+	) as string;

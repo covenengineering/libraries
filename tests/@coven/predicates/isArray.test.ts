@@ -50,5 +50,4 @@ Deno.test("Other types", () =>
 			isArray(Symbol.iterator) ||
 			// Undefined
 			isArray(undefined),
-	),
-);
+	));

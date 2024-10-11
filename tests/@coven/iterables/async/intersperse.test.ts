@@ -15,8 +15,7 @@ Deno.test("an array returns interspersed items", async () =>
 		1,
 		",",
 		2,
-	]),
-);
+	]));
 
 Deno.test("an iterable returns interspersed items", async () =>
 	assertEquals(await iterableToArray(commaIntersperse(range(1)(0)(2))), [
@@ -25,13 +24,10 @@ Deno.test("an iterable returns interspersed items", async () =>
 		1,
 		",",
 		2,
-	]),
-);
+	]));
 
 Deno.test("an empty array returns empty iterable", async () =>
-	assertEquals(await iterableToArray(commaIntersperse([])), []),
-);
+	assertEquals(await iterableToArray(commaIntersperse([])), []));
 
 Deno.test("an empty iterable returns empty iterable", async () =>
-	assertEquals(await iterableToArray(commaIntersperse(toIterable([]))), []),
-);
+	assertEquals(await iterableToArray(commaIntersperse(toIterable([]))), []));

@@ -11,18 +11,17 @@ import { iteratorFunctionToIterableIterator } from "./iteratorFunctionToIterable
  * @param step Step size.
  * @returns Curried function with `step` set in context.
  */
-export const range =
-	(
-		step: number,
-	): ((from: number) => (to: number) => IterableIterator<number>) =>
-	from =>
-	to =>
-		iteratorFunctionToIterableIterator(function* (): Generator<number> {
-			for (
-				let current = from;
-				from < to ? current <= to : current >= to;
-				current += from < to ? step : -step
-			) {
-				yield current;
-			}
-		});
+export const range = (
+	step: number,
+): (from: number) => (to: number) => IterableIterator<number> =>
+(from) =>
+(to) =>
+	iteratorFunctionToIterableIterator(function* (): Generator<number> {
+		for (
+			let current = from;
+			from < to ? current <= to : current >= to;
+			current += from < to ? step : -step
+		) {
+			yield current;
+		}
+	});
