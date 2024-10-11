@@ -1,7 +1,7 @@
 <img alt="Coven Engineering Terminal logo" src="https://raw.githubusercontent.com/covenengineering/libraries/main/@coven/terminal/logo.svg" height="108" />
 
 [![JSR](https://jsr.io/badges/@coven/terminal)](https://jsr.io/@coven/terminal)
-[![JSR Score](https://jsr.io/badges/@coven/terminal/score)](https://jsr.io/@coven/terminal)
+[![JSR Score](https://jsr.io/badges/@coven/terminal/score)](https://jsr.io/@coven/terminal/score)
 
 🖌️ Delightfully simple terminal text styles.
 

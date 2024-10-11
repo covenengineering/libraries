@@ -1,7 +1,7 @@
 <img alt="Coven Engineering Types logo" src="https://raw.githubusercontent.com/covenengineering/libraries/main/@coven/types/logo.svg" height="108" />
 
 [![JSR](https://jsr.io/badges/@coven/types)](https://jsr.io/@coven/types)
-[![JSR Score](https://jsr.io/badges/@coven/types/score)](https://jsr.io/@coven/types)
+[![JSR Score](https://jsr.io/badges/@coven/types/score)](https://jsr.io/@coven/types/score)
 
 📚 Arcane types codex used across [Coven Engineering](https://coven.engineering)
 libraries.
