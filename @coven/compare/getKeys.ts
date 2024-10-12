@@ -1,4 +1,4 @@
-import { isObject } from "./isObject.ts";
+import { isObject } from "@coven/predicates";
 
 /**
  * Recursively get all object keys going up the prototype chain.

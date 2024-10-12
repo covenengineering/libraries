@@ -20,7 +20,6 @@ export type { DeleteDifference } from "./DeleteDifference.ts";
 export type { Difference } from "./Difference.ts";
 export type { DifferencePath } from "./DifferencePath.ts";
 export { getKeys } from "./getKeys.ts";
-export { isObject } from "./isObject.ts";
 export { pathPrepend } from "./pathPrepend.ts";
 export type { UpdateDifference } from "./UpdateDifference.ts";
 export { valueToDifference } from "./valueToDifference.ts";

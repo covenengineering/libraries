@@ -1,9 +1,13 @@
+import { is, isObject } from "@coven/predicates";
 import type { Just } from "@coven/types";
+import { always } from "@coven/utils";
 import type { CurriedComparison } from "./CurriedComparison.ts";
 import type { Difference } from "./Difference.ts";
 import { compareObjects } from "./compareObjects.ts";
-import { isObject } from "./isObject.ts";
 import { valueToDifference } from "./valueToDifference.ts";
+
+// deno-lint-ignore no-boolean-literal-for-arguments
+const alwaysFalse = always(false);
 
 /**
  * Function to compare a `left` and a `right` value, by doing a deep comparison
@@ -28,6 +32,8 @@ export const compare = (left: unknown): CurriedComparison<unknown> => {
 	const valuesToDifferenceLeft = valueToDifference(left);
 	const leftIsObject = isObject(left);
 	const compareObjectsLeft = leftIsObject ? compareObjects(left) : undefined;
+	const isLeft = is(left);
+	const isLeftConstructor = leftIsObject ? is(left.constructor) : alwaysFalse;
 
 	return leftIsObject
 		/**
@@ -37,13 +43,12 @@ export const compare = (left: unknown): CurriedComparison<unknown> => {
 		 * @yields Differences.
 		 */
 		? function* (right): Generator<Difference> {
-			Object.is(left, right)
-				? undefined
-				: isObject(right) && left.constructor === right.constructor
-				? yield* (
-					compareObjectsLeft as Just<typeof compareObjectsLeft>
-				)(right)
-				: yield valuesToDifferenceLeft(right);
+			isLeft(right) ? undefined : yield* (
+				isObject(right) &&
+					isLeftConstructor((right as object).constructor)
+					? compareObjectsLeft as Just<typeof compareObjectsLeft>
+					: valuesToDifferenceLeft
+			)(right);
 		}
 		/**
 		 * Curried {@link compare} with `left` set in context.
@@ -52,8 +57,8 @@ export const compare = (left: unknown): CurriedComparison<unknown> => {
 		 * @yields Differences.
 		 */
 		: function* (right): Generator<Difference> {
-			Object.is(left, right) ? undefined : (
-				yield valuesToDifferenceLeft(right)
+			isLeft(right) ? undefined : (
+				yield* valuesToDifferenceLeft(right)
 			);
 		};
 };

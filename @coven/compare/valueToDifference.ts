@@ -1,3 +1,4 @@
+import type { CurriedComparison } from "./CurriedComparison.ts";
 import type { Difference } from "./Difference.ts";
 import {
 	CREATE,
@@ -25,32 +26,32 @@ import {
  * ```
  * @see {@link Difference}
  * @param left Left/Original value.
- * @returns Curried function with `left` in context.
+ * @returns Curried generator with `left` in context.
  */
 export const valueToDifference = (
 	left: unknown,
-): (right: unknown) => Difference =>
+): CurriedComparison<unknown> =>
 	left === MISSING
 		/**
 		 * Curried {@link valueToDifference} with `left` in context.
 		 * @param right Right/New value.
 		 * @returns Difference object.
 		 */
-		? (right: unknown) =>
-			({
-				...(right === MISSING ? undefined : (
-					{ [KIND]: CREATE, [RIGHT]: right }
-				)),
-			}) as Difference
+		? function* (right: unknown): Generator<Difference> {
+			right === MISSING
+				? undefined
+				: yield ({ [KIND]: CREATE, [RIGHT]: right });
+		}
 		/**
 		 * Curried {@link valueToDifference} with `left` in context.
 		 * @param right Right/New value.
 		 * @returns Difference object.
 		 */
-		: (right: unknown) =>
-			({
+		: function* (right: unknown): Generator<Difference> {
+			yield ({
 				[LEFT]: left,
 				...(right === MISSING
 					? { [KIND]: DELETE }
 					: { [KIND]: UPDATE, [RIGHT]: right }),
-			}) as Difference;
+			});
+		};

@@ -34,7 +34,7 @@ export const compareObjects = (left: object): CurriedComparison<object> => {
 		 * @returns Generator with differences.
 		 */
 		? function* (right): Generator<Difference> {
-			yield* Symbol.iterator in right
+			yield* isIterable(right)
 				? (compareIterableLeft as Just<typeof compareIterableLeft>)(
 					right as Iterable<object>,
 				)

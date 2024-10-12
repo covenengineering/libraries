@@ -1,3 +1,4 @@
+import { getIterator } from "@coven/iterables";
 import { compare } from "./compare.ts";
 import { DONE, MISSING, NEXT, VALUE } from "./constants.ts";
 import type { CurriedComparison } from "./CurriedComparison.ts";
@@ -20,7 +21,7 @@ import { pathPrepend } from "./pathPrepend.ts";
 export const compareIterables = <LeftItem>(
 	left: Iterable<LeftItem>,
 ): CurriedComparison<Iterable<LeftItem>> => {
-	const leftIterator = left[Symbol.iterator]();
+	const leftIterator = getIterator(left);
 
 	/**
 	 * Curried {@link compareIterables} with `left` set in context.
@@ -28,7 +29,7 @@ export const compareIterables = <LeftItem>(
 	 * @returns Generator with differences.
 	 */
 	return function* (right): Generator<Difference> {
-		const rightIterator = right[Symbol.iterator]();
+		const rightIterator = getIterator(right);
 
 		for (
 			let index = 0,

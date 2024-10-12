@@ -8,7 +8,7 @@ import type { DifferencePath } from "./DifferencePath.ts";
  * ```typescript
  * const createDifference = {
  * 	kind: "CREATE",
- * 	path: ["foo", "bar"],
+ * 	path: ["property", "path"],
  * 	right: "new value",
  * } as const satisfies CreateDifference<string>;
  * ```
@@ -19,6 +19,7 @@ export type CreateDifference<Right = unknown> = {
 	 * Creation kind.
 	 */
 	readonly kind: typeof CREATE;
+
 	/**
 	 * New value.
 	 */

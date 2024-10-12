@@ -1,6 +1,9 @@
 import { prepend } from "@coven/iterables";
+import { set } from "@coven/utils";
 import type { Difference } from "./Difference.ts";
 import { PATH } from "./constants.ts";
+
+const setPath = set(PATH);
 
 /**
  * Prepends the given property to the given {@link Difference}'s path.
@@ -24,8 +27,5 @@ export const pathPrepend = <SourceDifference extends Difference>(
 	 * @yields Difference's path with prepended `prepend`.
 	 */
 	return ({ [PATH]: path, ...difference }) =>
-		({
-			...difference,
-			[PATH]: prependProperty(path ?? []),
-		}) as SourceDifference;
+		setPath(prependProperty(path ?? []))(difference) as SourceDifference;
 };

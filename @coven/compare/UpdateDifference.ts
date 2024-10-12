@@ -13,8 +13,8 @@ import type { DifferencePath } from "./DifferencePath.ts";
  * 	right: "new value",
  * } as const satisfies UpdateDifference<string, string>;
  * ```
- * @template Left Type of the new value.
- * @template Right Type of the original value.
+ * @template Left Type of the original value.
+ * @template Right Type of the new value.
  */
 export type UpdateDifference<Left = unknown, Right = unknown> = {
 	/**

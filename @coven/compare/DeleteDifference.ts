@@ -12,15 +12,16 @@ import type { DifferencePath } from "./DifferencePath.ts";
  * 	path: ["foo", "bar"],
  * } as const satisfies DeleteDifference<string>;
  * ```
- * @template Left Type of the removed value.
+ * @template Left Type of the removed/original value.
  */
 export type DeleteDifference<Left = unknown> = {
 	/**
 	 * Deletion kind.
 	 */
 	readonly kind: typeof DELETE;
+
 	/**
-	 * Original value.
+	 * Removed/original value.
 	 */
 	readonly left: Left;
 } & DifferencePath;
