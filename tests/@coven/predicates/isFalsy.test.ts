@@ -1,3 +1,4 @@
+import { EMPTY_ARRAY, EMPTY_OBJECT, EMPTY_STRING } from "@coven/constants";
 import { isFalsy } from "@coven/predicates";
 import { assert, assertFalse } from "@std/assert";
 
@@ -19,14 +20,14 @@ Deno.test("Falsies", () =>
 			isFalsy(+0) &&
 			isFalsy(NaN) &&
 			// String
-			isFalsy("") &&
+			isFalsy(EMPTY_STRING) &&
 			isFalsy(``),
 	));
 
 Deno.test("Truthy", () =>
 	assertFalse(
 		// Array
-		isFalsy([]) ||
+		isFalsy(EMPTY_ARRAY) ||
 			// AsyncIterator
 			isFalsy((async function* (): AsyncGenerator {})()) ||
 			// BigInt
@@ -51,7 +52,7 @@ Deno.test("Truthy", () =>
 			isFalsy(13) ||
 			isFalsy(Infinity) ||
 			// Object
-			isFalsy({}) ||
+			isFalsy(EMPTY_OBJECT) ||
 			isFalsy(Object.create(null)) ||
 			// Promise
 			isFalsy(Promise.resolve()) ||

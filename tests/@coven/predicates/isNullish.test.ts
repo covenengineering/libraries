@@ -1,3 +1,4 @@
+import { EMPTY_ARRAY, EMPTY_OBJECT } from "@coven/constants";
 import { isNullish } from "@coven/predicates";
 import { assert, assertFalse } from "@std/assert";
 
@@ -6,7 +7,7 @@ Deno.test("Nullish", () => assert(isNullish(null) && isNullish(undefined)));
 Deno.test("Other types", () =>
 	assertFalse(
 		// Array
-		isNullish([]) ||
+		isNullish(EMPTY_ARRAY) ||
 			// AsyncIterator
 			isNullish((async function* (): AsyncGenerator {})()) ||
 			// BigInt
@@ -34,7 +35,7 @@ Deno.test("Other types", () =>
 			isNullish(Infinity) ||
 			isNullish(NaN) ||
 			// Object
-			isNullish({}) ||
+			isNullish(EMPTY_OBJECT) ||
 			isNullish(Object.create(null)) ||
 			// Promise
 			isNullish(Promise.resolve()) ||

@@ -1,3 +1,4 @@
+import { EMPTY_ARRAY, EMPTY_OBJECT } from "@coven/constants";
 import { emit } from "@simulcast/core";
 import { assert, assertStrictEquals } from "@std/assert";
 
@@ -16,9 +17,12 @@ Deno.test("emit with listeners calls the listeners", () => {
 
 Deno.test("emit without listeners does nothing", () =>
 	assertStrictEquals(
-		emit<TestRegistry>({ [TEST_EVENT]: [] })(TEST_EVENT)(),
+		emit<TestRegistry>({ [TEST_EVENT]: EMPTY_ARRAY })(TEST_EVENT)(),
 		undefined,
 	));
 
 Deno.test("emit without an event does nothing", () =>
-	assertStrictEquals(emit<TestRegistry>({})(TEST_EVENT)(), undefined));
+	assertStrictEquals(
+		emit<TestRegistry>(EMPTY_OBJECT)(TEST_EVENT)(),
+		undefined,
+	));

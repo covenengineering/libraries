@@ -1,3 +1,4 @@
+import { EMPTY_ARRAY } from "@coven/constants";
 import { intersperse, iterableToArray, range } from "@coven/iterables";
 import { assertEquals } from "@std/assert";
 
@@ -23,8 +24,11 @@ Deno.test("an iterable returns interspersed items", () =>
 	]));
 
 Deno.test("an empty array returns empty iterable", () =>
-	assertEquals(iterableToArray(commaIntersperse([])), []));
+	assertEquals(iterableToArray(commaIntersperse(EMPTY_ARRAY)), EMPTY_ARRAY));
 
 Deno.test("an empty iterable returns empty iterable", () =>
-	// deno-lint-ignore no-undef
-	assertEquals(iterableToArray(commaIntersperse(Iterator.from([]))), []));
+	assertEquals(
+		// deno-lint-ignore no-undef
+		iterableToArray(commaIntersperse(Iterator.from(EMPTY_ARRAY))),
+		EMPTY_ARRAY,
+	));

@@ -1,3 +1,4 @@
+import { EMPTY_ARRAY, EMPTY_OBJECT } from "@coven/constants";
 import { isDate } from "@coven/predicates";
 import { assert, assertFalse } from "@std/assert";
 
@@ -6,7 +7,7 @@ Deno.test("Date", () => assert(isDate(new Date())));
 Deno.test("Other types", () =>
 	assertFalse(
 		// Array
-		isDate([]) ||
+		isDate(EMPTY_ARRAY) ||
 			// AsyncIterator
 			isDate((async function* (): AsyncGenerator {})()) ||
 			// BigInt
@@ -34,7 +35,7 @@ Deno.test("Other types", () =>
 			isDate(Infinity) ||
 			isDate(NaN) ||
 			// Object
-			isDate({}) ||
+			isDate(EMPTY_OBJECT) ||
 			isDate(Object.create(null)) ||
 			// Promise
 			isDate(Promise.resolve()) ||

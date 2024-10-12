@@ -1,4 +1,9 @@
-import type { ReadonlyArray, Stringable, StringJoin } from "@coven/types";
+import type {
+	EmptyString,
+	ReadonlyArray,
+	Stringable,
+	StringJoin,
+} from "@coven/types";
 import { START } from "./constants.ts";
 import { set } from "./set.ts";
 
@@ -7,4 +12,4 @@ import { set } from "./set.ts";
  */
 export const notSet = <const Tokens extends ReadonlyArray<Stringable>>(
 	...tokens: Tokens
-): `[${StringJoin<["^", ...Tokens], "">}]` => set(START, ...tokens);
+): `[${StringJoin<["^", ...Tokens], EmptyString>}]` => set(START, ...tokens);

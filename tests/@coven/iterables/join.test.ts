@@ -1,3 +1,4 @@
+import { EMPTY_ARRAY, EMPTY_STRING } from "@coven/constants";
 import { join } from "@coven/iterables";
 import { assertEquals } from "@std/assert";
 
@@ -14,15 +15,18 @@ Deno.test(
 );
 
 Deno.test("an empty array returns empty string", () =>
-	assertEquals(spaceJoin([]), ""));
+	assertEquals(spaceJoin(EMPTY_ARRAY), EMPTY_STRING));
 
 Deno.test("an empty iterable returns empty string", () =>
 	// deno-lint-ignore no-undef
-	assertEquals(spaceJoin(Iterator.from([])), ""));
+	assertEquals(spaceJoin(Iterator.from(EMPTY_ARRAY)), EMPTY_STRING));
 
 Deno.test("an iterable with empty strings returns spaces for each value", () =>
-	// deno-lint-ignore no-undef
-	assertEquals(spaceJoin(Iterator.from(["", "", ""])), "  "));
+	assertEquals(
+		// deno-lint-ignore no-undef
+		spaceJoin(Iterator.from([EMPTY_STRING, EMPTY_STRING, EMPTY_STRING])),
+		"  ",
+	));
 
 Deno.test(
 	"an iterable with undefined values returns empty stringified undefined values",

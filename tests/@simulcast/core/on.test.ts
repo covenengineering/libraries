@@ -1,3 +1,4 @@
+import { EMPTY_ARRAY } from "@coven/constants";
 import { forEach } from "@coven/iterables";
 import { applyTo } from "@coven/utils";
 import { type EventListener, type EventRegistry, on } from "@simulcast/core";
@@ -5,11 +6,11 @@ import { assert, assertStrictEquals } from "@std/assert";
 
 const TEST_EVENT = "test";
 
-const registry: EventRegistry<{ [TEST_EVENT]: never }> = {};
+const registry: EventRegistry<{ [TEST_EVENT]: never }> = Object.create(null);
 
 const manualEmit = () =>
 	forEach<EventListener<never>>(applyTo(undefined))(
-		registry[TEST_EVENT] ?? [],
+		registry[TEST_EVENT] ?? EMPTY_ARRAY,
 	);
 
 const onTestEvent = on(registry)(TEST_EVENT);

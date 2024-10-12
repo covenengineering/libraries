@@ -1,3 +1,4 @@
+import { EMPTY_ARRAY } from "@coven/constants";
 import { drop, iterableToArray } from "@coven/iterables";
 import { assertEquals } from "@std/assert";
 
@@ -21,5 +22,5 @@ Deno.test(
 
 Deno.test(
 	"an iterable of numbers and a drop all function returns empty iterable",
-	() => assertEquals(iterableToArray(dropAll([0, 1, 2, 3, 4])), []),
+	() => assertEquals(iterableToArray(dropAll([0, 1, 2, 3, 4])), EMPTY_ARRAY),
 );

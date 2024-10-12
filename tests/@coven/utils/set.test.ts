@@ -1,3 +1,4 @@
+import { EMPTY_OBJECT } from "@coven/constants";
 import { set } from "@coven/utils";
 import { assertEquals } from "@std/assert";
 
@@ -12,7 +13,7 @@ Deno.test(
 
 Deno.test(
 	"Setter and an object without that property on it returns object with new property",
-	() => assertEquals(setWitch({}), { "🧙🏻‍♀️": true }),
+	() => assertEquals(setWitch(EMPTY_OBJECT), { "🧙🏻‍♀️": true }),
 );
 
 Deno.test("Setter doesn't mutate original object", () =>

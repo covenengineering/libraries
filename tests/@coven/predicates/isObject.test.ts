@@ -1,10 +1,11 @@
+import { EMPTY_ARRAY, EMPTY_OBJECT } from "@coven/constants";
 import { isObject } from "@coven/predicates";
 import { assert, assertFalse } from "@std/assert";
 
 Deno.test("Objects", () =>
 	assert(
 		// Array
-		isObject([]) &&
+		isObject(EMPTY_ARRAY) &&
 			// AsyncIterator
 			isObject((async function* (): AsyncGenerator {})()) &&
 			// Date
@@ -17,7 +18,7 @@ Deno.test("Objects", () =>
 			isObject(/expression/u) &&
 			isObject(new RegExp("expression", "u")) &&
 			// Object
-			isObject({}) &&
+			isObject(EMPTY_OBJECT) &&
 			isObject(Object.create(null)),
 	));
 

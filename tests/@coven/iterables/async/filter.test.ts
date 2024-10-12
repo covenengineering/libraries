@@ -1,3 +1,4 @@
+import { EMPTY_ARRAY } from "@coven/constants";
 import { filter, iterableToArray, toIterable } from "@coven/iterables/async";
 import { assertEquals } from "@std/assert";
 
@@ -10,7 +11,10 @@ const filterOdds = filter(isEven);
 Deno.test(
 	"Array of numbers and an always false filter returns an empty array",
 	async () =>
-		assertEquals(await iterableToArray(filterEverything(array)), []),
+		assertEquals(
+			await iterableToArray(filterEverything(array)),
+			EMPTY_ARRAY,
+		),
 );
 
 Deno.test(

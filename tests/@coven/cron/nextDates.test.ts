@@ -1,3 +1,4 @@
+import { EMPTY_ARRAY } from "@coven/constants";
 import { nextDates } from "@coven/cron";
 import { iterableToArray, take } from "@coven/iterables";
 import { assertEquals } from "@std/assert";
@@ -41,13 +42,22 @@ Deno.test("5 10-13 * * * give a new date on minute 5 of hours 10 to 13 of each d
 	));
 
 Deno.test("* * 31 2 * return nothing because it's an invalid date", () =>
-	assertEquals(iterableToArray(take(5)(testDate("* * 31 2 *"))), []));
+	assertEquals(
+		iterableToArray(take(5)(testDate("* * 31 2 *"))),
+		EMPTY_ARRAY,
+	));
 
 Deno.test("* * 30,31 2 * return nothing because it's an invalid date", () =>
-	assertEquals(iterableToArray(take(5)(testDate("* * 30,31 2 *"))), []));
+	assertEquals(
+		iterableToArray(take(5)(testDate("* * 30,31 2 *"))),
+		EMPTY_ARRAY,
+	));
 
 Deno.test("* * 30,31 2 * return nothing because it's an invalid date", () =>
-	assertEquals(iterableToArray(take(5)(testDate("* * 30,31 2 *"))), []));
+	assertEquals(
+		iterableToArray(take(5)(testDate("* * 30,31 2 *"))),
+		EMPTY_ARRAY,
+	));
 
 Deno.test("* * 29,30,31 2 * return only 29 of february dates skip the invalid ones", () =>
 	assertEquals(
@@ -102,7 +112,7 @@ Deno.test("5 10-13 * * * as object give a new date on minute 5 of hours 10 to 13
 Deno.test("* * 31 2 * as object return nothing because it's an invalid date", () =>
 	assertEquals(
 		iterableToArray(take(5)(testDate({ dayOfMonth: 31, month: 2 }))),
-		[],
+		EMPTY_ARRAY,
 	));
 
 Deno.test("* * 29,30,31 2 * as object return only 29 of february dates skip the invalid ones", () =>

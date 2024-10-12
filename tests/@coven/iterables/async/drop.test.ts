@@ -1,3 +1,4 @@
+import { EMPTY_ARRAY } from "@coven/constants";
 import { drop, iterableToArray, toIterable } from "@coven/iterables/async";
 import { assertEquals } from "@std/assert";
 
@@ -28,6 +29,6 @@ Deno.test(
 	async () =>
 		assertEquals(
 			await iterableToArray(dropAll(toIterable([0, 1, 2, 3, 4]))),
-			[],
+			EMPTY_ARRAY,
 		),
 );

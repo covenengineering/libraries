@@ -1,10 +1,11 @@
+import { EMPTY_ARRAY, EMPTY_OBJECT } from "@coven/constants";
 import { iterableToArray, objectToEntries } from "@coven/iterables";
 import { assertEquals } from "@std/assert/equals";
 
 const symbol = Symbol("🟩");
 
 Deno.test("an empty object returns an empty array", () =>
-	assertEquals(iterableToArray(objectToEntries({})), []));
+	assertEquals(iterableToArray(objectToEntries(EMPTY_OBJECT)), EMPTY_ARRAY));
 
 Deno.test(
 	"an object with a single property returns an array with a single tuple",

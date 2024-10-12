@@ -1,3 +1,4 @@
+import { EMPTY_ARRAY, EMPTY_OBJECT } from "@coven/constants";
 import { isSymbol } from "@coven/predicates";
 import { assert, assertFalse } from "@std/assert";
 
@@ -11,7 +12,7 @@ Deno.test("Regular expressions", () =>
 Deno.test("Other types", () =>
 	assertFalse(
 		// Array
-		isSymbol([]) ||
+		isSymbol(EMPTY_ARRAY) ||
 			// AsyncIterator
 			isSymbol((async function* (): AsyncGenerator {})()) ||
 			// BigInt
@@ -41,7 +42,7 @@ Deno.test("Other types", () =>
 			isSymbol(Infinity) ||
 			isSymbol(NaN) ||
 			// Object
-			isSymbol({}) ||
+			isSymbol(EMPTY_OBJECT) ||
 			isSymbol(Object.create(null)) ||
 			// Promise
 			isSymbol(Promise.resolve()) ||

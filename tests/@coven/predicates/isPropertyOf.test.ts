@@ -1,3 +1,4 @@
+import { EMPTY_OBJECT } from "@coven/constants";
 import { isPropertyOf } from "@coven/predicates";
 import type { ReadonlyRecord } from "@coven/types";
 import { assert, assertFalse } from "@std/assert";
@@ -34,4 +35,4 @@ Deno.test("Number that doesn't exist in the given object", () =>
 	assertFalse(isPropertyOfObject(missingNumber)));
 
 Deno.test("String property on an empty object", () =>
-	assertFalse(isPropertyOf({} as ReadonlyRecord)(string)));
+	assertFalse(isPropertyOf(EMPTY_OBJECT as ReadonlyRecord)(string)));

@@ -1,3 +1,4 @@
+import { EMPTY_ARRAY } from "@coven/constants";
 import { repeat } from "@coven/iterables";
 import { iterableToArray, zipIndex } from "@coven/iterables/async";
 import { assertEquals } from "@std/assert";
@@ -12,7 +13,7 @@ Deno.test(
 );
 
 Deno.test("an empty array empties iterable", async () =>
-	assertEquals(await iterableToArray(zipIndex([])), []));
+	assertEquals(await iterableToArray(zipIndex(EMPTY_ARRAY)), EMPTY_ARRAY));
 
 Deno.test(
 	"an iterable of strings returns Iterable of tuples with indexes and strings",

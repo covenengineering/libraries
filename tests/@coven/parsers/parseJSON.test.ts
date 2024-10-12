@@ -1,19 +1,20 @@
+import { EMPTY_ARRAY, EMPTY_OBJECT } from "@coven/constants";
 import { parseJSON } from "@coven/parsers";
 import { assertEquals } from "@std/assert";
 
 Deno.test(
 	"JSON with a malicious __proto__ returns object without __proto__",
-	() => assertEquals(parseJSON('{"__proto__":"😈"}'), {}),
+	() => assertEquals(parseJSON('{"__proto__":"😈"}'), EMPTY_OBJECT),
 );
 
 Deno.test("Parsing JSON with an empty object returns empty object", () =>
-	assertEquals(parseJSON("{}"), {}));
+	assertEquals(parseJSON("{}"), EMPTY_OBJECT));
 
 Deno.test("Parsing JSON with an object returns empty object", () =>
 	assertEquals(parseJSON('{"🧙🏻‍♀️":"🎃"}'), { "🧙🏻‍♀️": "🎃" }));
 
 Deno.test("Parsing JSON with an empty array returns empty array", () =>
-	assertEquals(parseJSON("[]"), []));
+	assertEquals(parseJSON("[]"), EMPTY_ARRAY));
 
 Deno.test("Parsing JSON with an array with numbers returns array", () =>
 	assertEquals(parseJSON("[13,42,665]"), [13, 42, 665]));

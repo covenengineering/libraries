@@ -1,7 +1,8 @@
+import { EMPTY_ARRAY, EMPTY_OBJECT } from "@coven/constants";
 import { isArray } from "@coven/predicates";
 import { assert, assertFalse } from "@std/assert";
 
-Deno.test("Array", () => assert(isArray([])));
+Deno.test("Array", () => assert(isArray(EMPTY_ARRAY)));
 
 Deno.test("Other types", () =>
 	assertFalse(
@@ -34,7 +35,7 @@ Deno.test("Other types", () =>
 			isArray(Infinity) ||
 			isArray(NaN) ||
 			// Object
-			isArray({}) ||
+			isArray(EMPTY_OBJECT) ||
 			isArray(Object.create(null)) ||
 			// Promise
 			isArray(Promise.resolve()) ||

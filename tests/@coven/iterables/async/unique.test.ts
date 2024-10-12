@@ -1,3 +1,4 @@
+import { EMPTY_ARRAY } from "@coven/constants";
 import { iterableToArray, unique } from "@coven/iterables/async";
 import { assertEquals } from "@std/assert";
 
@@ -16,4 +17,4 @@ Deno.test("an array without duplicated elements returns same array", async () =>
 	assertEquals(await iterableToArray(unique(array)), array));
 
 Deno.test("an empty array returns same array", async () =>
-	assertEquals(await iterableToArray(unique([])), []));
+	assertEquals(await iterableToArray(unique(EMPTY_ARRAY)), EMPTY_ARRAY));

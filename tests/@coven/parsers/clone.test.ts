@@ -1,15 +1,16 @@
+import { EMPTY_ARRAY, EMPTY_OBJECT } from "@coven/constants";
 import { clone } from "@coven/parsers";
 import type { StructuredData } from "@coven/types";
 import { assertEquals } from "@std/assert";
 
 Deno.test("Cloning empty object returns copy of object", () =>
-	assertEquals(clone({}), {}));
+	assertEquals(clone(EMPTY_OBJECT), EMPTY_OBJECT));
 
 Deno.test("Cloning object with a string returns copy of object", () =>
 	assertEquals(clone({ foo: "bar" }), { foo: "bar" }));
 
 Deno.test("Cloning empty array returns copy of empty array", () =>
-	assertEquals(clone([]), []));
+	assertEquals(clone(EMPTY_ARRAY), EMPTY_ARRAY));
 
 Deno.test("Cloning array with numbers returns copy of array", () =>
 	assertEquals(clone([1, 2, 3]), [1, 2, 3]));

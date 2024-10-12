@@ -1,10 +1,11 @@
+import { EMPTY_ARRAY, EMPTY_OBJECT } from "@coven/constants";
 import { isIterable } from "@coven/predicates";
 import { assert, assertFalse } from "@std/assert";
 
 Deno.test("Iterables", () =>
 	assert(
 		// Array
-		isIterable([]) &&
+		isIterable(EMPTY_ARRAY) &&
 			isIterable((function* (): Generator {})()) &&
 			// String
 			isIterable("string") &&
@@ -40,7 +41,7 @@ Deno.test("Other types", () =>
 			isIterable(Infinity) ||
 			isIterable(NaN) ||
 			// Object
-			isIterable({}) ||
+			isIterable(EMPTY_OBJECT) ||
 			isIterable(Object.create(null)) ||
 			// Promise
 			isIterable(Promise.resolve()) ||

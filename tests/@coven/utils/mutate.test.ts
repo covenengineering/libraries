@@ -1,8 +1,9 @@
+import { EMPTY_OBJECT } from "@coven/constants";
 import { mutate } from "@coven/utils";
-import { assertEquals } from "@std/assert";
+import { assertEquals, assertThrows } from "@std/assert";
 
 const mutateWitch = mutate({ "🧙🏻‍♀️": "🎃" });
-const emptyObject = {};
+const emptyObject = Object.create(null);
 const witchObject = { "🧙🏻‍♀️": "🧙🏻‍♀️" };
 
 Deno.test(
@@ -20,3 +21,6 @@ Deno.test(
 			"🧙🏻‍♀️": "🎃",
 		}),
 );
+
+Deno.test("Mutating a frozen object should throw", () =>
+	void assertThrows(() => mutateWitch(EMPTY_OBJECT)));

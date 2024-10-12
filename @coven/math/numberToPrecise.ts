@@ -1,3 +1,4 @@
+import { EMPTY_STRING } from "@coven/constants";
 import { createPrecise } from "./createPrecise.ts";
 import type { Precise } from "./Precise.ts";
 
@@ -17,7 +18,9 @@ import type { Precise } from "./Precise.ts";
 export const numberToPrecise = (number: number): Precise => {
 	if (Number.isFinite(number)) {
 		const [base = "0", exponent = "0"] = `${number}`.split("e");
-		const [integral = "0", fractional = ""] = `${base}`.split(".");
+		const [integral = "0", fractional = EMPTY_STRING] = `${base}`.split(
+			".",
+		);
 
 		return createPrecise(
 			BigInt(`${integral}${fractional}`),

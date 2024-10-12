@@ -1,3 +1,4 @@
+import { EMPTY_ARRAY, EMPTY_OBJECT } from "@coven/constants";
 import { isBoolean } from "@coven/predicates";
 import { assert, assertFalse } from "@std/assert";
 
@@ -8,7 +9,7 @@ Deno.test("Booleans", () =>
 Deno.test("Other types", () =>
 	assertFalse(
 		// Array
-		isBoolean([]) ||
+		isBoolean(EMPTY_ARRAY) ||
 			// AsyncIterator
 			isBoolean((async function* (): AsyncGenerator {})()) ||
 			// BigInt
@@ -33,7 +34,7 @@ Deno.test("Other types", () =>
 			isBoolean(Infinity) ||
 			isBoolean(NaN) ||
 			// Object
-			isBoolean({}) ||
+			isBoolean(EMPTY_OBJECT) ||
 			isBoolean(Object.create(null)) ||
 			// Promise
 			isBoolean(Promise.resolve()) ||

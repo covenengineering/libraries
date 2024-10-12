@@ -1,3 +1,4 @@
+import { EMPTY_ARRAY, EMPTY_OBJECT } from "@coven/constants";
 import { isPropertyKey } from "@coven/predicates";
 import { assert, assertFalse } from "@std/assert";
 
@@ -19,7 +20,7 @@ Deno.test("Promise", () =>
 Deno.test("Other types", () =>
 	assertFalse(
 		// Array
-		isPropertyKey([]) ||
+		isPropertyKey(EMPTY_ARRAY) ||
 			// AsyncIterator
 			isPropertyKey((async function* (): AsyncGenerator {})()) ||
 			// BigInt
@@ -45,7 +46,7 @@ Deno.test("Other types", () =>
 			// Null
 			isPropertyKey(null) ||
 			// Object
-			isPropertyKey({}) ||
+			isPropertyKey(EMPTY_OBJECT) ||
 			isPropertyKey(Object.create(null)) ||
 			// Promise
 			isPropertyKey(Promise.resolve()) ||

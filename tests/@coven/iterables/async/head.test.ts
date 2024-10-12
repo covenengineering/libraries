@@ -1,3 +1,4 @@
+import { EMPTY_ARRAY } from "@coven/constants";
 import { range } from "@coven/iterables";
 import { drop, head } from "@coven/iterables/async";
 import { assertEquals } from "@std/assert";
@@ -11,7 +12,7 @@ Deno.test("an iterable returns iterable's first element", async () =>
 	assertEquals(await head(range(1)(0)(2)), 0));
 
 Deno.test("an empty array returns undefined", async () =>
-	assertEquals(await head([]), undefined));
+	assertEquals(await head(EMPTY_ARRAY), undefined));
 
 Deno.test("an empty iterable returns undefined", async () =>
 	assertEquals(await head(drop(Infinity)(array)), undefined));

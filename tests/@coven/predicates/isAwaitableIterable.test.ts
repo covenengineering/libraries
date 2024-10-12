@@ -1,10 +1,11 @@
+import { EMPTY_ARRAY, EMPTY_OBJECT } from "@coven/constants";
 import { isAwaitableIterable } from "@coven/predicates";
 import { assert, assertFalse } from "@std/assert";
 
 Deno.test("Awaitable iterables", () =>
 	assert(
 		// Array
-		isAwaitableIterable([]) &&
+		isAwaitableIterable(EMPTY_ARRAY) &&
 			// Generators
 			isAwaitableIterable((async function* (): AsyncGenerator {})()) &&
 			isAwaitableIterable((function* (): Generator {})()) &&
@@ -40,7 +41,7 @@ Deno.test("Other types", () =>
 			isAwaitableIterable(Infinity) ||
 			isAwaitableIterable(NaN) ||
 			// Object
-			isAwaitableIterable({}) ||
+			isAwaitableIterable(EMPTY_OBJECT) ||
 			isAwaitableIterable(Object.create(null)) ||
 			// Promise
 			isAwaitableIterable(Promise.resolve()) ||

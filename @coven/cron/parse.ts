@@ -1,3 +1,4 @@
+import { EMPTY_OBJECT } from "@coven/constants";
 import { build } from "@coven/expression";
 import { entriesToObject, length, objectToEntries } from "@coven/iterables";
 import type { KeyOf, Maybe, ReadonlyRecord } from "@coven/types";
@@ -29,7 +30,10 @@ export const parse = (expression: CronString): Maybe<CronObject> => {
 	const entries = parseFieldTuplesMap(
 		objectToEntries(
 			(build("iu")(cronRegExp).exec(normalizeAliases(expression))
-				?.groups ?? {}) as ReadonlyRecord<KeyOf<CronObject>, string>,
+				?.groups ?? EMPTY_OBJECT) as ReadonlyRecord<
+					KeyOf<CronObject>,
+					string
+				>,
 		),
 	);
 

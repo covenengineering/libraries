@@ -1,3 +1,4 @@
+import { EMPTY_ARRAY, EMPTY_OBJECT } from "@coven/constants";
 import { isNumber } from "@coven/predicates";
 import { assert, assertFalse } from "@std/assert";
 
@@ -7,7 +8,7 @@ Deno.test("Numbers", () =>
 Deno.test("Other types", () =>
 	assertFalse(
 		// Array
-		isNumber([]) ||
+		isNumber(EMPTY_ARRAY) ||
 			// AsyncIterator
 			isNumber((async function* (): AsyncGenerator {})()) ||
 			// BigInt
@@ -33,7 +34,7 @@ Deno.test("Other types", () =>
 			// Null
 			isNumber(null) ||
 			// Object
-			isNumber({}) ||
+			isNumber(EMPTY_OBJECT) ||
 			isNumber(Object.create(null)) ||
 			// Promise
 			isNumber(Promise.resolve()) ||

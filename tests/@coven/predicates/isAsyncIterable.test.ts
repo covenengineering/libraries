@@ -1,3 +1,4 @@
+import { EMPTY_ARRAY, EMPTY_OBJECT } from "@coven/constants";
 import { isAsyncIterable } from "@coven/predicates";
 import { assert, assertFalse } from "@std/assert";
 
@@ -7,7 +8,7 @@ Deno.test("AsyncGenerator", () =>
 Deno.test("Other types", () =>
 	assertFalse(
 		// Array
-		isAsyncIterable([]) ||
+		isAsyncIterable(EMPTY_ARRAY) ||
 			// BigInt
 			isAsyncIterable(BigInt(13)) ||
 			isAsyncIterable(BigInt("13")) ||
@@ -35,7 +36,7 @@ Deno.test("Other types", () =>
 			isAsyncIterable(Infinity) ||
 			isAsyncIterable(NaN) ||
 			// Object
-			isAsyncIterable({}) ||
+			isAsyncIterable(EMPTY_OBJECT) ||
 			isAsyncIterable(Object.create(null)) ||
 			// Promise
 			isAsyncIterable(Promise.resolve()) ||

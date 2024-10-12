@@ -1,3 +1,4 @@
+import { EMPTY_ARRAY, EMPTY_OBJECT } from "@coven/constants";
 import { has } from "@coven/predicates";
 import { assert, assertFalse } from "@std/assert";
 
@@ -10,8 +11,8 @@ const objectWithSymbol = { [witchSymbol]: witchSymbol };
 const objectWithNumber = { [number]: number };
 const arrayWith2Items = [witch, witch];
 const arrayWith1Item = [witch];
-const emptyObject = {};
-const emptyArray = [] as const;
+const emptyObject = EMPTY_OBJECT;
+const emptyArray = EMPTY_ARRAY;
 
 Deno.test("Object with string key when looking for a string key", () =>
 	assert(has(witch)(objectWithString)));

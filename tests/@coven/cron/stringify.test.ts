@@ -1,3 +1,4 @@
+import { EMPTY_OBJECT } from "@coven/constants";
 import { stringify } from "@coven/cron";
 import { assertStrictEquals } from "@std/assert";
 
@@ -122,7 +123,7 @@ Deno.test("all fields set with lists with ranges return object with all properti
 	));
 
 Deno.test("an empty object return all set to *", () =>
-	assertStrictEquals(stringify({}), "* * * * *"));
+	assertStrictEquals(stringify(EMPTY_OBJECT), "* * * * *"));
 
 Deno.test("an only hour set return all set to *", () =>
 	assertStrictEquals(stringify({ hour: 13 }), "* 13 * * *"));

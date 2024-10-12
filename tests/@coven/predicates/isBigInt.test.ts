@@ -1,3 +1,4 @@
+import { EMPTY_ARRAY, EMPTY_OBJECT } from "@coven/constants";
 import { isBigInt } from "@coven/predicates";
 import { assert, assertFalse } from "@std/assert";
 
@@ -7,7 +8,7 @@ Deno.test("BigInts", () =>
 Deno.test("Other types", () =>
 	assertFalse(
 		// Array
-		isBigInt([]) ||
+		isBigInt(EMPTY_ARRAY) ||
 			// AsyncIterator
 			isBigInt((async function* (): AsyncGenerator {})()) ||
 			// Boolean
@@ -33,7 +34,7 @@ Deno.test("Other types", () =>
 			isBigInt(Infinity) ||
 			isBigInt(NaN) ||
 			// Object
-			isBigInt({}) ||
+			isBigInt(EMPTY_OBJECT) ||
 			isBigInt(Object.create(null)) ||
 			// Promise
 			isBigInt(Promise.resolve()) ||

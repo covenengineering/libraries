@@ -1,3 +1,4 @@
+import { EMPTY_ARRAY } from "@coven/constants";
 import { iterableToArray, take } from "@coven/iterables";
 import { assertEquals } from "@std/assert";
 
@@ -17,7 +18,7 @@ Deno.test(
 
 Deno.test(
 	"an array of numbers and a take 0 function returns an empty array",
-	() => assertEquals(iterableToArray(takeNone([0, 1, 2, 3, 4])), []),
+	() => assertEquals(iterableToArray(takeNone([0, 1, 2, 3, 4])), EMPTY_ARRAY),
 );
 
 Deno.test(
@@ -36,5 +37,9 @@ Deno.test(
 
 Deno.test(
 	"an iterable of infinite values and a take(0) returns a no items without hanging",
-	() => assertEquals(iterableToArray(takeNone(infiniteIterable(0))), []),
+	() =>
+		assertEquals(
+			iterableToArray(takeNone(infiniteIterable(0))),
+			EMPTY_ARRAY,
+		),
 );

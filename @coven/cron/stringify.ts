@@ -1,3 +1,4 @@
+import { EMPTY_OBJECT } from "@coven/constants";
 import type { Maybe } from "@coven/types";
 import type { CronObject } from "./CronObject.ts";
 import type { CronString } from "./CronString.ts";
@@ -28,7 +29,7 @@ import { ALL_TOKEN } from "./tokens.ts";
  * @returns Cron string expression.
  */
 export const stringify = (
-	cron: Partial<CronObject> = {},
+	cron: Partial<CronObject> = EMPTY_OBJECT,
 ): Maybe<CronString> => {
 	const expression = fieldNamesTuple
 		.map((name) => stringifyField(cron[name] ?? ALL_TOKEN))

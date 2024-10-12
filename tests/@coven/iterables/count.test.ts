@@ -1,3 +1,4 @@
+import { EMPTY_ARRAY } from "@coven/constants";
 import { count } from "@coven/iterables";
 import { assertEquals } from "@std/assert";
 
@@ -10,7 +11,7 @@ Deno.test(
 );
 
 Deno.test("Empty array and an even counter returns 0", () =>
-	assertEquals(countEvens([]), 0));
+	assertEquals(countEvens(EMPTY_ARRAY), 0));
 
 Deno.test("Array of odd numbers and an even counter returns 0", () =>
 	assertEquals(countEvens([1, 3, 5, 7]), 0));

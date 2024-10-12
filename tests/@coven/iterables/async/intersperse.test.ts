@@ -1,3 +1,4 @@
+import { EMPTY_ARRAY } from "@coven/constants";
 import { range } from "@coven/iterables";
 import {
 	intersperse,
@@ -27,7 +28,13 @@ Deno.test("an iterable returns interspersed items", async () =>
 	]));
 
 Deno.test("an empty array returns empty iterable", async () =>
-	assertEquals(await iterableToArray(commaIntersperse([])), []));
+	assertEquals(
+		await iterableToArray(commaIntersperse(EMPTY_ARRAY)),
+		EMPTY_ARRAY,
+	));
 
 Deno.test("an empty iterable returns empty iterable", async () =>
-	assertEquals(await iterableToArray(commaIntersperse(toIterable([]))), []));
+	assertEquals(
+		await iterableToArray(commaIntersperse(toIterable(EMPTY_ARRAY))),
+		EMPTY_ARRAY,
+	));

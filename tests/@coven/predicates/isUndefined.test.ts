@@ -1,3 +1,4 @@
+import { EMPTY_ARRAY, EMPTY_OBJECT } from "@coven/constants";
 import { isUndefined } from "@coven/predicates";
 import { assert, assertFalse } from "@std/assert";
 
@@ -6,7 +7,7 @@ Deno.test("Undefined", () => assert(isUndefined(undefined)));
 Deno.test("Other types", () =>
 	assertFalse(
 		// Array
-		isUndefined([]) ||
+		isUndefined(EMPTY_ARRAY) ||
 			// AsyncIterator
 			isUndefined((async function* (): AsyncGenerator {})()) ||
 			// BigInt
@@ -36,7 +37,7 @@ Deno.test("Other types", () =>
 			isUndefined(Infinity) ||
 			isUndefined(NaN) ||
 			// Object
-			isUndefined({}) ||
+			isUndefined(EMPTY_OBJECT) ||
 			isUndefined(Object.create(null)) ||
 			// Promise
 			isUndefined(Promise.resolve()) ||

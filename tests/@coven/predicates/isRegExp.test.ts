@@ -1,3 +1,4 @@
+import { EMPTY_ARRAY, EMPTY_OBJECT } from "@coven/constants";
 import { isRegExp } from "@coven/predicates";
 import { assert, assertFalse } from "@std/assert";
 
@@ -7,7 +8,7 @@ Deno.test("Regular expressions", () =>
 Deno.test("Other types", () =>
 	assertFalse(
 		// Array
-		isRegExp([]) ||
+		isRegExp(EMPTY_ARRAY) ||
 			// AsyncIterator
 			isRegExp((async function* (): AsyncGenerator {})()) ||
 			// BigInt
@@ -37,7 +38,7 @@ Deno.test("Other types", () =>
 			isRegExp(Infinity) ||
 			isRegExp(NaN) ||
 			// Object
-			isRegExp({}) ||
+			isRegExp(EMPTY_OBJECT) ||
 			isRegExp(Object.create(null)) ||
 			// Promise
 			isRegExp(Promise.resolve()) ||

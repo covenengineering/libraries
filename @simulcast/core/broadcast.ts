@@ -22,7 +22,7 @@ import { on } from "./on.ts";
  * @returns Object with `emit` and `on` functions.
  */
 export const broadcast = <Events extends EventTypeDictionary>(
-	eventRegistry: EventRegistry<Events> = {},
+	eventRegistry: EventRegistry<Events> = Object.create(null),
 ): BroadcastObject<Events> => ({
 	emit: emit(eventRegistry),
 	on: on(eventRegistry),

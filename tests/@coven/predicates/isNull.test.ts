@@ -1,3 +1,4 @@
+import { EMPTY_ARRAY, EMPTY_OBJECT } from "@coven/constants";
 import { isNull } from "@coven/predicates";
 import { assert, assertFalse } from "@std/assert";
 
@@ -6,7 +7,7 @@ Deno.test("Null", () => assert(isNull(null)));
 Deno.test("Other types", () =>
 	assertFalse(
 		// Array
-		isNull([]) ||
+		isNull(EMPTY_ARRAY) ||
 			// AsyncIterator
 			isNull((async function* (): AsyncGenerator {})()) ||
 			// BigInt
@@ -34,7 +35,7 @@ Deno.test("Other types", () =>
 			isNull(Infinity) ||
 			isNull(NaN) ||
 			// Object
-			isNull({}) ||
+			isNull(EMPTY_OBJECT) ||
 			isNull(Object.create(null)) ||
 			// Promise
 			isNull(Promise.resolve()) ||

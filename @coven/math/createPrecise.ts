@@ -1,4 +1,4 @@
-import { EMPTY_ARRAY } from "@coven/constants";
+import { EMPTY_ARRAY, EMPTY_STRING } from "@coven/constants";
 import { isBigInt } from "@coven/predicates";
 import type { MaybeInfinity } from "./MaybeInfinity.ts";
 import type { Precise } from "./Precise.ts";
@@ -23,7 +23,7 @@ export const createPrecise: {
 } = (base: MaybeInfinity, exponent = 0n): Precise => {
 	if (isBigInt(base)) {
 		const stringBase = `${base}`;
-		const normalizedBase = stringBase.replace(/0+$/u, "");
+		const normalizedBase = stringBase.replace(/0+$/u, EMPTY_STRING);
 		const normalizedExponent =
 			BigInt(stringBase.length - normalizedBase.length) +
 			(exponent as bigint);

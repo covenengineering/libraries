@@ -1,3 +1,4 @@
+import { EMPTY_ARRAY, EMPTY_OBJECT } from "@coven/constants";
 import { isFunction } from "@coven/predicates";
 import { assert, assertFalse } from "@std/assert";
 
@@ -14,7 +15,7 @@ Deno.test("Functions", () =>
 Deno.test("Other types", () =>
 	assertFalse(
 		// Array
-		isFunction([]) ||
+		isFunction(EMPTY_ARRAY) ||
 			// AsyncIterator
 			isFunction((async function* (): AsyncGenerator {})()) ||
 			// BigInt
@@ -49,7 +50,7 @@ Deno.test("Other types", () =>
 			isFunction(Symbol()) ||
 			isFunction(Symbol.iterator) ||
 			// Object
-			isFunction({}) ||
+			isFunction(EMPTY_OBJECT) ||
 			isFunction(Object.create(null)) ||
 			// Undefined
 			isFunction(undefined),

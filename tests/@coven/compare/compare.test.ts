@@ -7,18 +7,18 @@ import {
 	RIGHT,
 	UPDATE,
 } from "@coven/compare";
+import { EMPTY_ARRAY, EMPTY_OBJECT } from "@coven/constants";
 import { assertEquals } from "@std/assert";
 import { _compare } from "./utils.ts";
 
 const property1 = "property1";
 const property2 = "property2";
-const object = {};
 
 Deno.test("Comparing same string yields nothing", () =>
-	assertEquals(_compare("witch")("witch"), []));
+	assertEquals(_compare("witch")("witch"), EMPTY_ARRAY));
 
 Deno.test("Comparing same object yields nothing", () =>
-	assertEquals(_compare(object)(object), []));
+	assertEquals(_compare(EMPTY_OBJECT)(EMPTY_OBJECT), EMPTY_ARRAY));
 
 Deno.test("Comparing different string yields `UpdateDifference`", () =>
 	assertEquals(_compare("witch")("cat"), [
@@ -30,7 +30,7 @@ Deno.test("Comparing different string yields `UpdateDifference`", () =>
 	]));
 
 Deno.test("Comparing equal arrays yields nothing", () =>
-	assertEquals(_compare(["witch"])(["witch"]), []));
+	assertEquals(_compare(["witch"])(["witch"]), EMPTY_ARRAY));
 
 Deno.test("Comparing different arrays yields `UpdateDifference`", () =>
 	assertEquals(_compare(["witch"])(["cat"]), [
@@ -45,7 +45,7 @@ Deno.test("Comparing different arrays yields `UpdateDifference`", () =>
 Deno.test("Comparing equal objects yields nothing", () =>
 	assertEquals(
 		_compare({ [property1]: "witch" })({ [property1]: "witch" }),
-		[],
+		EMPTY_ARRAY,
 	));
 
 Deno.test(
@@ -100,17 +100,17 @@ Deno.test("Comparing array with less items yields `DeleteDifference`", () =>
 	));
 
 Deno.test("Comparing equal Date objects yields nothing", () =>
-	assertEquals(_compare(new Date(0))(new Date(0)), []));
+	assertEquals(_compare(new Date(0))(new Date(0)), EMPTY_ARRAY));
 
 Deno.test("Comparing equal RegExp objects yields nothing", () =>
-	assertEquals(_compare(/coven/gu)(/coven/gu), []));
+	assertEquals(_compare(/coven/gu)(/coven/gu), EMPTY_ARRAY));
 
 Deno.test("Comparing equal URL objects yields nothing", () =>
 	assertEquals(
 		_compare(new URL("https://coven.engineering"))(
 			new URL("https://coven.engineering"),
 		),
-		[],
+		EMPTY_ARRAY,
 	));
 
 Deno.test("Comparing equal `Error` objects yields nothing", () =>
@@ -118,26 +118,29 @@ Deno.test("Comparing equal `Error` objects yields nothing", () =>
 		_compare(Object.assign(new Error("witch"), { stack: "test" }))(
 			Object.assign(new Error("witch"), { stack: "test" }),
 		),
-		[],
+		EMPTY_ARRAY,
 	));
 
 Deno.test("Comparing equal `Map` objects yields nothing", () =>
 	assertEquals(
 		_compare(new Map([["coven", "witch"]]))(new Map([["coven", "witch"]])),
-		[],
+		EMPTY_ARRAY,
 	));
 
 Deno.test("Comparing equal `Set` objects yields nothing", () =>
-	assertEquals(_compare(new Set(["witch"]))(new Set(["witch"])), []));
+	assertEquals(
+		_compare(new Set(["witch"]))(new Set(["witch"])),
+		EMPTY_ARRAY,
+	));
 
 Deno.test(
 	"Comparing left `null` and right object yields `UpdateDifference`",
 	() =>
-		assertEquals(_compare(null)({}), [
+		assertEquals(_compare(null)(EMPTY_OBJECT), [
 			{
 				[KIND]: UPDATE,
 				[LEFT]: null,
-				[RIGHT]: {},
+				[RIGHT]: EMPTY_OBJECT,
 			},
 		]),
 );
@@ -145,8 +148,8 @@ Deno.test(
 Deno.test(
 	"Comparing right `null` and left object yields `UpdateDifference`",
 	() =>
-		assertEquals(_compare({})(null), [
-			{ [KIND]: UPDATE, [LEFT]: {}, [RIGHT]: null },
+		assertEquals(_compare(EMPTY_OBJECT)(null), [
+			{ [KIND]: UPDATE, [LEFT]: EMPTY_OBJECT, [RIGHT]: null },
 		]),
 );
 

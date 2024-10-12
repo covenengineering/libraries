@@ -1,3 +1,4 @@
+import { EMPTY_ARRAY, EMPTY_STRING } from "@coven/constants";
 import { join, toIterable } from "@coven/iterables/async";
 import { assertEquals } from "@std/assert";
 
@@ -15,14 +16,20 @@ Deno.test(
 );
 
 Deno.test("an empty array returns empty string", async () =>
-	assertEquals(await spaceJoin([]), ""));
+	assertEquals(await spaceJoin(EMPTY_ARRAY), EMPTY_STRING));
 
 Deno.test("an empty iterable returns empty string", async () =>
-	assertEquals(await spaceJoin(toIterable([])), ""));
+	assertEquals(await spaceJoin(toIterable(EMPTY_ARRAY)), EMPTY_STRING));
 
 Deno.test(
 	"an iterable with empty strings returns spaces for each value",
-	async () => assertEquals(await spaceJoin(toIterable(["", "", ""])), "  "),
+	async () =>
+		assertEquals(
+			await spaceJoin(
+				toIterable([EMPTY_STRING, EMPTY_STRING, EMPTY_STRING]),
+			),
+			"  ",
+		),
 );
 
 Deno.test(
