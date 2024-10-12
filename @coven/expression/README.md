@@ -5,6 +5,16 @@
 
 🧙🏻‍♀️ Magically build regular expressions.
 
+It is really easy to mess big regular expressions by forgetting some character.
+So, instead of using plain strings, `@coven/expression` provides a set of
+functions and constants strongly typed, so the type is already a hardcoded
+string that reflects the regular expression being built, while giving an API
+that's easier to read and maintain.
+
+As all [Coven Engineering](https://coven.engineering) libraries, it has 100%
+test coverage and it's built in top of modern tech compatible with all
+JavaScript runtimes.
+
 ## Example
 
 ```typescript
