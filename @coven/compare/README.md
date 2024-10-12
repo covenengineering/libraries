@@ -18,7 +18,9 @@ with all the differences between said values. The differences are represented by
 ```typescript
 import { compare } from "@coven/compare";
 
-compare("Coven", "Engineering"); // Yields { kind: "UPDATE", left: "Coven", right: "Engineering" }
+compare("Coven")("Engineering"); // Yields { kind: "UPDATE", left: "Coven", right: "Engineering" }
+compare({ example: 13 })({ example: 42 }); // Yields { kind: "UPDATE", left: "13", right: "42", path: ["example"] }
+compare({ example: 13 })({}); // Yields { kind: "DELETE", left: "13", path: ["example"] }
 ```
 
 ## Other links
