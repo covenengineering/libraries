@@ -23,4 +23,4 @@ libraries:
 - 📚 [`@coven/types`](https://jsr.io/@coven/types) — Arcane types codex.
 - 🪄 [`@coven/utils`](https://jsr.io/@coven/utils) — Utility spells.
 - 🔮 [`@simulcast/core`](https://jsr.io/@simulcast/core) — Communicate across
-  framework like magic.
+  frameworks like magic.

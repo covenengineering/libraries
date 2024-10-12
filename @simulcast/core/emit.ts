@@ -45,18 +45,6 @@ export const emit = <Events extends EventTypeDictionary>(
 	) => Just<EventRegistry<Events>[Event]>;
 	const hasEvent = has(event);
 
-	/**
-	 * Emits the `event` in context of the `eventRegistry` in context.
-	 *
-	 * @example
-	 * ```typescript
-	 * const eventRegistry = {};
-	 * const emitRegistry = emit(eventRegistry);
-	 * const emitEvent = emitRegistry("event");
-	 * emitEvent("data"); // 👈🏻 You are here
-	 * ```
-	 * @param data Data to pass to the listeners.
-	 */
 	return ((data) =>
 		hasEvent(eventRegistry)
 			? forEach<EventListener<typeof data>>(applyTo(data))(

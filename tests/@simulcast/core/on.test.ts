@@ -15,7 +15,7 @@ const manualEmit = () =>
 
 const onTestEvent = on(registry)(TEST_EVENT);
 
-Deno.test("on handler that's called manually calls the listener", () => {
+Deno.test("On handler that's called manually calls the listener", () => {
 	let called = false;
 
 	onTestEvent(() => (called = true));
@@ -25,7 +25,7 @@ Deno.test("on handler that's called manually calls the listener", () => {
 });
 
 Deno.test(
-	"on handler that's called manually twice, then unregistered calls the listener twice, then stop calling it",
+	"On handler that's called manually twice, then unregistered calls the listener twice, then stop calling it",
 	() => {
 		let count = 0;
 		const off = onTestEvent(() => (count += 1));

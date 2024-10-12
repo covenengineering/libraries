@@ -11,7 +11,7 @@ const { emit, on } = broadcast<TestRegistry>();
 const onTestEvent = on(TEST_EVENT);
 const emitTestEvent = emit(TEST_EVENT);
 
-Deno.test("emit with listeners calls the listeners", () => {
+Deno.test("Emit with listeners calls the listeners", () => {
 	let called = false;
 	onTestEvent(() => (called = true));
 	emitTestEvent();
@@ -20,7 +20,7 @@ Deno.test("emit with listeners calls the listeners", () => {
 	// wanted: () => true,
 });
 
-Deno.test("on handler that's called manually twice, then unregistered calls the listener twice, then stop calling it", () => {
+Deno.test("On handler that's called manually twice, then unregistered calls the listener twice, then stop calling it", () => {
 	let count = 0;
 	const off = onTestEvent(() => (count += 1));
 	emitTestEvent();

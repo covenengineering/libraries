@@ -6,7 +6,7 @@ const TEST_EVENT = "test";
 
 type TestRegistry = { [TEST_EVENT]: never };
 
-Deno.test("emit with listeners calls the listeners", () => {
+Deno.test("Emit with listeners calls the listeners", () => {
 	let called = false;
 	emit<TestRegistry>({
 		[TEST_EVENT]: [() => (called = true)].values(),
@@ -15,7 +15,7 @@ Deno.test("emit with listeners calls the listeners", () => {
 	assert(called);
 });
 
-Deno.test("emit without listeners does nothing", () =>
+Deno.test("Emit without listeners does nothing", () =>
 	assertStrictEquals(
 		emit<TestRegistry>({ [TEST_EVENT]: EMPTY_ARRAY.values() })(
 			TEST_EVENT,
@@ -23,7 +23,7 @@ Deno.test("emit without listeners does nothing", () =>
 		undefined,
 	));
 
-Deno.test("emit without an event does nothing", () =>
+Deno.test("Emit without an event does nothing", () =>
 	assertStrictEquals(
 		emit<TestRegistry>(EMPTY_OBJECT)(TEST_EVENT)(),
 		undefined,

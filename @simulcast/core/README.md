@@ -3,7 +3,18 @@
 [![JSR](https://jsr.io/badges/@simulcast/core)](https://jsr.io/@simulcast/core)
 [![JSR Score](https://jsr.io/badges/@simulcast/core/score)](https://jsr.io/@simulcast/core/score)
 
-🔮 Communicate across framework like magic.
+🔮 Communicate across frameworks like magic.
+
+This library is an extremely minimal pub-sub implementation that uses iterables
+to make the dispatched events as responsive as possible for users.
+
+The library can be used directly, or through some of the framework specific
+wrappers like `@simulcast/react`. Because it uses really simple structures, it
+can be consumed from pretty much any place that supports JavaScript.
+
+As all [Coven Engineering](https://coven.engineering) libraries, it has 100%
+test coverage and it's built in top of modern tech compatible with all
+JavaScript runtimes.
 
 ## Example
 
