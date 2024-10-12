@@ -1,6 +1,8 @@
 <img src="./logo.svg" height="96" />
 
-[![Coverage Status](https://coveralls.io/repos/github/covenengineering/libraries/badge.svg?branch=main)](https://coveralls.io/github/covenengineering/libraries?branch=main)
+[![Coverage Status](https://img.shields.io/coverallsCoverage/github/covenengineering/libraries?style=for-the-badge&logo=Coveralls&label=Coverage&labelColor=%23354a57&color=%23c87)](https://coveralls.io/github/covenengineering/libraries?branch=main)
+[![GitHub Issues or Pull Requests](https://img.shields.io/github/issues/covenengineering/libraries?style=for-the-badge&logo=GitHub&label=Open%20Issues&labelColor=%23000&color=%23c87)](https://github.com/covenengineering/libraries/issues/)
+[![GitHub repository size](https://img.shields.io/github/repo-size/covenengineering/libraries?style=for-the-badge&logo=GitHub&label=Repository%20Size&labelColor=%23000&color=%23c87)](https://github.com/covenengineering/libraries/)
 
 Monorepo of all the [Coven Engineering](https://coven.engineering) JSR
 libraries:
