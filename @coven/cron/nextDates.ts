@@ -1,5 +1,5 @@
 import { EMPTY_STRING } from "@coven/constants";
-import { build, DIGIT, escape, quantity } from "@coven/expression";
+import { buildUnicode, DIGIT, escape, join, quantity } from "@coven/expression";
 import { iteratorFunctionToIterableIterator } from "@coven/iterables";
 import { isString, isUndefined } from "@coven/predicates";
 import type { CronObject } from "./CronObject.ts";
@@ -7,6 +7,8 @@ import type { CronString } from "./CronString.ts";
 import { dateInCron } from "./dateInCron.ts";
 import { parse } from "./parse.ts";
 import { stringify } from "./stringify.ts";
+
+const dateReplace = join(quantity(2)(DIGIT), escape("."), quantity(3)(DIGIT));
 
 /**
  * Get next ISO date iterator for the given date and the given cron expression.
@@ -36,11 +38,7 @@ export const nextDates = (
 				date
 					.toISOString()
 					.replace(
-						build()(
-							quantity(2)(DIGIT),
-							escape("."),
-							quantity(3)(DIGIT),
-						),
+						buildUnicode(dateReplace),
 						"00.000",
 					),
 			);

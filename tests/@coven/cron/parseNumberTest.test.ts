@@ -1,14 +1,11 @@
 import { parseNumberTest } from "@coven/cron";
-import { assertStrictEquals } from "@std/assert";
+import { assert, assertFalse } from "@std/assert";
 
-Deno.test("a number 10 and a 13 return true", () =>
-	// deno-lint-ignore no-boolean-literal-for-arguments
-	assertStrictEquals(parseNumberTest("13"), true));
+Deno.test("Number 10 and a 13 returns true", () =>
+	assert(parseNumberTest("13")));
 
-Deno.test("ranges with padding zeroes return true", () =>
-	// deno-lint-ignore no-boolean-literal-for-arguments
-	assertStrictEquals(parseNumberTest("05"), true));
+Deno.test("Ranges with padding zeroes returns true", () =>
+	assert(parseNumberTest("05")));
 
-Deno.test("numbers beyond 59 return false", () =>
-	// deno-lint-ignore no-boolean-literal-for-arguments
-	assertStrictEquals(parseNumberTest("60"), false));
+Deno.test("Numbers beyond 59 returns false", () =>
+	assertFalse(parseNumberTest("60")));

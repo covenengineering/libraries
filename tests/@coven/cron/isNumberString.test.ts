@@ -1,10 +1,7 @@
 import { isNumberString } from "@coven/cron";
-import { assertStrictEquals } from "@std/assert";
+import { assert, assertFalse } from "@std/assert";
 
-Deno.test("a string that is a * return false", () =>
-	// deno-lint-ignore no-boolean-literal-for-arguments
-	assertStrictEquals(isNumberString("*"), false));
+Deno.test("String that is a * returns false", () =>
+	assertFalse(isNumberString("*")));
 
-Deno.test("a valid number return true", () =>
-	// deno-lint-ignore no-boolean-literal-for-arguments
-	assertStrictEquals(isNumberString("13"), true));
+Deno.test("Valid number returns true", () => assert(isNumberString("13")));

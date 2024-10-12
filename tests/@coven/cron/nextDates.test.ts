@@ -5,7 +5,7 @@ import { assertEquals } from "@std/assert";
 
 const testDate = nextDates(new Date("1989-10-13T10:15:00.123"));
 
-Deno.test("* * * * * give a new date every minute", () =>
+Deno.test("* * * * * gives a new date every minute", () =>
 	assertEquals(
 		iterableToArray(take(5)(testDate("* * * * *"))),
 		[
@@ -17,7 +17,7 @@ Deno.test("* * * * * give a new date every minute", () =>
 		].map((date) => new Date(date)),
 	));
 
-Deno.test("5 * * * * give a new date on minute 5 of each hour", () =>
+Deno.test("5 * * * * gives a new date on minute 5 of each hour", () =>
 	assertEquals(
 		iterableToArray(take(5)(testDate("5 * * * *"))),
 		[
@@ -29,7 +29,7 @@ Deno.test("5 * * * * give a new date on minute 5 of each hour", () =>
 		].map((date) => new Date(date)),
 	));
 
-Deno.test("5 10-13 * * * give a new date on minute 5 of hours 10 to 13 of each day", () =>
+Deno.test("5 10-13 * * * gives a new date on minute 5 of hours 10 to 13 of each day", () =>
 	assertEquals(
 		iterableToArray(take(5)(testDate("5 10-13 * * *"))),
 		[
@@ -41,25 +41,25 @@ Deno.test("5 10-13 * * * give a new date on minute 5 of hours 10 to 13 of each d
 		].map((date) => new Date(date)),
 	));
 
-Deno.test("* * 31 2 * return nothing because it's an invalid date", () =>
+Deno.test("* * 31 2 * returns nothing because it's an invalid date", () =>
 	assertEquals(
 		iterableToArray(take(5)(testDate("* * 31 2 *"))),
 		EMPTY_ARRAY,
 	));
 
-Deno.test("* * 30,31 2 * return nothing because it's an invalid date", () =>
+Deno.test("* * 30,31 2 * returns nothing because it's an invalid date", () =>
 	assertEquals(
 		iterableToArray(take(5)(testDate("* * 30,31 2 *"))),
 		EMPTY_ARRAY,
 	));
 
-Deno.test("* * 30,31 2 * return nothing because it's an invalid date", () =>
+Deno.test("* * 30,31 2 * returns nothing because it's an invalid date", () =>
 	assertEquals(
 		iterableToArray(take(5)(testDate("* * 30,31 2 *"))),
 		EMPTY_ARRAY,
 	));
 
-Deno.test("* * 29,30,31 2 * return only 29 of february dates skip the invalid ones", () =>
+Deno.test("* * 29,30,31 2 * returns only 29 of february dates skip the invalid ones", () =>
 	assertEquals(
 		iterableToArray(take(5)(testDate("* * 29,30,31 2 *"))),
 		[
@@ -71,7 +71,7 @@ Deno.test("* * 29,30,31 2 * return only 29 of february dates skip the invalid on
 		].map((date) => new Date(date)),
 	));
 
-Deno.test("* * * * * as object give a new date every minute", () =>
+Deno.test("* * * * * as object gives a new date every minute", () =>
 	assertEquals(
 		iterableToArray(take(5)(testDate("* * * * *"))),
 		[
@@ -83,7 +83,7 @@ Deno.test("* * * * * as object give a new date every minute", () =>
 		].map((date) => new Date(date)),
 	));
 
-Deno.test("5 * * * * as object give a new date on minute 5 of each hour", () =>
+Deno.test("5 * * * * as object gives a new date on minute 5 of each hour", () =>
 	assertEquals(
 		iterableToArray(take(5)(testDate({ minute: 5 }))),
 		[
@@ -95,7 +95,7 @@ Deno.test("5 * * * * as object give a new date on minute 5 of each hour", () =>
 		].map((date) => new Date(date)),
 	));
 
-Deno.test("5 10-13 * * * as object give a new date on minute 5 of hours 10 to 13 of each day", () =>
+Deno.test("5 10-13 * * * as object gives a new date on minute 5 of hours 10 to 13 of each day", () =>
 	assertEquals(
 		iterableToArray(
 			take(5)(testDate({ hour: { from: 10, to: 13 }, minute: 5 })),
@@ -109,13 +109,13 @@ Deno.test("5 10-13 * * * as object give a new date on minute 5 of hours 10 to 13
 		].map((date) => new Date(date)),
 	));
 
-Deno.test("* * 31 2 * as object return nothing because it's an invalid date", () =>
+Deno.test("* * 31 2 * as object returns nothing because it's an invalid date", () =>
 	assertEquals(
 		iterableToArray(take(5)(testDate({ dayOfMonth: 31, month: 2 }))),
 		EMPTY_ARRAY,
 	));
 
-Deno.test("* * 29,30,31 2 * as object return only 29 of february dates skip the invalid ones", () =>
+Deno.test("* * 29,30,31 2 * as object returns only 29 of february dates skip the invalid ones", () =>
 	assertEquals(
 		iterableToArray(
 			take(5)(testDate({ dayOfMonth: [29, 30, 31], month: 2 })),

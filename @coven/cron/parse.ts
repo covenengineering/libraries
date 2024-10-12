@@ -8,6 +8,8 @@ import { cronRegExp } from "./cronRegExp.ts";
 import { normalizeAliases } from "./normalizeAliases.ts";
 import { parseFieldTuplesMap } from "./parseFieldTuplesMap.ts";
 
+const buildIU = build("iu");
+
 /**
  * Parses a cron expression into an object representation.
  *
@@ -29,7 +31,7 @@ import { parseFieldTuplesMap } from "./parseFieldTuplesMap.ts";
 export const parse = (expression: CronString): Maybe<CronObject> => {
 	const entries = parseFieldTuplesMap(
 		objectToEntries(
-			(build("iu")(cronRegExp).exec(normalizeAliases(expression))
+			(buildIU(cronRegExp).exec(normalizeAliases(expression))
 				?.groups ?? EMPTY_OBJECT) as ReadonlyRecord<
 					KeyOf<CronObject>,
 					string

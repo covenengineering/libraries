@@ -2,7 +2,7 @@ import { EMPTY_OBJECT } from "@coven/constants";
 import { stringify } from "@coven/cron";
 import { assertStrictEquals } from "@std/assert";
 
-Deno.test("a * token for all fields return object with all properties set to *", () =>
+Deno.test("* token for all fields returns object with all properties set to *", () =>
 	assertStrictEquals(
 		stringify({
 			dayOfMonth: "*",
@@ -14,7 +14,7 @@ Deno.test("a * token for all fields return object with all properties set to *",
 		"* * * * *",
 	));
 
-Deno.test("a * token for all fields except minute return object with all properties set to * except minute", () =>
+Deno.test("* token for all fields except minute returns object with all properties set to * except minute", () =>
 	assertStrictEquals(
 		stringify({
 			dayOfMonth: "*",
@@ -26,7 +26,7 @@ Deno.test("a * token for all fields except minute return object with all propert
 		"13 * * * *",
 	));
 
-Deno.test("a * token for all fields except hour return object with all properties set to * except hour", () =>
+Deno.test("* token for all fields except hour returns object with all properties set to * except hour", () =>
 	assertStrictEquals(
 		stringify({
 			dayOfMonth: "*",
@@ -38,7 +38,7 @@ Deno.test("a * token for all fields except hour return object with all propertie
 		"* 13 * * *",
 	));
 
-Deno.test("a * token for all fields except dayOfMonth return object with all properties set to * except dayOfMonth", () =>
+Deno.test("* token for all fields except dayOfMonth returns object with all properties set to * except dayOfMonth", () =>
 	assertStrictEquals(
 		stringify({
 			dayOfMonth: 13,
@@ -50,7 +50,7 @@ Deno.test("a * token for all fields except dayOfMonth return object with all pro
 		"* * 13 * *",
 	));
 
-Deno.test("a * token for all fields except month return object with all properties set to * except month", () =>
+Deno.test("* token for all fields except month returns object with all properties set to * except month", () =>
 	assertStrictEquals(
 		stringify({
 			dayOfMonth: "*",
@@ -62,7 +62,7 @@ Deno.test("a * token for all fields except month return object with all properti
 		"* * * 10 *",
 	));
 
-Deno.test("a * token for all fields except dayOfWeek return object with all properties set to * except dayOfWeek", () =>
+Deno.test("* token for all fields except dayOfWeek returns object with all properties set to * except dayOfWeek", () =>
 	assertStrictEquals(
 		stringify({
 			dayOfMonth: "*",
@@ -74,7 +74,7 @@ Deno.test("a * token for all fields except dayOfWeek return object with all prop
 		"* * * * 5",
 	));
 
-Deno.test("all fields set return object with all properties set", () =>
+Deno.test("All fields set returns object with all properties set", () =>
 	assertStrictEquals(
 		stringify({
 			dayOfMonth: 13,
@@ -86,7 +86,7 @@ Deno.test("all fields set return object with all properties set", () =>
 		"13 13 13 10 5",
 	));
 
-Deno.test("all fields set with ranges return object with all properties set", () =>
+Deno.test("All fields set with ranges returns object with all properties set", () =>
 	assertStrictEquals(
 		stringify({
 			dayOfMonth: { from: 12, to: 13 },
@@ -98,7 +98,7 @@ Deno.test("all fields set with ranges return object with all properties set", ()
 		"12-13 12-13 12-13 9-10 4-5",
 	));
 
-Deno.test("all fields set with lists return object with all properties set", () =>
+Deno.test("All fields set with lists returns object with all properties set", () =>
 	assertStrictEquals(
 		stringify({
 			dayOfMonth: [12, 13],
@@ -110,7 +110,7 @@ Deno.test("all fields set with lists return object with all properties set", () 
 		"12,13 12,13 12,13 9,10 4,5",
 	));
 
-Deno.test("all fields set with lists with ranges return object with all properties set", () =>
+Deno.test("All fields set with lists with ranges returns object with all properties set", () =>
 	assertStrictEquals(
 		stringify({
 			dayOfMonth: [{ from: 11, to: 12 }, 13],
@@ -122,11 +122,11 @@ Deno.test("all fields set with lists with ranges return object with all properti
 		"11-12,13 11-12,13 11-12,13 8-9,10 3-4,5",
 	));
 
-Deno.test("an empty object return all set to *", () =>
+Deno.test("Empty object returns all set to *", () =>
 	assertStrictEquals(stringify(EMPTY_OBJECT), "* * * * *"));
 
-Deno.test("an only hour set return all set to *", () =>
+Deno.test("Only hour set returns all set to *", () =>
 	assertStrictEquals(stringify({ hour: 13 }), "* 13 * * *"));
 
-Deno.test("an invalid value return undefined", () =>
+Deno.test("Invalid value returns undefined", () =>
 	assertStrictEquals(stringify({ hour: 99 as 13 }), undefined));

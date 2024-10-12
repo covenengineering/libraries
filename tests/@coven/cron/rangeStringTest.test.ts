@@ -1,10 +1,7 @@
 import { rangeStringTest } from "@coven/cron";
-import { assertStrictEquals } from "@std/assert";
+import { assert, assertFalse } from "@std/assert";
 
-Deno.test("a range string return true", () =>
-	// deno-lint-ignore no-boolean-literal-for-arguments
-	assertStrictEquals(rangeStringTest("10-13"), true));
+Deno.test("Range string returns true", () => assert(rangeStringTest("10-13")));
 
-Deno.test("an invalid range string return false", () =>
-	// deno-lint-ignore no-boolean-literal-for-arguments
-	assertStrictEquals(rangeStringTest("nope"), false));
+Deno.test("Invalid range string returns false", () =>
+	assertFalse(rangeStringTest("nope")));

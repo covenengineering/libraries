@@ -34,7 +34,6 @@ Deno.test(
 	"an iterable of entries [string, value] returns an object with the shape { string: value }",
 	() =>
 		assertEquals(
-			// deno-lint-ignore no-undef
 			entriesToObject(Iterator.from([[stringKey, value] as const])),
 			{ [stringKey]: value },
 		),
@@ -44,7 +43,6 @@ Deno.test(
 	"an iterable of entries [number, value] returns an object with the shape { number: value }",
 	() =>
 		assertEquals(
-			// deno-lint-ignore no-undef
 			entriesToObject(Iterator.from([[numberKey, value] as const])),
 			{ [numberKey]: value },
 		),
@@ -54,7 +52,6 @@ Deno.test(
 	"an iterable of entries [symbol, value] returns an object with the shape { symbol: value }",
 	() =>
 		assertEquals(
-			// deno-lint-ignore no-undef
 			entriesToObject(Iterator.from([[symbolKey, value] as const])),
 			{ [symbolKey]: value },
 		),

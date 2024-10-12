@@ -1,10 +1,7 @@
 import { isAllToken } from "@coven/cron";
-import { assertStrictEquals } from "@std/assert";
+import { assert, assertFalse } from "@std/assert";
 
-Deno.test("a string that is a * return true", () =>
-	// deno-lint-ignore no-boolean-literal-for-arguments
-	assertStrictEquals(isAllToken("*"), true));
+Deno.test("String that is a * returns true", () => assert(isAllToken("*")));
 
-Deno.test("a string that isn't a * return false", () =>
-	// deno-lint-ignore no-boolean-literal-for-arguments
-	assertStrictEquals(isAllToken("nope"), false));
+Deno.test("String that isn't a * returns false", () =>
+	assertFalse(isAllToken("nope")));

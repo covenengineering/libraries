@@ -17,12 +17,10 @@ Deno.test(
 Deno.test(
 	"an iterable of numbers and strings containing search matching item gets the first string that matches",
 	() =>
-		// deno-lint-ignore no-undef
 		assertEquals(findString(Iterator.from([0, 1, "foo", 2, "bar"])), "foo"),
 );
 
 Deno.test(
 	"an iterable of numbers without search matching item gets the first string",
-	// deno-lint-ignore no-undef
 	() => assertEquals(findString(Iterator.from([0, 1, 2])), undefined),
 );

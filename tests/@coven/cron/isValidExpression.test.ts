@@ -1,21 +1,14 @@
 import { isValidExpression } from "@coven/cron";
-import { assertStrictEquals } from "@std/assert";
+import { assert, assertFalse } from "@std/assert";
 
-Deno.test("a string that is a * return false", () =>
-	// deno-lint-ignore no-boolean-literal-for-arguments
-	assertStrictEquals(isValidExpression("*"), false));
+Deno.test("String that is a * returns false", () =>
+	assertFalse(isValidExpression("*")));
 
-Deno.test("a valid expression return true", () =>
-	// deno-lint-ignore no-boolean-literal-for-arguments
-	assertStrictEquals(isValidExpression("* * * * *"), true));
+Deno.test("Valid expression returns true", () =>
+	assert(isValidExpression("* * * * *")));
 
-Deno.test("a valid expression with irregular spacing return true", () =>
-	// deno-lint-ignore no-boolean-literal-for-arguments
-	assertStrictEquals(isValidExpression("	* *  *   *    *	"), true));
+Deno.test("Valid expression with irregular spacing returns true", () =>
+	assert(isValidExpression("	* *  *   *    *	")));
 
-Deno.test("a valid expression with all values set return true", () =>
-	// deno-lint-ignore no-boolean-literal-for-arguments
-	assertStrictEquals(
-		isValidExpression("1,2-5 1,2-5 1,2-5 1,2-5 1,2-5"),
-		true,
-	));
+Deno.test("Valid expression with all values set returns true", () =>
+	assert(isValidExpression("1,2-5 1,2-5 1,2-5 1,2-5 1,2-5")));

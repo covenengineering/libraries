@@ -1,5 +1,5 @@
 import { escape } from "@coven/expression";
 import { assertStrictEquals } from "@std/assert";
 
-Deno.test("a letter L escape it", () =>
+Deno.test("Letter L is escaped", () =>
 	assertStrictEquals(escape("L"), String.raw`\L`));

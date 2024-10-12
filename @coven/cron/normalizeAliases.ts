@@ -3,6 +3,8 @@ import type { KeyOf, ReadonlyArray } from "@coven/types";
 import type { FieldString } from "./FieldString.ts";
 import { normalizeMap } from "./normalizeMap.ts";
 
+const buildGIU = build("giu");
+
 /**
  * Normalizes day and month 3 letter aliases into their number counterparts.
  *
@@ -15,7 +17,7 @@ import { normalizeMap } from "./normalizeMap.ts";
  */
 export const normalizeAliases = (expression: string): FieldString =>
 	expression.replaceAll(
-		build("giu")(
+		buildGIU(
 			or(
 				...(Object.keys(normalizeMap) as ReadonlyArray<
 					KeyOf<typeof normalizeMap>

@@ -1,5 +1,5 @@
 import {
-	build,
+	buildUnicode,
 	DIGIT,
 	END,
 	group,
@@ -27,7 +27,7 @@ import { paddedRegExp } from "./paddedRegExp.ts";
  * @see {@link paddedRegExp}
  */
 export const parseNumberTest: (text: string) => boolean = test(
-	build("u")(
+	buildUnicode(
 		START,
 		group(or(paddedRegExp(DIGIT), join(set(range(1)(5)), DIGIT))),
 		END,

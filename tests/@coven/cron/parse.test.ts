@@ -1,7 +1,38 @@
 import type { CronString } from "@coven/cron";
 import { parse } from "@coven/cron";
 import { assertEquals, assertStrictEquals } from "@std/assert";
-import { februaryBadDaysOfMonth } from "./februaryBadDaysOfMonth.ts";
+
+/**
+ * Possible invalid values for february.
+ */
+const februaryBadDaysOfMonth = [
+	"30",
+	"31",
+	"30-30",
+	"30-31",
+	"31-30",
+	"31-31",
+	"30,30",
+	"30,31",
+	"31,30",
+	"31,31",
+	"30-30,30",
+	"30-30,31",
+	"30-31,30",
+	"30-31,31",
+	"31-30,30",
+	"31-30,31",
+	"31-31,30",
+	"31-31,31",
+	"30,30-30",
+	"30,31-30",
+	"31,30-30",
+	"31,31-30",
+	"30,30-31",
+	"30,31-31",
+	"31,30-31",
+	"31,31-31",
+] as const;
 
 Deno.test("a * token for all fields return object with all properties set to *", () =>
 	assertEquals(parse("* * * * *"), {

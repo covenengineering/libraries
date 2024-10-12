@@ -1,18 +1,13 @@
 import { isRangeString } from "@coven/cron";
-import { assertStrictEquals } from "@std/assert";
+import { assert, assertFalse } from "@std/assert";
 
-Deno.test("a string that is a * return false", () =>
-	// deno-lint-ignore no-boolean-literal-for-arguments
-	assertStrictEquals(isRangeString("*"), false));
+Deno.test("String that is a * returns false", () =>
+	assertFalse(isRangeString("*")));
 
-Deno.test("an array of numbers return true", () =>
-	// deno-lint-ignore no-boolean-literal-for-arguments
-	assertStrictEquals(isRangeString("1,2,3"), false));
+Deno.test("Array of numbers returns true", () =>
+	assertFalse(isRangeString("1,2,3")));
 
-Deno.test("a range return true", () =>
-	// deno-lint-ignore no-boolean-literal-for-arguments
-	assertStrictEquals(isRangeString("3-5"), true));
+Deno.test("Range returns true", () => assert(isRangeString("3-5")));
 
-Deno.test("a range with inverted from and to return false", () =>
-	// deno-lint-ignore no-boolean-literal-for-arguments
-	assertStrictEquals(isRangeString("5-3"), false));
+Deno.test("Range with inverted from and to returns false", () =>
+	assertFalse(isRangeString("5-3")));

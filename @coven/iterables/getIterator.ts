@@ -14,5 +14,4 @@
  */
 export const getIterator = <Item = unknown>(
 	iterable: Iterable<Item, unknown, undefined>,
-	// deno-lint-ignore no-undef
 ): IteratorObject<Item, undefined, unknown> => Iterator.from(iterable);

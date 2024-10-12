@@ -113,7 +113,6 @@
 				"no-this-before-super",
 				"no-throw-literal",
 				"no-top-level-await",
-				"no-undef",
 				"no-unreachable",
 				"no-unsafe-finally",
 				"no-unsafe-negation",

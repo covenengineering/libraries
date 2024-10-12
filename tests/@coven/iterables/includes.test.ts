@@ -1,28 +1,24 @@
 import { includes } from "@coven/iterables";
-import { assertEquals } from "@std/assert";
+import { assert, assertFalse } from "@std/assert";
 
 const includesFoo = includes("foo");
 
 Deno.test(
-	"a string and an array of strings containing that string returns true",
-	// deno-lint-ignore no-boolean-literal-for-arguments
-	() => assertEquals(includesFoo(["foo", "bar"]), true),
+	"String and an array of strings containing that string returns true",
+	() => assert(includesFoo(["foo", "bar"])),
 );
 
 Deno.test(
-	"a string and an array not containing that string returns false",
-	// deno-lint-ignore no-boolean-literal-for-arguments
-	() => assertEquals(includesFoo(["baz", "bar"]), false),
+	"String and an array not containing that string returns false",
+	() => assertFalse(includesFoo(["baz", "bar"])),
 );
 
 Deno.test(
-	"a string and an iterable of strings containing that string returns true",
-	// deno-lint-ignore no-boolean-literal-for-arguments, no-undef
-	() => assertEquals(includesFoo(Iterator.from(["foo", "bar"])), true),
+	"String and an iterable of strings containing that string returns true",
+	() => assert(includesFoo(Iterator.from(["foo", "bar"]))),
 );
 
 Deno.test(
-	"a string and an iterable not containing that string returns false",
-	// deno-lint-ignore no-boolean-literal-for-arguments, no-undef
-	() => assertEquals(includesFoo(Iterator.from(["baz", "bar"])), false),
+	"String and an iterable not containing that string returns false",
+	() => assertFalse(includesFoo(Iterator.from(["baz", "bar"]))),
 );

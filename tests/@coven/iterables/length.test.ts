@@ -14,5 +14,4 @@ Deno.test("an empty array returns 0", () =>
 	assertStrictEquals(length(EMPTY_ARRAY), 0));
 
 Deno.test("an empty iterable returns 0", () =>
-	// deno-lint-ignore no-undef
 	assertStrictEquals(length(Iterator.from(EMPTY_ARRAY)), 0));

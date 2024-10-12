@@ -1,34 +1,25 @@
 import { compareField } from "@coven/cron";
-import { assertStrictEquals } from "@std/assert";
+import { assert, assertFalse } from "@std/assert";
 
-Deno.test("Two equal values return true", () =>
-	// deno-lint-ignore no-boolean-literal-for-arguments
-	assertStrictEquals(compareField(13, 13), true));
+Deno.test("Two equal values returns true", () => assert(compareField(13, 13)));
 
-Deno.test("Two different values return false", () =>
-	// deno-lint-ignore no-boolean-literal-for-arguments
-	assertStrictEquals(compareField(13, 99), false));
+Deno.test("Two different values returns false", () =>
+	assertFalse(compareField(13, 99)));
 
-Deno.test("Value and a range that contains it return true", () =>
-	// deno-lint-ignore no-boolean-literal-for-arguments
-	assertStrictEquals(compareField(13, { from: 0, to: 99 }), true));
+Deno.test("Value and a range that contains it returns true", () =>
+	assert(compareField(13, { from: 0, to: 99 })));
 
-Deno.test("Value and a range that doesn't contain it return true", () =>
-	// deno-lint-ignore no-boolean-literal-for-arguments
-	assertStrictEquals(compareField(13, { from: 0, to: 10 }), false));
+Deno.test("Value and a range that doesn't contain it returns true", () =>
+	assertFalse(compareField(13, { from: 0, to: 10 })));
 
-Deno.test("Value and a list that contains it return true", () =>
-	// deno-lint-ignore no-boolean-literal-for-arguments
-	assertStrictEquals(compareField(13, [10, 13]), true));
+Deno.test("Value and a list that contains it returns true", () =>
+	assert(compareField(13, [10, 13])));
 
-Deno.test("Value and a list that doesn't contain it return true", () =>
-	// deno-lint-ignore no-boolean-literal-for-arguments
-	assertStrictEquals(compareField(13, [10, 12]), false));
+Deno.test("Value and a list that doesn't contain it returns true", () =>
+	assertFalse(compareField(13, [10, 12])));
 
-Deno.test("Value and a list with a range that contains it return true", () =>
-	// deno-lint-ignore no-boolean-literal-for-arguments
-	assertStrictEquals(compareField(13, [10, { from: 11, to: 99 }]), true));
+Deno.test("Value and a list with a range that contains it returns true", () =>
+	assert(compareField(13, [10, { from: 11, to: 99 }])));
 
-Deno.test("Value and a list with a range that doesn't contain it return true", () =>
-	// deno-lint-ignore no-boolean-literal-for-arguments
-	assertStrictEquals(compareField(13, [5, { from: 10, to: 12 }]), false));
+Deno.test("Value and a list with a range that doesn't contain it returns true", () =>
+	assertFalse(compareField(13, [5, { from: 10, to: 12 }])));

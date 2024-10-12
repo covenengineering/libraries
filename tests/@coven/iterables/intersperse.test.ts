@@ -28,7 +28,6 @@ Deno.test("an empty array returns empty iterable", () =>
 
 Deno.test("an empty iterable returns empty iterable", () =>
 	assertEquals(
-		// deno-lint-ignore no-undef
 		iterableToArray(commaIntersperse(Iterator.from(EMPTY_ARRAY))),
 		EMPTY_ARRAY,
 	));

@@ -1,5 +1,6 @@
 export { allow } from "./allow.ts";
 export { build } from "./build.ts";
+export { buildUnicode } from "./buildUnicode.ts";
 export { capture } from "./capture.ts";
 export { capturedNumber } from "./capturedNumber.ts";
 export { captureNamed } from "./captureNamed.ts";

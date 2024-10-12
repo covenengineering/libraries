@@ -1,29 +1,23 @@
 import { some, toIterable } from "@coven/iterables/async";
 import { isNumber } from "@coven/predicates";
-import { assertEquals } from "@std/assert";
+import { assert, assertFalse } from "@std/assert";
 
 const someNumber = some(isNumber);
 
-Deno.test("an array of numbers returns true", async () =>
-	// deno-lint-ignore no-boolean-literal-for-arguments
-	assertEquals(await someNumber([0, 1, 2, 3]), true));
+Deno.test("Array of numbers returns true", async () =>
+	assert(await someNumber([0, 1, 2, 3])));
 
-Deno.test("an array of numbers with a string on it returns true", async () =>
-	// deno-lint-ignore no-boolean-literal-for-arguments
-	assertEquals(await someNumber([0, 1, 2, "foo", 3]), true));
+Deno.test("Array of numbers with a string on it returns true", async () =>
+	assert(await someNumber([0, 1, 2, "foo", 3])));
 
-Deno.test("an array of strings returns false", async () =>
-	// deno-lint-ignore no-boolean-literal-for-arguments
-	assertEquals(await someNumber(["foo", "bar"]), false));
+Deno.test("Array of strings returns false", async () =>
+	assertFalse(await someNumber(["foo", "bar"])));
 
-Deno.test("an iterable of numbers returns true", async () =>
-	// deno-lint-ignore no-boolean-literal-for-arguments
-	assertEquals(await someNumber(toIterable([0, 1, 2, 3])), true));
+Deno.test("Iterable of numbers returns true", async () =>
+	assert(await someNumber(toIterable([0, 1, 2, 3]))));
 
-Deno.test("an iterable of numbers with a string on it returns true", async () =>
-	// deno-lint-ignore no-boolean-literal-for-arguments
-	assertEquals(await someNumber(toIterable([0, 1, 2, "foo", 3])), true));
+Deno.test("Iterable of numbers with a string on it returns true", async () =>
+	assert(await someNumber(toIterable([0, 1, 2, "foo", 3]))));
 
-Deno.test("an iterable of strings returns false", async () =>
-	// deno-lint-ignore no-boolean-literal-for-arguments
-	assertEquals(await someNumber(toIterable(["foo", "bar"])), false));
+Deno.test("Iterable of strings returns false", async () =>
+	assertFalse(await someNumber(toIterable(["foo", "bar"]))));
