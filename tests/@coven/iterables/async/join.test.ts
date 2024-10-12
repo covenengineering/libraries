@@ -6,23 +6,23 @@ const spaceJoin = join(" ");
 const array = [0, 1, 2, 3];
 
 Deno.test(
-	"an array of numbers returns those numbers separated by spaces",
+	"Array of numbers returns those numbers separated by spaces",
 	async () => assertEquals(await spaceJoin(array), "0 1 2 3"),
 );
 
 Deno.test(
-	"an iterable of numbers returns those numbers separated by spaces",
+	"Iterable of numbers returns those numbers separated by spaces",
 	async () => assertEquals(await spaceJoin(toIterable(array)), "0 1 2 3"),
 );
 
-Deno.test("an empty array returns empty string", async () =>
+Deno.test("Empty array returns empty string", async () =>
 	assertEquals(await spaceJoin(EMPTY_ARRAY), EMPTY_STRING));
 
-Deno.test("an empty iterable returns empty string", async () =>
+Deno.test("Empty iterable returns empty string", async () =>
 	assertEquals(await spaceJoin(toIterable(EMPTY_ARRAY)), EMPTY_STRING));
 
 Deno.test(
-	"an iterable with empty strings returns spaces for each value",
+	"Iterable with empty strings returns spaces for each value",
 	async () =>
 		assertEquals(
 			await spaceJoin(
@@ -33,7 +33,7 @@ Deno.test(
 );
 
 Deno.test(
-	"an iterable with undefined values returns empty stringified undefined values",
+	"Iterable with undefined values returns empty stringified undefined values",
 	async () =>
 		assertEquals(
 			await spaceJoin(toIterable([undefined, undefined])),

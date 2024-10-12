@@ -4,14 +4,13 @@ import { assertStrictEquals } from "@std/assert";
 
 const array = [0, 1, 2];
 
-Deno.test("an array returns length", () =>
-	assertStrictEquals(length(array), 3));
+Deno.test("Array returns length", () => assertStrictEquals(length(array), 3));
 
-Deno.test("an iterable returns length", () =>
+Deno.test("Iterable returns length", () =>
 	assertStrictEquals(length(range(1)(0)(2)), 3));
 
-Deno.test("an empty array returns 0", () =>
+Deno.test("Empty array returns 0", () =>
 	assertStrictEquals(length(EMPTY_ARRAY), 0));
 
-Deno.test("an empty iterable returns 0", () =>
+Deno.test("Empty iterable returns 0", () =>
 	assertStrictEquals(length(Iterator.from(EMPTY_ARRAY)), 0));

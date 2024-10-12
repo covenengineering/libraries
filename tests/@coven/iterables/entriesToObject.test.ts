@@ -7,7 +7,7 @@ const symbolKey = Symbol("key");
 const value = "value";
 
 Deno.test(
-	"an array of entries [string, value] returns an object with the shape { string: value }",
+	"Array of entries [string, value] returns an object with the shape { string: value }",
 	() =>
 		assertEquals(entriesToObject([[stringKey, value] as const]), {
 			[stringKey]: value,
@@ -15,7 +15,7 @@ Deno.test(
 );
 
 Deno.test(
-	"an array of entries [number, value] returns an object with the shape { number: value }",
+	"Array of entries [number, value] returns an object with the shape { number: value }",
 	() =>
 		assertEquals(entriesToObject([[numberKey, value]]), {
 			[numberKey]: value,
@@ -23,7 +23,7 @@ Deno.test(
 );
 
 Deno.test(
-	"an array of entries [symbol, value] returns an object with the shape { symbol: value }",
+	"Array of entries [symbol, value] returns an object with the shape { symbol: value }",
 	() =>
 		assertEquals(entriesToObject([[symbolKey, value]]), {
 			[symbolKey]: value,
@@ -31,7 +31,7 @@ Deno.test(
 );
 
 Deno.test(
-	"an iterable of entries [string, value] returns an object with the shape { string: value }",
+	"Iterable of entries [string, value] returns an object with the shape { string: value }",
 	() =>
 		assertEquals(
 			entriesToObject(Iterator.from([[stringKey, value] as const])),
@@ -40,7 +40,7 @@ Deno.test(
 );
 
 Deno.test(
-	"an iterable of entries [number, value] returns an object with the shape { number: value }",
+	"Iterable of entries [number, value] returns an object with the shape { number: value }",
 	() =>
 		assertEquals(
 			entriesToObject(Iterator.from([[numberKey, value] as const])),
@@ -49,7 +49,7 @@ Deno.test(
 );
 
 Deno.test(
-	"an iterable of entries [symbol, value] returns an object with the shape { symbol: value }",
+	"Iterable of entries [symbol, value] returns an object with the shape { symbol: value }",
 	() =>
 		assertEquals(
 			entriesToObject(Iterator.from([[symbolKey, value] as const])),

@@ -9,7 +9,7 @@ import { assertEquals } from "@std/assert";
 
 const commaIntersperse = intersperse(",");
 
-Deno.test("an array returns interspersed items", async () =>
+Deno.test("Array returns interspersed items", async () =>
 	assertEquals(await iterableToArray(commaIntersperse([0, 1, 2])), [
 		0,
 		",",
@@ -18,7 +18,7 @@ Deno.test("an array returns interspersed items", async () =>
 		2,
 	]));
 
-Deno.test("an iterable returns interspersed items", async () =>
+Deno.test("Iterable returns interspersed items", async () =>
 	assertEquals(await iterableToArray(commaIntersperse(range(1)(0)(2))), [
 		0,
 		",",
@@ -27,13 +27,13 @@ Deno.test("an iterable returns interspersed items", async () =>
 		2,
 	]));
 
-Deno.test("an empty array returns empty iterable", async () =>
+Deno.test("Empty array returns empty iterable", async () =>
 	assertEquals(
 		await iterableToArray(commaIntersperse(EMPTY_ARRAY)),
 		EMPTY_ARRAY,
 	));
 
-Deno.test("an empty iterable returns empty iterable", async () =>
+Deno.test("Empty iterable returns empty iterable", async () =>
 	assertEquals(
 		await iterableToArray(commaIntersperse(toIterable(EMPTY_ARRAY))),
 		EMPTY_ARRAY,

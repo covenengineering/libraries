@@ -5,7 +5,7 @@ import { assertEquals } from "@std/assert";
 const findString = find<number | string>(isString);
 
 Deno.test(
-	"an array of numbers and strings containing search matching item gets the first string that matches",
+	"Array of numbers and strings containing search matching item gets the first string that matches",
 	async () =>
 		assertEquals(
 			await findString(toIterable([0, 1, "foo", 2, "bar"])),
@@ -14,13 +14,13 @@ Deno.test(
 );
 
 Deno.test(
-	"an array of numbers without search matching item gets the first string",
+	"Array of numbers without search matching item gets the first string",
 	async () =>
 		assertEquals(await findString(toIterable([0, 1, 2])), undefined),
 );
 
 Deno.test(
-	"an iterable of numbers and strings containing search matching item gets the first string that matches",
+	"Iterable of numbers and strings containing search matching item gets the first string that matches",
 	async () =>
 		assertEquals(
 			await findString(toIterable([0, 1, "foo", 2, "bar"])),
@@ -29,7 +29,7 @@ Deno.test(
 );
 
 Deno.test(
-	"an iterable of numbers without search matching item gets the first string",
+	"Iterable of numbers without search matching item gets the first string",
 	async () =>
 		assertEquals(await findString(toIterable([0, 1, 2])), undefined),
 );
