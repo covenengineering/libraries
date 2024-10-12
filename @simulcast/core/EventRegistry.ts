@@ -1,4 +1,3 @@
-import type { ReadonlyArray } from "@coven/types";
 import type { EventListener } from "./EventListener.ts";
 import type { EventTypeDictionary } from "./EventTypeDictionary.ts";
 
@@ -16,7 +15,7 @@ import type { EventTypeDictionary } from "./EventTypeDictionary.ts";
  * @template Events Event registry.
  */
 export type EventRegistry<Events extends EventTypeDictionary> = {
-	readonly [Event in keyof Events]?: ReadonlyArray<
+	readonly [Event in keyof Events]?: IterableIterator<
 		EventListener<Readonly<Events[Event]>>
 	>;
 };

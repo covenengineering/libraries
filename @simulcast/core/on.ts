@@ -1,6 +1,6 @@
 import { append, filter, toIterable } from "@coven/iterables";
 import { has } from "@coven/predicates";
-import type { Just, ReadonlyArray } from "@coven/types";
+import type { Just } from "@coven/types";
 import { get, mutate, set } from "@coven/utils";
 import type { EventListener } from "./EventListener.ts";
 import type { EventRegistry } from "./EventRegistry.ts";
@@ -82,7 +82,7 @@ export const on = <Events extends EventTypeDictionary>(
 			void mutate(
 				setEvent(
 					filter((currentListener) => currentListener !== listener)(
-						eventRegistry[event] as ReadonlyArray<
+						eventRegistry[event] as IterableIterator<
 							Events[Event]
 						>,
 					),

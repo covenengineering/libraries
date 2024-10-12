@@ -9,7 +9,7 @@ type TestRegistry = { [TEST_EVENT]: never };
 Deno.test("emit with listeners calls the listeners", () => {
 	let called = false;
 	emit<TestRegistry>({
-		[TEST_EVENT]: [() => (called = true)],
+		[TEST_EVENT]: [() => (called = true)].values(),
 	})(TEST_EVENT)();
 
 	assert(called);
@@ -17,7 +17,9 @@ Deno.test("emit with listeners calls the listeners", () => {
 
 Deno.test("emit without listeners does nothing", () =>
 	assertStrictEquals(
-		emit<TestRegistry>({ [TEST_EVENT]: EMPTY_ARRAY })(TEST_EVENT)(),
+		emit<TestRegistry>({ [TEST_EVENT]: EMPTY_ARRAY.values() })(
+			TEST_EVENT,
+		)(),
 		undefined,
 	));
 
