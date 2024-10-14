@@ -1,16 +1,16 @@
-import type { CREATE } from "./constants.ts";
-import type { DifferencePath } from "./DifferencePath.ts";
+import type { CREATE_KIND } from "./CREATE_KIND.ts";
+import type { WithDifferencePath } from "./WithDifferencePath.ts";
 
 /**
- * Object that represents a creation difference (a new value or property).
+ * Creation difference (property or value added).
  *
- * @example
+ * @example Object that satisfies a creation difference
  * ```typescript
- * const createDifference = {
+ * const createDifference = ({
  * 	kind: "CREATE",
- * 	path: ["property", "path"],
- * 	right: "new value",
- * } as const satisfies CreateDifference<string>;
+ * 	path: ["property", "path"].values(),
+ * 	right: "created value",
+ * }) as const satisfies CreateDifference<string>;
  * ```
  * @template Right Type of the new value.
  */
@@ -18,10 +18,10 @@ export type CreateDifference<Right = unknown> = {
 	/**
 	 * Creation kind.
 	 */
-	readonly kind: typeof CREATE;
+	readonly kind: typeof CREATE_KIND;
 
 	/**
 	 * New value.
 	 */
 	readonly right: Right;
-} & DifferencePath;
+} & WithDifferencePath;

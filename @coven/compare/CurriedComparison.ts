@@ -1,19 +1,15 @@
 import type { Difference } from "./Difference.ts";
 
 /**
- * Curried function returned by `compare` function when it already took a `left`
- * (original) value.
+ * Curried function returned by `compare`.
  *
- * @example
+ * @example Function which returns a curried comparison of type string
  * ```typescript
- * const compare = <Left>(left: string): CurriedComparison<string> =>
+ * const exampleCompare = (left: string): CurriedComparison<string> =>
  * 	function* (right) {
- * 		yield {
- * 			// Difference object
- * 		}
+ * 		yield { kind: "UPDATE", left, right }
  * 	}
  * ```
- *
  * @template Right Right value to compare
  * @returns Generator that yields `Difference` objects.
  */

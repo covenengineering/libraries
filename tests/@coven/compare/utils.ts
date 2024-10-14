@@ -3,13 +3,12 @@ import {
 	type CreateDifference,
 	type DeleteDifference,
 	type Difference,
-	PATH,
 	type UpdateDifference,
 } from "@coven/compare";
 import type { ReadonlyArray } from "@coven/types";
 
 export const flatCompare = ({
-	[PATH]: path,
+	path,
 	...difference
 }: Difference):
 	& (
@@ -21,7 +20,7 @@ export const flatCompare = ({
 		readonly path?: ReadonlyArray<PropertyKey>;
 	} => ({
 		...difference,
-		...(path ? { [PATH]: [...path] } : undefined),
+		...(path ? { path: [...path] } : undefined),
 	});
 
 /**

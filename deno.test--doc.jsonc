@@ -1,3 +1,6 @@
+// Sadly we have to keep this file in sync manually with `deno.json` until they
+// support extension. This only exists so `deno test --doc` doesn't require
+// locals to be used.
 {
 	"$schema": "https://raw.githubusercontent.com/denoland/deno/refs/tags/v1.41.0/cli/schemas/config-file.v1.json",
 	"compilerOptions": {
@@ -6,10 +9,10 @@
 		"noImplicitOverride": true,
 		"noImplicitReturns": true,
 		"noUncheckedIndexedAccess": true,
-		"noUnusedLocals": true,
+		"noUnusedLocals": false, // Set to false so `deno test --doc` works
 		"noUnusedParameters": true,
 		"strict": true,
-		"verbatimModuleSyntax": true
+		"verbatimModuleSyntax": false // Set to false for convenience with `deno test --doc`
 	},
 	"exclude": [".git"],
 	"fmt": {
@@ -134,9 +137,6 @@
 				"verbatim-module-syntax"
 			]
 		}
-	},
-	"tasks": {
-		"test-docs": "deno test --doc --config ./deno.test--doc.jsonc"
 	},
 	"workspace": [
 		"./@coven/compare",

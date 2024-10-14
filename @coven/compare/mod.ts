@@ -2,24 +2,16 @@ export { compare } from "./compare.ts";
 export { compareIterables } from "./compareIterables.ts";
 export { compareObjects } from "./compareObjects.ts";
 export { compareProperties } from "./compareProperties.ts";
-export {
-	CREATE,
-	DELETE,
-	DONE,
-	KIND,
-	LEFT,
-	MISSING,
-	NEXT,
-	PATH,
-	RIGHT,
-	UPDATE,
-	VALUE,
-} from "./constants.ts";
+export { CREATE_KIND } from "./CREATE_KIND.ts";
 export type { CreateDifference } from "./CreateDifference.ts";
+export type { CurriedComparison } from "./CurriedComparison.ts";
+export { DELETE_KIND } from "./DELETE_KIND.ts";
 export type { DeleteDifference } from "./DeleteDifference.ts";
 export type { Difference } from "./Difference.ts";
-export type { DifferencePath } from "./DifferencePath.ts";
+export { differentiate } from "./differentiate.ts";
 export { getKeys } from "./getKeys.ts";
+export { MISSING_VALUE } from "./MISSING_VALUE.ts";
 export { pathPrepend } from "./pathPrepend.ts";
+export { UPDATE_KIND } from "./UPDATE_KIND.ts";
 export type { UpdateDifference } from "./UpdateDifference.ts";
-export { valueToDifference } from "./valueToDifference.ts";
+export type { WithDifferencePath } from "./WithDifferencePath.ts";

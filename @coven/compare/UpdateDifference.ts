@@ -1,15 +1,15 @@
-import type { UPDATE } from "./constants.ts";
-import type { DifferencePath } from "./DifferencePath.ts";
+import type { UPDATE_KIND } from "./UPDATE_KIND.ts";
+import type { WithDifferencePath } from "./WithDifferencePath.ts";
 
 /**
- * Object that represents an update difference (a value or property changed).
+ * Update difference (property or value changed).
  *
- * @example
+ * @example Object that satisfies an update difference
  * ```typescript
  * const updateDifference = {
  * 	kind: "UPDATE",
  * 	left: "old value",
- * 	path: ["foo", "bar"],
+ * 	path: ["property", "path"].values(),
  * 	right: "new value",
  * } as const satisfies UpdateDifference<string, string>;
  * ```
@@ -20,7 +20,7 @@ export type UpdateDifference<Left = unknown, Right = unknown> = {
 	/**
 	 * Update kind.
 	 */
-	readonly kind: typeof UPDATE;
+	readonly kind: typeof UPDATE_KIND;
 	/**
 	 * Original value.
 	 */
@@ -29,4 +29,4 @@ export type UpdateDifference<Left = unknown, Right = unknown> = {
 	 * New value.
 	 */
 	readonly right: Right;
-} & DifferencePath;
+} & WithDifferencePath;

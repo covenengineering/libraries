@@ -1,12 +1,4 @@
-import {
-	CREATE,
-	DELETE,
-	KIND,
-	LEFT,
-	PATH,
-	RIGHT,
-	UPDATE,
-} from "@coven/compare";
+import { CREATE_KIND, DELETE_KIND, UPDATE_KIND } from "@coven/compare";
 import { EMPTY_ARRAY, EMPTY_OBJECT } from "@coven/constants";
 import { assertEquals } from "@std/assert";
 import { _compare } from "./utils.ts";
@@ -23,9 +15,9 @@ Deno.test("Comparing same object yields nothing", () =>
 Deno.test("Comparing different string yields `UpdateDifference`", () =>
 	assertEquals(_compare("witch")("cat"), [
 		{
-			[KIND]: UPDATE,
-			[LEFT]: "witch",
-			[RIGHT]: "cat",
+			kind: UPDATE_KIND,
+			left: "witch",
+			right: "cat",
 		},
 	]));
 
@@ -35,10 +27,10 @@ Deno.test("Comparing equal arrays yields nothing", () =>
 Deno.test("Comparing different arrays yields `UpdateDifference`", () =>
 	assertEquals(_compare(["witch"])(["cat"]), [
 		{
-			[KIND]: UPDATE,
-			[LEFT]: "witch",
-			[PATH]: [0],
-			[RIGHT]: "cat",
+			kind: UPDATE_KIND,
+			left: "witch",
+			path: [0],
+			right: "cat",
 		},
 	]));
 
@@ -55,10 +47,10 @@ Deno.test(
 			_compare({ [property1]: "witch" })({ [property1]: "cat" }),
 			[
 				{
-					[KIND]: UPDATE,
-					[LEFT]: "witch",
-					[PATH]: [property1],
-					[RIGHT]: "cat",
+					kind: UPDATE_KIND,
+					left: "witch",
+					path: [property1],
+					right: "cat",
 				},
 			],
 		),
@@ -70,8 +62,8 @@ Deno.test(
 		assertEquals(
 			_compare({ [property1]: "witch" })({ [property2]: "witch" }),
 			[
-				{ [KIND]: DELETE, [LEFT]: "witch", [PATH]: [property1] },
-				{ [KIND]: CREATE, [PATH]: [property2], [RIGHT]: "witch" },
+				{ kind: DELETE_KIND, left: "witch", path: [property1] },
+				{ kind: CREATE_KIND, path: [property2], right: "witch" },
 			],
 		),
 );
@@ -82,7 +74,7 @@ Deno.test("Comparing array with new items yields `CreateDifference`", () =>
 			{ [property1]: "witch" },
 			{ [property2]: "cat" },
 		]),
-		[{ [KIND]: CREATE, [PATH]: [1], [RIGHT]: { [property2]: "cat" } }],
+		[{ kind: CREATE_KIND, path: [1], right: { [property2]: "cat" } }],
 	));
 
 Deno.test("Comparing array with less items yields `DeleteDifference`", () =>
@@ -92,9 +84,9 @@ Deno.test("Comparing array with less items yields `DeleteDifference`", () =>
 		]),
 		[
 			{
-				[KIND]: DELETE,
-				[LEFT]: { [property2]: "cat" },
-				[PATH]: [1],
+				kind: DELETE_KIND,
+				left: { [property2]: "cat" },
+				path: [1],
 			},
 		],
 	));
@@ -138,9 +130,9 @@ Deno.test(
 	() =>
 		assertEquals(_compare(null)(EMPTY_OBJECT), [
 			{
-				[KIND]: UPDATE,
-				[LEFT]: null,
-				[RIGHT]: EMPTY_OBJECT,
+				kind: UPDATE_KIND,
+				left: null,
+				right: EMPTY_OBJECT,
 			},
 		]),
 );
@@ -149,7 +141,7 @@ Deno.test(
 	"Comparing right `null` and left object yields `UpdateDifference`",
 	() =>
 		assertEquals(_compare(EMPTY_OBJECT)(null), [
-			{ [KIND]: UPDATE, [LEFT]: EMPTY_OBJECT, [RIGHT]: null },
+			{ kind: UPDATE_KIND, left: EMPTY_OBJECT, right: null },
 		]),
 );
 
@@ -208,9 +200,9 @@ Deno.test(
 					Symbol.unscopables,
 				] as const
 			).map((key) => ({
-				[KIND]: DELETE,
-				[LEFT]: Array.prototype[key],
-				[PATH]: [key],
+				kind: DELETE_KIND,
+				left: Array.prototype[key],
+				path: [key],
 			})) as ReturnType<ReturnType<typeof _compare>>,
 		),
 );
@@ -218,8 +210,8 @@ Deno.test(
 Deno.test("Comparing 0 with -0 should yield `UpdateDifference`", () =>
 	assertEquals(_compare(-0)(0), [
 		{
-			[KIND]: UPDATE,
-			[LEFT]: -0,
-			[RIGHT]: 0,
+			kind: UPDATE_KIND,
+			left: -0,
+			right: 0,
 		},
 	]));

@@ -1,4 +1,4 @@
-import { DELETE, pathPrepend } from "@coven/compare";
+import { DELETE_KIND, pathPrepend } from "@coven/compare";
 import { assertEquals } from "@std/assert";
 import { flatCompare } from "./utils.ts";
 
@@ -8,19 +8,22 @@ Deno.test("Prepend key to existing path", () =>
 	assertEquals(
 		flatCompare(
 			prepend13({
-				kind: DELETE,
+				kind: DELETE_KIND,
 				left: "🧙🏻‍♀️",
 				path: (function* (): Generator<PropertyKey> {
 					yield 42;
 				})(),
 			}),
 		),
-		{ kind: DELETE, left: "🧙🏻‍♀️", path: [13, 42] },
+		{ kind: DELETE_KIND, left: "🧙🏻‍♀️", path: [13, 42] },
 	));
 
 Deno.test("Prepend key to missing path yields prepended key", () =>
-	assertEquals(flatCompare(prepend13({ kind: DELETE, left: "🧙🏻‍♀️" })), {
-		kind: DELETE,
-		left: "🧙🏻‍♀️",
-		path: [13],
-	}));
+	assertEquals(
+		flatCompare(prepend13({ kind: DELETE_KIND, left: "🧙🏻‍♀️" })),
+		{
+			kind: DELETE_KIND,
+			left: "🧙🏻‍♀️",
+			path: [13],
+		},
+	));

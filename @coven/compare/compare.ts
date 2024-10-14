@@ -4,32 +4,34 @@ import { always } from "@coven/utils";
 import type { CurriedComparison } from "./CurriedComparison.ts";
 import type { Difference } from "./Difference.ts";
 import { compareObjects } from "./compareObjects.ts";
-import { valueToDifference } from "./valueToDifference.ts";
+import { differentiate } from "./differentiate.ts";
 
 // deno-lint-ignore no-boolean-literal-for-arguments
 const alwaysFalse = always(false);
 
 /**
- * Function to compare a `left` and a `right` value, by doing a deep comparison
- * and yielding the differences found with a descriptive object.
+ * Deep-compare values.
+ *
+ * {@linkcode compare} yields the differences found between `left` and `right`
+ * with a descriptive object.
  *
  * @example
  * ```typescript
- * const witchCompare = compare("🧙‍♀️")
+ * const witchCompare = compare("🧙‍♀️");
  *
  * witchCompare("🧙‍♀️"); // yields []
  * witchCompare("🎃"); // yields [{ kind: "UPDATE", left: "🧙‍♀️", right: "🎃", path: [] }]
  * compare({ foo: "🧙‍♀️" })({ foo: "🎃" }); // yields [{ kind: "UPDATE", left: "🧙‍♀️", right: "🎃", path: ["foo"] }]
  * ```
- * @see {@link CurriedComparison}
- * @see {@link compareObjects}
- * @see {@link isObject}
- * @see {@link valueToDifference}
- * @param left Left/Original value.
+ * @see {@linkcode CurriedComparison}
+ * @see {@linkcode compareObjects}
+ * @see {@linkcode isObject}
+ * @see {@linkcode differentiate}
+ * @param left Original value.
  * @returns Curried generator with `left` in context.
  */
 export const compare = (left: unknown): CurriedComparison<unknown> => {
-	const valuesToDifferenceLeft = valueToDifference(left);
+	const valuesToDifferenceLeft = differentiate(left);
 	const leftIsObject = isObject(left);
 	const compareObjectsLeft = leftIsObject ? compareObjects(left) : undefined;
 	const isLeft = is(left);
@@ -37,9 +39,9 @@ export const compare = (left: unknown): CurriedComparison<unknown> => {
 
 	return leftIsObject
 		/**
-		 * Curried {@link compare} with `left` set in context.
+		 * Curried {@linkcode compare} with `left` set in context.
 		 *
-		 * @param right Right/New value.
+		 * @param right New value.
 		 * @yields Differences.
 		 */
 		? function* (right): Generator<Difference> {
@@ -51,9 +53,9 @@ export const compare = (left: unknown): CurriedComparison<unknown> => {
 			)(right);
 		}
 		/**
-		 * Curried {@link compare} with `left` set in context.
+		 * Curried {@linkcode compare} with `left` set in context.
 		 *
-		 * @param right Right/New value.
+		 * @param right New value.
 		 * @yields Differences.
 		 */
 		: function* (right): Generator<Difference> {
