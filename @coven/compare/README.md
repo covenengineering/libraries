@@ -13,6 +13,10 @@ with all the differences between said values. The differences are represented by
 - **Update:** Different `left` and `right` values.
 - **Delete:** Existing `left` and missing `right`.
 
+As all [Coven Engineering](https://coven.engineering) libraries, it has 100%
+test coverage and it's built in top of modern tech compatible with all
+JavaScript runtimes.
+
 ## Example
 
 ```typescript
