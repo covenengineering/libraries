@@ -6,7 +6,8 @@ const sha256ToNumber = (sha256: ArrayBuffer) =>
 /**
  * Generates `number` using `SubtleCrypto#digest` and the given seed.
  *
- * **⚠️ IMPORTANT:** This only works in secure contexts.
+ * > [!IMPORTANT]
+ * > This only works in secure contexts.
  *
  * @example
  * ```typescript
