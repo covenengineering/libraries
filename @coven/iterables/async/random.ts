@@ -4,7 +4,8 @@ import { iteratorFunctionToAsyncIterableIterator } from "./iteratorFunctionToAsy
 /**
  * Deterministic pseudo-random number generator.
  *
- * **⚠️ IMPORTANT:** This only works in secure contexts (HTTPS/Node).
+ * > [!IMPORTANT]
+ * > This only works in secure contexts (HTTPS/Node).
  *
  * @example
  * ```typescript
