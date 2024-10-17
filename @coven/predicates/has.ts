@@ -1,6 +1,5 @@
 import type { ReadonlyRecord } from "@coven/types";
 import type { HasFunction } from "./HasFunction.ts";
-import { isObject } from "./isObject.ts";
 
 /**
  * Curried wrapper for the `in` operator. Given a `property` name and an
@@ -18,5 +17,5 @@ import { isObject } from "./isObject.ts";
  */
 export const has =
 	<Property extends PropertyKey>(property: Property): HasFunction<Property> =>
-	(object): object is ReadonlyRecord<Property, unknown> =>
-		isObject(object) && property in object;
+	(object: object): object is ReadonlyRecord<Property, unknown> =>
+		property in object;

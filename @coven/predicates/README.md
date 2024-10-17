@@ -5,6 +5,13 @@
 
 🛡️ Predicate wards.
 
+This library offers a collection of common predicate functions to check for
+type, instances, presence of properties and more.
+
+As all [Coven Engineering](https://coven.engineering) libraries, it has 100%
+test coverage and it's built in top of modern tech compatible with all
+JavaScript runtimes.
+
 ## Example
 
 ```typescript

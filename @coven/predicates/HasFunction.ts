@@ -6,5 +6,5 @@ import type { ReadonlyRecord } from "@coven/types";
  * @template Property Property type.
  */
 export type HasFunction<Property extends PropertyKey> = (
-	object: unknown,
+	object: object,
 ) => object is ReadonlyRecord<Property, unknown>;
