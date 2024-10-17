@@ -1,4 +1,4 @@
-import { ESCAPE } from "./constants.ts";
+import { ESCAPE } from "./ESCAPE.ts";
 
 /**
  * Takes an `input` number and returns the a SGR sequence.

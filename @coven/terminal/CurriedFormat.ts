@@ -2,8 +2,10 @@ import type { Stringable } from "@coven/types";
 import type { FormattedString } from "./FormattedString.ts";
 
 /**
- * `FormatFunction`'s output, which is a function itself that returns a
- * {@link FormattedString}.
+ * Curried formatting function.
+ *
+ * This is `FormatFunction`'s output, which is a function itself that returns a
+ * {@linkcode FormattedString}.
  *
  * @template Open Open code.
  * @template Close Close code.

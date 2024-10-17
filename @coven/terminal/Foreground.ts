@@ -1,8 +1,8 @@
-import type { CLOSE_FOREGROUND } from "./constants.ts";
+import type { CLOSE_FOREGROUND } from "./CLOSE_FOREGROUND.ts";
 import type { CurriedFormat } from "./CurriedFormat.ts";
 
 /**
- * Foreground {@link CurriedFormat} function.
+ * Foreground {@linkcode CurriedFormat} function.
  */
 export type Foreground<Open extends number> = CurriedFormat<
 	Open,

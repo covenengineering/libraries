@@ -1,7 +1,7 @@
 import type { CurriedFormat } from "./CurriedFormat.ts";
 
 /**
- * Function that returns a {@link CurriedFormat} with `open` and `close` set.
+ * Function that returns a {@linkcode CurriedFormat} with `open` and `close` set.
  *
  * @template Open Open code.
  * @template Close Close code.

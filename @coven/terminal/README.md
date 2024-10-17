@@ -12,7 +12,7 @@ background, color and style. The utils can be used as tag functions for
 ```typescript
 import { bold, red } from "@coven/terminal";
 
-onsole.log(red`Hello ${bold`world`}!`);
+console.log(red`Hello ${bold`world`}!`);
 // ^ Logs "Hello world!" in red text with the word "world" in bold.
 ```
 
@@ -22,6 +22,8 @@ All functions in this library can be used directly, or like template literal tag
 functions:
 
 ```typescript
+import { bold } from "@coven/terminal";
+
 bold("Example") === bold`Example`;
 ```
 
@@ -67,10 +69,16 @@ These functions apply various text styles:
 The library includes a `mix` function that can be used to mix several utils:
 
 ```typescript
+import { bold, mix, red, whiteBack } from "@coven/terminal";
+
 const boldRedWhiteBack = mix(bold, red, whiteBack);
 
 boldRedWhiteBack`Coven Engineering`; // The string "Coven Engineering", with bold style, red color and white background
 ```
+
+As all [Coven Engineering](https://coven.engineering) libraries, it has 100%
+test coverage and it's built in top of modern tech compatible with all
+JavaScript runtimes.
 
 ## Other links
 

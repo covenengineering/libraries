@@ -2,10 +2,10 @@ import type { Fallback, ReadonlyTemplateStringsArray } from "@coven/types";
 import type { sgr } from "./sgr.ts";
 
 /**
- * String wrapped by two {@link sgr} codes and a `string` or a
- * `TemplateStringsArray`. The `string` can be inferred but the
- * `TemplateStringsArray` isn't, so it fallbacks to a plain `string` in that
- * case.
+ * String wrapped by two {@linkcode sgr} codes.
+ *
+ * The `string` can be inferred but the `TemplateStringsArray` isn't, so it
+ * fallbacks to a plain `string` in that case.
  *
  * @template Open Open code.
  * @template Close Close code.
