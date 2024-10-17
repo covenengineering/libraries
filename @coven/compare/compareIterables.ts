@@ -1,4 +1,8 @@
-import { getIterator } from "@coven/iterables";
+import {
+	getIterator,
+	iteratorFunctionToIterableIterator,
+	map,
+} from "@coven/iterables";
 import { compare } from "./compare.ts";
 import type { CurriedComparison } from "./CurriedComparison.ts";
 import type { Difference } from "./Difference.ts";
@@ -11,11 +15,21 @@ import { pathPrepend } from "./pathPrepend.ts";
  * {@linkcode compareIterables} yields the differences found between `left` and
  * `right` with a descriptive object.
  *
- * @example
+ * @example Compare 2 arrays of numbers
  * ```typescript
+ * import { flat } from "@coven/compare";
+ * import { assertEquals } from "@std/assert";
+ *
  * const compare1342 = compareIterables([13, 42]);
- * compare1342([13, 42]); // yields []
- * compare1342([13, 665]); // yields [{ kind: "UPDATE", left: 42, right: 665, path: [1] }]
+ *
+ * assertEquals(
+ * 	flat(compare1342([13, 42])),
+ * 	[],
+ * );
+ * assertEquals(
+ * 	flat(compare1342([13, 665])),
+ * 	[{ kind: "UPDATE", left: 42, right: 665, path: [1] }]
+ * );
  * ```
  * @see {@linkcode compare}
  * @param left Original iterable.
@@ -24,35 +38,41 @@ import { pathPrepend } from "./pathPrepend.ts";
 export const compareIterables = <LeftItem>(
 	left: Iterable<LeftItem>,
 ): CurriedComparison<Iterable<LeftItem>> => {
-	const leftIterator = getIterator(left);
-	const leftIteratorNext = leftIterator.next.bind(leftIterator);
-
 	/**
 	 * Curried {@linkcode compareIterables} with `left` set in context.
 	 *
 	 * @param right New iterable.
 	 * @returns Generator with differences.
 	 */
-	return function* (right): Generator<Difference> {
-		const rightIterator = getIterator(right);
-		const rightIteratorNext = rightIterator.next.bind(rightIterator);
+	return (right) =>
+		iteratorFunctionToIterableIterator(
+			function* (): Generator<Difference> {
+				const leftIterator = getIterator(left);
+				const rightIterator = getIterator(right);
 
-		for (
-			let index = 0,
-				{ done: leftDone = false, value: leftValue } =
-					leftIteratorNext(),
-				{ done: rightDone = false, value: rightValue } =
-					rightIteratorNext();
-			!(leftDone && rightDone);
-			index += 1,
-				{ done: leftDone = false, value: leftValue } =
-					leftIteratorNext(),
-				{ done: rightDone = false, value: rightValue } =
-					rightIteratorNext()
-		) {
-			yield* compare(leftDone ? MISSING_VALUE : leftValue)(
-				rightDone ? MISSING_VALUE : rightValue,
-			).map(pathPrepend(index));
-		}
-	};
+				for (
+					let index = 0,
+						{ done: leftDone = false, value: leftValue } =
+							leftIterator
+								.next(),
+						{ done: rightDone = false, value: rightValue } =
+							rightIterator
+								.next();
+					!(leftDone && rightDone);
+					index += 1,
+						{ done: leftDone = false, value: leftValue } =
+							leftIterator
+								.next(),
+						{ done: rightDone = false, value: rightValue } =
+							rightIterator
+								.next()
+				) {
+					yield* map(pathPrepend(index))(
+						compare(leftDone ? MISSING_VALUE : leftValue)(
+							rightDone ? MISSING_VALUE : rightValue,
+						),
+					);
+				}
+			},
+		);
 };

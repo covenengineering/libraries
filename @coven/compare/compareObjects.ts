@@ -1,3 +1,4 @@
+import { iteratorFunctionToIterableIterator } from "@coven/iterables";
 import { isIterable } from "@coven/predicates";
 import type { Just } from "@coven/types";
 import { compareIterables } from "./compareIterables.ts";
@@ -11,10 +12,16 @@ import type { Difference } from "./Difference.ts";
  * {@linkcode compareObjects} yields the differences found between `left` and
  * `right` with a descriptive object.
  *
- * @example
+ * @example Compare 2 objects with the same property but different value
  * ```typescript
- * const compareFoo = compareObjects({ foo: "🧙‍♀️" });
- * compareFoo({ foo: "🎃" }); // yields [{ kind: "UPDATE", left: "🧙‍♀️", right: "🎃", path: ["foo"] }]
+ * import { flat } from "@coven/compare";
+ * import { assertEquals } from "@std/assert";
+ *
+ * const compareWitch = compareObjects({ witch: "🧙‍♀️" });
+ * assertEquals(
+ * 	flat(compareWitch({ witch: "🎃" })),
+ * 	[{ kind: "UPDATE", left: "🧙‍♀️", right: "🎃", path: ["witch"] }]
+ * );
  * ```
  * @see {@linkcode compareIterables}
  * @see {@linkcode compareProperties}
@@ -37,12 +44,17 @@ export const compareObjects = (left: object): CurriedComparison<object> => {
 		 * @param right New object.
 		 * @returns Generator with differences.
 		 */
-		? function* (right): Generator<Difference> {
-			yield* isIterable(right)
-				? (compareIterableLeft as Just<typeof compareIterableLeft>)(
-					right as Iterable<object>,
-				)
-				: comparePropertiesLeft(right);
-		}
+		? (right) =>
+			iteratorFunctionToIterableIterator(
+				function* (): Generator<Difference> {
+					yield* isIterable(right)
+						? (compareIterableLeft as Just<
+							typeof compareIterableLeft
+						>)(
+							right as Iterable<object>,
+						)
+						: comparePropertiesLeft(right);
+				},
+			)
 		: comparePropertiesLeft;
 };

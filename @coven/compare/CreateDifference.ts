@@ -1,5 +1,5 @@
 import type { CREATE_KIND } from "./CREATE_KIND.ts";
-import type { WithDifferencePath } from "./WithDifferencePath.ts";
+import type { WithPropertyPath } from "./WithPropertyPath.ts";
 
 /**
  * Creation difference (property or value added).
@@ -8,8 +8,8 @@ import type { WithDifferencePath } from "./WithDifferencePath.ts";
  * ```typescript
  * const createDifference = ({
  * 	kind: "CREATE",
- * 	path: ["property", "path"].values(),
  * 	right: "created value",
+ * 	path: ["property", "path"].values()
  * }) as const satisfies CreateDifference<string>;
  * ```
  * @template Right Type of the new value.
@@ -24,4 +24,4 @@ export type CreateDifference<Right = unknown> = {
 	 * New value.
 	 */
 	readonly right: Right;
-} & WithDifferencePath;
+} & WithPropertyPath;

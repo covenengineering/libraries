@@ -3,10 +3,10 @@
  *
  * This `path` is an `IterableIterator` of `PropertyKey`s.
  */
-export type WithDifferencePath = {
+export type WithPropertyPath = {
 	/**
 	 * Property path of created, deleted or updated property (undefined for
 	 * root).
 	 */
-	readonly path?: IterableIterator<PropertyKey>;
+	readonly path: IterableIterator<PropertyKey>;
 };

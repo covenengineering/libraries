@@ -1,5 +1,5 @@
 import type { UPDATE_KIND } from "./UPDATE_KIND.ts";
-import type { WithDifferencePath } from "./WithDifferencePath.ts";
+import type { WithPropertyPath } from "./WithPropertyPath.ts";
 
 /**
  * Update difference (property or value changed).
@@ -29,4 +29,4 @@ export type UpdateDifference<Left = unknown, Right = unknown> = {
 	 * New value.
 	 */
 	readonly right: Right;
-} & WithDifferencePath;
+} & WithPropertyPath;

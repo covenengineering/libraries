@@ -1,6 +1,6 @@
+import { append, flat, map, unique } from "@coven/iterables";
 import { compare } from "./compare.ts";
 import type { CurriedComparison } from "./CurriedComparison.ts";
-import type { Difference } from "./Difference.ts";
 import { getKeys } from "./getKeys.ts";
 import { MISSING_VALUE } from "./MISSING_VALUE.ts";
 import { pathPrepend } from "./pathPrepend.ts";
@@ -11,10 +11,17 @@ import { pathPrepend } from "./pathPrepend.ts";
  * {@linkcode compareObjects} yields the differences found between `left` and
  * `right` with a descriptive object.
  *
- * @example
+ * @example Compare objects
  * ```typescript
- * const compareFoo = compareProperties({ foo: "🧙‍♀️" });
- * compareFoo({ foo: "🎃" }); // yields [{ kind: "UPDATE", left: "🧙‍♀️", right: "🎃", path: ["foo"] }]
+ * import { flat } from "@coven/compare";
+ * import { assertEquals } from "@std/assert";
+ *
+ * const compareWitch = compareProperties({ witch: "🧙‍♀️" });
+ *
+ * assertEquals(
+ * 	flat(compareWitch({ witch: "🎃" })),
+ * 	[{ kind: "UPDATE", left: "🧙‍♀️", right: "🎃", path: ["witch"] }],
+ * );
  * ```
  * @see {@linkcode compare}
  * @see {@linkcode getKeys}
@@ -30,19 +37,20 @@ export const compareProperties = (left: object): CurriedComparison<object> => {
 	 * @param right New object.
 	 * @yields Differences.
 	 */
-	return function* (right): Generator<Difference> {
-		yield* new Set([...ownKeysLeft, ...getKeys(right)])
-			.values()
-			.flatMap((key) =>
-				compare(
-					key in left
-						? left[key as keyof typeof left]
-						: MISSING_VALUE,
-				)(
-					key in right
-						? right[key as keyof typeof right]
-						: MISSING_VALUE,
-				).map(pathPrepend(key))
-			);
-	};
+	return (right) =>
+		flat(
+			map((key: string | symbol) =>
+				map(pathPrepend(key))(
+					compare(
+						key in left
+							? left[key as keyof typeof left]
+							: MISSING_VALUE,
+					)(
+						key in right
+							? right[key as keyof typeof right]
+							: MISSING_VALUE,
+					),
+				)
+			)(unique(append(getKeys(right))(ownKeysLeft))),
+		);
 };

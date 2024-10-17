@@ -1,23 +1,32 @@
-import { EMPTY_ARRAY } from "@coven/constants";
 import { prepend } from "@coven/iterables";
-import { set } from "@coven/utils";
-import type { WithDifferencePath } from "./WithDifferencePath.ts";
-
-const setPath = set("path");
+import type { Difference } from "./Difference.ts";
+import { setPath } from "./setPath.ts";
 
 /**
- * Prepends the given property to the given {@linkcode WithDifferencePath}'s path.
+ * Prepends the given property to the given {@linkcode Difference}'s path.
  *
- * @example
+ * @example Prepend string to path
  * ```typescript
- * pathPrepend("foo")({ path: ["bar"].values() }); // yields ["foo", "bar"]
+ * import { flat } from "@coven/compare";
+ * import { assertEquals } from "@std/assert";
+ *
+ * assertEquals(flat([
+ * 	pathPrepend("coven")({
+ * 	kind: "DELETE",
+ * 	left: 13,
+ * 	path: ["engineering"].values()
+ * })]), [{
+ * 	kind: "DELETE",
+ * 	left: 13,
+ * 	path: ["coven", "engineering"]
+ * }]);
  * ```
  * @param prepend Property to prepend.
  * @returns Curried generator with `prepend` in context.
  */
-export const pathPrepend = <SourceDifference extends WithDifferencePath>(
+export const pathPrepend = (
 	property: PropertyKey,
-): (difference: SourceDifference) => SourceDifference => {
+): (difference: Difference) => Difference => {
 	const prependProperty = prepend([property]);
 
 	/**
@@ -27,7 +36,5 @@ export const pathPrepend = <SourceDifference extends WithDifferencePath>(
 	 * @yields Difference's path with prepended `prepend`.
 	 */
 	return ({ path, ...difference }) =>
-		setPath(prependProperty(path ?? EMPTY_ARRAY))(
-			difference,
-		) as SourceDifference;
+		setPath(prependProperty(path))(difference) as Difference;
 };

@@ -1,3 +1,4 @@
+import { iteratorFunctionToIterableIterator } from "@coven/iterables";
 import { is, isObject } from "@coven/predicates";
 import type { Just } from "@coven/types";
 import { always } from "@coven/utils";
@@ -15,13 +16,30 @@ const alwaysFalse = always(false);
  * {@linkcode compare} yields the differences found between `left` and `right`
  * with a descriptive object.
  *
- * @example
+ * @example Using compare with strings
  * ```typescript
+ * import { flat } from "@coven/compare";
+ * import { assertEquals } from "@std/assert";
+ *
  * const witchCompare = compare("🧙‍♀️");
  *
- * witchCompare("🧙‍♀️"); // yields []
- * witchCompare("🎃"); // yields [{ kind: "UPDATE", left: "🧙‍♀️", right: "🎃", path: [] }]
- * compare({ foo: "🧙‍♀️" })({ foo: "🎃" }); // yields [{ kind: "UPDATE", left: "🧙‍♀️", right: "🎃", path: ["foo"] }]
+ * assertEquals(flat(witchCompare("🧙‍♀️")), []);
+ * assertEquals(
+ * 	flat(witchCompare("🎃")),
+ * 	[{ kind: "UPDATE", left: "🧙‍♀️", right: "🎃", path: [] }]
+ * );
+ * ```
+ * @example Using compare with objects
+ * ```typescript
+ * import { flat } from "@coven/compare";
+ * import { assertEquals } from "@std/assert";
+ *
+ * const witchObjectCompare = compare({ witch: "🧙‍♀️" });
+ *
+ * assertEquals(
+ * 	flat(witchObjectCompare({ witch: "🎃" })),
+ * 	[{ kind: "UPDATE", left: "🧙‍♀️", right: "🎃", path: ["witch"] }],
+ * );
  * ```
  * @see {@linkcode CurriedComparison}
  * @see {@linkcode compareObjects}
@@ -37,30 +55,35 @@ export const compare = (left: unknown): CurriedComparison<unknown> => {
 	const isLeft = is(left);
 	const isLeftConstructor = leftIsObject ? is(left.constructor) : alwaysFalse;
 
-	return leftIsObject
-		/**
-		 * Curried {@linkcode compare} with `left` set in context.
-		 *
-		 * @param right New value.
-		 * @yields Differences.
-		 */
-		? function* (right): Generator<Difference> {
-			isLeft(right) ? undefined : yield* (
-				isObject(right) &&
-					isLeftConstructor((right as object).constructor)
-					? compareObjectsLeft as Just<typeof compareObjectsLeft>
-					: valuesToDifferenceLeft
-			)(right);
-		}
-		/**
-		 * Curried {@linkcode compare} with `left` set in context.
-		 *
-		 * @param right New value.
-		 * @yields Differences.
-		 */
-		: function* (right): Generator<Difference> {
-			isLeft(right) ? undefined : (
-				yield* valuesToDifferenceLeft(right)
-			);
-		};
+	return (right) =>
+		iteratorFunctionToIterableIterator(
+			leftIsObject
+				/**
+				 * Curried {@linkcode compare} with `left` set in context.
+				 *
+				 * @param right New value.
+				 * @yields Differences.
+				 */
+				? function* (): Generator<Difference> {
+					isLeft(right) ? undefined : yield* (
+						isObject(right) &&
+							isLeftConstructor((right as object).constructor)
+							? compareObjectsLeft as Just<
+								typeof compareObjectsLeft
+							>
+							: valuesToDifferenceLeft
+					)(right);
+				}
+				/**
+				 * Curried {@linkcode compare} with `left` set in context.
+				 *
+				 * @param right New value.
+				 * @yields Differences.
+				 */
+				: function* (): Generator<Difference> {
+					isLeft(right) ? undefined : (
+						yield* valuesToDifferenceLeft(right)
+					);
+				},
+		);
 };

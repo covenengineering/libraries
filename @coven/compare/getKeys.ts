@@ -1,30 +1,37 @@
-import { has, is, isObject } from "@coven/predicates";
+import { iteratorFunctionToIterableIterator, unique } from "@coven/iterables";
+import { hasPrototype, is } from "@coven/predicates";
 
-const hasPrototype = has("prototype");
 const isObjectConstructor = is(Object);
 const isFunctionConstructor = is(Function);
 
 /**
  * Recursively get all object keys going up the prototype chain.
  *
- * @example
+ * @example Get keys of a plain object
  * ```typescript
- * getKeys([]); // yields "length", "map", and everything from `Array`
+ * import { assertEquals } from "@std/assert";
+ *
+ * assertEquals([...getKeys({})], []);
  * ```
  * @param object Object to get the keys from.
  * @yields Object keys.
  */
-export const getKeys = function* (object: object): Generator<string | symbol> {
-	yield* Reflect.ownKeys(object);
+export const getKeys = (object: object): IterableIterator<string | symbol> =>
+	unique(
+		iteratorFunctionToIterableIterator(
+			function* (): Generator<string | symbol> {
+				yield* Reflect.ownKeys(object);
 
-	hasPrototype(object) && isObject(object.prototype)
-		? yield* Reflect.ownKeys(object.prototype)
-		: undefined;
+				hasPrototype(object)
+					? yield* Reflect.ownKeys(object.prototype)
+					: undefined;
 
-	const constructor = object.constructor;
+				const constructor = object.constructor;
 
-	isObjectConstructor(constructor) ||
-		isFunctionConstructor(constructor)
-		? undefined
-		: yield* getKeys(constructor);
-};
+				isObjectConstructor(constructor) ||
+					isFunctionConstructor(constructor)
+					? undefined
+					: yield* getKeys(constructor);
+			},
+		),
+	);

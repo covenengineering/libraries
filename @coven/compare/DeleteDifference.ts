@@ -1,5 +1,5 @@
 import type { DELETE_KIND } from "./DELETE_KIND.ts";
-import type { WithDifferencePath } from "./WithDifferencePath.ts";
+import type { WithPropertyPath } from "./WithPropertyPath.ts";
 
 /**
  * Deletion difference (property or value removed).
@@ -24,4 +24,4 @@ export type DeleteDifference<Left = unknown> = {
 	 * Removed/original value.
 	 */
 	readonly left: Left;
-} & WithDifferencePath;
+} & WithPropertyPath;
