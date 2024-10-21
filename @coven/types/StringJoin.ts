@@ -11,9 +11,9 @@ import type { Stringable } from "./Stringable.ts";
  * ```typescript
  * type CovenEngineering = StringJoin<readonly ["Coven", "Engineering"], " ">; // "Coven Engineering"
  * ```
- * @see {@link EmptyString}
- * @see {@link ReadonlyArray}
- * @see {@link Stringable}
+ * @see {@linkcode EmptyString}
+ * @see {@linkcode ReadonlyArray}
+ * @see {@linkcode Stringable}
  * @template StringableArray Array to join.
  * @template Glue String to use to glue items together.
  * @template _Accumulator **⚠️ INTERNAL:** Output accumulator.

@@ -4,7 +4,7 @@ import type { Precise } from "./Precise.ts";
 import { createPrecise } from "./createPrecise.ts";
 
 /**
- * Curried multiply operation using the internal {@link Precise} type.
+ * Curried multiply operation using the internal {@linkcode Precise} type.
  *
  * @example
  * ```typescript
@@ -12,8 +12,8 @@ import { createPrecise } from "./createPrecise.ts";
  *
  * double(65n, -1n); // [13n]
  * ```
- * @see {@link createPrecise}
- * @see {@link Precise}
+ * @see {@linkcode createPrecise}
+ * @see {@linkcode Precise}
  * @param multiplierBase Multiplier base to use in the multiplication.
  * @param multiplierExponent Multiplier exponent to use in the multiplication.
  * @returns Curried function with `multiplierBase` and `multiplierExponent` in context.

@@ -4,7 +4,7 @@ import type { ValueOrRangeString } from "./ValueOrRangeString.ts";
 /**
  * Type that represents a list of values for a cron string field.
  *
- * @see {@link ValueOrRangeString}
+ * @see {@linkcode ValueOrRangeString}
  */
 export type ListString =
 	`${string}${ListExpressionSeparatorToken}${ValueOrRangeString}`;

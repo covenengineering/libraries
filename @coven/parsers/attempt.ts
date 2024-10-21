@@ -1,8 +1,10 @@
 import type { Just, Maybe, ReadonlyArray } from "@coven/types";
 
 /**
- * This functions tries to run a function and silences the `throw`s by wrapping
- * it with a `try/catch` and returning `undefined` instead.
+ * Attempts to run a function and silences throws.
+ *
+ * It silences the `throw`s by wrapping it with a `try/catch` and returning
+ * `undefined` instead.
  *
  * @example
  * ```typescript

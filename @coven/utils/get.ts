@@ -5,10 +5,9 @@ import type { ReadonlyRecord } from "@coven/types";
  *
  * @example
  * ```typescript
- * const getFoo = get("foo");
+ * const getWitch = get("witch");
  *
- * getFoo({ foo: "bar" }); // "bar"
- * getFoo({}); // undefined
+ * getWitch({ witch: "🧙🏻‍♀️" }); // "🧙🏻‍♀️"
  * ```
  * @returns Curried function with `key` in context.
  */

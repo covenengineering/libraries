@@ -4,5 +4,11 @@
 		"source.organizeImports": "explicit"
 	},
 	"editor.defaultFormatter": "denoland.vscode-deno",
-	"editor.formatOnSave": true
+	"editor.formatOnSave": true,
+	"[yaml]": {
+		"editor.insertSpaces": true,
+		"editor.tabSize": 4,
+		"editor.autoIndent": "advanced",
+		"diffEditor.ignoreTrimWhitespace": false
+	}
 }

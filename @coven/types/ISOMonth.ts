@@ -8,8 +8,8 @@ import type { Enumerate } from "./Enumerate.ts";
  * ```typescript
  * const months = ["01", "06", "12"] as const satisfies Iterable<ISOMonth>;
  * ```
- * @see {@link Digit}
- * @see {@link Enumerate}
+ * @see {@linkcode Digit}
+ * @see {@linkcode Enumerate}
  * @see [Date](https://mdn.io/Date)
  */
 export type ISOMonth = `0${Exclude<Digit, 0>}` | `1${Enumerate<2>}`;

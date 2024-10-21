@@ -3,10 +3,10 @@ import type { ListString } from "./ListString.ts";
 import { LIST_EXPRESSION_SEPARATOR_TOKEN } from "./tokens.ts";
 
 /**
- * Predicate checking if given value is a {@link ListString}.
+ * Predicate checking if given value is a {@linkcode ListString}.
  *
- * @see {@link ListString}
- * @see {@link LIST_EXPRESSION_SEPARATOR_TOKEN}
+ * @see {@linkcode ListString}
+ * @see {@linkcode LIST_EXPRESSION_SEPARATOR_TOKEN}
  */
 export const isListString = includes(
 	LIST_EXPRESSION_SEPARATOR_TOKEN,

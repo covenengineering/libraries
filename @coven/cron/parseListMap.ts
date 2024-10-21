@@ -12,8 +12,8 @@ import type { RangeField } from "./RangeField.ts";
  * parseListMap(["1", "05", "13", "5-13", "13-13", "13-5", "99"]);
  * // [1, 5, 13, { from: 5, to: 13 }, 13, undefined, undefined]
  * ```
- * @see {@link parseNumber}
- * @see {@link parseRange}
+ * @see {@linkcode parseNumber}
+ * @see {@linkcode parseRange}
  */
 export const parseListMap: (
 	list: Iterable<string>,

@@ -12,6 +12,8 @@ import { build } from "./build.ts";
  *
  * @example
  * ```typescript
+ * import { group, or } from "@coven/expression";
+ *
  * buildUnicode(group(or(13, "coven"))); // /(?:13|coven)/u
  * ```
  * @param tokens String tokens to be used as the RegExp source.

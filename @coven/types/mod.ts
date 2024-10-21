@@ -1,6 +1,7 @@
 export type { Add } from "./Add.ts";
 export type { ArrayLikeIndexFallback } from "./ArrayLikeIndexFallback.ts";
 export type { Awaitable } from "./Awaitable.ts";
+export type { AwaitableEffect } from "./AwaitableEffect.ts";
 export type { AwaitableGenerator } from "./AwaitableGenerator.ts";
 export type { AwaitableIterable } from "./AwaitableIterable.ts";
 export type { AwaitableIterableIterator } from "./AwaitableIterableIterator.ts";
@@ -9,6 +10,7 @@ export type { Class } from "./Class.ts";
 export type { DayOfMonth } from "./DayOfMonth.ts";
 export type { DayOfWeek } from "./DayOfWeek.ts";
 export type { Digit } from "./Digit.ts";
+export type { Effect } from "./Effect.ts";
 export type { Either } from "./Either.ts";
 export type { EmptyArray } from "./EmptyArray.ts";
 export type { EmptyString } from "./EmptyString.ts";

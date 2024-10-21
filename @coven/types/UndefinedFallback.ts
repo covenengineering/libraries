@@ -10,8 +10,8 @@ import type { Just } from "./Just.ts";
  * type Type1 = UndefinedFallback<undefined, number>; // number
  * type Type2 = UndefinedFallback<string, number>; // string
  * ```
- * @see {@link Fallback}
- * @see {@link Just}
+ * @see {@linkcode Fallback}
+ * @see {@linkcode Just}
  * @template MaybeUndefined The type that may or may not be `undefined`.
  * @template FallbackType The fallback type to use if `MaybeUndefined` is `undefined`.
  */

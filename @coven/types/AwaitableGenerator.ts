@@ -3,7 +3,12 @@
  *
  * @example
  * ```typescript
- * // TODO: Example here
+ * const generator: AwaitableGenerator<number> = (function* () {
+ * 	yield 13;
+ * })();
+ * export const asyncGenerator: AwaitableGenerator<number> = (async function* () {
+ * 	yield 13;
+ * })();
  * ```
  * @template Item Type of the items in the `AwaitableGenerator`.
  * @template Return Type of the return value in the `AwaitableGenerator`.

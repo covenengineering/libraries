@@ -6,9 +6,9 @@ const hasFrom = has(FROM_NAME);
 const hasTo = has(TO_NAME);
 
 /**
- * Predicate checking if given value is a cron object range ({@link RangeField}).
+ * Predicate checking if given value is a cron object range ({@linkcode RangeField}).
  *
- * @see {@link RangeField}
+ * @see {@linkcode RangeField}
  */
 export const isRangeField = (value: unknown): value is RangeField<number> =>
 	isObject(value) &&

@@ -20,11 +20,11 @@ import type { Single } from "./Single.ts";
  * 	3
  * >;
  * ```
- * @see {@link Enumerate}
- * @see {@link Maybe}
- * @see {@link NeverFallback}
- * @see {@link ReadonlyRecord}
- * @see {@link Single}
+ * @see {@linkcode Enumerate}
+ * @see {@linkcode Maybe}
+ * @see {@linkcode NeverFallback}
+ * @see {@linkcode ReadonlyRecord}
+ * @see {@linkcode Single}
  * @template Item Type of the items in the array-like object.
  * @template Length Length value of the array-like object.
  */
@@ -34,7 +34,7 @@ export type ReadonlyArrayLike<
 > =
 	& {
 		/**
-		 * Amount of items in the {@link ReadonlyArrayLike}.
+		 * Amount of items in the {@linkcode ReadonlyArrayLike}.
 		 */
 		readonly length: Length;
 	}

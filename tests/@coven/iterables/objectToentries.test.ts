@@ -1,6 +1,6 @@
 import { EMPTY_ARRAY, EMPTY_OBJECT } from "@coven/constants";
 import { iterableToArray, objectToEntries } from "@coven/iterables";
-import { assertEquals } from "@std/assert/equals";
+import { assertEquals } from "@std/assert";
 
 const symbol = Symbol("🟩");
 

@@ -7,19 +7,11 @@ import { setPath } from "./setPath.ts";
  *
  * @example Prepend string to path
  * ```typescript
- * import { flat } from "@coven/compare";
- * import { assertEquals } from "@std/assert";
- *
- * assertEquals(flat([
- * 	pathPrepend("coven")({
+ * pathPrepend("coven")({
  * 	kind: "DELETE",
  * 	left: 13,
  * 	path: ["engineering"].values()
- * })]), [{
- * 	kind: "DELETE",
- * 	left: 13,
- * 	path: ["coven", "engineering"]
- * }]);
+ * }); // Yields { kind: "DELETE", left: 13, path: ["coven", "engineering"] }
  * ```
  * @param prepend Property to prepend.
  * @returns Curried generator with `prepend` in context.

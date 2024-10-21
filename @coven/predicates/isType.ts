@@ -2,10 +2,12 @@ import type { TypeOfDictionary, TypeOfValue } from "@coven/types";
 import type { IsTypeFunction } from "./IsTypeFunction.ts";
 
 /**
- * Takes a `type` string and checks if given `input` is of that `typeof`. This
- * "patches" typeof so `null` is not `"object"` but `"null"` instead (rejected
- * proposal for lack of backwards compatibility, more details
- * [here](https://lou.cx/null-typeof)).
+ * Takes a `type` string and checks if given `input` is of that `typeof`.
+ *
+ * > [!IMPORTANT]
+ * > This "patches" typeof so `null` is not `"object"` but `"null"` instead
+ * > (rejected proposal for lack of backwards compatibility, more details
+ * > [here](https://lou.cx/null-typeof)).
  *
  * @example
  * ```typescript

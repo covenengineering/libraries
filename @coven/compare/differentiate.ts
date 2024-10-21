@@ -26,44 +26,26 @@ const differenceBase = { path: toIterable(EMPTY_ARRAY) };
  *
  * @example Missing right value
  * ```typescript
- * import { MISSING_VALUE, flat } from "@coven/compare";
- * import { assertEquals } from "@std/assert";
+ * import { MISSING_VALUE } from "@coven/compare";
  *
- * assertEquals(
- * 	flat(differentiate("🧙‍♀️")(MISSING_VALUE)),
- * 	[{ kind: "DELETE", left: "🧙‍♀️", path: [] }]
- * );
+ * differentiate("🧙‍♀️")(MISSING_VALUE); // Yields { kind: "DELETE", left: "🧙‍♀️", path: [] }
  * ```
  * @example Missing left value
  * ```typescript
- * import { MISSING_VALUE, flat } from "@coven/compare";
- * import { assertEquals } from "@std/assert";
+ * import { MISSING_VALUE } from "@coven/compare";
  *
- * assertEquals(
- * 	flat(differentiate(MISSING_VALUE)("🎃")),
- * 	[{ kind: "CREATE", right: "🎃", path: [] }]
- * );
+ * differentiate(MISSING_VALUE)("🎃"); // Yields { kind: "CREATE", right: "🎃", path: [] }
  * ```
  * @example Both values set
  * ```typescript
- * import { flat } from "@coven/compare";
- * import { assertEquals } from "@std/assert";
- *
- * assertEquals(
- * 	flat(differentiate("🧙‍♀️")("🎃")),
- * 	[{ kind: "UPDATE", left: "🧙‍♀️", right: "🎃", path: [] }]
- * );
- * differentiate("🧙‍♀️")("🧙‍♀️"); // yields []
+ * differentiate("🧙‍♀️")("🎃"); // Yields { kind: "UPDATE", left: "🧙‍♀️", right: "🎃", path: [] }
+ * differentiate("🧙‍♀️")("🧙‍♀️"); // Yields nothing
  * ```
  * @example Both values missing
  * ```typescript
- * import { MISSING_VALUE, flat } from "@coven/compare";
- * import { assertEquals } from "@std/assert";
+ * import { MISSING_VALUE } from "@coven/compare";
  *
- * assertEquals(
- * 	flat(differentiate(MISSING_VALUE)(MISSING_VALUE)),
- * 	[]
- * );
+ * differentiate(MISSING_VALUE)(MISSING_VALUE); // Yields nothing
  * ```
  * @see {@linkcode Difference}
  * @param left Left/Original value.

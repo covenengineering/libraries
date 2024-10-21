@@ -1,3 +1,5 @@
+import type { Stringable } from "@coven/types";
+
 const textEncoder = new TextEncoder();
 const LITTLE_ENDIAN = true;
 const sha256ToNumber = (sha256: ArrayBuffer) =>
@@ -11,8 +13,8 @@ const sha256ToNumber = (sha256: ArrayBuffer) =>
  *
  * @example
  * ```typescript
- * const seededRandom1 = await random("some seed");
- * const seededRandom2 = await random("some seed");
+ * const seededRandom1 = await cryptoNumber("some seed");
+ * const seededRandom2 = await cryptoNumber("some seed");
  *
  * seededRandom1 === seededRandom2; // true because it has the same seed
  * ```
@@ -20,7 +22,7 @@ const sha256ToNumber = (sha256: ArrayBuffer) =>
  * @param seed Seed to be used to generate random numbers.
  * @returns Pseudo-random number from seed.
  */
-export const cryptoNumber = (seed: string): Promise<number> =>
+export const cryptoNumber = (seed: Stringable): Promise<number> =>
 	crypto.subtle
-		.digest("SHA-256", textEncoder.encode(seed))
+		.digest("SHA-256", textEncoder.encode(`${seed}`))
 		.then(sha256ToNumber);

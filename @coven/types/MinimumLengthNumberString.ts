@@ -9,13 +9,13 @@ import type { ReadonlyArray } from "./ReadonlyArray.ts";
  *
  * @example
  * ```typescript
- * const test1 = "1" as const satisfies MultiDigitNumberString<1>; // ok
- * const test2 = "01" as const satisfies MultiDigitNumberString<2>; // ok
- * const test3 = "1" as const satisfies MultiDigitNumberString<3>; // error
+ * const test1 = "1" as const satisfies MinimumLengthNumberString<1>;
+ * const test2 = "01" as const satisfies MinimumLengthNumberString<2>;
+ * const test3 = "012" as const satisfies MinimumLengthNumberString<3>;
  * ```
- * @see {@link Digit}
- * @see {@link EmptyString}
- * @see {@link ReadonlyArray}
+ * @see {@linkcode Digit}
+ * @see {@linkcode EmptyString}
+ * @see {@linkcode ReadonlyArray}
  * @template MinimumLength Minimum length for the number string.
  * @template _Accumulator **⚠️ INTERNAL:** Output accumulator.
  * @template _Tracker **⚠️ INTERNAL:** Loop tracking accumulator.

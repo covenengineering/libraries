@@ -1,6 +1,8 @@
 import type { Maybe } from "@coven/types";
 
 /**
+ * Turns `NaN` into `undefined`.
+ *
  * Takes a `number` that could be `NaN` and makes it `undefined` if it is `NaN`.
  *
  * @example

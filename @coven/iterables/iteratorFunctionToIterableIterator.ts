@@ -3,18 +3,16 @@
  *
  * @example
  * ```typescript
- * const identityGenerator = function* (value) { yield value; };
- * const iterableIterator = createIterableIterator(identityGenerator);
+ * const witchGenerator = function* () { yield "🧙🏻‍♀️"; };
+ * const witchIterableIterator = iteratorFunctionToIterableIterator(witchGenerator);
  *
- * const fooIdentity = iterableIterator("foo");
- *
- * for (const value of fooIdentity) {
+ * for (const value of witchIterableIterator) {
  * 	console.log(value); // "foo"
  * }
  *
  * // Same IterableIterator as above, return values again:
  *
- * for (const value of fooIdentity) {
+ * for (const value of witchIterableIterator) {
  * 	console.log(value); // "foo"
  * }
  * ```

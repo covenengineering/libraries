@@ -5,7 +5,7 @@ import type { ReadonlyArrayLike } from "./ReadonlyArrayLike.ts";
 
 /**
  * Get a couple with the head (item at index `0`) and tail (all elements except
- * index `0`) types of an {@link ReadonlyArrayLike}.
+ * index `0`) types of an {@linkcode ReadonlyArrayLike}.
  *
  * @example
  * ```typescript
@@ -14,10 +14,10 @@ import type { ReadonlyArrayLike } from "./ReadonlyArrayLike.ts";
  * 	typeof array
  * >;
  * ```
- * @see {@link EmptyArray}
- * @see {@link EmptyString}
- * @see {@link Maybe}
- * @see {@link ReadonlyArrayLike}
+ * @see {@linkcode EmptyArray}
+ * @see {@linkcode EmptyString}
+ * @see {@linkcode Maybe}
+ * @see {@linkcode ReadonlyArrayLike}
  * @template ArrayLike `ReadonlyArrayLike` to get the head and tail.
  */
 export type HeadAndTail<ArrayLike extends ReadonlyArrayLike> = ArrayLike extends

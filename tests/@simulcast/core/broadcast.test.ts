@@ -1,6 +1,5 @@
 import { broadcast } from "@simulcast/core";
-import { assert } from "@std/assert";
-import { assertStrictEquals } from "@std/assert/strict-equals";
+import { assert, assertStrictEquals } from "@std/assert";
 
 const TEST_EVENT = "test";
 

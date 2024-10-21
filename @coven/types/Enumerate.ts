@@ -2,7 +2,9 @@ import type { IndexArray } from "./IndexArray.ts";
 
 /**
  * Recursively generates a type with an union of numbers from `0` to `To`.
- * This is expensive and has the same limit TypeScript has for recursive types.
+ *
+ * > [!IMPORTANT]
+ * > This is expensive and has the same limit TypeScript has for recursive types.
  *
  * @example
  * ```typescript

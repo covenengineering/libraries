@@ -3,14 +3,16 @@ import type { IndexArray } from "./IndexArray.ts";
 import type { ReadonlyArray } from "./ReadonlyArray.ts";
 
 /**
- * Recursively generates the result of adding `Addend` to `Augend`. This is
- * expensive and has the same limit TypeScript has for recursive types.
+ * Recursively generates the result of adding `Addend` to `Augend`.
+ *
+ * > [!IMPORTANT]
+ * > This is expensive and has the same limit TypeScript has for recursive types.
  *
  * @example
  * ```typescript
  * type thirteen = Add<10, 3>; // 13
  * ```
- * @see {@link ReadonlyArray}
+ * @see {@linkcode ReadonlyArray}
  * @template Addend Addend of the add operation.
  * @template Augend Augend of the add operation.
  * @template _Accumulator **⚠️ INTERNAL:** Accumulator for the recursion.

@@ -2,6 +2,8 @@ import type { NumberParser } from "./NumberParser.ts";
 import { parseInteger } from "./parseInteger.ts";
 
 /**
+ * String to hexadecimal parser.
+ *
  * Parses a `string` to a hexadecimal `number`, returning `undefined` instead of
  * `NaN` if it fails.
  *
@@ -11,7 +13,7 @@ import { parseInteger } from "./parseInteger.ts";
  * parseHexadecimal("101.5"); // 0x101 -> 257
  * parseHexadecimal("invalid"); // undefined
  * ```
- * @see {@link parseInteger}
+ * @see {@linkcode parseInteger}
  * @param string String to be parsed.
  * @returns Parsed `number` or `undefined` if it fails.
  */

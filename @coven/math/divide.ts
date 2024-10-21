@@ -2,7 +2,7 @@ import { pipe } from "./pipe.ts";
 import { preciseDivide } from "./preciseDivide.ts";
 
 /**
- * Curried divide operation using {@link pipe} with {@link preciseDivide}.
+ * Curried divide operation using {@linkcode pipe} with {@linkcode preciseDivide}.
  *
  * @example
  * ```typescript
@@ -10,8 +10,8 @@ import { preciseDivide } from "./preciseDivide.ts";
  *
  * half(1); // 0.5
  * ```
- * @see {@link preciseDivide}
- * @see {@link pipe}
+ * @see {@linkcode preciseDivide}
+ * @see {@linkcode pipe}
  * @param divisor Divisor to be used in the division.
  * @returns Curried function with `divisor` in context.
  */

@@ -3,19 +3,19 @@ import { CLOSE_BACKGROUND } from "./CLOSE_BACKGROUND.ts";
 import { format } from "./format.ts";
 
 /**
- * **Cyan** background wrapper.
+ * **Gray** background wrapper.
  *
  * Given an `input` string, it will return a new string with the ANSI codes for
- * **cyan** background around it.
+ * **gray** background around it.
  *
  * @example
  * ```typescript
- * cyanBack("Coven"); // "\u001B[46mCoven\u001B[49m"
+ * bgGray("Coven"); // "\u001B[100mCoven\u001B[49m"
  * // It can also be used as a tag function for tagged templates:
- * cyanBack`Coven`; // "\u001B[46mCoven\u001B[49m"
+ * bgGray`Coven`; // "\u001B[100mCoven\u001B[49m"
  * ```
  * @see {@linkcode format}
  * @see {@linkcode Background}
  * @see [3-bit and 4-bit ANSI colors](https://en.wikipedia.org/wiki/ANSI_escape_code#3-bit_and_4-bit)
  */
-export const cyanBack: Background<46> = format(46, CLOSE_BACKGROUND);
+export const bgGray: Background<100> = format(100, CLOSE_BACKGROUND);

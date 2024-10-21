@@ -1,4 +1,3 @@
-import type { Fallback, ReadonlyTemplateStringsArray } from "@coven/types";
 import type { sgr } from "./sgr.ts";
 
 /**
@@ -14,9 +13,5 @@ import type { sgr } from "./sgr.ts";
 export type FormattedString<
 	Open extends number,
 	Close extends number,
-	Input extends string | TemplateStringsArray,
-> = `${ReturnType<typeof sgr<Open>>}${Fallback<
-	ReadonlyTemplateStringsArray,
-	Input,
-	string
->}${ReturnType<typeof sgr<Close>>}`;
+	Input extends string = string,
+> = `${ReturnType<typeof sgr<Open>>}${Input}${ReturnType<typeof sgr<Close>>}`;

@@ -7,7 +7,7 @@ import type { Enumerate } from "./Enumerate.ts";
  * ```typescript
  * const milliseconds = [1, 250, 999] as const satisfies Iterable<Milliseconds>;
  * ```
- * @see {@link Enumerate}
+ * @see {@linkcode Enumerate}
  * @see [Date](https://mdn.io/Date)
  */
 export type Milliseconds = Enumerate<999>;

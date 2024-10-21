@@ -15,6 +15,8 @@ const dateReplace = join(quantity(2)(DIGIT), escape("."), quantity(3)(DIGIT));
  *
  * @example
  * ```typescript
+ * import { take } from "@coven/iterables";
+ *
  * take(2)(nextDates(new Date("1989-10-13T10:15:00.000Z"))("* * * * *"));
  * // [Date("1989-10-13T10:16:00.000"), Date("1989-10-13T10:17:00.000Z")]
  * ```

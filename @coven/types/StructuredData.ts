@@ -7,13 +7,13 @@ import type { Primitive } from "./Primitive.ts";
  * ```typescript
  * const clone = structuredClone({} satisfies StructuredData);
  * ```
- * @see {@link Primitive}
+ * @see {@linkcode Primitive}
  * @see [structuredClone](https://mdn.io/structuredClone)
  */
 export type StructuredData =
 	| {
 		/**
-		 * @see {@link StructuredData} untyped property.
+		 * @see {@linkcode StructuredData} untyped property.
 		 */
 		readonly [property: string]: StructuredData;
 	}

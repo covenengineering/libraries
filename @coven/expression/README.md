@@ -3,7 +3,7 @@
 [![JSR](https://jsr.io/badges/@coven/expression)](https://jsr.io/@coven/expression)
 [![JSR Score](https://jsr.io/badges/@coven/expression/score)](https://jsr.io/@coven/expression/score)
 
-🧙🏻‍♀️ Magically build regular expressions.
+🧙‍♀️ Magical regular expressions composer.
 
 It is really easy to mess big regular expressions by forgetting some character.
 So, instead of using plain strings, `@coven/expression` provides a set of

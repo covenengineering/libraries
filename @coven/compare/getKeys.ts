@@ -9,9 +9,8 @@ const isFunctionConstructor = is(Function);
  *
  * @example Get keys of a plain object
  * ```typescript
- * import { assertEquals } from "@std/assert";
- *
- * assertEquals([...getKeys({})], []);
+ * getKeys({}); // Yields nothing
+ * getKeys({ coven: "engineering" }); // Yields "coven"
  * ```
  * @param object Object to get the keys from.
  * @yields Object keys.

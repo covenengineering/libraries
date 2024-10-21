@@ -13,10 +13,10 @@ import { subtract } from "./subtract.ts";
  * calculate(0.1).plus(0.2); // 0.3
  * calculate(0.7).plus(0.3).dividedBy(4).times(2).minus(0.2); // 0.3
  * ```
- * @see {@link add}
- * @see {@link divide}
- * @see {@link multiply}
- * @see {@link subtract}
+ * @see {@linkcode add}
+ * @see {@linkcode divide}
+ * @see {@linkcode multiply}
+ * @see {@linkcode subtract}
  * @param value Value to run operations on.
  * @returns An object with `divideBy`, `minus`, `plus` and `times` methods and a `value` property.
  */

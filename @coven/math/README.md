@@ -3,7 +3,7 @@
 [![JSR](https://jsr.io/badges/@coven/math)](https://jsr.io/@coven/math)
 [![JSR Score](https://jsr.io/badges/@coven/math/score)](https://jsr.io/@coven/math/score)
 
-💀 Math witchcraft.
+🧮 Precise math utilities.
 
 Using this library, adding `0.2` + `0.1` will result in `0.3`, and that might
 look like nothing to the untrained eye, but it's not
@@ -23,7 +23,7 @@ JavaScript runtimes.
 ```typescript
 import { calculate } from "@coven/math";
 
-calculate(0.1).add(0.2); // 0.3 🤯
+calculate(0.1).plus(0.2); // 0.3 🤯
 ```
 
 ## Other links

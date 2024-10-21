@@ -12,7 +12,7 @@ import { LIST_EXPRESSION_SEPARATOR_TOKEN } from "./tokens.ts";
  * ```typescript
  * parseList("10,11,13"); // [10, 11, 13]
  * ```
- * @see {@link isListString}
+ * @see {@linkcode isListString}
  *
  * @param value String that might be a list.
  * @returns Parsed list of `undefined` if it isn't a list string.

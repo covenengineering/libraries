@@ -6,7 +6,7 @@ import { getIterator } from "./getIterator.ts";
  *
  * @example
  * ```typescript
- * const sum = reduce<number>(item => total => total + item);
+ * const sum = reduce<number, number>(item => total => total + item);
  * const sumFrom0 = sum(0);
  *
  * sumFrom0([1, 2, 3]); // 6

@@ -8,7 +8,7 @@ import type { LanguageCode } from "./LanguageCode.ts";
  * ```typescript
  * const locale = "en-US" as const satisfies LanguageTag;
  * ```
- * @see {@link LanguageCode}
+ * @see {@linkcode LanguageCode}
  * @see [ISO 639](https://en.wikipedia.org/wiki/IETF_language_tag)
  * @see [IETF BCP 47](https://en.wikipedia.org/wiki/ISO_639)
  */

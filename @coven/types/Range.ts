@@ -2,15 +2,15 @@ import type { Enumerate } from "./Enumerate.ts";
 import type { NeverFallback } from "./NeverFallback.ts";
 
 /**
- * Generates a range of numbers using {@link Enumerate} from `From` to `To`.
+ * Generates a range of numbers using {@linkcode Enumerate} from `From` to `To`.
  *
  * @example
  * ```typescript
  * type From5To10 = Range<5, 10>; // 5 | 6 | 7 | 8 | 9 | 10
  * type From5To10Alternative = Range<10, 5>; // 5 | 6 | 7 | 8 | 9 | 10
  * ```
- * @see {@link Enumerate}
- * @see {@link NeverFallback}
+ * @see {@linkcode Enumerate}
+ * @see {@linkcode NeverFallback}
  * @template From Origin value (inclusive).
  * @template To Last value (inclusive).
  */

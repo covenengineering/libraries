@@ -10,7 +10,7 @@ import type { Fallback } from "./Fallback.ts";
  * type Type1 = NeverFallback<never, number>; // number
  * type Type2 = NeverFallback<string, number>; // string
  * ```
- * @see {@link Fallback}
+ * @see {@linkcode Fallback}
  * @template MaybeNever The type that may or may not be `never`.
  * @template FallbackType The fallback type to use if `MaybeNever` is `never`.
  */

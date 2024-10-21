@@ -12,13 +12,18 @@ import type { EventTypeDictionary } from "./EventTypeDictionary.ts";
  *
  * @example
  * ```typescript
- * const eventRegistry = {};
- * const onRegistry = on(eventRegistry); // 👈🏻 You are here
- * const onEvent = onRegistry("event");
- * const offEvent = onEvent(() => console.log("event called"));
- * emit(eventRegistry)("event")(); // Logs "event called"
+ * import { emit, type EventRegistry } from "@simulcast/core";
+ *
+ * const exampleEvent = "example";
+ * const eventRegistry: EventRegistry<{ [exampleEvent]: string }> = {};
+ * const onRegistry = on(eventRegistry);
+ * const emitRegistry = emit(eventRegistry);
+ * const onEvent = onRegistry(exampleEvent);
+ * const emitEvent = emitRegistry(exampleEvent);
+ * const offEvent = onEvent(console.log);
+ * emitEvent("Will log");
  * offEvent();
- * emit(eventRegistry)("event")(); // Nothing happens
+ * emitEvent("Will not log");
  * ```
  * @template Events Event registry.
  * @param eventRegistry Record of event names mapped to an array of listeners.

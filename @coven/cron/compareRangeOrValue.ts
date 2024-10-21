@@ -3,7 +3,7 @@ import { isRangeField } from "./isRangeField.ts";
 import { FROM_NAME, TO_NAME } from "./rangeFieldNames.ts";
 
 /**
- * Compares `value` to a {@link ValueOrRangeField}.
+ * Compares `value` to a {@linkcode ValueOrRangeField}.
  *
  * @example
  * ```typescript
@@ -13,7 +13,7 @@ import { FROM_NAME, TO_NAME } from "./rangeFieldNames.ts";
  * compareRangeOrValue(13)(14); // false
  * ```
  * @param value Value to be compared.
- * @returns Curried function expecting a {@link ValueOrRangeField}.
+ * @returns Curried function expecting a {@linkcode ValueOrRangeField}.
  */
 export const compareRangeOrValue =
 	(value: number): (valueOrRange: ValueOrRangeField<number>) => boolean =>

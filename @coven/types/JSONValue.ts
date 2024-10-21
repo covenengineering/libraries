@@ -8,13 +8,13 @@ import type { Primitive } from "./Primitive.ts";
  * ```typescript
  * const json = JSON.parse('{"🧙‍♀️": "🔮"}') satisfies JSONValue;
  * ```
- * @see {@link Primitive}
+ * @see {@linkcode Primitive}
  * @see [JSON](https://www.json.org/json-en.html)
  */
 export type JSONValue =
 	| {
 		/**
-		 * @see {@link JSONValue} untyped property.
+		 * @see {@linkcode JSONValue} untyped property.
 		 */
 		readonly [property: string]: JSONValue;
 	}

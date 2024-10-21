@@ -7,7 +7,7 @@ import { valueRangeOrListRegExp } from "./valueRangeOrListRegExp.ts";
  *
  * @example
  * ```typescript
- * fieldRegExp("example", 13); // "(?<example>\\*|(?:13(?:-13)?|(?:(?:13(?:-13)?,)+13(?:-13)?)))"
+ * fieldRegExp("example", "13"); // "(?<example>\\*|(?:13(?:-13)?|(?:(?:13(?:-13)?,)+13(?:-13)?)))"
  * ```
  * @param name Named group name.
  * @param value Possible values the expression can have.

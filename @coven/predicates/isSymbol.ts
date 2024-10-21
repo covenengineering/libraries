@@ -2,7 +2,7 @@ import { isType } from "./isType.ts";
 import type { IsTypeFunction } from "./IsTypeFunction.ts";
 
 /**
- * `typeof` "symbol" alias.
+ * `typeof value === "symbol"` check.
  *
  * @example
  * ```typescript

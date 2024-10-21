@@ -2,7 +2,7 @@ import { isType } from "./isType.ts";
 import type { IsTypeFunction } from "./IsTypeFunction.ts";
 
 /**
- * `typeof` "boolean" alias.
+ * `typeof value === "boolean"` check.
  *
  * @example
  * ```typescript

@@ -8,7 +8,7 @@ import type { Maybe } from "./Maybe.ts";
  * const nullishUndefined = undefined satisfies Nullish;
  * const nullishNull = null satisfies Nullish;
  * ```
- * @see {@link Maybe}
+ * @see {@linkcode Maybe}
  * @see [Nullish](https://mdn.io/Nullish%20value)
  */
 export type Nullish = Maybe<null>;

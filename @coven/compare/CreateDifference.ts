@@ -6,7 +6,7 @@ import type { WithPropertyPath } from "./WithPropertyPath.ts";
  *
  * @example Object that satisfies a creation difference
  * ```typescript
- * const createDifference = ({
+ * ({
  * 	kind: "CREATE",
  * 	right: "created value",
  * 	path: ["property", "path"].values()

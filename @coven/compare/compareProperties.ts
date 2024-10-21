@@ -13,15 +13,8 @@ import { pathPrepend } from "./pathPrepend.ts";
  *
  * @example Compare objects
  * ```typescript
- * import { flat } from "@coven/compare";
- * import { assertEquals } from "@std/assert";
- *
  * const compareWitch = compareProperties({ witch: "🧙‍♀️" });
- *
- * assertEquals(
- * 	flat(compareWitch({ witch: "🎃" })),
- * 	[{ kind: "UPDATE", left: "🧙‍♀️", right: "🎃", path: ["witch"] }],
- * );
+ * compareWitch({ witch: "🎃" }); // Yields { kind: "UPDATE", left: "🧙‍♀️", right: "🎃", path: ["witch"] }
  * ```
  * @see {@linkcode compare}
  * @see {@linkcode getKeys}

@@ -2,7 +2,7 @@ import type { HeadAndTail } from "./HeadAndTail.ts";
 import type { ReadonlyArrayLike } from "./ReadonlyArrayLike.ts";
 
 /**
- * Initial value (item in index `0`) of a {@link ReadonlyArrayLike}.
+ * Initial value (item in index `0`) of a {@linkcode ReadonlyArrayLike}.
  *
  * @example
  * ```typescript
@@ -12,8 +12,8 @@ import type { ReadonlyArrayLike } from "./ReadonlyArrayLike.ts";
  * const emptyArray = [] as const;
  * const emptyHead = undefined satisfies Head<typeof emptyArray>;
  * ```
- * @see {@link HeadAndTail}
- * @see {@link ReadonlyArrayLike}
+ * @see {@linkcode HeadAndTail}
+ * @see {@linkcode ReadonlyArrayLike}
  * @template ArrayLike `ReadonlyArrayLike` value (such as `Array` or `string`).
  */
 export type Head<ArrayLike extends ReadonlyArrayLike> = HeadAndTail<

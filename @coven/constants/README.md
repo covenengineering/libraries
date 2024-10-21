@@ -3,16 +3,13 @@
 [![JSR](https://jsr.io/badges/@coven/constants)](https://jsr.io/@coven/constants)
 [![JSR Score](https://jsr.io/badges/@coven/constants/score)](https://jsr.io/@coven/constants/score)
 
-📖 Shared constants scrolls.
+🧱 Common constants.
 
 ## Constants
 
-- `EMPTY_ARRAY`: Empty read-only array. The array is read-only in runtime by
-  `Object.freeze`, so trying to do mutations will throw.
-- `EMPTY_OBJECT`: Empty read-only `null` prototype object. The object is
-  read-only in runtime by `Object.freeze`, so trying to do mutations will throw.
-- `EMPTY_STRING`: Empty string. This one exists to have something more readable
-  than `""`.
+- `EMPTY_ARRAY`: Empty read-only array.
+- `EMPTY_OBJECT`: Empty read-only `null` prototype object.
+- `EMPTY_STRING`: Empty string.
 
 ## Example
 

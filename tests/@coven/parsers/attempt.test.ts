@@ -15,9 +15,11 @@ const throwingFunction = (shouldThrow: boolean) => {
 const safeFunction = attempt(throwingFunction);
 
 Deno.test(
-	"When a function that could throw doesn't throw, it returns the expected value",
+	"Returns expected value when function doesn't throw",
 	() => assertEquals(safeFunction(DOES_NOT_THROW), "success"),
 );
 
-Deno.test("When a function that could throw throws, it returns undefined", () =>
-	assertEquals(safeFunction(THROWS), undefined));
+Deno.test(
+	"Returns undefined when function throw",
+	() => assertEquals(safeFunction(THROWS), undefined),
+);

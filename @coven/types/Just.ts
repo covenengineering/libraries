@@ -4,9 +4,10 @@
  *
  * @example
  * ```typescript
+ * import type { Maybe } from "@coven/types";
+ *
  * const maybeUndefined = "🧙‍♀️" as Maybe<string>;
- * const defined = "🧙‍♀️" as const satisfies Just<typeof maybeUndefined>; // ok
- * const noDefined = undefined satisfies Just<typeof maybeUndefined>; // error
+ * const defined = "🧙‍♀️" as const satisfies Just<typeof maybeUndefined>;
  * ```
  * @template MaybeUndefined Type to exclude `undefined` from.
  */

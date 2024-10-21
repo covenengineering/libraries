@@ -3,11 +3,11 @@ import type { ListString } from "./ListString.ts";
 import type { ValueOrRangeString } from "./ValueOrRangeString.ts";
 
 /**
- * Union of {@link AllToken}, {@link ValueOrRangeString} and {@link ListString}
+ * Union of {@linkcode AllToken}, {@linkcode ValueOrRangeString} and {@linkcode ListString}
  * that represents a field in a cron expression.
  *
- * @see {@link AllToken}
- * @see {@link ValueOrRangeString}
- * @see {@link ListString}
+ * @see {@linkcode AllToken}
+ * @see {@linkcode ValueOrRangeString}
+ * @see {@linkcode ListString}
  */
 export type FieldString = AllToken | ListString | ValueOrRangeString;

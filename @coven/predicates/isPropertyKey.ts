@@ -3,7 +3,8 @@ import { isString } from "./isString.ts";
 import { isSymbol } from "./isSymbol.ts";
 
 /**
- * Checks if the given value is a valid PropertyKey of an object (`string`, `symbol`, or `number`).
+ * Checks if the given value is a valid PropertyKey for an object (`string`,
+ * `symbol`, or `number`).
  *
  * @example
  * ```typescript

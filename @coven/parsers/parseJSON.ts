@@ -3,7 +3,10 @@ import { attempt } from "./attempt.ts";
 import { omitProtoReviver } from "./omitProtoReviver.ts";
 
 /**
- * `JSON.parse` is unsafe by default, allowing __proto__ poisoning. This
+ * `JSON.parse` wrapped in {@linkcode attempt} and using
+ * {@linkcode omitProtoReviver}.
+ *
+ * `JSON.parse` is unsafe by default, allowing `__proto__` poisoning. This
  * function takes care of it while making its types safer as well.
  *
  * @example
@@ -11,8 +14,8 @@ import { omitProtoReviver } from "./omitProtoReviver.ts";
  * parseJSON('{"__proto__":"😈"}'); // {}
  * parseJSON("invalid"); // undefined
  * ```
- * @see {@link attempt}
- * @see {@link omitProtoReviver}
+ * @see {@linkcode attempt}
+ * @see {@linkcode omitProtoReviver}
  * @template Output Generic of the output (has to be a `JSONValue`).
  * @param string String to be parsed.
  * @returns Parsed string or `undefined` if invalid JSON.

@@ -1,3 +1,4 @@
+// @deno-types="@types/react"
 import type { FunctionComponent } from "react";
 import { pair as preactPair } from "../preact/pair.ts";
 import type { PairedComponentProperties } from "./PairedComponentProperties.ts";
@@ -7,7 +8,9 @@ import type { PairedComponentProperties } from "./PairedComponentProperties.ts";
  *
  * @example
  * ```tsx
- * const useCount = initialCount => {
+ * import { createElement, useState } from "react";
+ *
+ * const useCount = (initialCount: number) => {
  * 	const [count, setCount] = useState(initialCount);
  *
  * 	return { onClick: () => setCount(count + 1), children: count };

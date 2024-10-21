@@ -3,7 +3,7 @@
 [![JSR](https://jsr.io/badges/@coven/cron)](https://jsr.io/@coven/cron)
 [![JSR Score](https://jsr.io/badges/@coven/cron/score)](https://jsr.io/@coven/cron/score)
 
-⏳ A fantastic cron parser and constructor.
+⏳ Fantastic cron parser and constructor.
 
 This library is the fastest, smallest and safest cron expression parser out
 there. This is because it uses a regular expression (built with
@@ -30,8 +30,8 @@ import { parse, stringify } from "@coven/cron";
 const cron = parse("1-2,3,4 * 2 8,9 1");
 /*
 	{
-		minutes: [{ from: 1, to: 2 }, 3, 4],
-		hours: "*",
+		minute: [{ from: 1, to: 2 }, 3, 4],
+		hour: "*",
 		dayOfMonth: 2,
 		month: [8, 9],
 		dayOfWeek: 1
@@ -41,7 +41,7 @@ const cron = parse("1-2,3,4 * 2 8,9 1");
 stringify(cron); // "1-2,3,4 * 2 8,9 1"
 
 // Also works with partials:
-stringify({ hours: 13 }); // "* 13 * * *"
+stringify({ hour: 13 }); // "* 13 * * *"
 
 // Only parses with valid dates:
 parse("* * 31 2 *"); // undefined because 31 of February is invalid

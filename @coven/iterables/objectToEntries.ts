@@ -6,7 +6,7 @@ import { iteratorFunctionToIterableIterator } from "./iteratorFunctionToIterable
  *
  * @example
  * ```typescript
- * const entries = objectEntries({ a: 1, b: 2 });
+ * const entries = objectToEntries({ a: 1, b: 2 });
  * entries.next(); // { value: ["a", 1], done: false }
  * entries.next(); // { value: ["b", 2], done: false }
  * entries.next(); // { value: undefined, done: true }

@@ -1,4 +1,8 @@
-/** @module Asynchronous */
+/**
+ * ♻️ Asynchronous iterable utilities.
+ *
+ * @module
+ */
 export { append } from "./append.ts";
 export { count } from "./count.ts";
 export { drop } from "./drop.ts";

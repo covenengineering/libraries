@@ -2,7 +2,7 @@ import { isInstanceOf } from "./isInstanceOf.ts";
 import type { IsInstanceOfFunction } from "./IsInstanceOfFunction.ts";
 
 /**
- * `instanceof RegExp` alias.
+ * `value instanceof RegExp` check.
  *
  * @example
  * ```typescript

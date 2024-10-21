@@ -10,17 +10,13 @@ import { flatPathMap } from "./flatPathMap.ts";
  * @example Flatting a creation Difference
  * ```typescript
  * import type { Difference } from "@coven/compare";
- * import { assertEquals } from "@std/assert";
  *
- * assertEquals(flat([{
+ * flat([{
  * 	kind: "CREATE",
  * 	path: ["property", "path"].values(),
  * 	right: "created value",
- * }].values() as Iterable<Difference>), [{
- * 	kind: "CREATE",
- * 	path: ["property", "path"],
- * 	right: "created value",
- * }])
+ * }].values() as Iterable<Difference>);
+ * // [{ kind: "CREATE", path: ["property", "path"], right: "created value" }]
  * ```
  * @see {@linkcode Difference}
  * @see {@linkcode FlatDifference}

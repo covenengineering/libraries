@@ -2,7 +2,7 @@ import { isType } from "./isType.ts";
 import type { IsTypeFunction } from "./IsTypeFunction.ts";
 
 /**
- * `typeof` "bigint" alias.
+ * `typeof value === "bigint"` check.
  *
  * @example
  * ```typescript

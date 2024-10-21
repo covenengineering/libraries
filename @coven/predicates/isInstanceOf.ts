@@ -6,7 +6,7 @@ import type { IsInstanceOfFunction } from "./IsInstanceOfFunction.ts";
  *
  * @example
  * ```typescript
- * const instanceOfArray = instanceOf(Array)
+ * const instanceOfArray = isInstanceOf(Array)
  *
  * instanceOfArray([]); // true
  * instanceOfArray({}); // false

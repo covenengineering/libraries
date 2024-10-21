@@ -14,8 +14,8 @@ import type { Numeric } from "./Numeric.ts";
  * const aString = "🧙‍♀️" as const satisfies Primitive;
  * const aSymbol = Symbol("🧙‍♀️") satisfies Primitive;
  * ```
- * @see {@link Nullish}
- * @see {@link Numeric}
+ * @see {@linkcode Nullish}
+ * @see {@linkcode Numeric}
  * @see [Primitive](https://mdn.io/Primitive)
  */
 export type Primitive = boolean | Nullish | Numeric | string | symbol;

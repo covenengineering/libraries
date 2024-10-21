@@ -7,9 +7,8 @@ import { thunk } from "./thunk.ts";
  * @example
  * ```typescript
  * const alwaysFoo = always("foo");
- * const fillWithFoo = map(alwaysFoo);
  *
- * fillWithFoo([0, 1, 2]); // ["foo", "foo", "foo"]
+ * [0, 1, 2].map(alwaysFoo); // ["foo", "foo", "foo"]
  * ```
  * @returns Function that always return the given value.
  */

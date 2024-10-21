@@ -17,19 +17,10 @@ import { pathPrepend } from "./pathPrepend.ts";
  *
  * @example Compare 2 arrays of numbers
  * ```typescript
- * import { flat } from "@coven/compare";
- * import { assertEquals } from "@std/assert";
- *
  * const compare1342 = compareIterables([13, 42]);
  *
- * assertEquals(
- * 	flat(compare1342([13, 42])),
- * 	[],
- * );
- * assertEquals(
- * 	flat(compare1342([13, 665])),
- * 	[{ kind: "UPDATE", left: 42, right: 665, path: [1] }]
- * );
+ * compare1342([13, 42]); // Yields nothing
+ * compare1342([13, 665]); // Yields { kind: "UPDATE", left: 42, right: 665, path: [1] }
  * ```
  * @see {@linkcode compare}
  * @param left Original iterable.

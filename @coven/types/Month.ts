@@ -5,9 +5,9 @@ import type { Enumerate } from "./Enumerate.ts";
  *
  * @example
  * ```typescript
- * const months = [1, 6, 11] as const satisfies Iterable<ISOMonth>;
+ * const months = [1, 6, 11] as const satisfies Iterable<Month>;
  * ```
- * @see {@link Enumerate}
+ * @see {@linkcode Enumerate}
  * @see [Date](https://mdn.io/Date)
  */
 export type Month = Enumerate<11>;

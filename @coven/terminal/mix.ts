@@ -9,13 +9,13 @@ import type { Formatter } from "./Formatter.ts";
  *
  * @example
  * ```typescript
- * import { red, whiteBack } from "@coven/terminal";
+ * import { red, bgWhite } from "@coven/terminal";
  *
- * const redWhiteBack = mix(red, whiteBack);
+ * const mixed = mix(red, bgWhite);
  *
- * redWhiteBack("Coven Engineering");
+ * mixed("Coven Engineering");
  * // It can also be used as a tag function for tagged templates:
- * redWhiteBack`Coven Engineering`;
+ * mixed`Coven Engineering`;
  * ```
  * @see {@linkcode Formatter}
  * @param formatters Array of formatters to be composed.

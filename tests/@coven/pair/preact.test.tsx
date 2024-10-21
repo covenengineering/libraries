@@ -21,13 +21,13 @@ const key = "TEST";
 
 const PairedState = pair(useState);
 
-Deno.test("Paired hook with key returns component wrapping hook and with key", () =>
+Deno.test("Generated HTML with a prop should be the same from using `pair` or doing everything manually", () =>
 	assertStrictEquals(
 		renderToString(<PairedState key={key}>{Render}</PairedState>),
 		renderToString(<Wanted key={key}>{Render}</Wanted>),
 	));
 
-Deno.test("Paired hook without key returns component wrapping hook and without key", () =>
+Deno.test("Generated HTML should be the same from using `pair` or doing everything manually", () =>
 	assertStrictEquals(
 		renderToString(<PairedState>{Render}</PairedState>),
 		renderToString(<Wanted>{Render}</Wanted>),

@@ -8,8 +8,8 @@ import type { Enumerate } from "./Enumerate.ts";
  * ```typescript
  * const minutes = ["00", "30", "59"] as const satisfies Iterable<ISOMinutes>;
  * ```
- * @see {@link Digit}
- * @see {@link Enumerate}
+ * @see {@linkcode Digit}
+ * @see {@linkcode Enumerate}
  * @see [Date](https://mdn.io/Date)
  */
 export type ISOMinutes = `${Enumerate<5>}${Digit}`;

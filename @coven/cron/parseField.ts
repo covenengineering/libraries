@@ -17,9 +17,9 @@ import type { RangeField } from "./RangeField.ts";
  * parseField("10,11,13"); // [10, 11, 13]
  * parseField("1-10"); // { from: 1, to: 10 }
  * ```
- * @see {@link isAllToken}
- * @see {@link parseList}
- * @see {@link parseRange}
+ * @see {@linkcode isAllToken}
+ * @see {@linkcode parseList}
+ * @see {@linkcode parseRange}
  *
  * @param field Cron field value (should be validated before this).
  * @returns Parsed field.

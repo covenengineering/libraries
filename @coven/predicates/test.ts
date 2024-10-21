@@ -1,7 +1,8 @@
 import { attempt } from "@coven/parsers";
 
 /**
- * Given a regular expression and a string, returns `true` if the string matches the regular expression.
+ * Given a regular expression and a string, returns `true` if the string matches
+ * the regular expression.
  *
  * @example
  * ```typescript

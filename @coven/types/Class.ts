@@ -8,7 +8,7 @@ import type { ReadonlyArray } from "./ReadonlyArray.ts";
  * ```typescript
  * const example = (AClass: Class) => new AClass("test");
  * ```
- * @see {@link ReadonlyArray}
+ * @see {@linkcode ReadonlyArray}
  * @template Arguments Arguments of the class constructor.
  * @template Instance Instance of the class.
  */

@@ -2,7 +2,7 @@ import { pipe } from "./pipe.ts";
 import { preciseAdd } from "./preciseAdd.ts";
 
 /**
- * Curried add operation using {@link pipe} with {@link preciseAdd}.
+ * Curried add operation using {@linkcode pipe} with {@linkcode preciseAdd}.
  *
  * @example
  * ```typescript
@@ -10,8 +10,8 @@ import { preciseAdd } from "./preciseAdd.ts";
  *
  * addDot2(0.1); // 0.3
  * ```
- * @see {@link preciseAdd}
- * @see {@link pipe}
+ * @see {@linkcode preciseAdd}
+ * @see {@linkcode pipe}
  *
  * @param augend Augend value to be on the right side.
  * @returns Curried function with `augend` in context.

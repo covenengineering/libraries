@@ -10,7 +10,7 @@ import type { Single } from "./Single.ts";
  * type Test1 = Fallback<never, never, number>; // number
  * type Test2 = Fallback<never, string, string>; // string
  * ```
- * @see {@link Single}
+ * @see {@linkcode Single}
  * @template Wrong Type to avoid.
  * @template MaybeWrong Type to check.
  * @template FallbackType Fallback if `MaybeWrong` extends `Wrong`.

@@ -1,4 +1,4 @@
-import type { Unary } from "@coven/types";
+import type { Effect } from "@coven/types";
 import { getIterator } from "./getIterator.ts";
 
 /**
@@ -10,10 +10,10 @@ import { getIterator } from "./getIterator.ts";
  *
  * logEach([1, 2, 3]); // Logs 1, 2 and 3 separately
  * ```
- * @param callback Function to be called for every item of the iterable.
+ * @param effect Function to be called for every item of the iterable.
  * @returns Curried function that expects an iterable to loop over and has `callback` set in context.
  */
 export const forEach = <Item>(
-	callback: Unary<[item: Item], void>,
-): (iterable: Iterable<Item>) => void =>
-(iterable) => getIterator(iterable).forEach(callback);
+	effect: Effect<[item: Item]>,
+): Effect<[iterable: Iterable<Item>]> =>
+(iterable) => getIterator(iterable).forEach(effect);

@@ -8,7 +8,6 @@
  * const array = [{ "🧙‍♀️": 13 }, { "🧙‍♀️": 42 }] as const satisfies ReadonlyArray<{
  * 	"🧙‍♀️": number;
  * }>;
- * array.push("oops"); // Error
  * array[0]; // Maybe<{ "🧙‍♀️": number }>
  * ```
  *

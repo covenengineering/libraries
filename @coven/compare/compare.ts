@@ -18,28 +18,15 @@ const alwaysFalse = always(false);
  *
  * @example Using compare with strings
  * ```typescript
- * import { flat } from "@coven/compare";
- * import { assertEquals } from "@std/assert";
- *
  * const witchCompare = compare("🧙‍♀️");
- *
- * assertEquals(flat(witchCompare("🧙‍♀️")), []);
- * assertEquals(
- * 	flat(witchCompare("🎃")),
- * 	[{ kind: "UPDATE", left: "🧙‍♀️", right: "🎃", path: [] }]
- * );
+ * witchCompare("🧙‍♀️"); // Yields nothing
+ * witchCompare("🎃"); // Yields { kind: "UPDATE", left: "🧙‍♀️", right: "🎃", path: [] }
  * ```
  * @example Using compare with objects
  * ```typescript
- * import { flat } from "@coven/compare";
- * import { assertEquals } from "@std/assert";
- *
  * const witchObjectCompare = compare({ witch: "🧙‍♀️" });
  *
- * assertEquals(
- * 	flat(witchObjectCompare({ witch: "🎃" })),
- * 	[{ kind: "UPDATE", left: "🧙‍♀️", right: "🎃", path: ["witch"] }],
- * );
+ * witchObjectCompare({ witch: "🎃" }); // Yields { kind: "UPDATE", left: "🧙‍♀️", right: "🎃", path: ["witch"] }
  * ```
  * @see {@linkcode CurriedComparison}
  * @see {@linkcode compareObjects}

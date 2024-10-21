@@ -4,7 +4,7 @@ import type { MaybeInfinity } from "./MaybeInfinity.ts";
 import type { Precise } from "./Precise.ts";
 
 /**
- * Takes a `base` and `exponent` and normalizes it returning a {@link Precise}.
+ * Takes a `base` and `exponent` and normalizes it returning a {@linkcode Precise}.
  *
  * @example
  * ```typescript
@@ -12,10 +12,10 @@ import type { Precise } from "./Precise.ts";
  * createPrecise(13n, -1n); // [13n, -1n]
  * createPrecise(1300n, 0n); // [13n, 2n]
  * ```
- * @see {@link Precise}
- * @param base Base of the {@link Precise}.
- * @param exponent Exponent of the {@link Precise}.
- * @returns A normalized {@link Precise} value.
+ * @see {@linkcode Precise}
+ * @param base Base of the {@linkcode Precise}.
+ * @param exponent Exponent of the {@linkcode Precise}.
+ * @returns A normalized {@linkcode Precise} value.
  */
 export const createPrecise: {
 	(base: bigint, exponent?: bigint): Precise;

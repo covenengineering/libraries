@@ -11,8 +11,8 @@ import type { Just } from "./Just.ts";
  * const maybeNumber = 1 as const satisfies MaybeNumber;
  * const notNumber = undefined satisfies MaybeNumber;
  * ```
- * @see {@link Either}
- * @see {@link Just}
+ * @see {@linkcode Either}
+ * @see {@linkcode Just}
  * @template OptionalType The type of the value to make optional.
  */
 export type Maybe<OptionalType> = Either<Just<OptionalType>, undefined>;

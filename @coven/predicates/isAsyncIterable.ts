@@ -5,8 +5,9 @@ import { isObject } from "./isObject.ts";
 /**
  * Check if given value is `AsyncIterable`.
  *
- * **Not to be confused with `isAsynchronousIterable` which checks for both
- * `AsyncIterable` and `Iterable`.**
+ * > [!IMPORTANT]
+ * > Not to be confused with `isAwaitableIterable` which checks for both
+ * > `AsyncIterable` and `Iterable`.
  *
  * @example
  * ```typescript

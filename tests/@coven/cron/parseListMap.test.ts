@@ -1,6 +1,6 @@
 import { parseListMap } from "@coven/cron";
 import { iterableToArray } from "@coven/iterables";
-import { assertEquals } from "@std/assert/equals";
+import { assertEquals } from "@std/assert";
 
 Deno.test("List of valid and invalid values returns parsed list", () =>
 	assertEquals(

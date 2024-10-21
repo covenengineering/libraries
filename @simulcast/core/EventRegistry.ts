@@ -4,12 +4,12 @@ import type { EventTypeDictionary } from "./EventTypeDictionary.ts";
 /**
  * Registry of event names to array of listeners.
  *
- * @see {@link EventListener}
- * @see {@link EventTypeDictionary}
+ * @see {@linkcode EventListener}
+ * @see {@linkcode EventTypeDictionary}
  * @example
  * ```typescript
- * const eventRegistry = {
- * 	example: [() => console.log("example called")],
+ * const eventRegistry: EventRegistry<{ example: never }> = {
+ * 	example: [() => console.log("example called")].values(),
  * };
  * ```
  * @template Events Event registry.

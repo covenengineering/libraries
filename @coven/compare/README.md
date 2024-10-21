@@ -3,7 +3,7 @@
 [![JSR](https://jsr.io/badges/@coven/compare)](https://jsr.io/@coven/compare)
 [![JSR Score](https://jsr.io/badges/@coven/compare/score)](https://jsr.io/@coven/compare/score)
 
-🪞 Minimalistic deep comparison.
+⚖️ Minimalist diffing.
 
 This library takes 2 values (a `left` and a `right`) and returns an iterator
 with all the differences between said values. The differences are represented by

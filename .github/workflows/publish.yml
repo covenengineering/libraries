@@ -18,16 +18,19 @@ jobs:
             - name: Set up Deno
               uses: denoland/setup-deno@v1
               with:
-                  deno-version: 2.0.0
+                  deno-version: 2.0.2
 
-            - name: Lint
+            - name: Lint code
               run: deno lint
 
+            - name: Lint docs
+              run: deno run lint-docs
+
             - name: Format
-              run: deno fmt --check
+              run: deno run format-check
 
             - name: Test
-              run: deno test --coverage
+              run: deno run test-coverage
 
             - name: Generate Coverage
               run: deno coverage --lcov coverage/ > coverage.lcov

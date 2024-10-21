@@ -7,7 +7,7 @@ import type { Digit } from "./Digit.ts";
  * ```typescript
  * const days = ["01", "15", "31"] as const satisfies Iterable<ISODayOfMonth>;
  * ```
- * @see {@link Digit}
+ * @see {@linkcode Digit}
  * @see [Date](https://mdn.io/Date)
  */
 export type ISODayOfMonth =

@@ -3,7 +3,7 @@
 [![JSR](https://jsr.io/badges/@coven/predicates)](https://jsr.io/@coven/predicates)
 [![JSR Score](https://jsr.io/badges/@coven/predicates/score)](https://jsr.io/@coven/predicates/score)
 
-🛡️ Predicate wards.
+🕵️‍♀️ Predicate utilities.
 
 This library offers a collection of common predicate functions to check for
 type, instances, presence of properties and more.

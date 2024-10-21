@@ -7,12 +7,14 @@ import { iteratorFunctionToAsyncIterableIterator } from "./iteratorFunctionToAsy
  *
  * @example
  * ```typescript
+ * import { getIterator } from "@coven/iterables/async"
+ *
  * const iterable = toIterable(1);
  * const iterator = getIterator(iterable);
  * iterator.next(); // { value: 1, done: false }
  * iterator.next(); // { value: undefined, done: true }
  * ```
- * @see {@link iteratorFunctionToAsyncIterableIterator}
+ * @see {@linkcode iteratorFunctionToAsyncIterableIterator}
  *
  * @template ValueOrIterable Generic of value or iterable to yield.
  * @param valueOrIterable Vale or iterable to yield.

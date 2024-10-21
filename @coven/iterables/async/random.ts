@@ -5,15 +5,17 @@ import { iteratorFunctionToAsyncIterableIterator } from "./iteratorFunctionToAsy
  * Deterministic pseudo-random number generator.
  *
  * > [!IMPORTANT]
- * > This only works in secure contexts (HTTPS/Node).
+ * > This only works in secure contexts.
  *
  * @example
  * ```typescript
+ * import { iterableToArray, take } from "@coven/iterables/async";
+ *
  * const seededRandom = random("some seed");
  * const random0To10 = seededRandom(0)(10);
  *
- * [...pick(2)(random0To10)]; // Two "random" values between 0 and 10
- * [...pick(2)(random0To10)]; // Same two "random" values between 0 and 10
+ * iterableToArray(take(2)(random0To10)); // Two "random" values between 0 and 10
+ * iterableToArray(take(2)(random0To10)); // Same two "random" values between 0 and 10
  * ```
  * @see [SubtleCrypto#digest](https://mdn.io/SubtleCrypto.digest)
  * @see [cryptoNumber](https://jsr.io/@coven/utils/doc/~/cryptoNumber)

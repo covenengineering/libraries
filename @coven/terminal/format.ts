@@ -1,3 +1,4 @@
+import type { ReadonlyArray, Stringable } from "@coven/types";
 import type { FormatFunction } from "./FormatFunction.ts";
 import { normalizeString } from "./normalizeString.ts";
 import { sgr } from "./sgr.ts";
@@ -33,11 +34,13 @@ export const format = ((open, close) => {
 	 * @param expressions Input expressions (when using tagged templates)
 	 * @returns Formatted `input` string.
 	 */
-	return (input, ...expressions) =>
-		`${sgrOpen}${
-			normalizeString(input, ...expressions).replaceAll(
-				sgrClose,
-				sgrOpen,
-			)
-		}${sgrClose}`;
+	return (
+		input: string | TemplateStringsArray,
+		...expressions: ReadonlyArray<Stringable>
+	) => `${sgrOpen}${
+		normalizeString(input, ...expressions).replaceAll(
+			sgrClose,
+			sgrOpen,
+		)
+	}${sgrClose}`;
 }) as FormatFunction;

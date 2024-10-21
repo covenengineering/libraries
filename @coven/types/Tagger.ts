@@ -10,7 +10,7 @@ import type { ReadonlyTemplateStringsArray } from "./ReadonlyTemplateStringsArra
  * 	parseInt(strings.join(""), 16)) satisfies Tagger<number>;
  * hexParser`f`; // 15
  * ```
- * @see {@link ReadonlyArray}
+ * @see {@linkcode ReadonlyArray}
  * @see [Template Literals](https://mdn.io/Template%20literals)
  * @template Output Type of the output value.
  * @template Expressions Type of the expressions.

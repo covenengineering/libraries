@@ -2,6 +2,8 @@ import type { NumberParser } from "./NumberParser.ts";
 import { parseInteger } from "./parseInteger.ts";
 
 /**
+ * String to binary parser.
+ *
  * Parses a `string` to a binary `number`, returning `undefined` instead of
  * `NaN` if it fails.
  *
@@ -11,7 +13,7 @@ import { parseInteger } from "./parseInteger.ts";
  * parseBinary("101.5"); // 0b101 -> 5
  * parseBinary("invalid"); // undefined
  * ```
- * @see {@link parseInteger}
+ * @see {@linkcode parseInteger}
  * @param string String to be parsed.
  * @returns Parsed `number` or `undefined` if it fails.
  */

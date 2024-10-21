@@ -3,7 +3,7 @@ import { createPrecise } from "./createPrecise.ts";
 import type { Precise } from "./Precise.ts";
 
 /**
- * Turns a `number` into a {@link Precise}.
+ * Turns a `number` into a {@linkcode Precise}.
  *
  * @example
  * ```typescript
@@ -11,9 +11,9 @@ import type { Precise } from "./Precise.ts";
  * numberToPrecise(1.3); // [13n, -1n]
  * numberToPrecise(1300); // [13n, 2n]
  * ```
- * @see {@link createPrecise}
+ * @see {@linkcode createPrecise}
  * @param number Number to convert.
- * @returns A {@link Precise} representation of the given `number`.
+ * @returns A {@linkcode Precise} representation of the given `number`.
  */
 export const numberToPrecise = (number: number): Precise => {
 	if (Number.isFinite(number)) {

@@ -2,7 +2,7 @@ import { isType } from "./isType.ts";
 import type { IsTypeFunction } from "./IsTypeFunction.ts";
 
 /**
- * `typeof` "undefined" alias.
+ * `typeof value === "undefined"` check.
  *
  * @example
  * ```typescript

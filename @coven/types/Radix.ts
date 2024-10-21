@@ -10,6 +10,6 @@ import type { Range } from "./Range.ts";
  * const decimal = 10 as const satisfies Radix;
  * const hexadecimal = 0x10 as const satisfies Radix;
  * ```
- * @see {@link Range}
+ * @see {@linkcode Range}
  */
 export type Radix = Range<2, 36>;

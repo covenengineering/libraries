@@ -19,10 +19,10 @@ const buildIU = build("iu");
  * parse("* * 13 10 *"); // { minute: "*", hour: "*", dayOfMonth: 13, month: 10, dayOfWeek: "*" }
  * parse("5 * 10,11,13 1-10 *"); // { minute: 5, hour: "*", dayOfMonth: [10, 11, 13], month: { from: 1, to: 10 }, dayOfWeek: "*" }
  * parse("* * 31 2 *"); // undefined
- * parse("nope"); // undefined
+ * parse("nope nope nope nope nope"); // undefined
  * ```
- * @see {@link parseFieldTuplesMap}
- * @see {@link normalizeAliases}
+ * @see {@linkcode parseFieldTuplesMap}
+ * @see {@linkcode normalizeAliases}
  *
  * @param expression Cron expression to be parsed.
  * @returns Object representing that expression or `undefined` if expression is

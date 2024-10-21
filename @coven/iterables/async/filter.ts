@@ -7,6 +7,8 @@ import { iteratorFunctionToAsyncIterableIterator } from "./iteratorFunctionToAsy
  *
  * @example
  * ```typescript
+ * import { iterableToArray } from "@coven/iterables/async";
+ *
  * const filterEven = filter((number: number) => number % 2 === 0);
  *
  * iterableToArray(filterEven([1, 2, 3, 4])); // [2, 4]

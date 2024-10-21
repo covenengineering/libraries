@@ -3,7 +3,7 @@
 [![JSR](https://jsr.io/badges/@coven/iterables)](https://jsr.io/@coven/iterables)
 [![JSR Score](https://jsr.io/badges/@coven/iterables/score)](https://jsr.io/@coven/iterables/score)
 
-🌪️ Iteration rituals.
+♻️ Iterable and AsyncIterable utilities.
 
 One of the places curried functions shine the most is with iterables. More often
 than not, mapping, filtering and so on is applied to multiple different
@@ -24,8 +24,8 @@ While array operation has to go over all items before going to the next
 function, iterables run all functions in each item and yields them:
 
 ```typescript
-const double = (value) => value * 2;
-const next = (value) => value + 1;
+const double = (value: number) => value * 2;
+const next = (value: number) => value + 1;
 
 // With array methods
 
@@ -38,6 +38,8 @@ const next = (value) => value + 1;
 // 6. Logs 9
 
 // With iterables functions
+
+import { forEach, map } from "@coven/iterables";
 
 // [1, 2, 3, 4] |> map(double) |> map(next) |> forEach(console.log);
 forEach(console.log)(map(next)(map(double)([1, 2, 3, 4])));

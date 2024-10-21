@@ -5,7 +5,7 @@ import { preciseMultiply } from "./preciseMultiply.ts";
 import { preciseToNumber } from "./preciseToNumber.ts";
 
 /**
- * Curried divide operation using the internal {@link Precise} type.
+ * Curried divide operation using the internal {@linkcode Precise} type.
  *
  * @example
  * ```typescript
@@ -13,10 +13,10 @@ import { preciseToNumber } from "./preciseToNumber.ts";
  *
  * half(1n); // [5n, -1n]
  * ```
- * @see {@link numberToPrecise}
- * @see {@link Precise}
- * @see {@link preciseMultiply}
- * @see {@link preciseToNumber}
+ * @see {@linkcode numberToPrecise}
+ * @see {@linkcode Precise}
+ * @see {@linkcode preciseMultiply}
+ * @see {@linkcode preciseToNumber}
  * @param divisorBase Divisor base to use in the division.
  * @param divisorExponent Divisor exponent to use in the division.
  * @returns Curried function with `divisorBase` and `divisorExponent` in context.

@@ -12,7 +12,7 @@ import type { MinimumLengthNumberString } from "./MinimumLengthNumberString.ts";
  * 	"+001989",
  * ] as const satisfies Iterable<ISOYear>;
  * ```
- * @see {@link MinimumLengthNumberString}
+ * @see {@linkcode MinimumLengthNumberString}
  * @see [Date](https://mdn.io/Date)
  */
 export type ISOYear =

@@ -3,7 +3,7 @@ import type { Maybe } from "@coven/types";
 import { parseNumber } from "./parseNumber.ts";
 
 /**
- * Maps given iterable through {@link parseNumber}.
+ * Maps given iterable through {@linkcode parseNumber}.
  *
  * @example
  * ```typescript
@@ -12,7 +12,7 @@ import { parseNumber } from "./parseNumber.ts";
  * parseNumberMap(["59"]); // [59]
  * parseNumberMap(["60"]); // [undefined] (60 isn't valid for any cron field)
  * ```
- * @see {@link parseNumber}
+ * @see {@linkcode parseNumber}
  */
 export const parseNumberMap: (
 	iterable: Iterable<string>,

@@ -3,7 +3,7 @@
 [![JSR](https://jsr.io/badges/@coven/parsers)](https://jsr.io/@coven/parsers)
 [![JSR Score](https://jsr.io/badges/@coven/parsers/score)](https://jsr.io/@coven/parsers/score)
 
-💫 Parsing charms.
+💫 Parsing utilities.
 
 Instead of throwing or returning values like `NaN`, the parsers in this library
 either return the expected parsed value or `undefined` (making use of the

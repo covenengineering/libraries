@@ -5,7 +5,7 @@ import { createPrecise } from "./createPrecise.ts";
 import { preciseToNumber } from "./preciseToNumber.ts";
 
 /**
- * Curried add operation using the internal {@link Precise} type.
+ * Curried add operation using the internal {@linkcode Precise} type.
  *
  * @example
  * ```typescript
@@ -13,10 +13,10 @@ import { preciseToNumber } from "./preciseToNumber.ts";
  *
  * addDot2(1n, -1n); // [3n, -1n]
  * ```
- * @see {@link bigIntMin}
- * @see {@link createPrecise}
- * @see {@link Precise}
- * @see {@link preciseToNumber}
+ * @see {@linkcode bigIntMin}
+ * @see {@linkcode createPrecise}
+ * @see {@linkcode Precise}
+ * @see {@linkcode preciseToNumber}
  * @param augendBase Augend base to use in the right side of the addition.
  * @param augendExponent Augend exponent to use in the right side of the addition.
  * @returns Curried function with `augendBase` and `augendExponent` in context.

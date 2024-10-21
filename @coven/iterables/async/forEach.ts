@@ -1,4 +1,4 @@
-import type { Awaitable, AwaitableIterable, Unary } from "@coven/types";
+import type { AwaitableEffect, AwaitableIterable } from "@coven/types";
 
 /**
  * For each function for iterables and asynchronous iterables.
@@ -9,14 +9,14 @@ import type { Awaitable, AwaitableIterable, Unary } from "@coven/types";
  *
  * logEach([1, 2, 3]); // Logs 1, 2 and 3 separately
  * ```
- * @param callback Function to be called for every item of the iterable.
+ * @param awaitableEffect Function to be called for every item of the iterable.
  * @returns Curried function that expects an iterable to loop over and has `callback` set in context.
  */
 export const forEach = <Item>(
-	callback: Unary<[item: Item], Awaitable<void>>,
-): (iterable: AwaitableIterable<Item>) => Promise<void> =>
+	awaitableEffect: AwaitableEffect<[item: Item]>,
+): AwaitableEffect<[iterable: AwaitableIterable<Item>]> =>
 async (iterable: AwaitableIterable<Item>) => {
 	for await (const item of iterable) {
-		await callback(item);
+		await awaitableEffect(item);
 	}
 };

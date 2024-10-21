@@ -24,7 +24,7 @@ import { paddedRegExp } from "./paddedRegExp.ts";
  * parseNumberTest("foo"); // false
  * ```
  *
- * @see {@link paddedRegExp}
+ * @see {@linkcode paddedRegExp}
  */
 export const parseNumberTest: (text: string) => boolean = test(
 	buildUnicode(

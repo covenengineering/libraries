@@ -5,10 +5,10 @@ import { RANGE_EXPRESSION_SEPARATOR_TOKEN } from "./tokens.ts";
 
 /**
  * Predicate checking if given value is a cron string range
- * ({@link RangeString}).
+ * ({@linkcode RangeString}).
  *
- * @see {@link RangeString}
- * @see {@link rangeStringTest}
+ * @see {@linkcode RangeString}
+ * @see {@linkcode rangeStringTest}
  */
 export const isRangeString = (value: string): value is RangeString =>
 	rangeStringTest(value) &&

@@ -11,8 +11,8 @@ import type { TypeOfDictionary } from "./TypeOfDictionary.ts";
  * const typeBoolean = "boolean" as const satisfies TypeOfValue;
  * const typeFunction = "function" as const satisfies TypeOfValue;
  * ```
- * @see {@link KeyOf}
- * @see {@link TypeOfDictionary}
+ * @see {@linkcode KeyOf}
+ * @see {@linkcode TypeOfDictionary}
  * @see [typeof null bug](https://lou.cx/null-bug)
  * @see [typeof typeof rejected proposal](https://lou.cx/null-typeof)
  */

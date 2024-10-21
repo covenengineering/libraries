@@ -2,7 +2,10 @@ import { isType } from "./isType.ts";
 import type { IsTypeFunction } from "./IsTypeFunction.ts";
 
 /**
- * `typeof` "object" alias.
+ * `typeof value === "object"` check.
+ *
+ * > [!IMPORTANT]
+ * > This will return `false` for `null`, use `isNull` instead.
  *
  * @example
  * ```typescript

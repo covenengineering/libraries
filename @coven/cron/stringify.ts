@@ -21,9 +21,9 @@ import { ALL_TOKEN } from "./tokens.ts";
  * }); // "5 * 10,11,13 1-10 *"
  * stringify({ month: 2, dayOfMonth: 31 }); // undefined
  * ```
- * @see {@link fieldNamesTuple}
- * @see {@link stringifyField}
- * @see {@link isValidExpression}
+ * @see {@linkcode fieldNamesTuple}
+ * @see {@linkcode stringifyField}
+ * @see {@linkcode isValidExpression}
  *
  * @param cron Cron object.
  * @returns Cron string expression.

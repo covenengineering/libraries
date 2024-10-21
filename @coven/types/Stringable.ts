@@ -5,12 +5,10 @@ import type { Primitive } from "./Primitive.ts";
  *
  * @example
  * ```typescript
- * let value = "hello" as const satisfies Stringable;
- * value = 1;
- * value = true;
- * value = Symbol("hello"); // Error!
- * value = { toString: () => "hello" }; // Error!
+ * const string = "hello" as const satisfies Stringable;
+ * const number = 1 as const satisfies Stringable;
+ * const boolean = true as const satisfies Stringable;
  * ```
- * @see {@link Primitive}
+ * @see {@linkcode Primitive}
  */
 export type Stringable = Exclude<Primitive, symbol>;

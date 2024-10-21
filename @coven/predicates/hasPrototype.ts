@@ -9,11 +9,11 @@ const hasPrototypeProperty = has("prototype");
  *
  * @example
  * ```typescript
- * hasIteratorSymbol({ [Symbol.iterator]() {} }); // true
- * hasIteratorSymbol({ bar: "bar" }); // false
+ * hasPrototype(Array); // true
+ * hasPrototype([]); // false
  * ```
- * @returns `true` when given object has the `Symbol.iterator` symbol, `false`
- * otherwise.
+ * @returns `true` when given object has a `prototype` property and it is an
+ * object, `false` otherwise.
  */
 export const hasPrototype = (
 	object: object,

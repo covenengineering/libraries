@@ -10,11 +10,13 @@ import { join } from "./join.ts";
 
 /**
  * Builds a `RegExp` with required `u` flag and strongly typed source (using
- * {@link join}).
+ * {@linkcode join}).
  *
  * @example
  * ```typescript
- * build("ui")(group(or(13, "coven"))); // /(?:13|coven)/ui
+ * import { group, or } from "@coven/expression";
+ *
+ * build("iu")(group(or(13, "coven"))); // /(?:13|coven)/iu
  * build()(group(or(13, "coven"))); // /(?:13|coven)/u -> use the buildUnicode alias
  * ```
  * @template Flags Regular expression flags ("u" must be included always).

@@ -6,7 +6,10 @@ import type { PairedComponentProperties } from "./PairedComponentProperties.ts";
  *
  * @example
  * ```tsx
- * const useCount = initialCount => {
+ * import { createElement } from "preact";
+ * import { useState } from "preact/hooks";
+ *
+ * const useCount = (initialCount: number) => {
  * 	const [count, setCount] = useState(initialCount);
  *
  * 	return { onClick: () => setCount(count + 1), children: count };
@@ -40,14 +43,8 @@ import type { PairedComponentProperties } from "./PairedComponentProperties.ts";
  */
 export const pair = <Hook extends (...attributes: never) => unknown>(
 	hook: Hook,
-): FunctionComponent<PairedComponentProperties<Hook>> => {
-	const PairedComponent = ((properties) => properties.children(hook)) as
-		& FunctionComponent<
-			PairedComponentProperties<Hook>
-		>
-		& { displayName: string };
-
-	return (
-		(PairedComponent.displayName = `paired(${hook.name})`), PairedComponent
+): FunctionComponent<PairedComponentProperties<Hook>> =>
+	Object.assign(
+		({ children }: PairedComponentProperties<Hook>) => children(hook),
+		{ displayName: `paired(${hook.name})` },
 	);
-};

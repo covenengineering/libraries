@@ -1,4 +1,4 @@
-import type { Unary } from "@coven/types";
+import type { Effect, Unary } from "@coven/types";
 
 /**
  * Tap into a value before calling a function.
@@ -16,7 +16,7 @@ import type { Unary } from "@coven/types";
  */
 export const tap = <Input, Output>(
 	tapper: Unary<[input: Input], Output>,
-): <Tapped extends Unary<[input: Input], void>>(
+): <Tapped extends Effect<[input: Input]>>(
 	tapped: Tapped,
 ) => Unary<[input: Input], Output> =>
 (tapped) =>

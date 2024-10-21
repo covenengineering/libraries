@@ -3,12 +3,12 @@ import { forEach } from "@coven/iterables/async";
 import type { AwaitableIterable } from "@coven/types";
 import { assertEquals } from "@std/assert";
 
-const forEachTest = <Item>(iterable: AwaitableIterable<Item>) => {
+const forEachTest = async <Item>(iterable: AwaitableIterable<Item>) => {
 	const output: Array<Item> = [];
 
-	return forEach((item: Item) => void output.push(item))(iterable).then(
-		(_) => output,
-	);
+	await forEach((item: Item) => void output.push(item))(iterable);
+
+	return output;
 };
 
 Deno.test("a string loops over every letter of that string", async () =>

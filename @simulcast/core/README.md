@@ -3,7 +3,7 @@
 [![JSR](https://jsr.io/badges/@simulcast/core)](https://jsr.io/@simulcast/core)
 [![JSR Score](https://jsr.io/badges/@simulcast/core/score)](https://jsr.io/@simulcast/core/score)
 
-🔮 Communicate across frameworks like magic.
+📡 Cross-framework communication.
 
 This library is an extremely minimal pub-sub implementation that uses iterables
 to make the dispatched events as responsive as possible for users.

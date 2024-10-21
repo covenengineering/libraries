@@ -2,7 +2,7 @@ import {
 	iterableToArray,
 	iteratorFunctionToAsyncIterableIterator,
 } from "@coven/iterables/async";
-import { assertEquals } from "@std/assert/equals";
+import { assertEquals, assertRejects } from "@std/assert";
 
 const numbers = [0, 1, 2, 3];
 const iterableIteratorNumbers = iteratorFunctionToAsyncIterableIterator(
@@ -26,6 +26,19 @@ const iterableIteratorSimple = iteratorFunctionToAsyncIterableIterator(() => {
 		next: () => ({ done: done || ((done = true), false), value: 13 }),
 	};
 });
+const asyncIterableIteratorSimple = iteratorFunctionToAsyncIterableIterator(
+	() => {
+		let done = false;
+
+		return ({
+			next: () =>
+				Promise.resolve({
+					done: done || ((done = true), false),
+					value: 13,
+				}),
+		});
+	},
+);
 
 Deno.test(
 	"Iterable iterator that we'll run twice returns the values twice",
@@ -36,6 +49,14 @@ Deno.test(
 				...(await iterableToArray(iterableIteratorNumbers)),
 			],
 			[0, 1, 2, 3, 0, 1, 2, 3],
+		),
+);
+
+Deno.test(
+	"Iterable iterator throw exists and throws",
+	() =>
+		void assertRejects(
+			async () => await iterableIteratorNumbers.throw?.("Test"),
 		),
 );
 
@@ -58,6 +79,18 @@ Deno.test(
 			[
 				...(await iterableToArray(iterableIteratorSimple)),
 				...(await iterableToArray(iterableIteratorSimple)),
+			],
+			[13, 13],
+		),
+);
+
+Deno.test(
+	"AsyncIterator that only has next returns as many times as it's called",
+	async () =>
+		assertEquals(
+			[
+				...(await iterableToArray(asyncIterableIteratorSimple)),
+				...(await iterableToArray(asyncIterableIteratorSimple)),
 			],
 			[13, 13],
 		),

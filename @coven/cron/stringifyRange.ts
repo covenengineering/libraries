@@ -10,9 +10,9 @@ import { RANGE_EXPRESSION_SEPARATOR_TOKEN } from "./tokens.ts";
  *
  * @example
  * ```typescript
- * parseRange({ from: 1, to: 13 }); // "1-13"
+ * stringifyRange({ from: 1, to: 13 }); // "1-13"
  * ```
- * @see {@link isRangeField}
+ * @see {@linkcode isRangeField}
  *
  * @param field Cron field to turn into a string.
  * @returns String ranged of `undefined` if it isn't a range object.

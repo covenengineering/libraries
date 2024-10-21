@@ -6,7 +6,7 @@ import { iteratorFunctionToAsyncIterableIterator } from "./iteratorFunctionToAsy
  *
  * @example
  * ```typescript
- * const double = value => value * 2;
+ * const double = (value: number) => value * 2;
  * const mapDouble = map(double);
  *
  * mapDouble([1, 2, 3]); // [2, 4, 6]

@@ -5,7 +5,9 @@ import type { Unary } from "@coven/types";
  *
  * @example
  * ```typescript
- * const always = thunk(id);
+ * import { identity } from "@coven/utils";
+ *
+ * const always = thunk(identity);
  * const alwaysFoo = always("foo")
  * alwaysFoo(); // "foo"
  * ```

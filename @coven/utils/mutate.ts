@@ -3,6 +3,8 @@
  *
  * @example
  * ```typescript
+ * import { set } from "@coven/utils";
+ *
  * const state = { a: 1 };
  * mutate(set("a")(2))(state);
  * console.log(state); // { a: 2 }

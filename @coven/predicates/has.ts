@@ -2,9 +2,7 @@ import type { ReadonlyRecord } from "@coven/types";
 import type { HasFunction } from "./HasFunction.ts";
 
 /**
- * Curried wrapper for the `in` operator. Given a `property` name and an
- * `object`, returns `true` the object contains that property, `false`
- * otherwise.
+ * Checks given property is `in` given object.
  *
  * @example
  * ```typescript

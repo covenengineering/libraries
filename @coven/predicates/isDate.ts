@@ -2,12 +2,12 @@ import { isInstanceOf } from "./isInstanceOf.ts";
 import type { IsInstanceOfFunction } from "./IsInstanceOfFunction.ts";
 
 /**
- * `instanceof Date` alias.
+ * `value instanceof Date` check.
  *
  * @example
  * ```typescript
- * isBigInt(1n); // true
- * isBigInt(1); // false
+ * isDate(new Date()); // true
+ * isDate("1989-10-13"); // false
  * ```
  * @returns `true` if the given value is a `Date`, `false` otherwise.
  */

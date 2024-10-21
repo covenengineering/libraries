@@ -3,17 +3,19 @@ import type { ReadonlyArray } from "./ReadonlyArray.ts";
 
 /**
  * Recursively generates an Array type with the given length.
- * This is expensive and has the same limit TypeScript has for recursive types.
+ *
+ * > [!IMPORTANT]
+ * > This is expensive and has the same limit TypeScript has for recursive types.
  *
  * @example
  * ```typescript
- * type Array10 = ArrayLength<10>; // [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+ * type Array10 = IndexArray<10>; // [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
  * ```
- * @see {@link ReadonlyArray}
+ * @see {@linkcode ReadonlyArray}
  * @template Length Length of generated Array type.
  * @template _Accumulator **⚠️ INTERNAL:** Accumulator for the recursion.
- * @see {@link EmptyArray}
- * @see {@link ReadonlyArray}
+ * @see {@linkcode EmptyArray}
+ * @see {@linkcode ReadonlyArray}
  */
 export type IndexArray<
 	Length extends number = 0,

@@ -14,7 +14,7 @@ import type { EventTypeDictionary } from "./EventTypeDictionary.ts";
  * @example
  * ```typescript
  * const eventRegistry = {};
- * const emitRegistry = emit(eventRegistry); // 👈🏻 You are here
+ * const emitRegistry = emit(eventRegistry);
  * const emitEvent = emitRegistry("event");
  * emitEvent("data");
  * ```
@@ -25,20 +25,6 @@ import type { EventTypeDictionary } from "./EventTypeDictionary.ts";
 export const emit = <Events extends EventTypeDictionary>(
 	eventRegistry: EventRegistry<Events>,
 ): <Event extends keyof Events>(event: Event) => Emitter<Events[Event]> =>
-/**
- * Creates a curried function to emit an event of the `eventRegistry` in context.
- *
- * @example
- * ```typescript
- * const eventRegistry = {};
- * const emitRegistry = emit(eventRegistry);
- * const emitEvent = emitRegistry("event"); // 👈🏻 You are here
- * emitEvent("data");
- * ```
- * @template Event Event name.
- * @param event Event name (has to be a valid key of the `eventRegistry`).
- * @returns Curried function with `eventRegistry` and `event` in context.
- */
 <Event extends keyof Events>(event: Event) => {
 	const getEvent = get(event) as (
 		eventRegistry: EventRegistry<Events>,

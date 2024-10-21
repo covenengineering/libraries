@@ -2,7 +2,7 @@ import { pipe } from "./pipe.ts";
 import { preciseMultiply } from "./preciseMultiply.ts";
 
 /**
- * Curried multiply operation using {@link pipe} with {@link preciseMultiply}.
+ * Curried multiply operation using {@linkcode pipe} with {@linkcode preciseMultiply}.
  *
  * @example
  * ```typescript
@@ -10,8 +10,8 @@ import { preciseMultiply } from "./preciseMultiply.ts";
  *
  * double(6.5); // 13
  * ```
- * @see {@link preciseMultiply}
- * @see {@link pipe}
+ * @see {@linkcode preciseMultiply}
+ * @see {@linkcode pipe}
  * @param multiplier Multiplier value to be used in the multiplication.
  * @returns Curried function with `multiplier` in context.
  */

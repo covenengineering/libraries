@@ -3,7 +3,7 @@ import type { Precise } from "./Precise.ts";
 import { preciseAdd } from "./preciseAdd.ts";
 
 /**
- * Curried subtract operation using the internal {@link Precise} type.
+ * Curried subtract operation using the internal {@linkcode Precise} type.
  *
  * @example
  * ```typescript
@@ -11,8 +11,8 @@ import { preciseAdd } from "./preciseAdd.ts";
  *
  * previous(14n); // [13n]
  * ```
- * @see {@link Precise}
- * @see {@link preciseAdd}
+ * @see {@linkcode Precise}
+ * @see {@linkcode preciseAdd}
  * @param subtrahendBase Subtrahend base to use in the subtraction.
  * @param subtrahendExponent Subtrahend exponent to use in the subtraction.
  * @returns Curried function with `subtrahendBase` and `subtrahendExponent` in context.

@@ -13,10 +13,10 @@ const everyIsNumberOrRangeField = every<
 ) => isNumber(item) || isRangeField(item));
 
 /**
- * Predicate checking if given value is a {@link ListField}.
+ * Predicate checking if given value is a {@linkcode ListField}.
  *
- * @see {@link ListField}
- * @see {@link isRangeField}
+ * @see {@linkcode ListField}
+ * @see {@linkcode isRangeField}
  */
 export const isListField = (value: Field<number>): value is ListField<number> =>
 	isArray(value) &&

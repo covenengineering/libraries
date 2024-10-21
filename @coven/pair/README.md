@@ -3,7 +3,7 @@
 [![JSR](https://jsr.io/badges/@coven/pair)](https://jsr.io/@coven/pair)
 [![JSR Score](https://jsr.io/badges/@coven/pair/score)](https://jsr.io/@coven/pair/score)
 
-🧩 [Paired hook pattern](https://lou.cx/articles/the-paired-hook-pattern)
+🖇️ [Paired hook pattern](https://lou.cx/articles/the-paired-hook-pattern)
 helper.
 
 ## Examples
@@ -11,10 +11,11 @@ helper.
 ### Preact
 
 ```tsx
-import { useState } from "preact";
+import { createElement } from "preact";
+import { useState } from "preact/hooks";
 import { pair } from "@coven/pair/preact";
 
-const useCount = (initialCount) => {
+const useCount = (initialCount: number) => {
 	const [count, setCount] = useState(initialCount);
 
 	return { onClick: () => setCount(count + 1), children: count };
@@ -44,10 +45,11 @@ const Component = ({ array = [] }) => (
 ### React
 
 ```tsx
-import { useState } from "react";
+// @deno-types="@types/react"
+import { createElement, useState } from "react";
 import { pair } from "@coven/pair/react";
 
-const useCount = (initialCount) => {
+const useCount = (initialCount: number) => {
 	const [count, setCount] = useState(initialCount);
 
 	return { onClick: () => setCount(count + 1), children: count };

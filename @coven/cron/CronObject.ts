@@ -5,8 +5,8 @@ import type { MonthValue } from "./MonthValue.ts";
 /**
  * Object that represents the 5 cron expression fields.
  *
- * @see {@link Field}
- * @see {@link MonthValue}
+ * @see {@linkcode Field}
+ * @see {@linkcode MonthValue}
  */
 export type CronObject = {
 	readonly dayOfMonth: Field<DayOfMonth>;

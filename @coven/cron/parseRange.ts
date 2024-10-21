@@ -16,9 +16,9 @@ import { zipRangeNames } from "./zipRangeNames.ts";
  * parseRange("13-13"); // 13 (normalized)
  * parseRange("13-1"); // undefined
  * ```
- * @see {@link isRangeString}
- * @see {@link zipRangeNames}
- * @see {@link parseNumberMap}
+ * @see {@linkcode isRangeString}
+ * @see {@linkcode zipRangeNames}
+ * @see {@linkcode parseNumberMap}
  *
  * @param value String that might be a range.
  * @returns Parsed ranged of `undefined` if it isn't a range string.

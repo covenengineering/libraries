@@ -14,14 +14,8 @@ import type { Difference } from "./Difference.ts";
  *
  * @example Compare 2 objects with the same property but different value
  * ```typescript
- * import { flat } from "@coven/compare";
- * import { assertEquals } from "@std/assert";
- *
  * const compareWitch = compareObjects({ witch: "🧙‍♀️" });
- * assertEquals(
- * 	flat(compareWitch({ witch: "🎃" })),
- * 	[{ kind: "UPDATE", left: "🧙‍♀️", right: "🎃", path: ["witch"] }]
- * );
+ * compareWitch({ witch: "🎃" }); // Yields { kind: "UPDATE", left: "🧙‍♀️", right: "🎃", path: ["witch"] }
  * ```
  * @see {@linkcode compareIterables}
  * @see {@linkcode compareProperties}

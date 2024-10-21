@@ -1,7 +1,7 @@
 import type { Numeric } from "@coven/types";
 
 /**
- * Takes a `start` and `end` and returns a boolean if `value` number or string is between them.
+ * Checks if a `value` is between `start` and `end`.
  *
  * @example
  * ```typescript

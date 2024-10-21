@@ -8,7 +8,7 @@ import type { RangeField } from "./RangeField.ts";
 
 /**
  * Given an iterable of tuples with the name of a field and a field value,
- * run each field through {@link parseField}.
+ * run each field through {@linkcode parseField}.
  *
  * @example
  * ```typescript
@@ -17,7 +17,7 @@ import type { RangeField } from "./RangeField.ts";
  * parseFieldTuplesMap([["minute", "10,11,13"]]); // [["minute", [10, 11, 13]]]
  * parseFieldTuplesMap([["minute", "1-10"]]); // [["minute", { from: 1, to: 10 }]]
  * ```
- * @see {@link parseField}
+ * @see {@linkcode parseField}
  */
 export const parseFieldTuplesMap: (
 	fieldTuples: Iterable<readonly [name: keyof CronObject, field: string]>,

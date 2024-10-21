@@ -9,7 +9,7 @@ import type { ReadonlyRecord } from "./ReadonlyRecord.ts";
  * type User = { readonly name: string; readonly age: number };
  * type ReallyOldUser = Replace<User, { readonly age: bigint }>;
  * ```
- * @see {@link ReadonlyRecord}
+ * @see {@linkcode ReadonlyRecord}
  * @template Original Type to replace the type of some keys in.
  * @template Replacements Property name to type dictionary of replacements.
  */

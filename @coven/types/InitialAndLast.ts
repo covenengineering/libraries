@@ -7,7 +7,7 @@ import type { ReadonlyArrayLike } from "./ReadonlyArrayLike.ts";
 import type { UndefinedFallback } from "./UndefinedFallback.ts";
 
 /**
- * Get a couple with the initial and last types of an {@link ReadonlyArrayLike}.
+ * Get a couple with the initial and last types of an {@linkcode ReadonlyArrayLike}.
  * The first item has all elements except the last, and the second item has
  * the last element.
  *
@@ -18,11 +18,11 @@ import type { UndefinedFallback } from "./UndefinedFallback.ts";
  * 	typeof array
  * >;
  * ```
- * @see {@link EmptyArray}
- * @see {@link EmptyString}
- * @see {@link Head}
- * @see {@link Maybe}
- * @see {@link ReadonlyArrayLike}
+ * @see {@linkcode EmptyArray}
+ * @see {@linkcode EmptyString}
+ * @see {@linkcode Head}
+ * @see {@linkcode Maybe}
+ * @see {@linkcode ReadonlyArrayLike}
  * @template ArrayLike `ReadonlyArrayLike` to get the initial and last types.
  */
 export type InitialAndLast<ArrayLike extends ReadonlyArrayLike> =

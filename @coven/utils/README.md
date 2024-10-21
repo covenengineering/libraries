@@ -3,7 +3,7 @@
 [![JSR](https://jsr.io/badges/@coven/utils)](https://jsr.io/@coven/utils)
 [![JSR Score](https://jsr.io/badges/@coven/utils/score)](https://jsr.io/@coven/utils/score)
 
-🪄 Utility spells.
+🛠️ General utilities.
 
 ## Example
 

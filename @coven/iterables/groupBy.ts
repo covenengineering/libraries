@@ -9,7 +9,7 @@ import { reduce } from "./reduce.ts";
  *
  * @example
  * ```typescript
- * const groupByType = groupBy((value: number) => number % 2 === 0 ? "even" : "odd");
+ * const groupByType = groupBy((value: number) => value % 2 === 0 ? "even" : "odd");
  * groupByType([1, 2, 3, 4, 5]); // { even: [2, 4], odd: [1, 3, 5] }
  * ```
  * @param grouper Grouper function.

@@ -4,19 +4,17 @@
  *
  * @example
  * ```typescript
- * const identityGenerator = function* (value) { yield value; };
- * const iterableIterator = createIterableIterator(identityGenerator);
+ * const witchGenerator = function* () { yield "🧙🏻‍♀️"; };
+ * const witchIterableIterator = iteratorFunctionToAsyncIterableIterator(witchGenerator);
  *
- * const fooIdentity = iterableIterator("foo");
- *
- * for (const value of fooIdentity) {
- * 	console.log(value); // "foo"
+ * for await (const value of witchIterableIterator) {
+ * 	console.log(value); // "🧙🏻‍♀️"
  * }
  *
- * // Same IterableIterator as above, return values again:
+ * // Same AsyncIterableIterator as above, return values again:
  *
- * for (const value of fooIdentity) {
- * 	console.log(value); // "foo"
+ * for await (const value of witchIterableIterator) {
+ * 	console.log(value); // "🧙🏻‍♀️"
  * }
  * ```
  * @param iteratorFunction Generator to be used every time `Symbol.iterator` or `Symbol.asyncIterator` is called.

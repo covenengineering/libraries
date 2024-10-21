@@ -1,5 +1,5 @@
 import { groupBy } from "@coven/iterables";
-import { assertEquals } from "@std/assert/equals";
+import { assertEquals } from "@std/assert";
 
 const string1 = "string1";
 const string2 = "string2";
