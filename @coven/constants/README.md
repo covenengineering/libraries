@@ -5,6 +5,16 @@
 
 🧱 Common constants.
 
+Is pretty common to start folding actions with an empty object, array or string.
+This library simply contains those common values as immutable structures to
+avoid mutations on them and make DX a little bit better (is way easier to spot
+an `EMPTY_OBJECT` that it is to spot a `{}`).
+
+Like all [Coven Engineering](https://coven.engineering) libraries, it has 100%
+test coverage and it's built in top of modern tech compatible with all
+JavaScript runtimes. The tests for this library only make sure trying to do
+mutations throws.
+
 ## Constants
 
 - `EMPTY_ARRAY`: Empty read-only array.

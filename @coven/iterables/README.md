@@ -3,7 +3,7 @@
 [![JSR](https://jsr.io/badges/@coven/iterables)](https://jsr.io/@coven/iterables)
 [![JSR Score](https://jsr.io/badges/@coven/iterables/score)](https://jsr.io/@coven/iterables/score)
 
-♻️ Iterable and AsyncIterable utilities.
+♻️ `Iterable` and `AsyncIterable` utilities.
 
 One of the places curried functions shine the most is with iterables. More often
 than not, mapping, filtering and so on is applied to multiple different
@@ -49,7 +49,7 @@ forEach(console.log)(map(next)(map(double)([1, 2, 3, 4])));
 // 4. 8 → 9 → Logs 9
 ```
 
-As all [Coven Engineering](https://coven.engineering) libraries, it has 100%
+Like all [Coven Engineering](https://coven.engineering) libraries, it has 100%
 test coverage and it's built in top of modern tech compatible with all
 JavaScript runtimes.
 

@@ -1,4 +1,4 @@
-import { always } from "@coven/utils";
+import { always, memoize } from "@coven/utils";
 import { add } from "./add.ts";
 import type { Calculation } from "./Calculation.ts";
 import { divide } from "./divide.ts";
@@ -20,7 +20,9 @@ import { subtract } from "./subtract.ts";
  * @param value Value to run operations on.
  * @returns An object with `divideBy`, `minus`, `plus` and `times` methods and a `value` property.
  */
-export const calculate = (value: number): Calculation => ({
+export const calculate: (value: number) => Calculation = memoize((
+	value: number,
+): Calculation => ({
 	/**
 	 * Divide previous `value` in calculation by the given `divisor`.
 	 *
@@ -57,4 +59,4 @@ export const calculate = (value: number): Calculation => ({
 	 * Current value of the calculation.
 	 */
 	valueOf: always(value),
-});
+}));

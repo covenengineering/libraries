@@ -13,6 +13,9 @@ const buildIU = build("iu");
 /**
  * Parses a cron expression into an object representation.
  *
+ * > [!IMPORTANT]
+ * > `parse` doesn't work with non-standard cron expressions such as cron quartz.
+ *
  * @example
  * ```typescript
  * parse("* * * * *"); // { minute: "*", hour: "*", dayOfMonth: "*", month: "*", dayOfWeek: "*" }
@@ -21,9 +24,6 @@ const buildIU = build("iu");
  * parse("* * 31 2 *"); // undefined
  * parse("nope nope nope nope nope"); // undefined
  * ```
- * @see {@linkcode parseFieldTuplesMap}
- * @see {@linkcode normalizeAliases}
- *
  * @param expression Cron expression to be parsed.
  * @returns Object representing that expression or `undefined` if expression is
  * invalid.

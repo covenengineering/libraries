@@ -9,7 +9,10 @@ Deno.test(
 	"Memoized double function and several operations duplicated values runs once per value",
 	() =>
 		assertStrictEquals(
-			([2, 2, 2, 3, 3, 3, 2, 2, 2].map(memoizedDouble), times),
+			([2, 2, 2, 3, 3, 3, 2, 2, 2].map((number) =>
+				memoizedDouble(number)
+			),
+				times),
 			2,
 		),
 );

@@ -12,7 +12,7 @@ The library can be used directly, or through some of the framework specific
 wrappers like `@simulcast/react`. Because it uses really simple structures, it
 can be consumed from pretty much any place that supports JavaScript.
 
-As all [Coven Engineering](https://coven.engineering) libraries, it has 100%
+Like all [Coven Engineering](https://coven.engineering) libraries, it has 100%
 test coverage and it's built in top of modern tech compatible with all
 JavaScript runtimes.
 

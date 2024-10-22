@@ -76,7 +76,7 @@ const example = mix(bold, red, bgWhite);
 example`Coven Engineering`; // The string "Coven Engineering", with bold style, red color and white background
 ```
 
-As all [Coven Engineering](https://coven.engineering) libraries, it has 100%
+Like all [Coven Engineering](https://coven.engineering) libraries, it has 100%
 test coverage and it's built in top of modern tech compatible with all
 JavaScript runtimes.
 

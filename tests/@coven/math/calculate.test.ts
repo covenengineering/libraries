@@ -21,3 +21,12 @@ Deno.test(
 			0.3,
 		),
 );
+
+Deno.test(
+	"Memoized value isn't broken",
+	() =>
+		assertStrictEquals(
+			calculate(2).plus(2).dividedBy(2).times(2).minus(2).valueOf(),
+			2,
+		),
+);

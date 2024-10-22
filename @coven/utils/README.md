@@ -5,6 +5,14 @@
 
 🛠️ General utilities.
 
+This is a small collection of common utilities used by other libraries from
+[Coven Engineering](https://coven.engineering), for some common patterns found
+in them.
+
+Like all [Coven Engineering](https://coven.engineering) libraries, it has 100%
+test coverage and it's built in top of modern tech compatible with all
+JavaScript runtimes.
+
 ## Example
 
 ```typescript

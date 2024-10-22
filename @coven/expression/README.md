@@ -11,16 +11,16 @@ functions and constants strongly typed, so the type is already a hardcoded
 string that reflects the regular expression being built, while giving an API
 that's easier to read and maintain.
 
-As all [Coven Engineering](https://coven.engineering) libraries, it has 100%
+Like all [Coven Engineering](https://coven.engineering) libraries, it has 100%
 test coverage and it's built in top of modern tech compatible with all
 JavaScript runtimes.
 
 ## Example
 
 ```typescript
-import { build, group, or } from "@coven/expression";
+import { buildUnicode, group, or } from "@coven/expression";
 
-build("gu")(group(or("this", "that"))); // /(?:this|that)/gu
+buildUnicode(group(or("this", "that"))); // /(?:this|that)/u
 ```
 
 ## Other links

@@ -1,4 +1,6 @@
-import type { Unary } from "@coven/types";
+import type { ReadonlyArray } from "@coven/types";
+import { mapGetRecursive } from "./mapGetRecursive.ts";
+import { mapSetRecursive } from "./mapSetRecursive.ts";
 
 /**
  * Memoize function return values for expensive operations.
@@ -11,25 +13,25 @@ import type { Unary } from "@coven/types";
  * memoizedOperation(2); // 4
  * memoizedOperation(2); // 4 (cached)
  * ```
- * @param unary Function to memoize.
+ * @param fn Function to memoize.
  * @returns Curried function with `unary` in context.
  */
 export const memoize = <
-	MemoizedFunction extends Unary<[value: never], unknown>,
->(
-	unary: MemoizedFunction,
-): MemoizedFunction => {
-	const cache = new Map<
-		Parameters<MemoizedFunction>[0],
-		ReturnType<MemoizedFunction>
-	>();
+	Function extends (...parameters: ReadonlyArray<never>) => unknown,
+>(fn: Function): Function => {
+	const cache: Map<Parameters<Function>, ReturnType<Function>> = new Map();
 
-	return ((input: Parameters<MemoizedFunction>[0]) =>
-		cache.get(input) ??
-			cache
-				.set(
-					input,
-					unary(input as never) as ReturnType<MemoizedFunction>,
-				)
-				.get(input)) as unknown as MemoizedFunction;
+	return ((
+		...parameters: Parameters<Function>
+	) => mapGetRecursive(cache, parameters) ??
+		(mapSetRecursive(
+			cache,
+			parameters,
+			fn(
+				...(parameters as unknown as ReadonlyArray<never>),
+			) as ReturnType<
+				Function
+			>,
+		),
+			mapGetRecursive(cache, parameters))) as unknown as Function;
 };

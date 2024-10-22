@@ -4,7 +4,15 @@
 [![JSR Score](https://jsr.io/badges/@coven/pair/score)](https://jsr.io/@coven/pair/score)
 
 🖇️ [Paired hook pattern](https://lou.cx/articles/the-paired-hook-pattern)
-helper.
+helper. It only makes pairing simpler and provides a little bit better DX
+(integration with React Devtools by setting a `displayName` automatically),
+while also having 100% coverage like with all
+[Coven Engineering](https://coven.engineering) libraries.
+
+Currently supported frameworks:
+
+- ⚛ Preact: `@coven/pair/preact`.
+- ⚛ React: `@coven/pair/react`.
 
 ## Examples
 
