@@ -1,5 +1,4 @@
 {
-	"$schema": "https://raw.githubusercontent.com/denoland/deno/refs/tags/v1.41.0/cli/schemas/config-file.v1.json",
 	"compilerOptions": {
 		"exactOptionalPropertyTypes": true,
 		"jsxFactory": "createElement",
@@ -23,7 +22,7 @@
 		"useTabs": true
 	},
 	"imports": {
-		"@std/assert": "jsr:@std/assert@^1.0.6",
+		"@std/assert": "jsr:@std/assert@^1.0.7",
 		"@types/react": "npm:@types/react@^18.3.12",
 		"@types/react-dom": "npm:@types/react-dom@^18.3.1",
 		"preact": "npm:preact@^10.24.3",
