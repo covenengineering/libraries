@@ -5,7 +5,7 @@ import type { ReadonlyArray } from "./ReadonlyArray.ts";
 /**
  * Recursively generates the result of adding `Addend` to `Augend`.
  *
- * > [!IMPORTANT]
+ * > [!WARNING]
  * > This is expensive and has the same limit TypeScript has for recursive types.
  *
  * @example

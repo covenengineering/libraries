@@ -4,7 +4,7 @@ import type { ReadonlyArray } from "./ReadonlyArray.ts";
 /**
  * Recursively generates an Array type with the given length.
  *
- * > [!IMPORTANT]
+ * > [!WARNING]
  * > This is expensive and has the same limit TypeScript has for recursive types.
  *
  * @example

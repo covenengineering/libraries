@@ -4,7 +4,7 @@ import type { IsTypeFunction } from "./IsTypeFunction.ts";
 /**
  * Takes a `type` string and checks if given `input` is of that `typeof`.
  *
- * > [!IMPORTANT]
+ * > [!TIP]
  * > This "patches" typeof so `null` is not `"object"` but `"null"` instead
  * > (rejected proposal for lack of backwards compatibility, more details
  * > [here](https://lou.cx/null-typeof)).

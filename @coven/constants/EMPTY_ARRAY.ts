@@ -1,9 +1,8 @@
 /**
  * Empty read-only array.
  *
- * > [!IMPORTANT]
- * > The array is read-only in runtime by `Object.freeze`, so trying to do
- * > mutations will throw.
+ * > [!CAUTION]
+ * > The array is read-only in runtime. Trying to do mutations will throw.
  *
  * @see [Object.freeze](https://mdn.io/Oject.freeze)
  */
