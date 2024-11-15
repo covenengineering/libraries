@@ -1,3 +1,4 @@
+import type { Effect } from "@coven/types";
 import type { Emitter } from "./Emitter.ts";
 import type { EventListener } from "./EventListener.ts";
 import type { EventTypeDictionary } from "./EventTypeDictionary.ts";
@@ -26,5 +27,5 @@ export type BroadcastObject<Events extends EventTypeDictionary> = {
 	 */
 	readonly on: <Event extends keyof Events>(
 		event: Event,
-	) => (listener: EventListener<Events[Event]>) => () => undefined;
+	) => (listener: EventListener<Events[Event]>) => Effect;
 };
