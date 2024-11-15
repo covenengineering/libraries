@@ -154,6 +154,8 @@
 		"./@coven/terminal",
 		"./@coven/types",
 		"./@coven/utils",
-		"./@simulcast/core"
+		"./@simulcast/core",
+		"./@simulcast/preact",
+		"./@simulcast/react"
 	]
 }

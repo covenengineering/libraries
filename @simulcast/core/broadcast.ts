@@ -17,13 +17,10 @@ import { on } from "./on.ts";
  * emit("event")("Nope"); // Nothing happens
  * ```
  * @template Events Event registry.
- * @param eventRegistry Optional record of event names mapped to an array of
+ * @param registry Optional record of event names mapped to an array of
  * listeners.
  * @returns Object with `emit` and `on` functions.
  */
 export const broadcast = <Events extends EventTypeDictionary>(
-	eventRegistry: EventRegistry<Events> = Object.create(null),
-): BroadcastObject<Events> => ({
-	emit: emit(eventRegistry),
-	on: on(eventRegistry),
-});
+	registry: EventRegistry<Events> = Object.create(null),
+): BroadcastObject<Events> => ({ emit: emit(registry), on: on(registry) });

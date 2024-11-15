@@ -1,6 +1,6 @@
 import { append, filter, toIterable } from "@coven/iterables";
 import { has } from "@coven/predicates";
-import type { Just } from "@coven/types";
+import type { Effect, Just } from "@coven/types";
 import { get, mutate, set } from "@coven/utils";
 import type { EventListener } from "./EventListener.ts";
 import type { EventRegistry } from "./EventRegistry.ts";
@@ -33,7 +33,7 @@ export const on = <Events extends EventTypeDictionary>(
 	eventRegistry: EventRegistry<Events>,
 ): <Event extends keyof Events>(
 	event: Event,
-) => (listener: EventListener<Events[Event]>) => () => undefined =>
+) => (listener: EventListener<Events[Event]>) => Effect =>
 <Event extends keyof Events>(event: Event) => {
 	const getEvent = get(event) as (
 		eventRegistry: EventRegistry<Events>,
