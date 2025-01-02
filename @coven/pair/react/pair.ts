@@ -8,7 +8,10 @@ import type { PairedComponentProperties } from "./PairedComponentProperties.ts";
  *
  * @example
  * ```tsx
- * import { createElement, useState } from "react";
+ * /** @jsxImportSource react *\/
+ * /** @jsxImportSourceTypes @types/react *\/
+ * // @deno-types="@types/react"
+ * import { useState } from "react";
  *
  * const useCount = (initialCount: number) => {
  * 	const [count, setCount] = useState(initialCount);

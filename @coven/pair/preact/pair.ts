@@ -6,7 +6,7 @@ import type { PairedComponentProperties } from "./PairedComponentProperties.ts";
  *
  * @example
  * ```tsx
- * import { createElement } from "preact";
+ * /** @jsxImportSource preact *\/
  * import { useState } from "preact/hooks";
  *
  * const useCount = (initialCount: number) => {
