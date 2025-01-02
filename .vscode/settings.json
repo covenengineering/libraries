@@ -1,8 +1,6 @@
 {
 	"deno.enable": true,
-	"editor.codeActionsOnSave": {
-		"source.organizeImports": "explicit"
-	},
+	"editor.codeActionsOnSave": { "source.organizeImports": "explicit" },
 	"editor.defaultFormatter": "denoland.vscode-deno",
 	"editor.formatOnSave": true,
 	"[yaml]": {
