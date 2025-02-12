@@ -13,12 +13,12 @@ import { mapSetRecursive } from "./mapSetRecursive.ts";
  * memoizedOperation(2); // 4
  * memoizedOperation(2); // 4 (cached)
  * ```
- * @param fn Function to memoize.
+ * @param memoizable Function to memoize.
  * @returns Curried function with `unary` in context.
  */
 export const memoize = <
 	Function extends (...parameters: ReadonlyArray<never>) => unknown,
->(fn: Function): Function => {
+>(memoizable: Function): Function => {
 	const cache: Map<Parameters<Function>, ReturnType<Function>> = new Map();
 
 	return ((
@@ -27,7 +27,7 @@ export const memoize = <
 		(mapSetRecursive(
 			cache,
 			parameters,
-			fn(
+			memoizable(
 				...(parameters as unknown as ReadonlyArray<never>),
 			) as ReturnType<
 				Function
