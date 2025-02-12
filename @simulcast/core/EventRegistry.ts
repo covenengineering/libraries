@@ -1,10 +1,10 @@
-import type { EventListener } from "./EventListener.ts";
+import type { EventHandler } from "./EventHandler.ts";
 import type { EventTypeDictionary } from "./EventTypeDictionary.ts";
 
 /**
- * Registry of event names to array of listeners.
+ * Registry of event names to array of handlers.
  *
- * @see {@linkcode EventListener}
+ * @see {@linkcode EventHandler}
  * @see {@linkcode EventTypeDictionary}
  * @example
  * ```typescript
@@ -16,6 +16,6 @@ import type { EventTypeDictionary } from "./EventTypeDictionary.ts";
  */
 export type EventRegistry<Events extends EventTypeDictionary> = {
 	readonly [Event in keyof Events]?: IterableIterator<
-		EventListener<Readonly<Events[Event]>>
+		EventHandler<Readonly<Events[Event]>>
 	>;
 };

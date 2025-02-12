@@ -21,12 +21,10 @@ JavaScript runtimes.
 ```typescript
 import { broadcast } from "@simulcast/core";
 
-const { emit, on } = broadcast<{ event: string }>();
+const { onEvent, emitEvent } = broadcast<{ event: string }>();
 
-const onEvent = on("event");
 const offEvent = onEvent(console.log);
 
-const emitEvent = emit("event");
 emitEvent("Hello world 1"); // Logs "Hello world 1"
 emitEvent("Hello world 2"); // Logs "Hello world 2"
 offEvent();
