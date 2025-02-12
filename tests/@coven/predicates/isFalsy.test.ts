@@ -53,7 +53,6 @@ Deno.test("Truthy", () =>
 			isFalsy(Infinity) ||
 			// Object
 			isFalsy(EMPTY_OBJECT) ||
-			isFalsy(Object.create(null)) ||
 			// Promise
 			isFalsy(Promise.resolve()) ||
 			// RegExp

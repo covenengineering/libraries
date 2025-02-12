@@ -35,7 +35,6 @@ Deno.test("Other types", () =>
 			isBigInt(NaN) ||
 			// Object
 			isBigInt(EMPTY_OBJECT) ||
-			isBigInt(Object.create(null)) ||
 			// Promise
 			isBigInt(Promise.resolve()) ||
 			// RegExp

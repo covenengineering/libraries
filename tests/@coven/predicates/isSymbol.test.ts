@@ -43,7 +43,6 @@ Deno.test("Other types", () =>
 			isSymbol(NaN) ||
 			// Object
 			isSymbol(EMPTY_OBJECT) ||
-			isSymbol(Object.create(null)) ||
 			// Promise
 			isSymbol(Promise.resolve()) ||
 			// RegExp

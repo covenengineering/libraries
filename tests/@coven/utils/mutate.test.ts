@@ -1,9 +1,9 @@
 import { EMPTY_OBJECT } from "@coven/constants";
-import { mutate } from "@coven/utils";
+import { createObject, mutate } from "@coven/utils";
 import { assertEquals, assertThrows } from "@std/assert";
 
 const mutateWitch = mutate({ "🧙🏻‍♀️": "🎃" });
-const emptyObject = Object.create(null);
+const emptyObject = createObject<Record<string, string>>();
 const witchObject = { "🧙🏻‍♀️": "🧙🏻‍♀️" };
 
 Deno.test(

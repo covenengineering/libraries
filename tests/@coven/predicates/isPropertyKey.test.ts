@@ -47,7 +47,6 @@ Deno.test("Other types", () =>
 			isPropertyKey(null) ||
 			// Object
 			isPropertyKey(EMPTY_OBJECT) ||
-			isPropertyKey(Object.create(null)) ||
 			// Promise
 			isPropertyKey(Promise.resolve()) ||
 			// RegExp

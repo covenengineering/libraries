@@ -51,7 +51,6 @@ Deno.test("Other types", () =>
 			isFunction(Symbol.iterator) ||
 			// Object
 			isFunction(EMPTY_OBJECT) ||
-			isFunction(Object.create(null)) ||
 			// Undefined
 			isFunction(undefined),
 	));

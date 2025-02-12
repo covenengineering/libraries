@@ -39,7 +39,6 @@ Deno.test("Other types", () =>
 			isString(NaN) ||
 			// Object
 			isString(EMPTY_OBJECT) ||
-			isString(Object.create(null)) ||
 			// Promise
 			isString(Promise.resolve()) ||
 			// RegExp

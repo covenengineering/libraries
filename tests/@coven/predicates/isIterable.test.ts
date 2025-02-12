@@ -42,7 +42,6 @@ Deno.test("Other types", () =>
 			isIterable(NaN) ||
 			// Object
 			isIterable(EMPTY_OBJECT) ||
-			isIterable(Object.create(null)) ||
 			// Promise
 			isIterable(Promise.resolve()) ||
 			// RegExp

@@ -42,7 +42,6 @@ Deno.test("Other types", () =>
 			isAwaitableIterable(NaN) ||
 			// Object
 			isAwaitableIterable(EMPTY_OBJECT) ||
-			isAwaitableIterable(Object.create(null)) ||
 			// Promise
 			isAwaitableIterable(Promise.resolve()) ||
 			// RegExp

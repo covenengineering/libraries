@@ -6,6 +6,7 @@ import {
 	UPDATE_KIND,
 } from "@coven/compare";
 import { EMPTY_ARRAY, EMPTY_OBJECT } from "@coven/constants";
+import { createObject } from "@coven/utils";
 import { assertEquals } from "@std/assert";
 
 const property1 = "property1";
@@ -172,7 +173,7 @@ Deno.test(
 		assertEquals(
 			flat(
 				compare(["coven"])(
-					Object.assign(Object.create(null), {
+					createObject({
 						0: "coven",
 						constructor: Array,
 						length: 1,

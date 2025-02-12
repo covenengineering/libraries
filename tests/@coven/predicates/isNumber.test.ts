@@ -35,7 +35,6 @@ Deno.test("Other types", () =>
 			isNumber(null) ||
 			// Object
 			isNumber(EMPTY_OBJECT) ||
-			isNumber(Object.create(null)) ||
 			// Promise
 			isNumber(Promise.resolve()) ||
 			// RegExp

@@ -1,5 +1,6 @@
 export { always } from "./always.ts";
 export { applyTo } from "./applyTo.ts";
+export { createObject } from "./createObject.ts";
 export { cryptoNumber } from "./cryptoNumber.ts";
 export { get } from "./get.ts";
 export { identity } from "./identity.ts";

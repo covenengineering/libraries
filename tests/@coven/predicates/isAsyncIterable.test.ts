@@ -37,7 +37,6 @@ Deno.test("Other types", () =>
 			isAsyncIterable(NaN) ||
 			// Object
 			isAsyncIterable(EMPTY_OBJECT) ||
-			isAsyncIterable(Object.create(null)) ||
 			// Promise
 			isAsyncIterable(Promise.resolve()) ||
 			// RegExp

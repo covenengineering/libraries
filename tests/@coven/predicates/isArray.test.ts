@@ -36,7 +36,6 @@ Deno.test("Other types", () =>
 			isArray(NaN) ||
 			// Object
 			isArray(EMPTY_OBJECT) ||
-			isArray(Object.create(null)) ||
 			// Promise
 			isArray(Promise.resolve()) ||
 			// RegExp

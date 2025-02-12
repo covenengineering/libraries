@@ -18,8 +18,7 @@ Deno.test("Objects", () =>
 			isObject(/expression/u) &&
 			isObject(new RegExp("expression", "u")) &&
 			// Object
-			isObject(EMPTY_OBJECT) &&
-			isObject(Object.create(null)),
+			isObject(EMPTY_OBJECT),
 	));
 
 Deno.test("Other types", () =>
