@@ -6,6 +6,7 @@ export type { AwaitableGenerator } from "./AwaitableGenerator.ts";
 export type { AwaitableIterable } from "./AwaitableIterable.ts";
 export type { AwaitableIterableIterator } from "./AwaitableIterableIterator.ts";
 export type { AwaitableIterator } from "./AwaitableIterator.ts";
+export type { Branded } from "./Branded.ts";
 export type { Class } from "./Class.ts";
 export type { DayOfMonth } from "./DayOfMonth.ts";
 export type { DayOfWeek } from "./DayOfWeek.ts";
