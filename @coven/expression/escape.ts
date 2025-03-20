@@ -1,3 +1,4 @@
+import { memo } from "@coven/memo";
 import type { Stringable } from "@coven/types";
 
 /**
@@ -10,6 +11,7 @@ import type { Stringable } from "@coven/types";
  * @param escaped Value to escape.
  * @returns Escaped value.
  */
-export const escape = <const Escaped extends Stringable>(
-	escaped: Escaped,
-): `\\${Escaped}` => `\\${escaped}`;
+export const escape = memo(
+	<const Escaped extends Stringable>(escaped: Escaped): `\\${Escaped}` =>
+		`\\${escaped}`,
+);

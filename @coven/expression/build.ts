@@ -1,3 +1,4 @@
+import { memo } from "@coven/memo";
 import type {
 	EmptyString,
 	ReadonlyArray,
@@ -23,7 +24,7 @@ import { join } from "./join.ts";
  * @param flags Regular expression flags ("u" by default).
  * @returns Curried function with `flags` set in context.
  */
-export const build =
+export const build = memo(
 	<Flags extends RegularExpressionFlags = "u">(
 		flags: Flags | "u" = "u",
 	): (<const Tokens extends ReadonlyArray<Stringable>>(
@@ -35,11 +36,16 @@ export const build =
 			readonly source: StringJoin<Tokens, EmptyString>;
 		}
 	>) =>
-	<const Tokens extends ReadonlyArray<Stringable>>(...tokens: Tokens) =>
-		new RegExp(join(...tokens), flags) as Replace<
-			RegExp,
-			{
-				readonly flags: Flags;
-				readonly source: StringJoin<Tokens, EmptyString>;
-			}
-		>;
+		memo(
+			<const Tokens extends ReadonlyArray<Stringable>>(
+				...tokens: Tokens
+			) =>
+				new RegExp(join(...tokens), flags) as Replace<
+					RegExp,
+					{
+						readonly flags: Flags;
+						readonly source: StringJoin<Tokens, EmptyString>;
+					}
+				>,
+		),
+);
