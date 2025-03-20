@@ -1,30 +1,34 @@
 <img alt="Simulcast React logo" src="https://raw.githubusercontent.com/covenengineering/libraries/main/@simulcast/react/logo.svg" height="108" />
 
-[![JSR](https://jsr.io/badges/@simulcast/react)](https://jsr.io/@simulcast/react)
-[![JSR Score](https://jsr.io/badges/@simulcast/react/score)](https://jsr.io/@simulcast/react/score)
+[![JSR](https://jsr.io/badges/@simulcast/react)](https://simulcast.coven.to/react)
+[![JSR Score](https://jsr.io/badges/@simulcast/react/score)](https://simulcast.coven.to/react/score)
 
-📡 Cross-framework communication.
-
-[React](https://react.dev/) wrapper for
-[`@simulcast/core`](https://jsr.io/@simulcast/core).
+📡 [React](https://react.dev/) hook for
+[`@simulcast/core`](https://simulcast.coven.to/core).
 
 ## Example
 
+Using with a shared broadcast registry:
+
 ```tsx
-import { createHooks } from "@simulcast/react";
+import { broadcast } from "@simulcast/core";
+import { useBroadcast } from "@simulcast/react";
 import type { MouseEvent } from "react";
 
-const { useEmit, useOn } = createHooks<{
+const { registry } = broadcast<{
 	click: MouseEvent<HTMLButtonElement>;
 }>();
 
 const Component = () => {
-	const emitClick = useEmit("click");
-	const onClick = useOn("click");
+	const { emitClick, onClick } = useBroadcast(registry);
 
-	onClick(console.log); // Will log event data every time the button below is clicked
+	onClick(console.log);
 
-	return <button onClick={emitClick}>Click me!</button>;
+	return (
+		<button onClick={emitClick} type="button">
+			Click me!
+		</button>
+	);
 };
 ```
 
