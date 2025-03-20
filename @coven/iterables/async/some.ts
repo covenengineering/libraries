@@ -21,15 +21,16 @@ export const some: {
 	<Item>(
 		predicate: Unary<[item: Item], boolean>,
 	): (iterable: AwaitableIterable<Item>) => Promise<boolean>;
-} = <Item>(
-	predicate: Unary<[item: Item], boolean>,
-): (iterable: AwaitableIterable<Item>) => Promise<boolean> =>
-async (iterable) => {
-	for await (const item of iterable) {
-		if (predicate(item)) {
-			return true;
+} =
+	<Item>(
+		predicate: Unary<[item: Item], boolean>,
+	): ((iterable: AwaitableIterable<Item>) => Promise<boolean>) =>
+	async iterable => {
+		for await (const item of iterable) {
+			if (predicate(item)) {
+				return true;
+			}
 		}
-	}
 
-	return false;
-};
+		return false;
+	};

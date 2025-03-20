@@ -3,7 +3,8 @@ import { isBigInt } from "@coven/predicates";
 import { assert, assertFalse } from "@std/assert";
 
 Deno.test("BigInts", () =>
-	assert(isBigInt(BigInt(13)) && isBigInt(BigInt("13")) && isBigInt(13n)));
+	assert(isBigInt(BigInt(13)) && isBigInt(BigInt("13")) && isBigInt(13n)),
+);
 
 Deno.test("Other types", () =>
 	assertFalse(
@@ -49,4 +50,5 @@ Deno.test("Other types", () =>
 			isBigInt(Symbol.iterator) ||
 			// Undefined
 			isBigInt(undefined),
-	));
+	),
+);

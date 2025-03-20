@@ -10,7 +10,8 @@ Deno.test("Iterables", () =>
 			// String
 			isIterable("string") &&
 			isIterable(`string`),
-	));
+	),
+);
 
 Deno.test("Other types", () =>
 	assertFalse(
@@ -53,4 +54,5 @@ Deno.test("Other types", () =>
 			isIterable(Symbol.iterator) ||
 			// Undefined
 			isIterable(undefined),
-	));
+	),
+);

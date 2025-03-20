@@ -8,4 +8,5 @@ const tappedTest = tap((argument: boolean) => (tapped = argument))(
 const EXPECTED = true;
 
 Deno.test("Tapped function returns expected value but runs tapper first", () =>
-	assertEquals([tappedTest(EXPECTED), tapped], ["🧙🏻‍♀️", EXPECTED]));
+	assertEquals([tappedTest(EXPECTED), tapped], ["🧙🏻‍♀️", EXPECTED]),
+);

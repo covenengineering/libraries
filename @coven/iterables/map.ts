@@ -15,8 +15,11 @@ import { iteratorFunctionToIterableIterator } from "./iteratorFunctionToIterable
  * @param mapper Mapper function.
  * @returns Generator function with `mapper` function set in context.
  */
-export const map = <Item, MappedItem>(
-	mapper: Unary<[item: Item], MappedItem>,
-): (iterable: Iterable<Item>) => IterableIterator<MappedItem> =>
-(iterable: Iterable<Item>) =>
-	iteratorFunctionToIterableIterator(() => getIterator(iterable).map(mapper));
+export const map =
+	<Item, MappedItem>(
+		mapper: Unary<[item: Item], MappedItem>,
+	): ((iterable: Iterable<Item>) => IterableIterator<MappedItem>) =>
+	(iterable: Iterable<Item>) =>
+		iteratorFunctionToIterableIterator(() =>
+			getIterator(iterable).map(mapper),
+		);

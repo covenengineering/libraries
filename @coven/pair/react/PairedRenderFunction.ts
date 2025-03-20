@@ -16,7 +16,4 @@ import type { ReactElement } from "react";
  */
 export type PairedRenderFunction<
 	Hook extends (...attributes: never) => unknown,
-> = Unary<
-	[hook: Hook],
-	ReactElement
->;
+> = Unary<[hook: Hook], ReactElement>;

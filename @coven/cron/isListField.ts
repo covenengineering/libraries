@@ -8,9 +8,7 @@ import type { ValueOrRangeField } from "./ValueOrRangeField.ts";
 const everyIsNumberOrRangeField = every<
 	ValueOrRangeField<number>,
 	ValueOrRangeField<number>
->((
-	item,
-) => isNumber(item) || isRangeField(item));
+>(item => isNumber(item) || isRangeField(item));
 
 /**
  * Predicate checking if given value is a {@linkcode ListField}.
@@ -19,5 +17,4 @@ const everyIsNumberOrRangeField = every<
  * @see {@linkcode isRangeField}
  */
 export const isListField = (value: Field<number>): value is ListField<number> =>
-	isArray(value) &&
-	everyIsNumberOrRangeField(value);
+	isArray(value) && everyIsNumberOrRangeField(value);

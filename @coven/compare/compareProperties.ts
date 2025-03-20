@@ -30,20 +30,20 @@ export const compareProperties = (left: object): CurriedComparison<object> => {
 	 * @param right New object.
 	 * @yields Differences.
 	 */
-	return (right) =>
+	return right =>
 		flat(
 			map((key: string | symbol) =>
 				map(pathPrepend(key))(
 					compare(
-						key in left
-							? left[key as keyof typeof left]
-							: MISSING_VALUE,
+						key in left ?
+							left[key as keyof typeof left]
+						:	MISSING_VALUE,
 					)(
-						key in right
-							? right[key as keyof typeof right]
-							: MISSING_VALUE,
+						key in right ?
+							right[key as keyof typeof right]
+						:	MISSING_VALUE,
 					),
-				)
+				),
 			)(unique(append(getKeys(right))(ownKeysLeft))),
 		);
 };

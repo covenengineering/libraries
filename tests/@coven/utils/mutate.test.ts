@@ -22,5 +22,7 @@ Deno.test(
 		}),
 );
 
-Deno.test("Mutating a frozen object should throw", () =>
-	void assertThrows(() => mutateWitch(EMPTY_OBJECT)));
+Deno.test(
+	"Mutating a frozen object should throw",
+	() => void assertThrows(() => mutateWitch(EMPTY_OBJECT)),
+);

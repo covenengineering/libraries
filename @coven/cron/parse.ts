@@ -31,17 +31,13 @@ const buildIU = build("iu");
 export const parse = (expression: CronString): Maybe<CronObject> => {
 	const entries = parseFieldTuplesMap(
 		objectToEntries(
-			(buildIU(cronRegExp).exec(normalizeAliases(expression))
-				?.groups ?? EMPTY_OBJECT) as ReadonlyRecord<
-					KeyOf<CronObject>,
-					string
-				>,
+			(buildIU(cronRegExp).exec(normalizeAliases(expression))?.groups ??
+				EMPTY_OBJECT) as ReadonlyRecord<KeyOf<CronObject>, string>,
 		),
 	);
 
 	return (
 		length(entries) === 0 ? undefined : (
 			entriesToObject(entries)
-		)
-	) as Maybe<CronObject>;
+		)) as Maybe<CronObject>;
 };

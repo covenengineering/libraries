@@ -13,7 +13,7 @@ import { iteratorFunctionToIterableIterator } from "./iteratorFunctionToIterable
  * @returns Curried function with `item` in context.
  */
 export const repeat =
-	(times: number): <const Item>(item: Item) => IterableIterator<Item> =>
+	(times: number): (<const Item>(item: Item) => IterableIterator<Item>) =>
 	<const Item>(item: Item) =>
 		iteratorFunctionToIterableIterator(function* (): Generator<Item> {
 			if (times === Infinity) {

@@ -1,3 +1,5 @@
+import { memo } from "@coven/memo";
+
 /**
  * Turns a `Precise` into a `number`.
  *
@@ -8,7 +10,7 @@
  * @param precise `Precise` to convert.
  * @returns Number represented by the passed `Precise` value.
  */
-export const preciseToNumber = (
-	base: bigint | typeof Infinity,
-	exponent = 0n,
-): number => parseFloat(`${base}e${exponent}`);
+export const preciseToNumber = memo(
+	(base: bigint | typeof Infinity, exponent = 0n): number =>
+		parseFloat(`${base}e${exponent}`),
+);

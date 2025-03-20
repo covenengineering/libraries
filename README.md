@@ -13,8 +13,8 @@ libraries:
   scrolls.
 - ⏳ [`@coven/cron`](https://jsr.io/@coven/cron) — A fantastic cron parser and
   constructor.
-- 🧙🏻‍♀️ [`@coven/expression`](https://jsr.io/@coven/expression) — Magically
-  build regular expressions.
+- 🧙🏻‍♀️ [`@coven/expression`](https://jsr.io/@coven/expression) — Magically build
+  regular expressions.
 - 🌪️ [`@coven/iterables`](https://jsr.io/@coven/iterables) — Iteration rituals.
 - 💀 [`@coven/math`](https://jsr.io/@coven/math) — Math witchcraft.
 - 🧩 [`@coven/pair`](https://jsr.io/@coven/pair) — Paired hook pattern helper.

@@ -12,10 +12,11 @@ import { iteratorFunctionToIterableIterator } from "./iteratorFunctionToIterable
  * @param amount Amount of items to drop.
  * @returns Curried function with `amount` in context.
  */
-export const drop = (
-	amount: number,
-): <Item>(iterable: Iterable<Item>) => IterableIterator<Item> =>
-<Item>(iterable: Iterable<Item>) =>
-	iteratorFunctionToIterableIterator(() =>
-		getIterator(iterable).drop(amount)
-	);
+export const drop =
+	(
+		amount: number,
+	): (<Item>(iterable: Iterable<Item>) => IterableIterator<Item>) =>
+	<Item>(iterable: Iterable<Item>) =>
+		iteratorFunctionToIterableIterator(() =>
+			getIterator(iterable).drop(amount),
+		);

@@ -24,7 +24,7 @@ export const normalizeAliases = (expression: string): FieldString =>
 				>),
 			),
 		),
-		(alias) =>
+		alias =>
 			`${
 				normalizeMap[
 					alias.toLocaleLowerCase() as KeyOf<typeof normalizeMap>

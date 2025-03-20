@@ -8,4 +8,5 @@ Deno.test("List of valid and invalid values returns parsed list", () =>
 			parseListMap(["1", "05", "13", "5-13", "13-13", "13-5", "99"]),
 		),
 		[1, 5, 13, { from: 5, to: 13 }, 13, undefined, undefined],
-	));
+	),
+);

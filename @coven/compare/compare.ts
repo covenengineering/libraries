@@ -42,24 +42,29 @@ export const compare = (left: unknown): CurriedComparison<unknown> => {
 	const isLeft = is(left);
 	const isLeftConstructor = leftIsObject ? is(left.constructor) : alwaysFalse;
 
-	return (right) =>
+	return right =>
 		iteratorFunctionToIterableIterator(
-			leftIsObject
+			leftIsObject ?
 				/**
 				 * Curried {@linkcode compare} with `left` set in context.
 				 *
 				 * @param right New value.
 				 * @yields Differences.
 				 */
-				? function* (): Generator<Difference> {
-					isLeft(right) ? undefined : yield* (
-						isObject(right) &&
-							isLeftConstructor((right as object).constructor)
-							? compareObjectsLeft as Just<
-								typeof compareObjectsLeft
-							>
-							: valuesToDifferenceLeft
-					)(right);
+				function* (): Generator<Difference> {
+					isLeft(right) ? undefined : (
+						yield* (
+							(
+								isObject(right) &&
+									isLeftConstructor(
+										(right as object).constructor,
+									)
+							) ?
+								(compareObjectsLeft as Just<
+									typeof compareObjectsLeft
+								>)
+							:	valuesToDifferenceLeft)(right)
+					);
 				}
 				/**
 				 * Curried {@linkcode compare} with `left` set in context.
@@ -67,7 +72,7 @@ export const compare = (left: unknown): CurriedComparison<unknown> => {
 				 * @param right New value.
 				 * @yields Differences.
 				 */
-				: function* (): Generator<Difference> {
+			:	function* (): Generator<Difference> {
 					isLeft(right) ? undefined : (
 						yield* valuesToDifferenceLeft(right)
 					);

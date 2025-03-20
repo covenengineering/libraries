@@ -25,4 +25,5 @@ Deno.test("Setter doesn't mutate original object", () =>
 			},
 			{ "🧙🏻‍♀️": false },
 		],
-	));
+	),
+);

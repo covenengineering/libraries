@@ -21,8 +21,8 @@ import { LIST_EXPRESSION_SEPARATOR_TOKEN } from "./tokens.ts";
 export const stringifyList = (
 	field: Readonly<Field<number>>,
 ): Maybe<ListString> =>
-	(isListField(field)
-		? field
-			.map((item) => stringifyRange(item) ?? `${item as number}`)
+	(isListField(field) ?
+		field
+			.map(item => stringifyRange(item) ?? `${item as number}`)
 			.join(LIST_EXPRESSION_SEPARATOR_TOKEN)
-		: undefined) as Maybe<ListString>;
+	:	undefined) as Maybe<ListString>;

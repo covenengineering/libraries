@@ -1,5 +1,6 @@
+import { memo } from "@coven/memo";
 import type { MaybeInfinity } from "./MaybeInfinity.ts";
-import type { Precise } from "./Precise.ts";
+import type { Precise } from "./PreciseTuple.ts";
 import { preciseAdd } from "./preciseAdd.ts";
 
 /**
@@ -17,8 +18,10 @@ import { preciseAdd } from "./preciseAdd.ts";
  * @param subtrahendExponent Subtrahend exponent to use in the subtraction.
  * @returns Curried function with `subtrahendBase` and `subtrahendExponent` in context.
  */
-export const preciseSubtract = (
-	subtrahendBase: MaybeInfinity,
-	subtrahendExponent = 0n,
-): (minuendBase: MaybeInfinity, minuendExponent?: bigint) => Precise =>
-	preciseAdd(-subtrahendBase, subtrahendExponent);
+export const preciseSubtract = memo(
+	(
+		subtrahendBase: MaybeInfinity,
+		subtrahendExponent = 0n,
+	): ((minuendBase: MaybeInfinity, minuendExponent?: bigint) => Precise) =>
+		preciseAdd(-subtrahendBase, subtrahendExponent),
+);

@@ -16,7 +16,8 @@ import { isAllToken } from "./isAllToken.ts";
  * @returns Curried function with `cron` in context.
  */
 export const dateInCron =
-	(cron: CronObject): (date: Readonly<Date>) => boolean => (date) =>
+	(cron: CronObject): ((date: Readonly<Date>) => boolean) =>
+	date =>
 		(isAllToken(cron[MINUTE_NAME]) ||
 			compareField(date.getMinutes(), cron[MINUTE_NAME])) &&
 		(isAllToken(cron[HOUR_NAME]) ||

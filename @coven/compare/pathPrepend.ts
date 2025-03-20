@@ -18,7 +18,7 @@ import { setPath } from "./setPath.ts";
  */
 export const pathPrepend = (
 	property: PropertyKey,
-): (difference: Difference) => Difference => {
+): ((difference: Difference) => Difference) => {
 	const prependProperty = prepend([property]);
 
 	/**

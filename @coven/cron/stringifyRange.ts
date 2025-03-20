@@ -20,8 +20,8 @@ import { RANGE_EXPRESSION_SEPARATOR_TOKEN } from "./tokens.ts";
 export const stringifyRange = <Predicated extends number>(
 	field: Readonly<Field<Predicated>>,
 ): Maybe<RangeString> =>
-	(isRangeField(field)
-		? `${field[FROM_NAME]}${RANGE_EXPRESSION_SEPARATOR_TOKEN}${
+	(isRangeField(field) ?
+		`${field[FROM_NAME]}${RANGE_EXPRESSION_SEPARATOR_TOKEN}${
 			field[TO_NAME]
 		}`
-		: undefined) as Maybe<RangeString>;
+	:	undefined) as Maybe<RangeString>;

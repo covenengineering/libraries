@@ -3,7 +3,8 @@ import { isNumber } from "@coven/predicates";
 import { assert, assertFalse } from "@std/assert";
 
 Deno.test("Numbers", () =>
-	assert(isNumber(13) && isNumber(Infinity) && isNumber(NaN)));
+	assert(isNumber(13) && isNumber(Infinity) && isNumber(NaN)),
+);
 
 Deno.test("Other types", () =>
 	assertFalse(
@@ -49,4 +50,5 @@ Deno.test("Other types", () =>
 			isNumber(Symbol.iterator) ||
 			// Undefined
 			isNumber(undefined),
-	));
+	),
+);

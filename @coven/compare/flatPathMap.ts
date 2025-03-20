@@ -12,6 +12,7 @@ import { setPath } from "./setPath.ts";
  */
 export const flatPathMap: (
 	differences: Iterable<Difference>,
-) => IterableIterator<FlatDifference> = map((difference: Difference) =>
-	setPath(iterableToArray(difference.path))(difference) as FlatDifference
+) => IterableIterator<FlatDifference> = map(
+	(difference: Difference) =>
+		setPath(iterableToArray(difference.path))(difference) as FlatDifference,
 );

@@ -18,10 +18,10 @@ Like all [Coven Engineering](https://coven.engineering) libraries, it has 100%
 test coverage and it's built in top of modern tech compatible with all
 JavaScript runtimes.
 
-> [!NOTE]
-> Obviously, using this or any library like it is way more expensive than doing
-> a simple math operation, so use this only when a precise value is required. If
-> speed is more important than precision, avoid this or any library like it.
+> [!NOTE] Obviously, using this or any library like it is way more expensive
+> than doing a simple math operation, so use this only when a precise value is
+> required. If speed is more important than precision, avoid this or any library
+> like it.
 
 ## Example
 

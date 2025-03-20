@@ -17,10 +17,10 @@ import { attempt } from "@coven/parsers";
 export const test = ({
 	flags,
 	source,
-}: Pick<Readonly<RegExp>, "flags" | "source">): (text: string) => boolean => {
+}: Pick<Readonly<RegExp>, "flags" | "source">): ((text: string) => boolean) => {
 	const attemptTest = attempt((text: string) =>
-		new RegExp(source, flags).test(text)
+		new RegExp(source, flags).test(text),
 	);
 
-	return (text) => attemptTest(text) ?? false;
+	return text => attemptTest(text) ?? false;
 };

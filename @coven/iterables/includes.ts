@@ -15,4 +15,4 @@ import { some } from "./some.ts";
  */
 export const includes = <SearchItem>(
 	searchItem: SearchItem,
-): (iterable: Iterable<unknown>) => boolean => some(is(searchItem));
+): ((iterable: Iterable<unknown>) => boolean) => some(is(searchItem));

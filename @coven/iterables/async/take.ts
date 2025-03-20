@@ -12,25 +12,26 @@ import { iteratorFunctionToAsyncIterableIterator } from "./iteratorFunctionToAsy
  * @param amount Amount of items to take.
  * @returns Curried function with `amount` in context.
  */
-export const take = (
-	amount: number,
-): <Item>(
-	iterable: AwaitableIterable<Item>,
-) => Readonly<AsyncIterableIterator<Item>> =>
-<Item>(iterable: AwaitableIterable<Item>) =>
-	iteratorFunctionToAsyncIterableIterator(
-		async function* (): AsyncGenerator<Item> {
-			let count = 0n;
+export const take =
+	(
+		amount: number,
+	): (<Item>(
+		iterable: AwaitableIterable<Item>,
+	) => Readonly<AsyncIterableIterator<Item>>) =>
+	<Item>(iterable: AwaitableIterable<Item>) =>
+		iteratorFunctionToAsyncIterableIterator(
+			async function* (): AsyncGenerator<Item> {
+				let count = 0n;
 
-			if (amount > 0) {
-				for await (const item of iterable) {
-					if (count < amount) {
-						yield item;
-						count += 1n;
-					} else {
-						break;
+				if (amount > 0) {
+					for await (const item of iterable) {
+						if (count < amount) {
+							yield item;
+							count += 1n;
+						} else {
+							break;
+						}
 					}
 				}
-			}
-		},
-	);
+			},
+		);

@@ -16,10 +16,13 @@ Deno.test(
 );
 
 Deno.test("Given a string with numbers and a test looking for numbers", () =>
-	assert(testNumbersRegExp("13")));
+	assert(testNumbersRegExp("13")),
+);
 
 Deno.test("Given a string without numbers and a test looking for numbers", () =>
-	assertFalse(testNumbersRegExp("🧙🏻‍♀️")));
+	assertFalse(testNumbersRegExp("🧙🏻‍♀️")),
+);
 
 Deno.test("Given a string and a test with syntax errors", () =>
-	assertFalse(testWithErrors("🧙🏻‍♀️")));
+	assertFalse(testWithErrors("🧙🏻‍♀️")),
+);

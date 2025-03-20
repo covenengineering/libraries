@@ -13,5 +13,6 @@ import type { ReadonlyArray } from "./ReadonlyArray.ts";
  * ```
  * @template Arguments Tuple of arguments.
  */
-export type AwaitableEffect<Arguments extends ReadonlyArray> = Arguments extends
-	readonly [] ? () => Awaitable<void> : (..._: Arguments) => Awaitable<void>;
+export type AwaitableEffect<Arguments extends ReadonlyArray> =
+	Arguments extends readonly [] ? () => Awaitable<void>
+	:	(..._: Arguments) => Awaitable<void>;

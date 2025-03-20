@@ -20,8 +20,8 @@ import { LIST_EXPRESSION_SEPARATOR_TOKEN } from "./tokens.ts";
 export const parseList = <Predicated extends number>(
 	value: string,
 ): Maybe<ListField<Predicated>> =>
-	(isListString(value)
-		? iterableToArray(
+	(isListString(value) ?
+		iterableToArray(
 			unique(parseListMap(value.split(LIST_EXPRESSION_SEPARATOR_TOKEN))),
 		)
-		: undefined) as Maybe<ListField<Predicated>>;
+	:	undefined) as Maybe<ListField<Predicated>>;

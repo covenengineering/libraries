@@ -121,10 +121,9 @@ That yields all 3 kind of differences:
 ({ kind: "CREATE", right: "new", path: ["created"] });
 ```
 
-> [!NOTE]
-> In all examples the `path` property is represented as an array, but `path` is
-> an `IterableIterator` like the output of `compare` is. The included `flat`
-> function can be used to flatten all `IterableIterator`s to arrays.
+> [!NOTE] In all examples the `path` property is represented as an array, but
+> `path` is an `IterableIterator` like the output of `compare` is. The included
+> `flat` function can be used to flatten all `IterableIterator`s to arrays.
 
 Like all [Coven Engineering](https://coven.engineering) libraries, it has 100%
 test coverage and it's built in top of modern tech compatible with all
