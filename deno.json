@@ -130,8 +130,8 @@
 	},
 	"nodeModulesDir": "auto",
 	"tasks": {
-		"format": "deno run --allow-env --allow-read --allow-write --allow-sys npm:prettier --log-level=warn --write './**/*.{json,md,ts}'",
-		"format-check": "deno run --allow-env --allow-read --allow-sys npm:prettier --check './**/*.{json,md,ts}'",
+		"format": "deno run --allow-env --allow-read --allow-write --allow-sys npm:prettier --log-level=warn --write './**/*.{json,md,ts,tsx}'",
+		"format-check": "deno run --allow-env --allow-read --allow-sys npm:prettier --check './**/*.{json,md,ts,tsx}'",
 		"lint-docs": "deno doc --lint ./**/*.ts",
 		"test": "deno test --parallel",
 		"test-coverage": "deno test --coverage --doc --parallel --quiet"
