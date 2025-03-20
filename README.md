@@ -35,7 +35,7 @@ libraries:
       `@simulcast/core`.
     - 📡 [`@simulcast/solid`](https://simulcast.coven.to/solid) — Solid hook for
       `@simulcast/core`.
-    - 📡 [`@simulcast/svelte`](https://simulcast.coven.to/svelte) — Svelte
-      wrapper for `@simulcast/core`.
+    - 📡 [`@simulcast/svelte`](https://simulcast.coven.to/svelte) — Svelte hook
+      for `@simulcast/core`.
     - 📡 [`@simulcast/vue`](https://simulcast.coven.to/vue) — Vue composable for
       `@simulcast/core`.
