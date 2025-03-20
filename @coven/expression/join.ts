@@ -10,9 +10,9 @@ import type {
 /**
  * Util to join strings.
  */
-export const join = memo(
-	<const Tokens extends ReadonlyArray<Stringable>>(
-		...tokens: Tokens
-	): StringJoin<Tokens, EmptyString> =>
+export const join: <const Tokens extends ReadonlyArray<Stringable>>(
+	...tokens: Tokens
+) => StringJoin<Tokens, EmptyString> = memo(
+	<const Tokens extends ReadonlyArray<Stringable>>(...tokens: Tokens) =>
 		tokens.join(EMPTY_STRING) as StringJoin<Tokens, EmptyString>,
 );

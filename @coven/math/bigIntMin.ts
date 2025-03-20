@@ -12,6 +12,7 @@ import { memo } from "@coven/memo";
  * @param bigInts Array of `bigint` values to compare.
  * @returns Minimum value of the `bigint` array.
  */
-export const bigIntMin = memo((...bigints: ReadonlyArray<bigint>): bigint =>
-	bigints.reduce((min, bigint) => (bigint < min ? bigint : min)),
+export const bigIntMin: (...bigints: ReadonlyArray<bigint>) => bigint = memo(
+	(...bigints) =>
+		bigints.reduce((min, bigint) => (bigint < min ? bigint : min)),
 );

@@ -19,20 +19,19 @@ import { precise } from "./precise.ts";
  * @param multiplierExponent Multiplier exponent to use in the multiplication.
  * @returns Curried function with `multiplierBase` and `multiplierExponent` in context.
  */
-export const preciseMultiply = memo(
-	(
-		multiplierBase: MaybeInfinity,
-		multiplierExponent = 0n,
-	): ((
-		multiplicandBase: MaybeInfinity,
-		multiplicandExponent?: bigint,
-	) => Precise) =>
-		memo((multiplicandBase, multiplicandExponent = 0n) =>
-			isBigInt(multiplicandBase) && isBigInt(multiplierBase) ?
-				precise(
-					multiplicandBase * multiplierBase,
-					multiplicandExponent + multiplierExponent,
-				)
-			:	precise(Infinity),
-		),
+export const preciseMultiply: (
+	multiplierBase: MaybeInfinity,
+	multiplierExponent?: bigint,
+) => (
+	multiplicandBase: MaybeInfinity,
+	multiplicandExponent?: bigint,
+) => Precise = memo((multiplierBase, multiplierExponent) =>
+	memo((multiplicandBase, multiplicandExponent) =>
+		isBigInt(multiplicandBase) && isBigInt(multiplierBase) ?
+			precise(
+				multiplicandBase * multiplierBase,
+				(multiplicandExponent ?? 0n) + (multiplierExponent ?? 0n),
+			)
+		:	precise(Infinity),
+	),
 );

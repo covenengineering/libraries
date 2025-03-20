@@ -7,8 +7,6 @@ import { escape } from "./escape.ts";
  *
  * @see [Unicode Character class escape](https://mdn.io/Unicode%20character%20class%20escape)
  */
-export const unicodeCharacterClassEscape = memo(
-	<const Category extends Stringable>(
-		category: Category,
-	): `\\p{${Category}}` => escape(`p{${category}}`),
-);
+export const unicodeCharacterClassEscape: <const Category extends Stringable>(
+	category: Category,
+) => `\\p{${Category}}` = memo(category => escape(`p{${category}}`));

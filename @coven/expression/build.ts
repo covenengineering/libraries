@@ -24,18 +24,18 @@ import { join } from "./join.ts";
  * @param flags Regular expression flags ("u" by default).
  * @returns Curried function with `flags` set in context.
  */
-export const build = memo(
-	<Flags extends RegularExpressionFlags = "u">(
-		flags: Flags | "u" = "u",
-	): (<const Tokens extends ReadonlyArray<Stringable>>(
-		...tokens: Tokens
-	) => Replace<
-		RegExp,
-		{
-			readonly flags: Flags;
-			readonly source: StringJoin<Tokens, EmptyString>;
-		}
-	>) =>
+export const build: <Flags extends RegularExpressionFlags = "u">(
+	flags?: Flags | "u",
+) => <const Tokens extends ReadonlyArray<Stringable>>(
+	...tokens: Tokens
+) => Replace<
+	RegExp,
+	{
+		readonly flags: Flags;
+		readonly source: StringJoin<Tokens, EmptyString>;
+	}
+> = memo(
+	<Flags extends RegularExpressionFlags = "u">(flags: Flags | "u" = "u") =>
 		memo(
 			<const Tokens extends ReadonlyArray<Stringable>>(
 				...tokens: Tokens

@@ -7,8 +7,8 @@ import { escape } from "./escape.ts";
  * unicode point escapes with any number of hex digits. Requires the unicode
  * flag (`u`).
  */
-export const unicode = memo(
-	<const HexadecimalValue extends Stringable>(
-		hexadecimalValue: HexadecimalValue,
-	): `\\u{${HexadecimalValue}}` => escape(`u{${hexadecimalValue}}`),
+export const unicode: <const HexadecimalValue extends Stringable>(
+	hexadecimalValue: HexadecimalValue,
+) => `\\u{${HexadecimalValue}}` = memo(hexadecimalValue =>
+	escape(`u{${hexadecimalValue}}`),
 );

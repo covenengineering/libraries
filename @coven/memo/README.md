@@ -19,10 +19,9 @@ JavaScript runtimes.
 ## Example
 
 ```typescript
-import { memo as ⵌ } from "@coven/memo"; // `ⵌ` here is a Tifinagh letter of the Tuareg alphabet, that looks like `#`
+import { memo } from "@coven/memo";
 
-ⵌ(["foo", "bar"]) === ⵌ(["foo", "bar"]); // true
-ⵌ({ foo: "bar" }).foo = "baz"; // Error! It's read-only
+memo(["foo", "bar"]) === memo(["foo", "bar"]); // true
 ```
 
 ## Other links

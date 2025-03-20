@@ -29,7 +29,6 @@ export const memo: {
 	 * @example
 	 * ```typescript
 	 * memo(["foo", "bar"]) === memo(["foo", "bar"]); // true
-	 * memo({ foo: "bar" }).foo = "baz"; // Error! It's read-only
 	 * ```
 	 * @param memoizable Value to memoize.
 	 * @returns Memoized read-ony record or tuple.

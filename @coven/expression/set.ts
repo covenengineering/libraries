@@ -10,8 +10,8 @@ import { join } from "./join.ts";
 /**
  * Match any character in the set.
  */
-export const set = memo(
-	<const Tokens extends ReadonlyArray<Stringable>>(
-		...tokens: Tokens
-	): `[${StringJoin<[...Tokens], EmptyString>}]` => `[${join(...tokens)}]`,
+export const set: <const Tokens extends ReadonlyArray<Stringable>>(
+	...tokens: Tokens
+) => `[${StringJoin<[...Tokens], EmptyString>}]` = memo(
+	(...tokens) => `[${join(...tokens)}]`,
 );

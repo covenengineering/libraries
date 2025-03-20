@@ -6,8 +6,9 @@ import type { ReadonlyArray, Stringable, StringJoin } from "@coven/types";
  * operate within a group, or on a whole expression. The patterns will be tested
  * in order.
  */
-export const or = memo(
-	<const Tokens extends ReadonlyArray<Stringable>>(
-		...tokens: Tokens
-	): StringJoin<Tokens, "|"> => tokens.join("|") as StringJoin<Tokens, "|">,
+export const or: <const Tokens extends ReadonlyArray<Stringable>>(
+	...tokens: Tokens
+) => StringJoin<Tokens, "|"> = memo(
+	<const Tokens extends ReadonlyArray<Stringable>>(...tokens: Tokens) =>
+		tokens.join("|") as StringJoin<Tokens, "|">,
 );

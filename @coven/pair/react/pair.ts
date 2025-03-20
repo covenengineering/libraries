@@ -12,6 +12,7 @@ import type { PairedComponentProperties } from "./PairedComponentProperties.ts";
  * /** @jsxImportSourceTypes @types/react *\/
  * // @deno-types="@types/react"
  * import { useState } from "react";
+ * import { createElement, useState } from "react";
  *
  * const useCount = (initialCount: number) => {
  * 	const [count, setCount] = useState(initialCount);

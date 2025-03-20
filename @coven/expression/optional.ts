@@ -7,6 +7,6 @@ import type { Stringable } from "@coven/types";
  * possible. By default, quantifiers are greedy, and will match as many
  * characters as possible.
  */
-export const optional = memo(
-	<const Token extends Stringable>(token: Token): `${Token}?` => `${token}?`,
-);
+export const optional: <const Token extends Stringable>(
+	token: Token,
+) => `${Token}?` = memo(token => `${token}?`);

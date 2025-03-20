@@ -8,8 +8,8 @@ import { escape } from "./escape.ts";
  *
  * @see [Unicode Character class escape](https://mdn.io/Unicode%20character%20class%20escape)
  */
-export const notUnicodeCharacterClassEscape = memo(
-	<const Category extends Stringable>(
-		category: Category,
-	): `\\P{${Category}}` => escape(`P{${category}}`),
-);
+export const notUnicodeCharacterClassEscape: <
+	const Category extends Stringable,
+>(
+	category: Category,
+) => `\\P{${Category}}` = memo(category => escape(`P{${category}}`));

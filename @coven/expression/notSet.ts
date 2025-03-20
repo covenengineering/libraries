@@ -11,9 +11,8 @@ import { set } from "./set.ts";
 /**
  * Match any character that is not in the set.
  */
-export const notSet = memo(
-	<const Tokens extends ReadonlyArray<Stringable>>(
-		...tokens: Tokens
-	): `[${StringJoin<["^", ...Tokens], EmptyString>}]` =>
-		set(START, ...tokens),
+export const notSet: <const Tokens extends ReadonlyArray<Stringable>>(
+	...tokens: Tokens
+) => `[${StringJoin<["^", ...Tokens], EmptyString>}]` = memo((...tokens) =>
+	set(START, ...tokens),
 );

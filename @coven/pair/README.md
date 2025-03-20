@@ -20,6 +20,8 @@ Currently supported frameworks:
 
 ```tsx
 /** @jsxImportSource preact */
+import { createElement } from "preact";
+import { useState } from "preact/hooks";
 import { pair } from "@coven/pair/preact";
 import { useState } from "preact/hooks";
 
@@ -55,9 +57,9 @@ const Component = ({ array = [] }) => (
 ```tsx
 /** @jsxImportSource react */
 /** @jsxImportSourceTypes @types/react */
-import { pair } from "@coven/pair/react";
 // @deno-types="@types/react"
-import { useState } from "react";
+import { createElement, useState } from "react";
+import { pair } from "@coven/pair/react";
 
 const useCount = (initialCount: number) => {
 	const [count, setCount] = useState(initialCount);

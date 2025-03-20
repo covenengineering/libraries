@@ -9,6 +9,7 @@
 ## Example
 
 ```tsx
+/** @jsxImportSource preact */
 import { broadcast } from "@simulcast/core";
 import { useBroadcast } from "@simulcast/preact";
 import type { JSX } from "preact";

@@ -18,10 +18,10 @@ import { preciseAdd } from "./preciseAdd.ts";
  * @param subtrahendExponent Subtrahend exponent to use in the subtraction.
  * @returns Curried function with `subtrahendBase` and `subtrahendExponent` in context.
  */
-export const preciseSubtract = memo(
-	(
-		subtrahendBase: MaybeInfinity,
-		subtrahendExponent = 0n,
-	): ((minuendBase: MaybeInfinity, minuendExponent?: bigint) => Precise) =>
-		preciseAdd(-subtrahendBase, subtrahendExponent),
+export const preciseSubtract: (
+	subtrahendBase: MaybeInfinity,
+	subtrahendExponent?: bigint,
+) => (minuendBase: MaybeInfinity, minuendExponent?: bigint) => Precise = memo(
+	(subtrahendBase, subtrahendExponent) =>
+		preciseAdd(-subtrahendBase, subtrahendExponent ?? 0n),
 );

@@ -24,16 +24,16 @@ import { preciseToNumber } from "./preciseToNumber.ts";
  * @param divisorExponent Divisor exponent to use in the division.
  * @returns Curried function with `divisorBase` and `divisorExponent` in context.
  */
-export const preciseDivide = memo(
-	(
-		divisorBase: MaybeInfinity,
-		divisorExponent = 0n,
-	): ((dividendBase: MaybeInfinity, dividendExponent?: bigint) => Precise) =>
+export const preciseDivide: (
+	divisorBase: MaybeInfinity,
+	divisorExponent?: bigint,
+) => (dividendBase: MaybeInfinity, dividendExponent?: bigint) => Precise = memo(
+	(divisorBase, divisorExponent) =>
 		divisorBase === 0n ?
 			always(precise(Infinity))
 		:	preciseMultiply(
 				...numberToPrecise(
-					preciseToNumber(1n, -divisorExponent) /
+					preciseToNumber(1n, -(divisorExponent ?? 0n)) /
 						preciseToNumber(divisorBase, 0n),
 				),
 			),

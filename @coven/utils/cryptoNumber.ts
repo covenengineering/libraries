@@ -1,5 +1,5 @@
 import { memo } from "@coven/memo";
-import type { Stringable } from "@coven/types";
+import type { Stringable, Unary } from "@coven/types";
 
 const textEncoder = new TextEncoder();
 const LITTLE_ENDIAN = true;
@@ -23,8 +23,8 @@ const sha256ToNumber = (sha256: ArrayBuffer) =>
  * @param seed Seed to be used to generate random numbers.
  * @returns Pseudo-random number from seed.
  */
-export const cryptoNumber = memo(
-	(seed: Stringable): Promise<number> =>
+export const cryptoNumber: Unary<[seed: Stringable], Promise<number>> = memo(
+	seed =>
 		crypto.subtle
 			.digest("SHA-256", textEncoder.encode(`${seed}`))
 			.then(sha256ToNumber),
