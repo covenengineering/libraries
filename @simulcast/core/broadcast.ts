@@ -27,12 +27,10 @@ export const broadcast = <Events extends EventTypeDictionary>(
 	registry: EventRegistry<Events> = createObject(),
 ): BroadcastObject<Events> =>
 	new Proxy(
-		createObject(
-			{
-				emit: emit(registry),
-				on: on(registry),
-				registry,
-			} as BroadcastObject<Events>,
-		),
+		createObject({
+			emit: emit(registry),
+			on: on(registry),
+			registry,
+		} as BroadcastObject<Events>),
 		broadcastProxyHandler,
 	);

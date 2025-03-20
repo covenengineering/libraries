@@ -13,25 +13,22 @@ export const broadcastProxyHandler: {
 		property: string,
 	) => unknown;
 } = createObject({
-	get: (broadcastObject, property) => {
-		const { groups: { type, name } = EMPTY_OBJECT } =
-			property in broadcastObject
-				? EMPTY_OBJECT
-				: (eventRegExp.exec(property) ?? EMPTY_OBJECT);
+	get: (broadcast, property) => {
+		const { name, type } =
+			(!(property in broadcast) && eventRegExp.exec(property)?.groups) ||
+			EMPTY_OBJECT;
 
-		return Reflect.get(
-			name && type
-				? mutate(
-					set(property)(
-						get(type as "emit")(broadcastObject)(
-							`${name[0]?.toLocaleLowerCase()}${name.slice(1)}`,
-						),
-					)(
-						broadcastObject,
-					),
-				)(broadcastObject)
-				: broadcastObject,
-			property,
-		);
+		if (name && type) {
+			const setProperty = set(property);
+			const getAction = get(type as "emit" | "on");
+			const action = getAction(broadcast);
+			const event = `${name.slice(0, 1).toLowerCase()}${name.slice(1)}`;
+			const setAction = setProperty(action(event));
+			const commitSave = mutate(setAction(broadcast));
+
+			commitSave(broadcast);
+		}
+
+		return Reflect.get(broadcast, property);
 	},
 });

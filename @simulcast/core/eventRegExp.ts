@@ -1,11 +1,13 @@
 import {
-	ALL,
-	allow,
 	buildUnicode,
 	captureNamed,
 	END,
+	exists,
 	or,
+	range,
+	set,
 	START,
+	WORD,
 } from "@coven/expression";
 import type { Replace } from "@coven/types";
 
@@ -15,16 +17,20 @@ import type { Replace } from "@coven/types";
  * @example
  * ```typescript
  * eventRegExp.test("onExample"); // true
+ * eventRegExp.test("on"); // false
  * eventRegExp.test("emitExample"); // true
  * eventRegExp.test("example"); // false
  * ```
  */
-export const eventRegExp: Replace<RegExp, {
-	readonly flags: "u";
-	readonly source: "^(?<type>emit|on)(?<name>.*)$";
-}> = buildUnicode(
+export const eventRegExp: Replace<
+	RegExp,
+	{
+		readonly flags: "u";
+		readonly source: "^(?<type>emit|on)(?<name>[A-Z]\\w+)$";
+	}
+> = buildUnicode(
 	START,
 	captureNamed("type")(or("emit", "on")),
-	captureNamed("name")(allow(ALL)),
+	captureNamed("name")(set(range("A")("Z")), exists(WORD)),
 	END,
 );

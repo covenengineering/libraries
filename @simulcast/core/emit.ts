@@ -1,4 +1,5 @@
 import { forEach } from "@coven/iterables";
+import { memo } from "@coven/memo";
 import { has } from "@coven/predicates";
 import type { Just } from "@coven/types";
 import { applyTo, get } from "@coven/utils";
@@ -23,17 +24,23 @@ import type { EventTypeDictionary } from "./EventTypeDictionary.ts";
  */
 export const emit = <Events extends EventTypeDictionary>(
 	eventRegistry: EventRegistry<Events>,
-): <Event extends keyof Events>(event: Event) => EventHandler<Events[Event]> =>
-<Event extends keyof Events>(event: Event) => {
-	const getEvent = get(event) as (
-		eventRegistry: EventRegistry<Events>,
-	) => Just<EventRegistry<Events>[Event]>;
-	const hasEvent = has(event);
+): (<Event extends keyof Events>(
+	event: Event,
+) => EventHandler<Events[Event]>) =>
+	memo(<Event extends keyof Events>(event: Event) => {
+		const getEventHandlers = get(event) as (
+			eventRegistry: EventRegistry<Events>,
+		) => Just<EventRegistry<Events>[Event]>;
+		const hasEventHandlers = has(event);
 
-	return ((data) =>
-		hasEvent(eventRegistry)
-			? forEach<EventHandler<typeof data>>(applyTo(data))(
-				getEvent(eventRegistry),
-			)
-			: undefined) as EventHandler<Events[Event]>;
-};
+		return (data => {
+			if (hasEventHandlers(eventRegistry)) {
+				const applyToData = applyTo(data);
+				const applyEachHandlerToData =
+					forEach<EventHandler<typeof data>>(applyToData);
+				const eventHandlers = getEventHandlers(eventRegistry);
+
+				applyEachHandlerToData(eventHandlers);
+			}
+		}) as EventHandler<Events[Event]>;
+	});
