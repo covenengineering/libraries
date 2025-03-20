@@ -1,5 +1,4 @@
 import type { Unary } from "@coven/types";
-// @deno-types="@types/react"
 import type { ReactElement } from "react";
 
 /**
@@ -16,7 +15,4 @@ import type { ReactElement } from "react";
  */
 export type PairedRenderFunction<
 	Hook extends (...attributes: never) => unknown,
-> = Unary<
-	[hook: Hook],
-	ReactElement
->;
+> = Unary<[hook: Hook], ReactElement>;

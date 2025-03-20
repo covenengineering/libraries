@@ -1,7 +1,7 @@
 <img alt="Coven Engineering Pair logo" src="https://raw.githubusercontent.com/covenengineering/libraries/main/@coven/pair/logo.svg" height="108" />
 
-[![JSR](https://jsr.io/badges/@coven/pair)](https://jsr.io/@coven/pair)
-[![JSR Score](https://jsr.io/badges/@coven/pair/score)](https://jsr.io/@coven/pair/score)
+[![JSR](https://jsr.io/badges/@coven/pair)](https://coven.to/pair)
+[![JSR Score](https://jsr.io/badges/@coven/pair/score)](https://coven.to/pair/score)
 
 🖇️ [Paired hook pattern](https://lou.cx/articles/the-paired-hook-pattern)
 helper. It only makes pairing simpler and provides a little bit better DX
@@ -20,8 +20,9 @@ Currently supported frameworks:
 
 ```tsx
 /** @jsxImportSource preact */
-import { pair } from "@coven/pair/preact";
+import { createElement } from "preact";
 import { useState } from "preact/hooks";
+import { pair } from "@coven/pair/preact";
 
 const useCount = (initialCount: number) => {
 	const [count, setCount] = useState(initialCount);
@@ -33,9 +34,9 @@ const PairedCount = pair(useCount);
 
 const Component = ({ array = [] }) => (
 	<ul>
-		{array.map((key) => (
+		{array.map(key => (
 			<PairedCount key={key}>
-				{(usePairedCount) => {
+				{usePairedCount => {
 					const props = usePairedCount(key);
 
 					return (
@@ -54,10 +55,8 @@ const Component = ({ array = [] }) => (
 
 ```tsx
 /** @jsxImportSource react */
-/** @jsxImportSourceTypes @types/react */
-import { pair } from "@coven/pair/react";
-// @deno-types="@types/react"
 import { useState } from "react";
+import { pair } from "@coven/pair/react";
 
 const useCount = (initialCount: number) => {
 	const [count, setCount] = useState(initialCount);
@@ -69,9 +68,9 @@ const PairedCount = pair(useCount);
 
 const Component = ({ array = [] }) => (
 	<ul>
-		{array.map((key) => (
+		{array.map(key => (
 			<PairedCount key={key}>
-				{(usePairedCount) => {
+				{usePairedCount => {
 					const props = usePairedCount(key);
 
 					return (

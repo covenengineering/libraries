@@ -23,7 +23,7 @@ import { stringifyRange } from "./stringifyRange.ts";
  */
 export const stringifyField = (field: Field<number>): FieldString =>
 	isAllToken(field) ? field : (
-		(stringifyList(field) ??
+		((stringifyList(field) ??
 			stringifyRange(field) ??
-			`${field as number}`) as FieldString
+			`${field as number}`) as FieldString)
 	);

@@ -1,6 +1,8 @@
+import { createObject } from "@coven/utils";
 import type { BroadcastObject } from "./BroadcastObject.ts";
 import type { EventRegistry } from "./EventRegistry.ts";
 import type { EventTypeDictionary } from "./EventTypeDictionary.ts";
+import { broadcastProxyHandler } from "./broadcastProxyHandler.ts";
 import { emit } from "./emit.ts";
 import { on } from "./on.ts";
 
@@ -10,20 +12,25 @@ import { on } from "./on.ts";
  *
  * @example
  * ```typescript
- * const { emit, on } = broadcast<{ event: string }>();
- * const off = on("event")(console.log);
- * emit("event")("Hello world"); // Logs "Hello world"
- * off();
- * emit("event")("Nope"); // Nothing happens
+ * const { emitEvent, onEvent } = broadcast<{ event: string }>();
+ * const offEvent = onEvent(console.log);
+ * emitEvent("Hello world"); // Logs "Hello world"
+ * offEvent();
+ * emitEvent("Nope"); // Nothing happens
  * ```
  * @template Events Event registry.
- * @param eventRegistry Optional record of event names mapped to an array of
- * listeners.
+ * @param registry Optional record of event names mapped to an array of handlers.
+ * @param overrides Overrides of the default {@linkcode BroadcastObject} methods and properties.
  * @returns Object with `emit` and `on` functions.
  */
 export const broadcast = <Events extends EventTypeDictionary>(
-	eventRegistry: EventRegistry<Events> = Object.create(null),
-): BroadcastObject<Events> => ({
-	emit: emit(eventRegistry),
-	on: on(eventRegistry),
-});
+	registry: EventRegistry<Events> = createObject(),
+): BroadcastObject<Events> =>
+	new Proxy(
+		createObject({
+			emit: emit(registry),
+			on: on(registry),
+			registry,
+		} as BroadcastObject<Events>),
+		broadcastProxyHandler,
+	);

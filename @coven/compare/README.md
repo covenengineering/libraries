@@ -1,7 +1,7 @@
 <img alt="Coven Engineering Compare logo" src="https://raw.githubusercontent.com/covenengineering/libraries/main/@coven/compare/logo.svg" height="108" />
 
-[![JSR](https://jsr.io/badges/@coven/compare)](https://jsr.io/@coven/compare)
-[![JSR Score](https://jsr.io/badges/@coven/compare/score)](https://jsr.io/@coven/compare/score)
+[![JSR](https://jsr.io/badges/@coven/compare)](https://coven.to/compare)
+[![JSR Score](https://jsr.io/badges/@coven/compare/score)](https://coven.to/compare/score)
 
 ⚖️ Minimalist diffing.
 
@@ -122,6 +122,7 @@ That yields all 3 kind of differences:
 ```
 
 > [!NOTE]
+>
 > In all examples the `path` property is represented as an array, but `path` is
 > an `IterableIterator` like the output of `compare` is. The included `flat`
 > function can be used to flatten all `IterableIterator`s to arrays.

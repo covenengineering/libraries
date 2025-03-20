@@ -16,7 +16,7 @@ import { length } from "./length.ts";
  */
 export const count = <Item>(
 	predicate: Filter<[item: Item]>,
-): (iterable: Iterable<Item>) => number => {
+): ((iterable: Iterable<Item>) => number) => {
 	const predicateFilter = filter(predicate);
 
 	return (iterable: Iterable<Item>) => length(predicateFilter(iterable));

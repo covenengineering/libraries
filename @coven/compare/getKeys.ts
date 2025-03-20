@@ -17,20 +17,22 @@ const isFunctionConstructor = is(Function);
  */
 export const getKeys = (object: object): IterableIterator<string | symbol> =>
 	unique(
-		iteratorFunctionToIterableIterator(
-			function* (): Generator<string | symbol> {
-				yield* Reflect.ownKeys(object);
+		iteratorFunctionToIterableIterator(function* (): Generator<
+			string | symbol
+		> {
+			yield* Reflect.ownKeys(object);
 
-				hasPrototype(object)
-					? yield* Reflect.ownKeys(object.prototype)
-					: undefined;
+			hasPrototype(object) ?
+				yield* Reflect.ownKeys(object.prototype)
+			:	undefined;
 
-				const constructor = object.constructor;
+			const constructor = object.constructor;
 
+			(
 				isObjectConstructor(constructor) ||
-					isFunctionConstructor(constructor)
-					? undefined
-					: yield* getKeys(constructor);
-			},
-		),
+				isFunctionConstructor(constructor)
+			) ?
+				undefined
+			:	yield* getKeys(constructor);
+		}),
 	);

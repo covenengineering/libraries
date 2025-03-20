@@ -12,6 +12,5 @@ import type { IsPrototypeOfFunction } from "./IsPrototypeOfFunction.ts";
  * @returns `true` if the given value is an object inheriting directly from `Object`, `false` otherwise.
  */
 // deno-lint-ignore ban-types
-export const isPrototypeOfObject: IsPrototypeOfFunction<Object> = isPrototypeOf(
-	Object,
-);
+export const isPrototypeOfObject: IsPrototypeOfFunction<Object> =
+	isPrototypeOf(Object);

@@ -15,7 +15,4 @@ import type { Attributes, VNode } from "preact";
  */
 export type PairedRenderFunction<
 	Hook extends (...attributes: never) => unknown,
-> = Unary<
-	[hook: Hook],
-	VNode<Attributes>
->;
+> = Unary<[hook: Hook], VNode<Attributes>>;

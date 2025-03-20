@@ -12,5 +12,5 @@ import type { ReadonlyArray } from "./ReadonlyArray.ts";
  * ```
  * @template Arguments Tuple of arguments.
  */
-export type Effect<Arguments extends ReadonlyArray> = Arguments extends
-	readonly [] ? () => void : (..._: Arguments) => void;
+export type Effect<Arguments extends ReadonlyArray = readonly []> =
+	Arguments extends readonly [] ? () => void : (..._: Arguments) => void;

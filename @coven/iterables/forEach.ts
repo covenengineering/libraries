@@ -13,7 +13,7 @@ import { getIterator } from "./getIterator.ts";
  * @param effect Function to be called for every item of the iterable.
  * @returns Curried function that expects an iterable to loop over and has `callback` set in context.
  */
-export const forEach = <Item>(
-	effect: Effect<[item: Item]>,
-): Effect<[iterable: Iterable<Item>]> =>
-(iterable) => getIterator(iterable).forEach(effect);
+export const forEach =
+	<Item>(effect: Effect<[item: Item]>): Effect<[iterable: Iterable<Item>]> =>
+	iterable =>
+		getIterator(iterable).forEach(effect);

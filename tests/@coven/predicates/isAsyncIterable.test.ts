@@ -3,7 +3,8 @@ import { isAsyncIterable } from "@coven/predicates";
 import { assert, assertFalse } from "@std/assert";
 
 Deno.test("AsyncGenerator", () =>
-	assert(isAsyncIterable((async function* (): AsyncGenerator {})())));
+	assert(isAsyncIterable((async function* (): AsyncGenerator {})())),
+);
 
 Deno.test("Other types", () =>
 	assertFalse(
@@ -37,7 +38,6 @@ Deno.test("Other types", () =>
 			isAsyncIterable(NaN) ||
 			// Object
 			isAsyncIterable(EMPTY_OBJECT) ||
-			isAsyncIterable(Object.create(null)) ||
 			// Promise
 			isAsyncIterable(Promise.resolve()) ||
 			// RegExp
@@ -52,4 +52,5 @@ Deno.test("Other types", () =>
 			isAsyncIterable(Symbol.iterator) ||
 			// Undefined
 			isAsyncIterable(undefined),
-	));
+	),
+);

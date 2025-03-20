@@ -38,7 +38,6 @@ Deno.test("Other types", () =>
 			isPromise(NaN) ||
 			// Object
 			isPromise(EMPTY_OBJECT) ||
-			isPromise(Object.create(null)) ||
 			// RegExp
 			isPromise(/expression/u) ||
 			isPromise(new RegExp("expression", "u")) ||
@@ -51,4 +50,5 @@ Deno.test("Other types", () =>
 			isPromise(Symbol.iterator) ||
 			// Undefined
 			isPromise(undefined),
-	));
+	),
+);

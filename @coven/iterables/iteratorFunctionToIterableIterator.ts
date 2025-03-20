@@ -26,12 +26,12 @@ export const iteratorFunctionToIterableIterator = <Item>(
 
 	return {
 		next: iterator.next.bind(iterator),
-		...(iterator.return
-			? { return: iterator.return.bind(iterator) }
-			: undefined),
-		...(iterator.throw
-			? { throw: iterator.throw.bind(iterator) }
-			: undefined),
+		...(iterator.return ?
+			{ return: iterator.return.bind(iterator) }
+		:	undefined),
+		...(iterator.throw ?
+			{ throw: iterator.throw.bind(iterator) }
+		:	undefined),
 		[Symbol.iterator]: () =>
 			iteratorFunctionToIterableIterator(iteratorFunction),
 	} as IterableIterator<Item>;

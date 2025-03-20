@@ -16,8 +16,8 @@ import { FROM_NAME, TO_NAME } from "./rangeFieldNames.ts";
  * @returns Curried function expecting a {@linkcode ValueOrRangeField}.
  */
 export const compareRangeOrValue =
-	(value: number): (valueOrRange: ValueOrRangeField<number>) => boolean =>
-	(valueOrRange) =>
-		isRangeField(valueOrRange)
-			? value >= valueOrRange[FROM_NAME] && value <= valueOrRange[TO_NAME]
-			: value === valueOrRange;
+	(value: number): ((valueOrRange: ValueOrRangeField<number>) => boolean) =>
+	valueOrRange =>
+		isRangeField(valueOrRange) ?
+			value >= valueOrRange[FROM_NAME] && value <= valueOrRange[TO_NAME]
+		:	value === valueOrRange;

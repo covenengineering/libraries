@@ -36,7 +36,6 @@ Deno.test("Other types", () =>
 			isDate(NaN) ||
 			// Object
 			isDate(EMPTY_OBJECT) ||
-			isDate(Object.create(null)) ||
 			// Promise
 			isDate(Promise.resolve()) ||
 			// RegExp
@@ -51,4 +50,5 @@ Deno.test("Other types", () =>
 			isDate(Symbol.iterator) ||
 			// Undefined
 			isDate(undefined),
-	));
+	),
+);

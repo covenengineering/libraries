@@ -16,7 +16,7 @@ import { zip } from "./zip.ts";
  */
 export const intersperse = <Separator>(
 	separator: Separator,
-): <Item>(iterable: Iterable<Item>) => IterableIterator<Separator | Item> => {
+): (<Item>(iterable: Iterable<Item>) => IterableIterator<Separator | Item>) => {
 	const repeatSeparator = repeat(Infinity)(separator);
 
 	return <Item>(iterable: Iterable<Item>) => {

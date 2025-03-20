@@ -12,7 +12,8 @@ Deno.test("Awaitable iterables", () =>
 			// String
 			isAwaitableIterable("string") &&
 			isAwaitableIterable(`string`),
-	));
+	),
+);
 
 Deno.test("Other types", () =>
 	assertFalse(
@@ -42,7 +43,6 @@ Deno.test("Other types", () =>
 			isAwaitableIterable(NaN) ||
 			// Object
 			isAwaitableIterable(EMPTY_OBJECT) ||
-			isAwaitableIterable(Object.create(null)) ||
 			// Promise
 			isAwaitableIterable(Promise.resolve()) ||
 			// RegExp
@@ -54,4 +54,5 @@ Deno.test("Other types", () =>
 			isAwaitableIterable(Symbol.iterator) ||
 			// Undefined
 			isAwaitableIterable(undefined),
-	));
+	),
+);

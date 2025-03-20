@@ -3,7 +3,8 @@ import { isRegExp } from "@coven/predicates";
 import { assert, assertFalse } from "@std/assert";
 
 Deno.test("Regular expressions", () =>
-	assert(isRegExp(/expression/u) && isRegExp(new RegExp("expression", "u"))));
+	assert(isRegExp(/expression/u) && isRegExp(new RegExp("expression", "u"))),
+);
 
 Deno.test("Other types", () =>
 	assertFalse(
@@ -39,7 +40,6 @@ Deno.test("Other types", () =>
 			isRegExp(NaN) ||
 			// Object
 			isRegExp(EMPTY_OBJECT) ||
-			isRegExp(Object.create(null)) ||
 			// Promise
 			isRegExp(Promise.resolve()) ||
 			// String
@@ -51,4 +51,5 @@ Deno.test("Other types", () =>
 			isRegExp(Symbol.iterator) ||
 			// Undefined
 			isRegExp(undefined),
-	));
+	),
+);

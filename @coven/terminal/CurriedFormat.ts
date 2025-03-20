@@ -16,11 +16,9 @@ export type CurriedFormat<Open extends number, Close extends number> = {
 	 *
 	 * @param string String to be wrapped with `Open` and `Close`.
 	 */
-	<const String extends string>(string: String): FormattedString<
-		Open,
-		Close,
-		String
-	>;
+	<const String extends string>(
+		string: String,
+	): FormattedString<Open, Close, String>;
 	/**
 	 * Tagger function that takes a string literal and returns a
 	 * {@linkcode FormattedString}. The type of the string part sadly can't be

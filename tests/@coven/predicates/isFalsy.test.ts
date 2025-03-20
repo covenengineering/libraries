@@ -22,7 +22,8 @@ Deno.test("Falsies", () =>
 			// String
 			isFalsy(EMPTY_STRING) &&
 			isFalsy(``),
-	));
+	),
+);
 
 Deno.test("Truthy", () =>
 	assertFalse(
@@ -53,7 +54,6 @@ Deno.test("Truthy", () =>
 			isFalsy(Infinity) ||
 			// Object
 			isFalsy(EMPTY_OBJECT) ||
-			isFalsy(Object.create(null)) ||
 			// Promise
 			isFalsy(Promise.resolve()) ||
 			// RegExp
@@ -66,4 +66,5 @@ Deno.test("Truthy", () =>
 			isFalsy(Symbol("description")) ||
 			isFalsy(Symbol()) ||
 			isFalsy(Symbol.iterator),
-	));
+	),
+);

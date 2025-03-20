@@ -1,3 +1,4 @@
+import { memo } from "@coven/memo";
 import type {
 	EmptyString,
 	ReadonlyArray,
@@ -9,6 +10,8 @@ import { join } from "./join.ts";
 /**
  * Match any character in the set.
  */
-export const set = <const Tokens extends ReadonlyArray<Stringable>>(
+export const set: <const Tokens extends ReadonlyArray<Stringable>>(
 	...tokens: Tokens
-): `[${StringJoin<[...Tokens], EmptyString>}]` => `[${join(...tokens)}]`;
+) => `[${StringJoin<[...Tokens], EmptyString>}]` = memo(
+	(...tokens) => `[${join(...tokens)}]`,
+);

@@ -1,7 +1,7 @@
 <img alt="Coven Engineering Math logo" src="https://raw.githubusercontent.com/covenengineering/libraries/main/@coven/math/logo.svg" height="108" />
 
-[![JSR](https://jsr.io/badges/@coven/math)](https://jsr.io/@coven/math)
-[![JSR Score](https://jsr.io/badges/@coven/math/score)](https://jsr.io/@coven/math/score)
+[![JSR](https://jsr.io/badges/@coven/math)](https://coven.to/math)
+[![JSR Score](https://jsr.io/badges/@coven/math/score)](https://coven.to/math/score)
 
 🧮 Precise math utilities.
 
@@ -19,6 +19,7 @@ test coverage and it's built in top of modern tech compatible with all
 JavaScript runtimes.
 
 > [!NOTE]
+>
 > Obviously, using this or any library like it is way more expensive than doing
 > a simple math operation, so use this only when a precise value is required. If
 > speed is more important than precision, avoid this or any library like it.

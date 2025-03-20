@@ -1,7 +1,7 @@
 <img alt="Coven Engineering Iterables logo" src="https://raw.githubusercontent.com/covenengineering/libraries/main/@coven/iterables/logo.svg" height="108" />
 
-[![JSR](https://jsr.io/badges/@coven/iterables)](https://jsr.io/@coven/iterables)
-[![JSR Score](https://jsr.io/badges/@coven/iterables/score)](https://jsr.io/@coven/iterables/score)
+[![JSR](https://jsr.io/badges/@coven/iterables)](https://coven.to/iterables)
+[![JSR Score](https://jsr.io/badges/@coven/iterables/score)](https://coven.to/iterables/score)
 
 ♻️ `Iterable` and `AsyncIterable` utilities.
 

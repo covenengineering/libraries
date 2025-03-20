@@ -16,9 +16,9 @@ import { iteratorFunctionToAsyncIterableIterator } from "./iteratorFunctionToAsy
  */
 export const drop = (
 	amount: number,
-): <Item>(
+): (<Item>(
 	iterable: AwaitableIterable<Item>,
-) => Readonly<AsyncIterableIterator<Awaited<Item>>> => {
+) => Readonly<AsyncIterableIterator<Awaited<Item>>>) => {
 	const amountFilter = <Item>(iterable: AwaitableIterable<Item>) => {
 		let count = -1;
 

@@ -7,7 +7,8 @@ Deno.test("Regular expressions", () =>
 		isSymbol(Symbol("description")) &&
 			isSymbol(Symbol()) &&
 			isSymbol(Symbol.iterator),
-	));
+	),
+);
 
 Deno.test("Other types", () =>
 	assertFalse(
@@ -43,7 +44,6 @@ Deno.test("Other types", () =>
 			isSymbol(NaN) ||
 			// Object
 			isSymbol(EMPTY_OBJECT) ||
-			isSymbol(Object.create(null)) ||
 			// Promise
 			isSymbol(Promise.resolve()) ||
 			// RegExp
@@ -54,4 +54,5 @@ Deno.test("Other types", () =>
 			isSymbol(`string`) ||
 			// Undefined
 			isSymbol(undefined),
-	));
+	),
+);

@@ -51,38 +51,39 @@ const differenceBase = { path: toIterable(EMPTY_ARRAY) };
  * @param left Left/Original value.
  * @returns Curried generator with `left` in context.
  */
-export const differentiate = (
-	left: unknown,
-): CurriedComparison<unknown> =>
-(right) =>
-	iteratorFunctionToIterableIterator(
-		left === MISSING_VALUE
-			/**
-			 * Curried {@linkcode valueToDifference} with `left` in context.
-			 *
-			 * @param right Right/New value.
-			 * @returns Difference object.
-			 */
-			? function* (): Generator<Difference> {
-				right === MISSING_VALUE ? undefined : yield ({
-					...differenceBase,
-					kind: CREATE_KIND,
-					right: right,
-				});
-			}
-			/**
-			 * Curried {@linkcode valueToDifference} with `left` in context.
-			 *
-			 * @param right Right/New value.
-			 * @returns Difference object.
-			 */
-			: function* (): Generator<Difference> {
-				yield ({
-					...differenceBase,
-					left,
-					...(right === MISSING_VALUE
-						? { kind: DELETE_KIND }
-						: { kind: UPDATE_KIND, right: right }),
-				});
-			},
-	);
+export const differentiate =
+	(left: unknown): CurriedComparison<unknown> =>
+	right =>
+		iteratorFunctionToIterableIterator(
+			left === MISSING_VALUE ?
+				/**
+				 * Curried {@linkcode valueToDifference} with `left` in context.
+				 *
+				 * @param right Right/New value.
+				 * @returns Difference object.
+				 */
+				function* (): Generator<Difference> {
+					right === MISSING_VALUE ? undefined : (
+						yield {
+							...differenceBase,
+							kind: CREATE_KIND,
+							right: right,
+						}
+					);
+				}
+				/**
+				 * Curried {@linkcode valueToDifference} with `left` in context.
+				 *
+				 * @param right Right/New value.
+				 * @returns Difference object.
+				 */
+			:	function* (): Generator<Difference> {
+					yield {
+						...differenceBase,
+						left,
+						...(right === MISSING_VALUE ?
+							{ kind: DELETE_KIND }
+						:	{ kind: UPDATE_KIND, right: right }),
+					};
+				},
+		);

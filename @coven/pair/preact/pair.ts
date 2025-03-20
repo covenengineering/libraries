@@ -22,13 +22,13 @@ import type { PairedComponentProperties } from "./PairedComponentProperties.ts";
  * 		{array.map(key => (
  * 			<PairedCount key={key}>
  * 				{usePairedCount => {
- * 					const props = usePairedCount(key);
+ * 					const properties = usePairedCount(key);
  *
  * 					return (
  * 						<li>
  * 							<button
  * 								type="button"
- * 								{...props}
+ * 								{...properties}
  * 							/>
  * 						</li>
  * 					);

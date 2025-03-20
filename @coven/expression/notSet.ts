@@ -1,3 +1,4 @@
+import { memo } from "@coven/memo";
 import type {
 	EmptyString,
 	ReadonlyArray,
@@ -10,6 +11,8 @@ import { set } from "./set.ts";
 /**
  * Match any character that is not in the set.
  */
-export const notSet = <const Tokens extends ReadonlyArray<Stringable>>(
+export const notSet: <const Tokens extends ReadonlyArray<Stringable>>(
 	...tokens: Tokens
-): `[${StringJoin<["^", ...Tokens], EmptyString>}]` => set(START, ...tokens);
+) => `[${StringJoin<["^", ...Tokens], EmptyString>}]` = memo((...tokens) =>
+	set(START, ...tokens),
+);

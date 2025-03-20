@@ -28,5 +28,5 @@ export const parseField = (
 	field: string,
 ): AllToken | Maybe<number> | RangeField<number> | ListField<number> =>
 	isAllToken(field) ? field : (
-		parseList(field) ?? parseRange(field) ?? parseDecimal(field)
+		(parseList(field) ?? parseRange(field) ?? parseDecimal(field))
 	);

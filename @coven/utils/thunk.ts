@@ -1,3 +1,4 @@
+import { memo } from "@coven/memo";
 import type { Unary } from "@coven/types";
 
 /**
@@ -13,8 +14,9 @@ import type { Unary } from "@coven/types";
  * ```
  * @returns Function that will run the given function when called.
  */
-export const thunk = <Input, Output>(
-	unary: Unary<[input: Input], Output>,
-): (input: Input) => () => Output =>
-(input) =>
-() => unary(input);
+export const thunk =
+	<Input, Output>(
+		unary: Unary<[input: Input], Output>,
+	): ((input: Input) => () => Output) =>
+	input =>
+		memo(() => unary(input));

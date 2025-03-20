@@ -1,4 +1,5 @@
-coverage/
-coverage.lcov
-deno.lock
 .DS_Store
+coverage.lcov
+coverage/
+deno.lock
+node_modules/

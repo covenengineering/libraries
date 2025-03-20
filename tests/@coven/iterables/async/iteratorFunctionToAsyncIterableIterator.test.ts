@@ -30,13 +30,13 @@ const asyncIterableIteratorSimple = iteratorFunctionToAsyncIterableIterator(
 	() => {
 		let done = false;
 
-		return ({
+		return {
 			next: () =>
 				Promise.resolve({
 					done: done || ((done = true), false),
 					value: 13,
 				}),
-		});
+		};
 	},
 );
 

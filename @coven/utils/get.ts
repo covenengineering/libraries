@@ -11,9 +11,11 @@ import type { ReadonlyRecord } from "@coven/types";
  * ```
  * @returns Curried function with `key` in context.
  */
-export const get = <const Key extends PropertyKey>(
-	key: Key,
-): <const Source extends ReadonlyRecord<Key>>(
-	object: Source,
-) => Source[Key & keyof Source] =>
-(object) => object[key];
+export const get =
+	<const Key extends PropertyKey>(
+		key: Key,
+	): (<const Source extends ReadonlyRecord<Key>>(
+		object: Source,
+	) => Source[Key & keyof Source]) =>
+	object =>
+		object[key];

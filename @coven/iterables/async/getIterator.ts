@@ -18,15 +18,17 @@ import type { AwaitableIterable } from "@coven/types";
  */
 export const getIterator = <Iterable extends AwaitableIterable>(
 	iterable: Iterable,
-): Iterable extends AwaitableIterable<infer Item>
-	? Iterable extends AsyncIterable<Item> ? AsyncIterator<Item>
-	: Iterator<Item>
-	: never =>
+): Iterable extends AwaitableIterable<infer Item> ?
+	Iterable extends AsyncIterable<Item> ?
+		AsyncIterator<Item>
+	:	Iterator<Item>
+:	never =>
 	(iterable as AsyncIterable<unknown>)[
-		(isIterable(iterable)
-			? Symbol.iterator
-			: Symbol.asyncIterator) as keyof AsyncIterable<unknown>
-	]() as Iterable extends AwaitableIterable<infer Item>
-		? Iterable extends AsyncIterable<Item> ? AsyncIterator<Item>
-		: Iterator<Item>
-		: never;
+		(isIterable(iterable) ?
+			Symbol.iterator
+		:	Symbol.asyncIterator) as keyof AsyncIterable<unknown>
+	]() as Iterable extends AwaitableIterable<infer Item> ?
+		Iterable extends AsyncIterable<Item> ?
+			AsyncIterator<Item>
+		:	Iterator<Item>
+	:	never;

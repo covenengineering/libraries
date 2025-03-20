@@ -25,6 +25,6 @@ export const compareField = (
 	value: number,
 	field: Exclude<Field<number>, AllToken>,
 ): boolean =>
-	isListField(field)
-		? field.some(compareRangeOrValue(value))
-		: compareRangeOrValue(value)(field);
+	isListField(field) ?
+		field.some(compareRangeOrValue(value))
+	:	compareRangeOrValue(value)(field);

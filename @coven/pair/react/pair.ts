@@ -1,4 +1,3 @@
-// @deno-types="@types/react"
 import type { FunctionComponent } from "react";
 import { pair as preactPair } from "../preact/pair.ts";
 import type { PairedComponentProperties } from "./PairedComponentProperties.ts";
@@ -9,9 +8,8 @@ import type { PairedComponentProperties } from "./PairedComponentProperties.ts";
  * @example
  * ```tsx
  * /** @jsxImportSource react *\/
- * /** @jsxImportSourceTypes @types/react *\/
- * // @deno-types="@types/react"
  * import { useState } from "react";
+ * import { createElement, useState } from "react";
  *
  * const useCount = (initialCount: number) => {
  * 	const [count, setCount] = useState(initialCount);
@@ -26,13 +24,13 @@ import type { PairedComponentProperties } from "./PairedComponentProperties.ts";
  * 		{array.map(key => (
  * 			<PairedCount key={key}>
  * 				{usePairedCount => {
- * 					const props = usePairedCount(key);
+ * 					const properties = usePairedCount(key);
  *
  * 					return (
  * 						<li>
  * 							<button
  * 								type="button"
- * 								{...props}
+ * 								{...properties}
  * 							/>
  * 						</li>
  * 					);

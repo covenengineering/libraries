@@ -26,19 +26,19 @@ import { zipRangeNames } from "./zipRangeNames.ts";
 export const parseRange = <Predicated extends number>(
 	value: string,
 ): Maybe<Predicated | RangeField<Predicated>> => {
-	const maybeRange = isRangeString(value)
-		? entriesToObject(
-			zipRangeNames(
-				parseNumberMap(
-					value.split(RANGE_EXPRESSION_SEPARATOR_TOKEN),
+	const maybeRange =
+		isRangeString(value) ?
+			entriesToObject(
+				zipRangeNames(
+					parseNumberMap(
+						value.split(RANGE_EXPRESSION_SEPARATOR_TOKEN),
+					),
 				),
-			),
-		)
-		: undefined;
+			)
+		:	undefined;
 
 	return (
-		maybeRange?.[FROM_NAME] === maybeRange?.[TO_NAME]
-			? maybeRange?.[FROM_NAME]
-			: maybeRange
-	) as Maybe<Predicated | RangeField<Predicated>>;
+		maybeRange?.[FROM_NAME] === maybeRange?.[TO_NAME] ?
+			maybeRange?.[FROM_NAME]
+		:	maybeRange) as Maybe<Predicated | RangeField<Predicated>>;
 };

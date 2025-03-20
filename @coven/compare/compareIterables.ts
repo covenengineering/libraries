@@ -35,35 +35,29 @@ export const compareIterables = <LeftItem>(
 	 * @param right New iterable.
 	 * @returns Generator with differences.
 	 */
-	return (right) =>
-		iteratorFunctionToIterableIterator(
-			function* (): Generator<Difference> {
-				const leftIterator = getIterator(left);
-				const rightIterator = getIterator(right);
+	return right =>
+		iteratorFunctionToIterableIterator(function* (): Generator<Difference> {
+			const leftIterator = getIterator(left);
+			const rightIterator = getIterator(right);
 
-				for (
-					let index = 0,
-						{ done: leftDone = false, value: leftValue } =
-							leftIterator
-								.next(),
-						{ done: rightDone = false, value: rightValue } =
-							rightIterator
-								.next();
-					!(leftDone && rightDone);
-					index += 1,
-						{ done: leftDone = false, value: leftValue } =
-							leftIterator
-								.next(),
-						{ done: rightDone = false, value: rightValue } =
-							rightIterator
-								.next()
-				) {
-					yield* map(pathPrepend(index))(
-						compare(leftDone ? MISSING_VALUE : leftValue)(
-							rightDone ? MISSING_VALUE : rightValue,
-						),
-					);
-				}
-			},
-		);
+			for (
+				let index = 0,
+					{ done: leftDone = false, value: leftValue } =
+						leftIterator.next(),
+					{ done: rightDone = false, value: rightValue } =
+						rightIterator.next();
+				!(leftDone && rightDone);
+				index += 1,
+					{ done: leftDone = false, value: leftValue } =
+						leftIterator.next(),
+					{ done: rightDone = false, value: rightValue } =
+						rightIterator.next()
+			) {
+				yield* map(pathPrepend(index))(
+					compare(leftDone ? MISSING_VALUE : leftValue)(
+						rightDone ? MISSING_VALUE : rightValue,
+					),
+				);
+			}
+		});
 };

@@ -23,32 +23,30 @@ const dateReplace = join(quantity(2)(DIGIT), escape("."), quantity(3)(DIGIT));
  * @param date Base date to get the next date from.
  * @returns Curried function with date set.
  */
-export const nextDates = (
-	date: Readonly<Date>,
-): (cron: CronString | Partial<CronObject>) => IterableIterator<Date> =>
-(cron) =>
-	iteratorFunctionToIterableIterator(function* (): Generator<Date> {
-		const cronObject = parse(
-			isString(cron) ? cron : (
-				stringify(cron) ?? (EMPTY_STRING as CronString)
-			),
-		);
-
-		if (!isUndefined(cronObject)) {
-			const validDate = dateInCron(cronObject);
-			const now = new Date(
-				date
-					.toISOString()
-					.replace(
-						buildUnicode(dateReplace),
-						"00.000",
-					),
+export const nextDates =
+	(
+		date: Readonly<Date>,
+	): ((cron: CronString | Partial<CronObject>) => IterableIterator<Date>) =>
+	cron =>
+		iteratorFunctionToIterableIterator(function* (): Generator<Date> {
+			const cronObject = parse(
+				isString(cron) ? cron : (
+					(stringify(cron) ?? (EMPTY_STRING as CronString))
+				),
 			);
 
-			for (;;) {
-				validDate((now.setMinutes(now.getMinutes() + 1), now))
-					? yield new Date(now)
-					: undefined;
+			if (!isUndefined(cronObject)) {
+				const validDate = dateInCron(cronObject);
+				const now = new Date(
+					date
+						.toISOString()
+						.replace(buildUnicode(dateReplace), "00.000"),
+				);
+
+				for (;;) {
+					validDate((now.setMinutes(now.getMinutes() + 1), now)) ?
+						yield new Date(now)
+					:	undefined;
+				}
 			}
-		}
-	});
+		});

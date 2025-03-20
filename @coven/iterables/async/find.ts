@@ -20,15 +20,16 @@ export const find: {
 	<Item>(
 		predicate: Unary<[item: Item], boolean>,
 	): (iterable: AwaitableIterable<Item>) => Promise<Maybe<Item>>;
-} = <Item>(
-	predicate: Unary<[item: Item], boolean>,
-): (iterable: AwaitableIterable<Item>) => Promise<Maybe<Item>> =>
-async (iterable): Promise<Maybe<Item>> => {
-	for await (const item of iterable) {
-		if (predicate(item)) {
-			return item as Maybe<Item>;
+} =
+	<Item>(
+		predicate: Unary<[item: Item], boolean>,
+	): ((iterable: AwaitableIterable<Item>) => Promise<Maybe<Item>>) =>
+	async (iterable): Promise<Maybe<Item>> => {
+		for await (const item of iterable) {
+			if (predicate(item)) {
+				return item as Maybe<Item>;
+			}
 		}
-	}
 
-	return undefined;
-};
+		return undefined;
+	};

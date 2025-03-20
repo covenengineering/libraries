@@ -15,6 +15,5 @@ import type { ReadonlyArrayLike } from "./ReadonlyArrayLike.ts";
  * @see {@linkcode ReadonlyArrayLike}
  * @template Object Object or array type.
  */
-export type ValueOf<Object extends object> = Object extends ReadonlyArrayLike
-	? Object[number]
-	: Object[keyof Object];
+export type ValueOf<Object extends object> =
+	Object extends ReadonlyArrayLike ? Object[number] : Object[keyof Object];

@@ -3,30 +3,23 @@
 		"exactOptionalPropertyTypes": true,
 		"jsxFactory": "createElement",
 		"jsxFragmentFactory": "Fragment",
+		"lib": ["deno.window", "DOM"],
 		"noFallthroughCasesInSwitch": true,
 		"noImplicitOverride": true,
 		"noImplicitReturns": true,
 		"noUncheckedIndexedAccess": true,
-		// "noUnusedLocals": true, // Handled by no-unused-vars
 		"noUnusedParameters": true,
 		"strict": true
-		// "verbatimModuleSyntax": true // handled by verbatim-module-syntax
 	},
 	"exclude": ["coverage"],
-	"fmt": {
-		"indentWidth": 4,
-		"lineWidth": 80,
-		"proseWrap": "always",
-		"semiColons": true,
-		"singleQuote": false,
-		"useTabs": true
-	},
 	"imports": {
-		"@std/assert": "jsr:@std/assert@^1.0.10",
-		"@types/react": "npm:@types/react@^19.0.2",
-		"@types/react-dom": "npm:@types/react-dom@^19.0.2",
-		"preact": "npm:preact@^10.25.4",
-		"preact-render-to-string": "npm:preact-render-to-string@^6.5.12",
+		"@std/assert": "jsr:@std/assert@^1.0.11",
+		"@types/react": "npm:@types/react@^19.0.11",
+		"@types/react-dom": "npm:@types/react-dom@^19.0.4",
+		"linkedom": "npm:linkedom@^0.18.9",
+		"preact": "npm:preact@^10.26.4",
+		"preact-render-to-string": "npm:preact-render-to-string@^6.5.13",
+		"prettier": "npm:prettier@^3.5.3",
 		"react": "npm:react@^19.0.0",
 		"react-dom": "npm:react-dom@^19.0.0"
 	},
@@ -100,7 +93,6 @@
 				"no-non-null-assertion",
 				"no-obj-calls",
 				"no-octal",
-				"no-process-globals",
 				"no-prototype-builtins",
 				"no-redeclare",
 				"no-regex-spaces",
@@ -136,10 +128,13 @@
 			]
 		}
 	},
+	"nodeModulesDir": "auto",
 	"tasks": {
-		"format-check": "deno fmt --check",
-		"lint-docs": "deno doc --lint ./**/*.ts",
-		"test-coverage": "deno test --coverage --doc --quiet"
+		"format": "deno run --allow-env --allow-read --allow-write --allow-sys npm:prettier --log-level=warn --write './**/*.{json,md,ts,tsx}'",
+		"format-check": "deno run --allow-env --allow-read --allow-sys npm:prettier --check './**/*.{json,md,ts,tsx}'",
+		"lint-docs": "deno doc --lint ./@coven/**/*.ts ./@simulcast/**/*.ts",
+		"test": "deno test --parallel",
+		"test-coverage": "deno test --coverage --doc --parallel --quiet"
 	},
 	"workspace": [
 		"./@coven/compare",
@@ -148,12 +143,15 @@
 		"./@coven/expression",
 		"./@coven/iterables",
 		"./@coven/math",
+		"./@coven/memo",
 		"./@coven/pair",
 		"./@coven/parsers",
 		"./@coven/predicates",
 		"./@coven/terminal",
 		"./@coven/types",
 		"./@coven/utils",
-		"./@simulcast/core"
+		"./@simulcast/core",
+		"./@simulcast/preact",
+		"./@simulcast/react"
 	]
 }

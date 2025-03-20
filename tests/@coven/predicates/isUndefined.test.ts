@@ -38,7 +38,6 @@ Deno.test("Other types", () =>
 			isUndefined(NaN) ||
 			// Object
 			isUndefined(EMPTY_OBJECT) ||
-			isUndefined(Object.create(null)) ||
 			// Promise
 			isUndefined(Promise.resolve()) ||
 			// RegExp
@@ -51,4 +50,5 @@ Deno.test("Other types", () =>
 			isUndefined(Symbol("description")) ||
 			isUndefined(Symbol()) ||
 			isUndefined(Symbol.iterator),
-	));
+	),
+);

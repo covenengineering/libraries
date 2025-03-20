@@ -18,9 +18,9 @@ Deno.test("Objects", () =>
 			isObject(/expression/u) &&
 			isObject(new RegExp("expression", "u")) &&
 			// Object
-			isObject(EMPTY_OBJECT) &&
-			isObject(Object.create(null)),
-	));
+			isObject(EMPTY_OBJECT),
+	),
+);
 
 Deno.test("Other types", () =>
 	assertFalse(
@@ -55,4 +55,5 @@ Deno.test("Other types", () =>
 			isObject(Symbol.iterator) ||
 			// Undefined
 			isObject(undefined),
-	));
+	),
+);

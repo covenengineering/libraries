@@ -22,9 +22,9 @@ Deno.test(
 	"Array of numbers and a grouper by even/odd groups bu evens/odss",
 	async () =>
 		assertEquals(
-			await groupBy((value: number) => value % 2 === 0 ? "even" : "odd")(
-				numberArray,
-			),
+			await groupBy((value: number) =>
+				value % 2 === 0 ? "even" : "odd",
+			)(numberArray),
 			{ even: [0, 2], odd: [1, 3] },
 		),
 );

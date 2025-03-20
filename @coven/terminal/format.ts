@@ -37,10 +37,9 @@ export const format = ((open, close) => {
 	return (
 		input: string | TemplateStringsArray,
 		...expressions: ReadonlyArray<Stringable>
-	) => `${sgrOpen}${
-		normalizeString(input, ...expressions).replaceAll(
+	) =>
+		`${sgrOpen}${normalizeString(input, ...expressions).replaceAll(
 			sgrClose,
 			sgrOpen,
-		)
-	}${sgrClose}`;
+		)}${sgrClose}`;
 }) as FormatFunction;

@@ -1,8 +1,11 @@
 export { broadcast } from "./broadcast.ts";
+export type { BroadcastEmit } from "./BroadcastEmit.ts";
 export type { BroadcastObject } from "./BroadcastObject.ts";
+export type { BroadcastOn } from "./BroadcastOn.ts";
+export { broadcastProxyHandler } from "./broadcastProxyHandler.ts";
 export { emit } from "./emit.ts";
-export type { Emitter } from "./Emitter.ts";
-export type { EventListener } from "./EventListener.ts";
+export type { EventHandler } from "./EventHandler.ts";
+export { eventRegExp } from "./eventRegExp.ts";
 export type { EventRegistry } from "./EventRegistry.ts";
 export type { EventTypeDictionary } from "./EventTypeDictionary.ts";
 export { on } from "./on.ts";

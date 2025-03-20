@@ -13,17 +13,19 @@ import { iteratorFunctionToIterableIterator } from "./iteratorFunctionToIterable
  */
 export const flat = <IterableToFlat extends Iterable<unknown>>(
 	iterable: IterableToFlat,
-): IterableToFlat extends Iterable<infer Item>
-	? Item extends Iterable<infer SubItem> ? IterableIterator<SubItem>
-	: IterableIterator<Item>
-	: never =>
+): IterableToFlat extends Iterable<infer Item> ?
+	Item extends Iterable<infer SubItem> ?
+		IterableIterator<SubItem>
+	:	IterableIterator<Item>
+:	never =>
 	iteratorFunctionToIterableIterator(function* (): Generator {
 		for (const iterableOrItem of iterable) {
-			isIterable(iterableOrItem)
-				? yield* iterableOrItem
-				: yield iterableOrItem;
+			isIterable(iterableOrItem) ?
+				yield* iterableOrItem
+			:	yield iterableOrItem;
 		}
-	}) as IterableToFlat extends Iterable<infer Item>
-		? Item extends Iterable<infer SubItem> ? IterableIterator<SubItem>
-		: IterableIterator<Item>
-		: never;
+	}) as IterableToFlat extends Iterable<infer Item> ?
+		Item extends Iterable<infer SubItem> ?
+			IterableIterator<SubItem>
+		:	IterableIterator<Item>
+	:	never;
