@@ -8,8 +8,6 @@
 
 ## Example
 
-Using with a shared broadcast registry:
-
 ```tsx
 import { broadcast } from "@simulcast/core";
 import { useBroadcast } from "@simulcast/react";
