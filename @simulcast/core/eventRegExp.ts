@@ -1,8 +1,8 @@
 import {
+	allow,
 	buildUnicode,
 	captureNamed,
 	END,
-	exists,
 	or,
 	range,
 	set,
@@ -26,11 +26,11 @@ export const eventRegExp: Replace<
 	RegExp,
 	{
 		readonly flags: "u";
-		readonly source: "^(?<type>emit|on)(?<name>[A-Z]\\w+)$";
+		readonly source: "^(?<type>emit|on)(?<name>[A-Z]\\w*)$";
 	}
 > = buildUnicode(
 	START,
 	captureNamed("type")(or("emit", "on")),
-	captureNamed("name")(set(range("A")("Z")), exists(WORD)),
+	captureNamed("name")(set(range("A")("Z")), allow(WORD)),
 	END,
 );
