@@ -67,7 +67,7 @@ Deno.test(
 			</>,
 		);
 
-		await timeout(1);
+		await timeout(3);
 
 		const addButton = document.querySelector<HTMLButtonElement>(
 			"button.add",
