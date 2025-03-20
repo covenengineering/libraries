@@ -10,7 +10,6 @@
 
 ```tsx
 /** @jsxImportSource react */
-/** @jsxImportSourceTypes @types/react */
 import { broadcast } from "@simulcast/core";
 import { useBroadcast } from "@simulcast/react";
 import type { MouseEvent } from "react";

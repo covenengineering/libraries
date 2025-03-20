@@ -22,6 +22,10 @@ const memoizedTupleCache: MemoizedTupleCache = new Map();
  */
 const memoizedRecordCache: MemoizedRecordCache = new Map();
 
+/**
+ * Function that memoizes tuples, records and function arguments to stable
+ * output values.
+ */
 export const memo: {
 	/**
 	 * Memoize a record or tuple and makes it read-only.

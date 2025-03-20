@@ -23,7 +23,6 @@ Currently supported frameworks:
 import { createElement } from "preact";
 import { useState } from "preact/hooks";
 import { pair } from "@coven/pair/preact";
-import { useState } from "preact/hooks";
 
 const useCount = (initialCount: number) => {
 	const [count, setCount] = useState(initialCount);
@@ -56,9 +55,7 @@ const Component = ({ array = [] }) => (
 
 ```tsx
 /** @jsxImportSource react */
-/** @jsxImportSourceTypes @types/react */
-// @deno-types="@types/react"
-import { createElement, useState } from "react";
+import { useState } from "react";
 import { pair } from "@coven/pair/react";
 
 const useCount = (initialCount: number) => {

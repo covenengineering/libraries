@@ -1,4 +1,3 @@
-// @deno-types="@types/react"
 import type { FunctionComponent } from "react";
 import { pair as preactPair } from "../preact/pair.ts";
 import type { PairedComponentProperties } from "./PairedComponentProperties.ts";
@@ -9,8 +8,6 @@ import type { PairedComponentProperties } from "./PairedComponentProperties.ts";
  * @example
  * ```tsx
  * /** @jsxImportSource react *\/
- * /** @jsxImportSourceTypes @types/react *\/
- * // @deno-types="@types/react"
  * import { useState } from "react";
  * import { createElement, useState } from "react";
  *

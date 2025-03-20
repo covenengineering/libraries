@@ -1,7 +1,7 @@
 /**
  * Brand symbol.
  */
-declare const BRAND: unique symbol;
+export declare const BRAND: unique symbol;
 
 /**
  * Util type to achieve branded types.

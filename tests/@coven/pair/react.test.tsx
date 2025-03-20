@@ -1,10 +1,7 @@
 /** @jsxImportSource react */
-/** @jsxImportSourceTypes @types/react */
 import { pair, type PairedComponentProperties } from "@coven/pair/react";
 import { assertStrictEquals } from "@std/assert";
-// @deno-types="@types/react"
 import { useState } from "react";
-// @deno-types="@types/react-dom/server"
 import { renderToString } from "react-dom/server";
 
 const Render = (usePairedState: typeof useState) => {

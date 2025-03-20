@@ -1,11 +1,8 @@
 /** @jsxImportSource react */
-/** @jsxImportSourceTypes @types/react */
 import { broadcast, type EventRegistry } from "@simulcast/core";
 import { useBroadcast } from "@simulcast/react";
 import { assertStrictEquals } from "@std/assert";
-// @deno-types="@types/react"
 import { type JSX, type MouseEvent, useState } from "react";
-// @deno-types="@types/react-dom/client"
 import { createRoot } from "react-dom/client";
 import "../../utils/setupReactDOM.ts";
 import { timeout } from "../../utils/timeout.ts";

@@ -1,5 +1,4 @@
 import type { Unary } from "@coven/types";
-// @deno-types="@types/react"
 import type { ReactElement } from "react";
 
 /**

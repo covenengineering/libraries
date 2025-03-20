@@ -10,7 +10,6 @@ import {
 	type UseBroadcastObject,
 	type UseBroadcastOn,
 } from "@simulcast/preact";
-// @deno-types="@types/react"
 import { useEffect, useMemo } from "react";
 
 /**
@@ -19,9 +18,7 @@ import { useEffect, useMemo } from "react";
  * @example
  * ```tsx
  * /** @jsxImportSource react *\/
- * /** @jsxImportSourceTypes @types/react *\/
  * import { broadcast } from "@simulcast/core";
- * // @deno-types="@types/react"
  * import type { MouseEvent } from "react";
  * 
  * const { registry } = broadcast<{
