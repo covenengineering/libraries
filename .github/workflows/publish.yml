@@ -33,7 +33,9 @@ jobs:
               run: deno run test-coverage
 
             - name: Generate Coverage
-              run: deno coverage --lcov coverage/ > coverage.lcov
+              run:
+                  deno coverage --exclude='tests/' --lcov coverage/ >
+                  coverage.lcov
 
             - name: Publish Coverage
               uses: coverallsapp/github-action@v2
