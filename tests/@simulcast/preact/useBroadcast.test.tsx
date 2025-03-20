@@ -3,7 +3,6 @@ import { broadcast, type EventRegistry } from "@simulcast/core";
 import { useBroadcast } from "@simulcast/preact";
 import { assertStrictEquals } from "@std/assert";
 import { type JSX, render } from "preact";
-import "preact/debug";
 import { useState } from "preact/hooks";
 import "../../utils/setupPreactDOM.ts";
 import { timeout } from "../../utils/timeout.ts";

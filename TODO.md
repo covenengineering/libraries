@@ -19,6 +19,5 @@ to `1.0.0` for everything. Now about the actual "to do":
     - [ ] `@simulcast/angular`.
     - [x] `@simulcast/preact`.
     - [x] `@simulcast/react`.
-    - [x] `@simulcast/solid`.
     - [ ] `@simulcast/svelte`.
     - [ ] `@simulcast/vue`.

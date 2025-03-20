@@ -152,7 +152,6 @@
 		"./@coven/utils",
 		"./@simulcast/core",
 		"./@simulcast/preact",
-		"./@simulcast/react",
-		"./@simulcast/solid"
+		"./@simulcast/react"
 	]
 }

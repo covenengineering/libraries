@@ -33,8 +33,6 @@ libraries:
       for `@simulcast/core`.
     - 📡 [`@simulcast/react`](https://simulcast.coven.to/react) — React hook for
       `@simulcast/core`.
-    - 📡 [`@simulcast/solid`](https://simulcast.coven.to/solid) — Solid hook for
-      `@simulcast/core`.
     - 📡 [`@simulcast/svelte`](https://simulcast.coven.to/svelte) — Svelte hook
       for `@simulcast/core`.
     - 📡 [`@simulcast/vue`](https://simulcast.coven.to/vue) — Vue composable for
