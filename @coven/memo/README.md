@@ -1,7 +1,7 @@
 <img alt="Coven Engineering Memo logo" src="https://raw.githubusercontent.com/covenengineering/libraries/main/@coven/memo/logo.svg" height="108" />
 
-[![JSR](https://jsr.io/badges/@coven/memo)](https://jsr.io/@coven/memo)
-[![JSR Score](https://jsr.io/badges/@coven/memo/score)](https://jsr.io/@coven/memo/score)
+[![JSR](https://jsr.io/badges/@coven/memo)](https://coven.to/memo)
+[![JSR Score](https://jsr.io/badges/@coven/memo/score)](https://coven.to/memo/score)
 
 💾 Memoization utilities.
 

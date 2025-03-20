@@ -1,7 +1,7 @@
 <img alt="Coven Engineering Pair logo" src="https://raw.githubusercontent.com/covenengineering/libraries/main/@coven/pair/logo.svg" height="108" />
 
-[![JSR](https://jsr.io/badges/@coven/pair)](https://jsr.io/@coven/pair)
-[![JSR Score](https://jsr.io/badges/@coven/pair/score)](https://jsr.io/@coven/pair/score)
+[![JSR](https://jsr.io/badges/@coven/pair)](https://coven.to/pair)
+[![JSR Score](https://jsr.io/badges/@coven/pair/score)](https://coven.to/pair/score)
 
 🖇️ [Paired hook pattern](https://lou.cx/articles/the-paired-hook-pattern)
 helper. It only makes pairing simpler and provides a little bit better DX

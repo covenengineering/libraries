@@ -1,7 +1,7 @@
 <img alt="Coven Engineering Utils logo" src="https://raw.githubusercontent.com/covenengineering/libraries/main/@coven/utils/logo.svg" height="108" />
 
-[![JSR](https://jsr.io/badges/@coven/utils)](https://jsr.io/@coven/utils)
-[![JSR Score](https://jsr.io/badges/@coven/utils/score)](https://jsr.io/@coven/utils/score)
+[![JSR](https://jsr.io/badges/@coven/utils)](https://coven.to/utils)
+[![JSR Score](https://jsr.io/badges/@coven/utils/score)](https://coven.to/utils/score)
 
 🛠️ General utilities.
 
