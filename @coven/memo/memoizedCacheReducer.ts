@@ -26,7 +26,11 @@ export const memoizedCacheReducer = <
 		cache.set(
 			item as MemoCacheKeyIntersection,
 			(item === MEMO_ROOT ?
-				Object.freeze(structuredClone(value))
+				Object.freeze(
+					Array.isArray(value) ?
+						structuredClone(value)
+					:	Object.assign(Object.create(null), structuredClone(value)),
+				)
 			:	new Map()) as MemoCacheValueIntersection,
 		)
 	)

@@ -77,6 +77,10 @@ Deno.test("Empty record is the same as EMPTY_OBJECT", () =>
 	assertStrictEquals(memo({}), EMPTY_OBJECT),
 );
 
+Deno.test("Record doesn't have a prototype", () =>
+	assertStrictEquals(Object.getPrototypeOf(memo({ foo: "bar" })), null),
+);
+
 Deno.test(
 	"Trying to mutate, throws",
 	() =>
