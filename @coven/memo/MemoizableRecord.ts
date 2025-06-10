@@ -7,4 +7,4 @@ import type { MemoizedItem } from "./MemoizedItem.ts";
  * @see {@linkcode MemoizableKey}
  * @see {@linkcode MemoizedItem}
  */
-export type MemoizableRecord = { readonly [key: MemoizableKey]: MemoizedItem };
+export type MemoizableRecord = Readonly<{ [key: MemoizableKey]: MemoizedItem }>;

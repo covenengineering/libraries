@@ -8,6 +8,6 @@ import type { Range } from "./Range.ts";
  * const days = [1, 2, 3, 28, 29, 30, 31] as const satisfies Iterable<DayOfMonth>;
  * ```
  * @see {@linkcode Range}
- * @see [Date](https://mdn.io/Date)
+ * @see [Date](https://coven.to/mdn/Date)
  */
 export type DayOfMonth = Range<1, 31>;

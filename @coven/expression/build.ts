@@ -1,7 +1,5 @@
 import { memo } from "@coven/memo";
 import type {
-	EmptyString,
-	ReadonlyArray,
 	RegularExpressionFlags,
 	Replace,
 	Stringable,
@@ -26,26 +24,18 @@ import { join } from "./join.ts";
  */
 export const build: <Flags extends RegularExpressionFlags = "u">(
 	flags?: Flags | "u",
-) => <const Tokens extends ReadonlyArray<Stringable>>(
-	...tokens: Tokens
+) => <const Atoms extends ReadonlyArray<Stringable>>(
+	...atoms: Atoms
 ) => Replace<
 	RegExp,
-	{
-		readonly flags: Flags;
-		readonly source: StringJoin<Tokens, EmptyString>;
-	}
+	Readonly<{ flags: Flags; source: StringJoin<Atoms, ""> }>
 > = memo(
 	<Flags extends RegularExpressionFlags = "u">(flags: Flags | "u" = "u") =>
 		memo(
-			<const Tokens extends ReadonlyArray<Stringable>>(
-				...tokens: Tokens
-			) =>
-				new RegExp(join(...tokens), flags) as Replace<
+			<const Atoms extends ReadonlyArray<Stringable>>(...atoms: Atoms) =>
+				new RegExp(join(...atoms), flags) as Replace<
 					RegExp,
-					{
-						readonly flags: Flags;
-						readonly source: StringJoin<Tokens, EmptyString>;
-					}
+					Readonly<{ flags: Flags; source: StringJoin<Atoms, ""> }>
 				>,
 		),
 );

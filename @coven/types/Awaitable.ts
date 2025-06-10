@@ -6,12 +6,12 @@
  *
  * @example
  * ```typescript
- * const promisedValue = Promise.resolve("🧙‍♀️") satisfies Awaitable<string>;
+ * const promisedValue = Promise.resolve("✨") satisfies Awaitable<string>;
  * const plainValue = "🔮" satisfies Awaitable<string>;
  *
- * Promise.all([promisedValue, plainValue]).then(console.log); // ["🧙‍♀️", "🔮"]
+ * Promise.all([promisedValue, plainValue]).then(console.log); // ["✨", "🔮"]
  * ```
- * @see [Promise](https://mdn.io/Promise)
+ * @see [Promise](https://coven.to/mdn/Promise)
  * @template Type The type to await.
  */
 export type Awaitable<Type = unknown> = Readonly<PromiseLike<Type> | Type>;

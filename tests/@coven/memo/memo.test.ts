@@ -1,6 +1,6 @@
 import { EMPTY_ARRAY, EMPTY_OBJECT } from "@coven/constants";
 import { memo } from "@coven/memo";
-import type { ReadonlyArray, ReadonlyRecord } from "@coven/types";
+import type { ReadonlyRecord } from "@coven/types";
 import {
 	assertEquals,
 	assertNotStrictEquals,
@@ -9,63 +9,63 @@ import {
 } from "@std/assert";
 
 Deno.test("Tuples with same values are equal", () =>
-	assertStrictEquals(memo(["foo", "bar"]), memo(["foo", "bar"])),
+	assertStrictEquals(memo(["✨", "🔮"]), memo(["✨", "🔮"])),
 );
 
 Deno.test("Tuples with similar values are different", () =>
 	assertNotStrictEquals<ReadonlyArray<string>>(
-		memo(["foo", "bar"]),
-		memo(["bar", "foo"]),
+		memo(["✨", "🔮"]),
+		memo(["🔮", "✨"]),
 	),
 );
 
 Deno.test("Tuples with similar different lengths", () =>
 	assertNotStrictEquals<ReadonlyArray<string>>(
-		memo(["foo", "bar"]),
-		memo(["foo", "bar", "baz"]),
+		memo(["✨", "🔮"]),
+		memo(["✨", "🔮", "💀"]),
 	),
 );
 
 Deno.test("Tuple preserves items", () =>
-	assertEquals<ReadonlyArray>(memo(["foo", "bar"]), ["foo", "bar"]),
+	assertEquals<ReadonlyArray<unknown>>(memo(["✨", "🔮"]), ["✨", "🔮"]),
 );
 
 Deno.test("Tuple with nested record works", () =>
 	assertStrictEquals(
-		memo([memo({ foo: "bar" })]),
-		memo([memo({ foo: "bar" })]),
+		memo([memo({ foo: "🔮" })]),
+		memo([memo({ foo: "🔮" })]),
 	),
 );
 
 Deno.test("Records with same values are equal", () =>
-	assertStrictEquals(memo({ foo: "bar" }), memo({ foo: "bar" })),
+	assertStrictEquals(memo({ foo: "🔮" }), memo({ foo: "🔮" })),
 );
 
 Deno.test("Records with similar values are different", () =>
 	assertNotStrictEquals<ReadonlyRecord>(
-		memo({ foo: "bar" }),
-		memo({ bar: "foo" }),
+		memo({ foo: "🔮" }),
+		memo({ bar: "✨" }),
 	),
 );
 
 Deno.test("Record order doesn't matter", () =>
 	assertStrictEquals(
-		memo({ foo: "bar", bar: "baz" }),
-		memo({ bar: "baz", foo: "bar" }),
+		memo({ foo: "🔮", bar: "💀" }),
+		memo({ bar: "💀", foo: "🔮" }),
 	),
 );
 
 Deno.test("Record preserves shape", () =>
-	assertEquals<ReadonlyRecord>(memo({ foo: "bar", bar: "baz" }), {
-		foo: "bar",
-		bar: "baz",
+	assertEquals<ReadonlyRecord>(memo({ foo: "🔮", bar: "💀" }), {
+		foo: "🔮",
+		bar: "💀",
 	}),
 );
 
 Deno.test("Record with nested tuple works", () =>
 	assertStrictEquals(
-		memo({ foo: memo(["bar", "baz"]) }),
-		memo({ foo: memo(["bar", "baz"]) }),
+		memo({ foo: memo(["🔮", "💀"]) }),
+		memo({ foo: memo(["🔮", "💀"]) }),
 	),
 );
 
@@ -78,14 +78,14 @@ Deno.test("Empty record is the same as EMPTY_OBJECT", () =>
 );
 
 Deno.test("Record doesn't have a prototype", () =>
-	assertStrictEquals(Object.getPrototypeOf(memo({ foo: "bar" })), null),
+	assertStrictEquals(Object.getPrototypeOf(memo({ foo: "🔮" })), null),
 );
 
 Deno.test(
 	"Trying to mutate, throws",
 	() =>
 		void assertThrows(() => {
-			const output = memo({ foo: "bar", bar: "baz" });
+			const output = memo({ foo: "🔮", bar: "💀" });
 
 			// @ts-expect-error Types get mad about mutations
 			output.foo = "changed";

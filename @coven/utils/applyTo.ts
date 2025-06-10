@@ -10,6 +10,7 @@ import type { Unary } from "@coven/types";
  * applyTo10((value: number) => value * 2); // 20
  * applyTo10((value: number) => value / 2); // 5
  * ```
+ * @param input Value to be passed to unary function.
  * @returns Function that expects a function that will receive the `input`.
  */
 export const applyTo =

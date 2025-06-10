@@ -1,9 +1,9 @@
 import { entriesToObject } from "@coven/iterables";
+import { memo } from "@coven/memo";
 import type { Maybe } from "@coven/types";
 import type { RangeField } from "./RangeField.ts";
 import { isRangeString } from "./isRangeString.ts";
 import { parseNumberMap } from "./parseNumberMap.ts";
-import { FROM_NAME, TO_NAME } from "./rangeFieldNames.ts";
 import { RANGE_EXPRESSION_SEPARATOR_TOKEN } from "./tokens.ts";
 import { zipRangeNames } from "./zipRangeNames.ts";
 
@@ -23,22 +23,24 @@ import { zipRangeNames } from "./zipRangeNames.ts";
  * @param value String that might be a range.
  * @returns Parsed ranged of `undefined` if it isn't a range string.
  */
-export const parseRange = <Predicated extends number>(
+export const parseRange: <Predicated extends number>(
 	value: string,
-): Maybe<Predicated | RangeField<Predicated>> => {
-	const maybeRange =
-		isRangeString(value) ?
-			entriesToObject(
-				zipRangeNames(
-					parseNumberMap(
-						value.split(RANGE_EXPRESSION_SEPARATOR_TOKEN),
+) => Maybe<Predicated | RangeField<Predicated>> = memo(
+	<Predicated extends number>(value: string) => {
+		const maybeRange =
+			isRangeString(value) ?
+				entriesToObject(
+					zipRangeNames(
+						parseNumberMap(
+							value.split(RANGE_EXPRESSION_SEPARATOR_TOKEN),
+						),
 					),
-				),
-			)
-		:	undefined;
+				)
+			:	undefined;
 
-	return (
-		maybeRange?.[FROM_NAME] === maybeRange?.[TO_NAME] ?
-			maybeRange?.[FROM_NAME]
-		:	maybeRange) as Maybe<Predicated | RangeField<Predicated>>;
-};
+		return (
+			maybeRange?.from === maybeRange?.to ?
+				maybeRange?.from
+			:	maybeRange) as Maybe<Predicated | RangeField<Predicated>>;
+	},
+);

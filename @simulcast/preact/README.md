@@ -24,7 +24,10 @@ const Component = () => {
 	onClick(console.log);
 
 	return (
-		<button onClick={emitClick} type="button">
+		<button
+			onClick={emitClick}
+			type="button"
+		>
 			Click me!
 		</button>
 	);

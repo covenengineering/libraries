@@ -12,7 +12,7 @@ Deno.test("Parsing JSON with an empty object returns empty object", () =>
 );
 
 Deno.test("Parsing JSON with an object returns empty object", () =>
-	assertEquals(parseJSON('{"🧙🏻‍♀️":"🎃"}'), { "🧙🏻‍♀️": "🎃" }),
+	assertEquals(parseJSON('{"✨":"🎃"}'), { "✨": "🎃" }),
 );
 
 Deno.test("Parsing JSON with an empty array returns empty array", () =>
@@ -24,7 +24,7 @@ Deno.test("Parsing JSON with an array with numbers returns array", () =>
 );
 
 Deno.test("Parsing JSON with a string returns a string", () =>
-	assertEquals(parseJSON('"🧙🏻‍♀️"'), "🧙🏻‍♀️"),
+	assertEquals(parseJSON('"✨"'), "✨"),
 );
 
 Deno.test("Parsing invalid JSON returns undefined and `SyntaxError`", () =>

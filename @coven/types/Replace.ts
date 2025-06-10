@@ -6,8 +6,8 @@ import type { ReadonlyRecord } from "./ReadonlyRecord.ts";
  *
  * @example
  * ```typescript
- * type User = { readonly name: string; readonly age: number };
- * type ReallyOldUser = Replace<User, { readonly age: bigint }>;
+ * type User = Readonly<{ name: string; age: number }>;
+ * type ReallyOldUser = Replace<User, Readonly<{ age: bigint }>>;
  * ```
  * @see {@linkcode ReadonlyRecord}
  * @template Original Type to replace the type of some keys in.

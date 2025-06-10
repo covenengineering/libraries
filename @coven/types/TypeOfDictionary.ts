@@ -12,50 +12,50 @@
  * @see [typeof null bug](https://lou.cx/null-bug)
  * @see [typeof typeof rejected proposal](https://lou.cx/null-typeof)
  */
-export type TypeOfDictionary = {
+export type TypeOfDictionary = Readonly<{
 	/**
 	 * {@linkcode TypeOfDictionary} key for `BigInt`.
 	 */
-	readonly bigint: bigint;
+	bigint: bigint;
 
 	/**
 	 * {@linkcode TypeOfDictionary} key for `Boolean`.
 	 */
-	readonly boolean: boolean;
+	boolean: boolean;
 
 	/**
 	 * {@linkcode TypeOfDictionary} key for `Function`.
 	 */
 	// deno-lint-ignore ban-types
-	readonly function: Function;
+	function: Function;
 
 	/**
 	 * {@linkcode TypeOfDictionary} key for `null`.
 	 */
-	readonly null: null;
+	null: null;
 
 	/**
 	 * {@linkcode TypeOfDictionary} key for `Number`.
 	 */
-	readonly number: number;
+	number: number;
 
 	/**
 	 * {@linkcode TypeOfDictionary} key for `Object`.
 	 */
-	readonly object: object;
+	object: object;
 
 	/**
 	 * {@linkcode TypeOfDictionary} key for `String`.
 	 */
-	readonly string: string;
+	string: string;
 
 	/**
 	 * {@linkcode TypeOfDictionary} key for `Symbol`.
 	 */
-	readonly symbol: symbol;
+	symbol: symbol;
 
 	/**
 	 * {@linkcode TypeOfDictionary} key for `undefined`.
 	 */
-	readonly undefined: undefined;
-};
+	undefined: undefined;
+}>;

@@ -7,12 +7,12 @@ import { eventRegExp } from "./eventRegExp.ts";
 /**
  * Proxy handler that enables the aliasing of `on("event")` as `onEvent`.
  */
-export const broadcastProxyHandler: {
-	readonly get: <Events extends EventTypeDictionary>(
+export const broadcastProxyHandler: Readonly<{
+	get: <Events extends EventTypeDictionary>(
 		broadcastObject: BroadcastObject<Events>,
 		property: string,
 	) => unknown;
-} = createObject({
+}> = createObject({
 	get: (broadcast, property) => {
 		const { name, type } =
 			(!(property in broadcast) && eventRegExp.exec(property)?.groups) ||

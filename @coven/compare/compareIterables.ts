@@ -26,16 +26,17 @@ import { pathPrepend } from "./pathPrepend.ts";
  * @param left Original iterable.
  * @returns Curried generator with `left` in context.
  */
-export const compareIterables = <LeftItem>(
-	left: Iterable<LeftItem>,
-): CurriedComparison<Iterable<LeftItem>> => {
+export const compareIterables =
+	<LeftItem>(
+		left: Iterable<LeftItem>,
+	): CurriedComparison<Iterable<LeftItem>> =>
 	/**
 	 * Curried {@linkcode compareIterables} with `left` set in context.
 	 *
 	 * @param right New iterable.
 	 * @returns Generator with differences.
 	 */
-	return right =>
+	right =>
 		iteratorFunctionToIterableIterator(function* (): Generator<Difference> {
 			const leftIterator = getIterator(left);
 			const rightIterator = getIterator(right);
@@ -60,4 +61,3 @@ export const compareIterables = <LeftItem>(
 				);
 			}
 		});
-};

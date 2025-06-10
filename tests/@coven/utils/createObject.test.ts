@@ -1,7 +1,7 @@
 import { createObject } from "@coven/utils";
 import { assertEquals } from "@std/assert";
 
-const object = { "🧙🏻‍♀️": "🧙🏻‍♀️" } as const;
+const object = { "✨": "✨" } as const;
 
 Deno.test("Create empty object has no prototype", () =>
 	assertEquals(Object.getPrototypeOf(createObject()), null),

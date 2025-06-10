@@ -11,11 +11,11 @@ import type { Numeric } from "./Numeric.ts";
  * const aNull = null satisfies Primitive;
  * const aNumber = 13 as const satisfies Primitive;
  * const anUndefined = undefined satisfies Primitive;
- * const aString = "🧙‍♀️" as const satisfies Primitive;
- * const aSymbol = Symbol("🧙‍♀️") satisfies Primitive;
+ * const aString = "✨" as const satisfies Primitive;
+ * const aSymbol = Symbol("✨") satisfies Primitive;
  * ```
  * @see {@linkcode Nullish}
  * @see {@linkcode Numeric}
- * @see [Primitive](https://mdn.io/Primitive)
+ * @see [Primitive](https://coven.to/mdn/Glossary/Primitive)
  */
 export type Primitive = boolean | Nullish | Numeric | string | symbol;

@@ -6,17 +6,17 @@ import type { Primitive } from "./Primitive.ts";
  *
  * @example
  * ```typescript
- * const json = JSON.parse('{"🧙‍♀️": "🔮"}') satisfies JSONValue;
+ * const json = JSON.parse('{"✨": "🔮"}') satisfies JSONValue;
  * ```
  * @see {@linkcode Primitive}
  * @see [JSON](https://www.json.org/json-en.html)
  */
 export type JSONValue =
-	| {
+	| Readonly<{
 			/**
 			 * @see {@linkcode JSONValue} untyped property.
 			 */
-			readonly [property: string]: JSONValue;
-	  }
+			[property: string]: JSONValue;
+	  }>
 	| Exclude<Primitive, bigint | symbol | undefined>
 	| ReadonlyArray<JSONValue>;

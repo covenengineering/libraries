@@ -1,18 +1,19 @@
-import { EMPTY_STRING } from "@coven/constants";
 import { memo } from "@coven/memo";
-import type {
-	EmptyString,
-	ReadonlyArray,
-	Stringable,
-	StringJoin,
-} from "@coven/types";
+import type { Stringable, StringJoin } from "@coven/types";
 
 /**
- * Util to join strings.
+ * Concatenates items.
+ *
+ * @example
+ * ```typescript
+ * join("✨", "🔮", "💀"); // "✨🔮💀"
+ * ```
+ * @param items Items to join.
+ * @returns Concatenated items.
  */
-export const join: <const Tokens extends ReadonlyArray<Stringable>>(
-	...tokens: Tokens
-) => StringJoin<Tokens, EmptyString> = memo(
-	<const Tokens extends ReadonlyArray<Stringable>>(...tokens: Tokens) =>
-		tokens.join(EMPTY_STRING) as StringJoin<Tokens, EmptyString>,
+export const join: <const Items extends ReadonlyArray<Stringable>>(
+	...items: Items
+) => StringJoin<Items, ""> = memo(
+	<const Items extends ReadonlyArray<Stringable>>(...items: Items) =>
+		items.join("") as StringJoin<Items, "">,
 );

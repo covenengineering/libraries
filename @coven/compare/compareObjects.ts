@@ -1,10 +1,9 @@
-import { iteratorFunctionToIterableIterator } from "@coven/iterables";
-import { isIterable } from "@coven/predicates";
-import type { Just } from "@coven/types";
+import { EMPTY_ITERABLE_ITERATOR } from "@coven/iterables";
+import { is, isIterable, isObject } from "@coven/predicates";
 import { compareIterables } from "./compareIterables.ts";
 import { compareProperties } from "./compareProperties.ts";
 import type { CurriedComparison } from "./CurriedComparison.ts";
-import type { Difference } from "./Difference.ts";
+import { differentiate } from "./differentiate.ts";
 
 /**
  * Deep-compare objects.
@@ -14,21 +13,21 @@ import type { Difference } from "./Difference.ts";
  *
  * @example Compare 2 objects with the same property but different value
  * ```typescript
- * const compareWitch = compareObjects({ witch: "🧙‍♀️" });
- * compareWitch({ witch: "🎃" }); // Yields { kind: "UPDATE", left: "🧙‍♀️", right: "🎃", path: ["witch"] }
+ * const compareMagic = compareObjects({ magic: "✨" });
+ * compareMagic({ magic: "🎃" }); // Yields { kind: "UPDATE", left: "✨", right: "🎃", path: ["magic"] }
  * ```
  * @see {@linkcode compareIterables}
  * @see {@linkcode compareProperties}
  * @param left Original object.
  * @returns Curried generator with `left` in context.
  */
-export const compareObjects = (left: object): CurriedComparison<object> => {
-	const comparePropertiesLeft = compareProperties(left) as (
-		right: object,
-	) => Generator<Difference>;
+export const compareObjects = (left: object): CurriedComparison<unknown> => {
+	const comparePropertiesLeft = compareProperties(left);
 	const leftIsIterator = isIterable(left);
-	const compareIterableLeft =
-		leftIsIterator ? compareIterables(left) : undefined;
+	const compareIterableLeft = compareIterables(left as Iterable<unknown>);
+	const isLeft = is(left);
+	const differentiateLeft = differentiate(left);
+	const isLeftConstructor = is(left.constructor);
 
 	return leftIsIterator ?
 			/**
@@ -38,16 +37,11 @@ export const compareObjects = (left: object): CurriedComparison<object> => {
 			 * @returns Generator with differences.
 			 */
 			right =>
-				iteratorFunctionToIterableIterator(
-					function* (): Generator<Difference> {
-						yield* isIterable(right) ?
-							(
-								compareIterableLeft as Just<
-									typeof compareIterableLeft
-								>
-							)(right as Iterable<object>)
-						:	comparePropertiesLeft(right);
-					},
-				)
+				isLeft(right) ?
+					EMPTY_ITERABLE_ITERATOR
+				:	(isObject(right) && isLeftConstructor(right.constructor) ?
+						isIterable(right) ? compareIterableLeft
+						:	comparePropertiesLeft
+					:	differentiateLeft)(right as Iterable<unknown>)
 		:	comparePropertiesLeft;
 };

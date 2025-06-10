@@ -1,4 +1,4 @@
-import type { Initial, IterableItem, ReadonlyArray } from "@coven/types";
+import type { Initial, IterableItem } from "@coven/types";
 import { getIterator } from "./getIterator.ts";
 import { iteratorFunctionToIterableIterator } from "./iteratorFunctionToIterableIterator.ts";
 
@@ -15,8 +15,8 @@ import { iteratorFunctionToIterableIterator } from "./iteratorFunctionToIterable
 export const initial = <IterableToGetInitial extends Iterable<unknown>>(
 	iterable: IterableToGetInitial,
 ): IterableIterator<
-	IterableToGetInitial extends ReadonlyArray ?
-		Initial<IterableToGetInitial> extends ReadonlyArray ?
+	IterableToGetInitial extends ReadonlyArray<unknown> ?
+		Initial<IterableToGetInitial> extends ReadonlyArray<unknown> ?
 			Initial<IterableToGetInitial>[number]
 		:	IterableItem<IterableToGetInitial>
 	:	IterableItem<IterableToGetInitial>
@@ -34,8 +34,8 @@ export const initial = <IterableToGetInitial extends Iterable<unknown>>(
 			item.done ? undefined : yield value;
 		}
 	}) as IterableIterator<
-		IterableToGetInitial extends ReadonlyArray ?
-			Initial<IterableToGetInitial> extends ReadonlyArray ?
+		IterableToGetInitial extends ReadonlyArray<unknown> ?
+			Initial<IterableToGetInitial> extends ReadonlyArray<unknown> ?
 				Initial<IterableToGetInitial>[number]
 			:	IterableItem<IterableToGetInitial>
 		:	IterableItem<IterableToGetInitial>

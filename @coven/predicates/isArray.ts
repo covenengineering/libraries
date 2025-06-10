@@ -1,5 +1,3 @@
-import type { ReadonlyArray } from "@coven/types";
-
 /**
  * Check if given `input` is an instance of `Array`.
  *

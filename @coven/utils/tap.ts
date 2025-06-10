@@ -1,7 +1,7 @@
 import type { Effect, Unary } from "@coven/types";
 
 /**
- * Tap into a value before calling a function.
+ * Tap into a value before calling a function. Useful for logging values.
  *
  * @example
  * ```typescript

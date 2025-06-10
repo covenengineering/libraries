@@ -1,4 +1,4 @@
-import type { Predicate, Single, Unary } from "@coven/types";
+import type { AsyncFilter, Filter, Predicate, Single } from "@coven/types";
 import { getIterator } from "./getIterator.ts";
 
 /**
@@ -16,15 +16,15 @@ import { getIterator } from "./getIterator.ts";
  */
 export const some = (<Item, Predicated extends Item = never>(
 		predicate: Single<Predicated> extends Single<never> ?
-			Unary<[item: Item], boolean>
+			Filter<[item: Item]>
 		:	Predicate<Item, Predicated>,
-	): ((iterable: Iterable<Item>) => boolean) =>
+	): Filter<[iterable: Iterable<Item>]> =>
 	(iterable: Iterable<Item>) =>
 		getIterator(iterable).some(predicate)) as {
 	<Item, Predicated extends Item>(
 		predicate: Predicate<Item, Predicated>,
-	): (iterable: Iterable<Item>) => iterable is Iterable<Item & Predicated>;
+	): Predicate<Iterable<Item>, Iterable<Item & Predicated>>;
 	<Item>(
-		predicate: Unary<[item: Item], boolean>,
-	): (iterable: Iterable<Item>) => Promise<boolean>;
+		predicate: Filter<[item: Item]>,
+	): AsyncFilter<[iterable: Iterable<Item>]>;
 };

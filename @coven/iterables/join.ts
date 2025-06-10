@@ -1,4 +1,3 @@
-import { EMPTY_STRING } from "@coven/constants";
 import type { Stringable } from "@coven/types";
 import { reduce } from "./reduce.ts";
 
@@ -28,5 +27,5 @@ export const join =
 				first ?
 					((first = false), `${item}`)
 				:	`${string}${separator}${item}`,
-		)(EMPTY_STRING)(iterable) as `${string}${Separator}${string}`;
+		)("")(iterable) as `${string}${Separator}${string}`;
 	};

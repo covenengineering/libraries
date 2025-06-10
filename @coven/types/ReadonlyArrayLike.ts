@@ -15,7 +15,7 @@ import type { Single } from "./Single.ts";
  * @example
  * ```typescript
  * const numbers = [13, 42, 665] as const satisfies ReadonlyArrayLike<number>;
- * const strings = ["🧙‍♀️", "🔮", "💀"] as const satisfies ReadonlyArrayLike<
+ * const strings = ["✨", "🔮", "💀"] as const satisfies ReadonlyArrayLike<
  * 	string,
  * 	3
  * >;
@@ -31,13 +31,14 @@ import type { Single } from "./Single.ts";
 export type ReadonlyArrayLike<
 	Item = unknown,
 	Length extends number = number,
-> = {
+> = Readonly<{
 	/**
 	 * Amount of items in the {@linkcode ReadonlyArrayLike}.
 	 */
-	readonly length: Length;
-} & ReadonlyRecord<
-	NeverFallback<Exclude<Enumerate<Length>, Length>, number> & PropertyKey,
-	Exclude<Enumerate<Length>, Length> extends Single<never> ? Maybe<Item>
-	:	Item
->;
+	length: Length;
+}> &
+	ReadonlyRecord<
+		NeverFallback<Exclude<Enumerate<Length>, Length>, number> & PropertyKey,
+		Exclude<Enumerate<Length>, Length> extends Single<never> ? Maybe<Item>
+		:	Item
+	>;

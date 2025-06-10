@@ -1,8 +1,4 @@
 /**
- * Valid quantities for the quantity search.
+ * Valid quantities for the `quantity` quantifier util.
  */
-export type StringQuantity =
-	| `${number}`
-	| `${number}${number}`
-	| `${number},${number}`
-	| `${number},`;
+export type StringQuantity = `${bigint}` | `${bigint},${bigint}` | `${bigint},`;

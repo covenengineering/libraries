@@ -1,5 +1,5 @@
 import { memo } from "@coven/memo";
-import type { Unary } from "@coven/types";
+import type { Nullary, Unary } from "@coven/types";
 
 /**
  * Delayed evaluation function.
@@ -17,6 +17,6 @@ import type { Unary } from "@coven/types";
 export const thunk =
 	<Input, Output>(
 		unary: Unary<[input: Input], Output>,
-	): ((input: Input) => () => Output) =>
+	): Unary<[input: Input], Nullary<Output>> =>
 	input =>
 		memo(() => unary(input));

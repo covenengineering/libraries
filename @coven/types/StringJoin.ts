@@ -1,7 +1,5 @@
 import type { EmptyArray } from "./EmptyArray.ts";
-import type { EmptyString } from "./EmptyString.ts";
 import type { IndexArray } from "./IndexArray.ts";
-import type { ReadonlyArray } from "./ReadonlyArray.ts";
 import type { Stringable } from "./Stringable.ts";
 
 /**
@@ -9,10 +7,8 @@ import type { Stringable } from "./Stringable.ts";
  *
  * @example
  * ```typescript
- * type CovenEngineering = StringJoin<readonly ["Coven", "Engineering"], " ">; // "Coven Engineering"
+ * type CovenEngineering = StringJoin<Readonly<["Coven", "Engineering"]>, " ">; // "Coven Engineering"
  * ```
- * @see {@linkcode EmptyString}
- * @see {@linkcode ReadonlyArray}
  * @see {@linkcode Stringable}
  * @template StringableArray Array to join.
  * @template Glue String to use to glue items together.
@@ -21,11 +17,11 @@ import type { Stringable } from "./Stringable.ts";
  */
 export type StringJoin<
 	StringableArray extends ReadonlyArray<Stringable> = EmptyArray,
-	Glue extends string = EmptyString,
+	Glue extends string = "",
 	_Accumulator extends string = `${StringableArray[0]}`,
 	_Tracker extends ReadonlyArray<number> = IndexArray<1>,
 > =
-	StringableArray["length"] extends 0 ? EmptyString
+	StringableArray["length"] extends 0 ? ""
 	: StringableArray["length"] extends 1 ? _Accumulator
 	: _Tracker["length"] extends StringableArray["length"] ? _Accumulator
 	: StringJoin<

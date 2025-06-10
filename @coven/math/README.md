@@ -29,7 +29,7 @@ JavaScript runtimes.
 ```typescript
 import { calculate } from "@coven/math";
 
-calculate(0.1).plus(0.2); // 0.3 🤯
+calculate(0.1).plus(0.2).total; // 0.3 🤯
 ```
 
 ## Other links

@@ -1,5 +1,4 @@
 import type { CREATE_KIND } from "./CREATE_KIND.ts";
-import type { WithPropertyPath } from "./WithPropertyPath.ts";
 
 /**
  * Creation difference (property or value added).
@@ -14,14 +13,19 @@ import type { WithPropertyPath } from "./WithPropertyPath.ts";
  * ```
  * @template Right Type of the new value.
  */
-export type CreateDifference<Right = unknown> = {
+export type CreateDifference<Right = unknown> = Readonly<{
 	/**
 	 * Creation kind.
 	 */
-	readonly kind: typeof CREATE_KIND;
+	kind: typeof CREATE_KIND;
+
+	/**
+	 * Property path of created property.
+	 */
+	path: IterableIterator<PropertyKey>;
 
 	/**
 	 * New value.
 	 */
-	readonly right: Right;
-} & WithPropertyPath;
+	right: Right;
+}>;

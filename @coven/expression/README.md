@@ -18,9 +18,9 @@ JavaScript runtimes.
 ## Example
 
 ```typescript
-import { buildUnicode, group, or } from "@coven/expression";
+import { buildUnicode, disjunction, group } from "@coven/expression";
 
-buildUnicode(group(or("this", "that"))); // /(?:this|that)/u
+buildUnicode(group(disjunction("this", "that"))); // /(?:this|that)/u
 ```
 
 ## Other links

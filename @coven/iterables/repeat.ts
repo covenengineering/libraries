@@ -1,3 +1,4 @@
+import { memo } from "@coven/memo";
 import { iteratorFunctionToIterableIterator } from "./iteratorFunctionToIterableIterator.ts";
 
 /**
@@ -12,17 +13,20 @@ import { iteratorFunctionToIterableIterator } from "./iteratorFunctionToIterable
  * @param item Item to repeat.
  * @returns Curried function with `item` in context.
  */
-export const repeat =
-	(times: number): (<const Item>(item: Item) => IterableIterator<Item>) =>
-	<const Item>(item: Item) =>
-		iteratorFunctionToIterableIterator(function* (): Generator<Item> {
-			if (times === Infinity) {
-				for (;;) {
-					yield item;
+export const repeat: (
+	times: number,
+) => <const Item>(item: Item) => IterableIterator<Item> = memo(
+	(times): (<const Item>(item: Item) => IterableIterator<Item>) =>
+		<const Item>(item: Item) =>
+			iteratorFunctionToIterableIterator(function* (): Generator<Item> {
+				if (times === Infinity) {
+					for (;;) {
+						yield item;
+					}
+				} else {
+					for (let count = 0n; count < times; count += 1n) {
+						yield item;
+					}
 				}
-			} else {
-				for (let count = 0n; count < times; count += 1n) {
-					yield item;
-				}
-			}
-		});
+			}),
+);

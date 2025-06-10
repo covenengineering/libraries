@@ -5,8 +5,8 @@ import type { ReadonlyRecord } from "@coven/types";
  *
  * @example
  * ```typescript
- * const isPropertyOfFoo = isPropertyOf({ "🧙🏻‍♀️": "🎃" } as Record<string, string>);
- * isPropertyOfFoo("🧙🏻‍♀️"); // true
+ * const isPropertyOfFoo = isPropertyOf({ "✨": "🎃" } as Record<string, string>);
+ * isPropertyOfFoo("✨"); // true
  * isPropertyOfFoo("🎃"); // false
  * ```
  * @param object Object to check.

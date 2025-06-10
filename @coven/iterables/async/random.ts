@@ -1,3 +1,4 @@
+import type { Unary } from "@coven/types";
 import { cryptoNumber } from "@coven/utils";
 import { iteratorFunctionToAsyncIterableIterator } from "./iteratorFunctionToAsyncIterableIterator.ts";
 
@@ -17,7 +18,7 @@ import { iteratorFunctionToAsyncIterableIterator } from "./iteratorFunctionToAsy
  * iterableToArray(take(2)(random0To10)); // Two "random" values between 0 and 10
  * iterableToArray(take(2)(random0To10)); // Same two "random" values between 0 and 10
  * ```
- * @see [SubtleCrypto#digest](https://mdn.io/SubtleCrypto.digest)
+ * @see [SubtleCrypto#digest](https://coven.to/mdn/SubtleCrypto/digest)
  * @see [cryptoNumber](https://coven.to/utils/doc/~/cryptoNumber)
  * @param seed Seed to be used to generate random numbers.
  * @returns Curried generator function with `seed` set in context.
@@ -25,9 +26,10 @@ import { iteratorFunctionToAsyncIterableIterator } from "./iteratorFunctionToAsy
 export const random =
 	(
 		seed: string,
-	): ((
-		from: number,
-	) => (to: number) => Readonly<AsyncIterableIterator<number>>) =>
+	): Unary<
+		[from: number],
+		Unary<[to: number], Readonly<AsyncIterableIterator<number>>>
+	> =>
 	from =>
 	to =>
 		iteratorFunctionToAsyncIterableIterator(

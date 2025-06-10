@@ -1,4 +1,4 @@
-import type { Predicate, Unary } from "@coven/types";
+import type { Filter, Predicate, Unary } from "@coven/types";
 import { getIterator } from "./getIterator.ts";
 import { iteratorFunctionToIterableIterator } from "./iteratorFunctionToIterableIterator.ts";
 
@@ -21,14 +21,14 @@ import { iteratorFunctionToIterableIterator } from "./iteratorFunctionToIterable
 export const filter: {
 	<Item, Predicated extends Item>(
 		predicate: Predicate<Item, Predicated>,
-	): (iterable: Iterable<Item>) => IterableIterator<Predicated>;
+	): Unary<[iterable: Iterable<Item>], IterableIterator<Predicated>>;
 	<Item>(
-		predicate: Unary<[item: Item], boolean>,
-	): (iterable: Iterable<Item>) => IterableIterator<Item>;
+		predicate: Filter<[item: Item]>,
+	): Unary<[iterable: Iterable<Item>], IterableIterator<Item>>;
 } =
 	<Item>(
-		predicate: Unary<[item: Item], boolean>,
-	): ((iterable: Iterable<Item>) => IterableIterator<Item>) =>
+		predicate: Filter<[item: Item]>,
+	): Unary<[iterable: Iterable<Item>], IterableIterator<Item>> =>
 	iterable =>
 		iteratorFunctionToIterableIterator(() =>
 			getIterator(iterable).filter(predicate),

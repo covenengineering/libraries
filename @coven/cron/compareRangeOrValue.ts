@@ -1,6 +1,6 @@
+import { memo } from "@coven/memo";
 import type { ValueOrRangeField } from "./ValueOrRangeField.ts";
 import { isRangeField } from "./isRangeField.ts";
-import { FROM_NAME, TO_NAME } from "./rangeFieldNames.ts";
 
 /**
  * Compares `value` to a {@linkcode ValueOrRangeField}.
@@ -15,9 +15,13 @@ import { FROM_NAME, TO_NAME } from "./rangeFieldNames.ts";
  * @param value Value to be compared.
  * @returns Curried function expecting a {@linkcode ValueOrRangeField}.
  */
-export const compareRangeOrValue =
+export const compareRangeOrValue: (
+	value: number,
+) => (valueOrRange: ValueOrRangeField<number>) => boolean = memo(
 	(value: number): ((valueOrRange: ValueOrRangeField<number>) => boolean) =>
-	valueOrRange =>
-		isRangeField(valueOrRange) ?
-			value >= valueOrRange[FROM_NAME] && value <= valueOrRange[TO_NAME]
-		:	value === valueOrRange;
+		memo(valueOrRange =>
+			isRangeField(valueOrRange) ?
+				value >= valueOrRange.from && value <= valueOrRange.to
+			:	value === valueOrRange,
+		),
+);

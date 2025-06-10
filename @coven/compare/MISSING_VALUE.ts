@@ -1,4 +1,4 @@
 /**
  * Missing value symbol.
  */
-export const MISSING_VALUE: unique symbol = Symbol("🕳️");
+export const MISSING_VALUE = Symbol("MISSING_VALUE");

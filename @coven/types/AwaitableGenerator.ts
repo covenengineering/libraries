@@ -3,11 +3,11 @@
  *
  * @example
  * ```typescript
- * const generator: AwaitableGenerator<number> = (function* () {
- * 	yield 13;
+ * const generator: AwaitableGenerator<string> = (function* () {
+ * 	yield "✨";
  * })();
- * export const asyncGenerator: AwaitableGenerator<number> = (async function* () {
- * 	yield 13;
+ * export const asyncGenerator: AwaitableGenerator<string> = (async function* () {
+ * 	yield "✨";
  * })();
  * ```
  * @template Item Type of the items in the `AwaitableGenerator`.

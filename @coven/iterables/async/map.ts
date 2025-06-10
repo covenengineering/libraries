@@ -17,9 +17,10 @@ import { iteratorFunctionToAsyncIterableIterator } from "./iteratorFunctionToAsy
 export const map =
 	<Item, MappedItem>(
 		mapper: Unary<[item: Item], MappedItem>,
-	): ((
-		iterable: AwaitableIterable<Item>,
-	) => Readonly<AsyncIterableIterator<Awaited<MappedItem>>>) =>
+	): Unary<
+		[iterable: AwaitableIterable<Item>],
+		Readonly<AsyncIterableIterator<Awaited<MappedItem>>>
+	> =>
 	(iterable: AwaitableIterable<Item>) =>
 		iteratorFunctionToAsyncIterableIterator(
 			async function* (): AsyncGenerator<Awaited<MappedItem>> {

@@ -2,7 +2,7 @@ import { append, iterableToArray, toIterable } from "@coven/iterables";
 import { assertEquals } from "@std/assert";
 
 const numbersArray = [13, 42] as const;
-const stringsArray = ["🧙🏻‍♀️", "🎃"] as const;
+const stringsArray = ["✨", "🎃"] as const;
 const appendNumbers = append(numbersArray);
 
 Deno.test(

@@ -7,4 +7,4 @@
  * ```
  * @template Item Type of the single element.
  */
-export type Single<Item> = readonly [single: Item];
+export type Single<Item> = Readonly<[single: Item]>;

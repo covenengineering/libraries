@@ -9,6 +9,6 @@ import type { Maybe } from "./Maybe.ts";
  * const nullishNull = null satisfies Nullish;
  * ```
  * @see {@linkcode Maybe}
- * @see [Nullish](https://mdn.io/Nullish%20value)
+ * @see [Nullish](https://coven.to/mdn/Glossary/Nullish)
  */
 export type Nullish = Maybe<null>;

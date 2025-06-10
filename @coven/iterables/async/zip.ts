@@ -20,11 +20,11 @@ export const zip =
 		iterableFirst: AwaitableIterable<ItemFirst>,
 	): (<ItemSecond>(
 		iterableSecond: AwaitableIterable<ItemSecond>,
-	) => AsyncIterableIterator<readonly [ItemFirst, ItemSecond]>) =>
+	) => AsyncIterableIterator<Readonly<[ItemFirst, ItemSecond]>>) =>
 	<ItemSecond>(iterableSecond: AwaitableIterable<ItemSecond>) =>
 		iteratorFunctionToAsyncIterableIterator(
 			async function* (): AsyncGenerator<
-				readonly [ItemFirst, ItemSecond]
+				Readonly<[ItemFirst, ItemSecond]>
 			> {
 				const asyncIteratorSecond = getIterator(iterableSecond);
 

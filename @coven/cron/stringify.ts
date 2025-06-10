@@ -1,4 +1,5 @@
 import { EMPTY_OBJECT } from "@coven/constants";
+import { memo } from "@coven/memo";
 import type { Maybe } from "@coven/types";
 import type { CronObject } from "./CronObject.ts";
 import type { CronString } from "./CronString.ts";
@@ -28,12 +29,11 @@ import { ALL_TOKEN } from "./tokens.ts";
  * @param cron Cron object.
  * @returns Cron string expression.
  */
-export const stringify = (
-	cron: Partial<CronObject> = EMPTY_OBJECT,
-): Maybe<CronString> => {
-	const expression = fieldNamesTuple
-		.map(name => stringifyField(cron[name] ?? ALL_TOKEN))
-		.join(" ");
+export const stringify: (cron?: Partial<CronObject>) => Maybe<CronString> =
+	memo((cron: Partial<CronObject> = EMPTY_OBJECT) => {
+		const expression = fieldNamesTuple
+			.map(name => stringifyField(cron[name] ?? ALL_TOKEN))
+			.join(" ");
 
-	return isValidExpression(expression) ? expression : undefined;
-};
+		return isValidExpression(expression) ? expression : undefined;
+	});

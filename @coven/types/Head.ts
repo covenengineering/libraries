@@ -6,8 +6,8 @@ import type { ReadonlyArrayLike } from "./ReadonlyArrayLike.ts";
  *
  * @example
  * ```typescript
- * const array = ["🧙‍♀️", "🔮", "💀"] as const;
- * const head = "🧙‍♀️" as const satisfies Head<typeof array>;
+ * const array = ["✨", "🔮", "💀"] as const;
+ * const head = "✨" as const satisfies Head<typeof array>;
  *
  * const emptyArray = [] as const;
  * const emptyHead = undefined satisfies Head<typeof emptyArray>;

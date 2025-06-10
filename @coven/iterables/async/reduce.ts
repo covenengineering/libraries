@@ -20,11 +20,12 @@ export const reduce =
 			[item: Item],
 			Unary<[accumulator: Accumulator], Awaitable<Accumulator>>
 		>,
-	): ((
-		initialValue: Accumulator,
-	) => <Iterable extends AwaitableIterable<Item>>(
-		iterable: Iterable,
-	) => Promise<Accumulator>) =>
+	): Unary<
+		[initialValue: Accumulator],
+		<Iterable extends AwaitableIterable<Item>>(
+			iterable: Iterable,
+		) => Promise<Accumulator>
+	> =>
 	(initialValue: Accumulator) =>
 	async <Iterable extends AwaitableIterable<Item>>(iterable: Iterable) => {
 		let accumulator: Accumulator = initialValue;

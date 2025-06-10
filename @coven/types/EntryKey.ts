@@ -7,7 +7,7 @@ import type { Entry } from "./Entry.ts";
  * ```typescript
  * import type { Entry } from "@coven/types";
  *
- * const entry = ["🧙‍♀️", 13] as const satisfies Entry<string, number>;
+ * const entry = ["✨", 13] as const satisfies Entry<string, number>;
  * const entryKey = entry[0] satisfies EntryKey<typeof entry>;
  * ```
  * @see {@linkcode Entry}

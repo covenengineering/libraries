@@ -10,6 +10,6 @@ import type { Enumerate } from "./Enumerate.ts";
  * ```
  * @see {@linkcode Digit}
  * @see {@linkcode Enumerate}
- * @see [Date](https://mdn.io/Date)
+ * @see [Date](https://coven.to/mdn/Date)
  */
 export type ISOMonth = `0${Exclude<Digit, 0>}` | `1${Enumerate<2>}`;

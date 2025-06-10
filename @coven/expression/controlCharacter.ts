@@ -3,8 +3,18 @@ import type { UppercaseLetters } from "./UppercaseLetters.ts";
 import { escape } from "./escape.ts";
 
 /**
- * Escaped control character in the form \cZ. This can range from \cA (SOH, char
- * code 1) to \cZ (SUB, char code 26).
+ * Represents the control character with value equal to the letter's character
+ * value modulo 32. For example, `\cJ` represents line break (`\n`), because the
+ * code point of `J` is 74, and 74 modulo 32 is 10, which is the code point of
+ * line break.
+ *
+ * @example
+ * ```typescript
+ * controlCharacter("J"); // "\cJ"
+ * ```
+ * @see [Character escape](https://coven.to/mdn/Regular_expressions/Character_escape)
+ * @param character Control character.
+ * @returns Control character.
  */
 export const controlCharacter: <const Character extends UppercaseLetters>(
 	character: Character,

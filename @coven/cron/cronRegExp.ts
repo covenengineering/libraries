@@ -1,16 +1,16 @@
 import {
 	allow,
+	characterClass,
 	DIGIT,
+	disjunction,
 	END,
 	exists,
 	group,
 	join,
-	NOT_WHITESPACE,
-	notCaptureNext,
-	or,
+	negativeLookahead,
+	NON_WHITESPACE,
 	quantity,
 	range,
-	set,
 	START,
 	WHITESPACE,
 } from "@coven/expression";
@@ -50,15 +50,15 @@ export const cronRegExp: "^\\s*(?!(?:\\S+\\s+){2}(?:(?:(?:3[01](?:-3[01])?|(?:(?
 	join(
 		START,
 		allow(WHITESPACE),
-		notCaptureNext(
-			quantity(2)(group(exists(NOT_WHITESPACE), exists(WHITESPACE))),
+		negativeLookahead(
+			quantity(2)(group(exists(NON_WHITESPACE), exists(WHITESPACE))),
 			group(
-				or(
+				disjunction(
 					group(
-						valueRangeOrListRegExp(join(3, set(0, 1))),
+						valueRangeOrListRegExp(join(3, characterClass(0, 1))),
 						exists(WHITESPACE),
 						valueRangeOrListRegExp(
-							group(or(paddedRegExp(2), "feb")),
+							group(disjunction(paddedRegExp(2), "feb")),
 						),
 					),
 					group(
@@ -66,8 +66,8 @@ export const cronRegExp: "^\\s*(?!(?:\\S+\\s+){2}(?:(?:(?:3[01](?:-3[01])?|(?:(?
 						exists(WHITESPACE),
 						valueOrListRegExp(
 							group(
-								or(
-									paddedRegExp(set(2, 4, 6, 9)),
+								disjunction(
+									paddedRegExp(characterClass(2, 4, 6, 9)),
 									11,
 									"feb",
 									"apr",
@@ -81,27 +81,36 @@ export const cronRegExp: "^\\s*(?!(?:\\S+\\s+){2}(?:(?:(?:3[01](?:-3[01])?|(?:(?
 				),
 			),
 			exists(WHITESPACE),
-			exists(NOT_WHITESPACE),
+			exists(NON_WHITESPACE),
 		),
 		fieldRegExp(
 			"minute",
-			group(or(paddedRegExp(DIGIT), join(set(range(1)(5)), DIGIT))),
+			group(
+				disjunction(
+					paddedRegExp(DIGIT),
+					join(characterClass(range(1)(5)), DIGIT),
+				),
+			),
 		),
 		exists(WHITESPACE),
 		fieldRegExp(
 			"hour",
 			group(
-				or(paddedRegExp(DIGIT), join(1, DIGIT), join(2, range(0)(3))),
+				disjunction(
+					paddedRegExp(DIGIT),
+					join(1, DIGIT),
+					join(2, range(0)(3)),
+				),
 			),
 		),
 		exists(WHITESPACE),
 		fieldRegExp(
 			"dayOfMonth",
 			group(
-				or(
-					paddedRegExp(set(range(1)(9))),
-					join(set(1, 2), DIGIT),
-					join(3, set(0, 1)),
+				disjunction(
+					paddedRegExp(characterClass(range(1)(9))),
+					join(characterClass(1, 2), DIGIT),
+					join(3, characterClass(0, 1)),
 				),
 			),
 		),
@@ -109,7 +118,7 @@ export const cronRegExp: "^\\s*(?!(?:\\S+\\s+){2}(?:(?:(?:3[01](?:-3[01])?|(?:(?
 		fieldRegExp(
 			"month",
 			group(
-				or(
+				disjunction(
 					"jan",
 					"feb",
 					"mar",
@@ -122,8 +131,8 @@ export const cronRegExp: "^\\s*(?!(?:\\S+\\s+){2}(?:(?:(?:3[01](?:-3[01])?|(?:(?
 					"oct",
 					"nov",
 					"dec",
-					paddedRegExp(set(range(1)(9))),
-					join(1, set(range(0)(2))),
+					paddedRegExp(characterClass(range(1)(9))),
+					join(1, characterClass(range(0)(2))),
 				),
 			),
 		),
@@ -131,7 +140,7 @@ export const cronRegExp: "^\\s*(?!(?:\\S+\\s+){2}(?:(?:(?:3[01](?:-3[01])?|(?:(?
 		fieldRegExp(
 			"dayOfWeek",
 			group(
-				or(
+				disjunction(
 					"sun",
 					"mon",
 					"tue",
@@ -139,7 +148,7 @@ export const cronRegExp: "^\\s*(?!(?:\\S+\\s+){2}(?:(?:(?:3[01](?:-3[01])?|(?:(?
 					"thu",
 					"fri",
 					"sat",
-					paddedRegExp(set(range(0)(6))),
+					paddedRegExp(characterClass(range(0)(6))),
 				),
 			),
 		),

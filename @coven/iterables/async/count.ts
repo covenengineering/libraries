@@ -1,4 +1,4 @@
-import type { AwaitableIterable, Filter } from "@coven/types";
+import type { AsyncUnary, AwaitableIterable, Filter } from "@coven/types";
 import { filter } from "./filter.ts";
 import { length } from "./length.ts";
 
@@ -17,7 +17,7 @@ import { length } from "./length.ts";
  */
 export const count = <Item>(
 	predicate: Filter<[item: Item]>,
-): ((iterable: AwaitableIterable<Item>) => Promise<number>) => {
+): AsyncUnary<[iterable: AwaitableIterable<Item>], number> => {
 	const predicateFilter = filter(predicate);
 
 	return iterable => length(predicateFilter(iterable));

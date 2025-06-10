@@ -1,5 +1,4 @@
 import type { DELETE_KIND } from "./DELETE_KIND.ts";
-import type { WithPropertyPath } from "./WithPropertyPath.ts";
 
 /**
  * Deletion difference (property or value removed).
@@ -14,14 +13,19 @@ import type { WithPropertyPath } from "./WithPropertyPath.ts";
  * ```
  * @template Left Type of the removed/original value.
  */
-export type DeleteDifference<Left = unknown> = {
+export type DeleteDifference<Left = unknown> = Readonly<{
 	/**
 	 * Deletion kind.
 	 */
-	readonly kind: typeof DELETE_KIND;
+	kind: typeof DELETE_KIND;
 
 	/**
 	 * Removed/original value.
 	 */
-	readonly left: Left;
-} & WithPropertyPath;
+	left: Left;
+
+	/**
+	 * Property path of deleted property.
+	 */
+	path: IterableIterator<PropertyKey>;
+}>;

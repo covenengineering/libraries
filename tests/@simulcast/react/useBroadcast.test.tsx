@@ -28,12 +28,12 @@ const BroadcastComponent = ({
 	registry,
 	state,
 	...properties
-}: JSX.IntrinsicElements["button"] & {
-	readonly state: { calledTimes: number };
-	readonly registry: EventRegistry<{
-		click: MouseEvent<HTMLButtonElement>;
-	}>;
-}) => {
+}: Readonly<
+	JSX.IntrinsicElements["button"] & {
+		state: { calledTimes: number };
+		registry: EventRegistry<{ click: MouseEvent<HTMLButtonElement> }>;
+	}
+>) => {
 	const { emitClick, onClick } = useBroadcast(registry);
 
 	onClick(() => state.calledTimes++);
@@ -98,11 +98,14 @@ Deno.test("Broadcast's on handler is removed when unmounted", async () => {
 		return (
 			<>
 				{visible ?
-					<BroadcastComponent registry={registry} state={state1} />
+					<BroadcastComponent
+						{...{ registry }}
+						state={state1}
+					/>
 				:	null}
 				<BroadcastComponent
 					className="always-visible-broadcast"
-					registry={registry}
+					{...{ registry }}
 					state={state2}
 				/>
 				<button
@@ -132,14 +135,18 @@ Deno.test("Broadcast's on handler is removed when unmounted", async () => {
 		) as HTMLButtonElement;
 
 	// Click broadcast button that will be removed from the DOM
+	await timeout();
 	broadcastButton.click();
+	await timeout();
 	// Click broadcast button that will stay in the DOM
 	alwaysVisibleBroadcastButton.click();
+	await timeout();
 	// Click toggle button (removes the first broadcast button)
 	toggleButton.click();
 	await timeout();
 	// Click broadcast button that stayed again
 	alwaysVisibleBroadcastButton.click();
+	await timeout();
 	assertStrictEquals(state1.calledTimes, 2); // State 1 should have registered events until removed
 	assertStrictEquals(state2.calledTimes, 3); // State 2 should have registered all events
 });

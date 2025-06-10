@@ -13,6 +13,6 @@ import { zip } from "./zip.ts";
  */
 export const zipIndex: <ItemSecond>(
 	iterableSecond: Iterable<ItemSecond>,
-) => IterableIterator<readonly [number, ItemSecond]> = zip(
+) => IterableIterator<Readonly<[number, ItemSecond]>> = zip(
 	range(1)(0)(Infinity),
 );

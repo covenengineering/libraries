@@ -18,10 +18,10 @@ export const zip =
 		iterableFirst: Iterable<ItemFirst>,
 	): (<ItemSecond>(
 		iterableSecond: Iterable<ItemSecond>,
-	) => IterableIterator<readonly [ItemFirst, ItemSecond]>) =>
+	) => IterableIterator<Readonly<[ItemFirst, ItemSecond]>>) =>
 	<ItemSecond>(iterableSecond: Iterable<ItemSecond>) =>
 		iteratorFunctionToIterableIterator(function* (): Generator<
-			readonly [ItemFirst, ItemSecond]
+			Readonly<[ItemFirst, ItemSecond]>
 		> {
 			const iteratorSecond = getIterator(iterableSecond);
 

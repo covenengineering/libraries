@@ -3,7 +3,7 @@ import type { AwaitableIterable, IterableItem } from "@coven/types";
 import { iteratorFunctionToIterableIterator } from "./iteratorFunctionToIterableIterator.ts";
 
 /**
- * Takes a value, iterable and yields it.
+ * Takes an iterable value and yields it.
  *
  * @example
  * ```typescript

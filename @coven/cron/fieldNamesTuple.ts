@@ -1,18 +1,15 @@
-import {
-	DAY_OF_MONTH_NAME,
-	DAY_OF_WEEK_NAME,
-	HOUR_NAME,
-	MINUTE_NAME,
-	MONTH_NAME,
-} from "./fieldNames.ts";
+import type { KeyOf } from "@coven/types";
+import type { CronObject } from "./mod.ts";
 
 /**
  * Field names in order.
  */
-export const fieldNamesTuple = [
-	MINUTE_NAME,
-	HOUR_NAME,
-	DAY_OF_MONTH_NAME,
-	MONTH_NAME,
-	DAY_OF_WEEK_NAME,
-] as const;
+export const fieldNamesTuple: Readonly<
+	["minute", "hour", "dayOfMonth", "month", "dayOfWeek"]
+> = [
+	"minute",
+	"hour",
+	"dayOfMonth",
+	"month",
+	"dayOfWeek",
+] as const satisfies ReadonlyArray<KeyOf<CronObject>>;

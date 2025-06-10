@@ -12,6 +12,6 @@ import type { Digit } from "./Digit.ts";
  * ] as const satisfies Iterable<ISOMilliseconds>;
  * ```
  * @see {@linkcode Digit}
- * @see [Date](https://mdn.io/Date)
+ * @see [Date](https://coven.to/mdn/Date)
  */
 export type ISOMilliseconds = `${Digit}${Digit}${Digit}`;

@@ -14,6 +14,6 @@ import { zip } from "./zip.ts";
  */
 export const zipIndex: <ItemSecond>(
 	iterableSecond: AwaitableIterable<ItemSecond>,
-) => AsyncIterableIterator<readonly [number, ItemSecond]> = zip(
+) => AsyncIterableIterator<Readonly<[number, ItemSecond]>> = zip(
 	range(1)(0)(Infinity),
 );

@@ -1,4 +1,4 @@
-import type { AwaitableIterable, ReadonlyArray } from "@coven/types";
+import type { AwaitableIterable } from "@coven/types";
 
 /**
  * Turns given iterable or asynchronous iterable into an array.

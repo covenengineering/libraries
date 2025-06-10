@@ -20,9 +20,10 @@ export const reduce =
 			[item: Item],
 			Unary<[accumulator: Accumulator], Accumulator>
 		>,
-	): ((
-		initialValue: Accumulator,
-	) => (iterable: Iterable<Item>) => Accumulator) =>
+	): Unary<
+		[initialValue: Accumulator],
+		Unary<[iterable: Iterable<Item>], Accumulator>
+	> =>
 	initialValue =>
 	iterable =>
 		getIterator(iterable).reduce(

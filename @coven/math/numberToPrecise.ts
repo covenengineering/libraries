@@ -1,4 +1,3 @@
-import { EMPTY_STRING } from "@coven/constants";
 import { memo } from "@coven/memo";
 import { precise } from "./precise.ts";
 import type { Precise } from "./PreciseTuple.ts";
@@ -20,7 +19,7 @@ export const numberToPrecise: (number: number) => Precise = memo(
 	(number: number) => {
 		if (Number.isFinite(number) && !Number.isInteger(number)) {
 			const [base = "0", exponent = "0"] = `${number}`.split("e");
-			const [integral = "0", fractional = EMPTY_STRING] = `${base}`.split(
+			const [integral = "0", fractional = ""] = `${base}`.split(
 				".",
 			);
 

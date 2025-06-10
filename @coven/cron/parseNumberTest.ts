@@ -1,12 +1,12 @@
 import {
 	buildUnicode,
+	characterClass,
 	DIGIT,
+	disjunction,
 	END,
 	group,
 	join,
-	or,
 	range,
-	set,
 	START,
 } from "@coven/expression";
 import { test } from "@coven/predicates";
@@ -29,7 +29,12 @@ import { paddedRegExp } from "./paddedRegExp.ts";
 export const parseNumberTest: (text: string) => boolean = test(
 	buildUnicode(
 		START,
-		group(or(paddedRegExp(DIGIT), join(set(range(1)(5)), DIGIT))),
+		group(
+			disjunction(
+				paddedRegExp(DIGIT),
+				join(characterClass(range(1)(5)), DIGIT),
+			),
+		),
 		END,
 	),
 );

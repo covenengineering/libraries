@@ -1,11 +1,13 @@
 import { zip } from "@coven/iterables";
-import { FROM_NAME, TO_NAME } from "./rangeFieldNames.ts";
+import type { KeyOf } from "@coven/types";
+import type { RangeField } from "./RangeField.ts";
 
 /**
  * Zips "from" and "to".
  */
 export const zipRangeNames: <RangeNames>(
 	rangeNames: Iterable<RangeNames>,
-) => IterableIterator<
-	readonly [typeof FROM_NAME | typeof TO_NAME, RangeNames]
-> = zip([FROM_NAME, TO_NAME] as const);
+) => IterableIterator<Readonly<[KeyOf<RangeField<number>>, RangeNames]>> = zip([
+	"from",
+	"to",
+] as const);

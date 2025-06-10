@@ -8,10 +8,10 @@ import type { MonthValue } from "./MonthValue.ts";
  * @see {@linkcode Field}
  * @see {@linkcode MonthValue}
  */
-export type CronObject = {
-	readonly dayOfMonth: Field<DayOfMonth>;
-	readonly dayOfWeek: Field<DayOfWeek>;
-	readonly hour: Field<Hours>;
-	readonly minute: Field<Minutes>;
-	readonly month: Field<MonthValue>;
-};
+export type CronObject = Readonly<{
+	dayOfMonth: Field<DayOfMonth>;
+	dayOfWeek: Field<DayOfWeek>;
+	hour: Field<Hours>;
+	minute: Field<Minutes>;
+	month: Field<MonthValue>;
+}>;

@@ -1,4 +1,5 @@
-import { captureNamed, escape, or } from "@coven/expression";
+import { captureNamed, disjunction, escape } from "@coven/expression";
+import { memo } from "@coven/memo";
 import { ALL_TOKEN } from "./tokens.ts";
 import { valueRangeOrListRegExp } from "./valueRangeOrListRegExp.ts";
 
@@ -13,8 +14,13 @@ import { valueRangeOrListRegExp } from "./valueRangeOrListRegExp.ts";
  * @param value Possible values the expression can have.
  * @returns Named group capturing the given value by itself, in a list or range.
  */
-export const fieldRegExp = <Name extends string, Value extends string>(
+export const fieldRegExp: <Name extends string, Value extends string>(
 	name: Name,
 	value: Value,
-): `(?<${Name}>\\*|(?:${Value}(?:-${Value})?|(?:(?:${Value}(?:-${Value})?,)+${Value}(?:-${Value})?)))` =>
-	captureNamed(name)(or(escape(ALL_TOKEN), valueRangeOrListRegExp(value)));
+) => `(?<${Name}>\\*|(?:${Value}(?:-${Value})?|(?:(?:${Value}(?:-${Value})?,)+${Value}(?:-${Value})?)))` =
+	memo(
+		<Name extends string, Value extends string>(name: Name, value: Value) =>
+			captureNamed(name)(
+				disjunction(escape(ALL_TOKEN), valueRangeOrListRegExp(value)),
+			),
+	);

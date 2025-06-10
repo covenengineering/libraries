@@ -1,3 +1,5 @@
+import { memo } from "@coven/memo";
+import type { Unary } from "@coven/types";
 import { iteratorFunctionToIterableIterator } from "./iteratorFunctionToIterableIterator.ts";
 
 /**
@@ -11,18 +13,23 @@ import { iteratorFunctionToIterableIterator } from "./iteratorFunctionToIterable
  * @param step Step size.
  * @returns Curried function with `step` set in context.
  */
-export const range =
-	(
-		step: number,
-	): ((from: number) => (to: number) => IterableIterator<number>) =>
-	from =>
-	to =>
-		iteratorFunctionToIterableIterator(function* (): Generator<number> {
-			for (
-				let current = from;
-				from < to ? current <= to : current >= to;
-				current += from < to ? step : -step
-			) {
-				yield current;
-			}
-		});
+export const range = (
+	step: number,
+): Unary<[from: number], Unary<[to: number], IterableIterator<number>>> =>
+	memo(from =>
+		memo(to =>
+			iteratorFunctionToIterableIterator(function* (): Generator<number> {
+				if (from === to) {
+					yield from;
+				} else {
+					for (
+						let current = from;
+						from < to ? current <= to : current >= to;
+						current += from < to ? step : -step
+					) {
+						yield current;
+					}
+				}
+			}),
+		),
+	);
