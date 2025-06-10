@@ -1,12 +1,13 @@
-name: Publish Workspace
+name: Test and Publish Workspace
 
 on:
     push:
         branches:
-            - main
+            - "**"
 
 jobs:
-    publish:
+    test:
+        name: Run Tests
         runs-on: macos-latest
         permissions:
             contents: read
@@ -24,13 +25,13 @@ jobs:
               run: deno lint
 
             - name: Lint docs
-              run: deno run lint-docs
+              run: deno task lint-docs
 
             - name: Format
-              run: deno run format-check
+              run: deno task format-check
 
             - name: Test
-              run: deno run test-coverage
+              run: deno task test-coverage
 
             - name: Generate Coverage
               run:
@@ -41,6 +42,22 @@ jobs:
               uses: coverallsapp/github-action@v2
               with:
                   github-token: ${{ secrets.GITHUB_TOKEN }}
+    publish:
+        name: Publish to JSR
+        runs-on: macos-latest
+        needs: test
+        if: github.ref == 'refs/heads/main'
+        permissions:
+            contents: read
+            id-token: write
+        steps:
+            - name: Clone repository
+              uses: actions/checkout@v4
+
+            - name: Set up Deno
+              uses: denoland/setup-deno@v2
+              with:
+                  deno-version: 2.x
 
             - name: Publish to JSR
               run: deno publish
