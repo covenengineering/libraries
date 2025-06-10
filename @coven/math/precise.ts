@@ -1,4 +1,4 @@
-import { EMPTY_ARRAY, EMPTY_OBJECT } from "@coven/constants";
+import { EMPTY_ARRAY } from "@coven/constants";
 import {
 	allow,
 	buildUnicode,
