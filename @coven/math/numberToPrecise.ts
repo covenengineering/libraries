@@ -19,9 +19,7 @@ export const numberToPrecise: (number: number) => Precise = memo(
 	(number: number) => {
 		if (Number.isFinite(number) && !Number.isInteger(number)) {
 			const [base = "0", exponent = "0"] = `${number}`.split("e");
-			const [integral = "0", fractional = ""] = `${base}`.split(
-				".",
-			);
+			const [integral = "0", fractional = ""] = `${base}`.split(".");
 
 			return precise(
 				BigInt(`${integral}${fractional}`),
