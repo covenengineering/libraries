@@ -1,7 +1,8 @@
-import type { ReadonlyArray, Stringable } from "@coven/types";
+import type { Stringable } from "@coven/types";
 import type { FormatFunction } from "./FormatFunction.ts";
 import { normalizeString } from "./normalizeString.ts";
 import { sgr } from "./sgr.ts";
+import { memo } from "@coven/memo";
 
 /**
  * Format wrapper function.
@@ -22,7 +23,7 @@ import { sgr } from "./sgr.ts";
  * @param close Close string.
  * @returns Curried function with `open` and `close` in context.
  */
-export const format = ((open, close) => {
+export const format = memo((open, close) => {
 	const sgrOpen = sgr(open);
 	const sgrClose = sgr(close);
 
@@ -34,12 +35,14 @@ export const format = ((open, close) => {
 	 * @param expressions Input expressions (when using tagged templates)
 	 * @returns Formatted `input` string.
 	 */
-	return (
-		input: string | TemplateStringsArray,
-		...expressions: ReadonlyArray<Stringable>
-	) =>
-		`${sgrOpen}${normalizeString(input, ...expressions).replaceAll(
-			sgrClose,
-			sgrOpen,
-		)}${sgrClose}`;
+	return memo(
+		(
+			input: string | TemplateStringsArray,
+			...expressions: ReadonlyArray<Stringable>
+		) =>
+			`${sgrOpen}${normalizeString(input, ...expressions).replaceAll(
+				sgrClose,
+				sgrOpen,
+			)}${sgrClose}`,
+	);
 }) as FormatFunction;

@@ -1,8 +1,4 @@
-import type {
-	ReadonlyArray,
-	ReadonlyTemplateStringsArray,
-	Stringable,
-} from "@coven/types";
+import type { ReadonlyTemplateStringsArray, Stringable } from "@coven/types";
 
 /**
  * Formatter function that takes a string or a tagged template.
@@ -19,7 +15,7 @@ import type {
  * formatter("Coven Engineering"); // "Coven Engineering"
  * formatter`Coven Engineering`; // "Coven Engineering"
  * ```
- * @see [Tagged templates](https://mdn.io/Tagged%20templates)
+ * @see [Tagged templates](https://coven.to/mdn/Template_literals)
  * @param input Array of strings for template strings or a single string,
  * followed by an array of expressions (if any).
  * @returns A plain string.

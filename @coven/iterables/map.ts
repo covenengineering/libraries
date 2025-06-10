@@ -18,7 +18,7 @@ import { iteratorFunctionToIterableIterator } from "./iteratorFunctionToIterable
 export const map =
 	<Item, MappedItem>(
 		mapper: Unary<[item: Item], MappedItem>,
-	): ((iterable: Iterable<Item>) => IterableIterator<MappedItem>) =>
+	): Unary<[iterable: Iterable<Item>], IterableIterator<MappedItem>> =>
 	(iterable: Iterable<Item>) =>
 		iteratorFunctionToIterableIterator(() =>
 			getIterator(iterable).map(mapper),

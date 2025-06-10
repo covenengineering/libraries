@@ -1,4 +1,5 @@
 import { join, optional } from "@coven/expression";
+import { memo } from "@coven/memo";
 
 /**
  * Regular expression to match field with an optional `0` to it's left.
@@ -10,6 +11,8 @@ import { join, optional } from "@coven/expression";
  * @param value Value to pad.
  * @returns RegExp to match value with padded `0`.
  */
-export const paddedRegExp = <Value extends number | string>(
+export const paddedRegExp: <Value extends number | string>(
 	value: Value,
-): `0?${Value}` => join(optional(0), value);
+) => `0?${Value}` = memo(<Value extends number | string>(value: Value) =>
+	join(optional(0), value),
+);

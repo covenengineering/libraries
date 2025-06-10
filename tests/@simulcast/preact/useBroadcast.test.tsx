@@ -26,12 +26,14 @@ const BroadcastComponent = ({
 	registry,
 	state,
 	...properties
-}: JSX.IntrinsicElements["button"] & {
-	readonly state: { calledTimes: number };
-	readonly registry: EventRegistry<{
-		click: JSX.TargetedMouseEvent<HTMLButtonElement>;
-	}>;
-}) => {
+}: Readonly<
+	JSX.IntrinsicElements["button"] & {
+		state: { calledTimes: number };
+		registry: EventRegistry<{
+			click: JSX.TargetedMouseEvent<HTMLButtonElement>;
+		}>;
+	}
+>) => {
 	const { emitClick, onClick } = useBroadcast(registry);
 
 	onClick(() => state.calledTimes++);
@@ -96,7 +98,10 @@ Deno.test("Broadcast's on handler is removed when unmounted", async () => {
 		return (
 			<>
 				{visible ?
-					<BroadcastComponent state={state1} {...{ registry }} />
+					<BroadcastComponent
+						state={state1}
+						{...{ registry }}
+					/>
 				:	null}
 				<BroadcastComponent
 					className="always-visible-broadcast"

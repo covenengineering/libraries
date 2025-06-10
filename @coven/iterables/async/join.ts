@@ -1,4 +1,3 @@
-import { EMPTY_STRING } from "@coven/constants";
 import type { AwaitableIterable, Stringable } from "@coven/types";
 import { reduce } from "./reduce.ts";
 
@@ -29,5 +28,5 @@ export const join =
 				first ?
 					((first = false), `${item}`)
 				:	`${string}${separator}${item}`,
-		)(EMPTY_STRING)(iterable) as Promise<`${string}${Separator}${string}`>;
+		)("")(iterable) as Promise<`${string}${Separator}${string}`>;
 	};

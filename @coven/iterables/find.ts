@@ -1,4 +1,4 @@
-import type { Maybe, Unary } from "@coven/types";
+import type { Filter, Maybe, Unary } from "@coven/types";
 import { getIterator } from "./getIterator.ts";
 
 /**
@@ -16,7 +16,7 @@ import { getIterator } from "./getIterator.ts";
  */
 export const find =
 	<Item>(
-		predicate: Unary<[item: Item], boolean>,
-	): ((iterable: Iterable<Item>) => Maybe<Item>) =>
+		predicate: Filter<[item: Item]>,
+	): Unary<[iterable: Iterable<Item>], Maybe<Item>> =>
 	iterable =>
 		getIterator(iterable).find(predicate) as Maybe<Item>;

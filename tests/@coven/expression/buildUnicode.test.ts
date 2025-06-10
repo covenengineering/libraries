@@ -1,8 +1,8 @@
-import { buildUnicode, group, or } from "@coven/expression";
+import { buildUnicode, disjunction, group } from "@coven/expression";
 import { assertEquals } from "@std/assert";
 
 const regExp = /(?:13|coven)/u;
-const createdRegExp = buildUnicode(group(or(13, "coven")));
+const createdRegExp = buildUnicode(group(disjunction(13, "coven")));
 
 Deno.test('Grouping 13 and the string "coven" returns expected RegExp', () =>
 	assertEquals(

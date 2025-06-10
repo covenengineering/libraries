@@ -8,10 +8,12 @@
  * is2(2); // true
  * is2(8); // false
  * ```
- * @see [Object.is](https://mdn.io/Object.is)
+ * @see [Object.is](https://coven.to/mdn/Object/is)
  * @returns Curried function with `expected` in context.
  */
-export const is =
+export const is: <const Expected>(
+	expected: Expected,
+) => (actual: unknown) => actual is Expected =
 	<const Expected>(
 		expected: Expected,
 	): ((actual: unknown) => actual is Expected) =>

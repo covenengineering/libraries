@@ -8,13 +8,13 @@ Deno.test("Prepend key to existing path", () =>
 		flat([
 			prepend13({
 				kind: DELETE_KIND,
-				left: "🧙🏻‍♀️",
+				left: "✨",
 				path: (function* (): Generator<PropertyKey> {
 					yield 42;
 				})(),
 			}),
 		]),
-		[{ kind: DELETE_KIND, left: "🧙🏻‍♀️", path: [13, 42] }],
+		[{ kind: DELETE_KIND, left: "✨", path: [13, 42] }],
 	),
 );
 
@@ -23,14 +23,14 @@ Deno.test("Prepend key to missing path yields prepended key", () =>
 		flat([
 			prepend13({
 				kind: DELETE_KIND,
-				left: "🧙🏻‍♀️",
+				left: "✨",
 				path: [].values(),
 			}),
 		]),
 		[
 			{
 				kind: DELETE_KIND,
-				left: "🧙🏻‍♀️",
+				left: "✨",
 				path: [13],
 			},
 		],

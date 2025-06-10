@@ -1,4 +1,4 @@
-import type { Predicate, Unary } from "@coven/types";
+import type { Filter, Predicate } from "@coven/types";
 import { getIterator } from "./getIterator.ts";
 
 /**
@@ -14,13 +14,11 @@ import { getIterator } from "./getIterator.ts";
  * @param predicate Predicate function to evaluate each item.
  * @returns Curried function with `predicate` set in context.
  */
-export const every = (<Item>(predicate: Unary<[item: Item], boolean>) =>
+export const every = (<Item>(predicate: Filter<[item: Item]>) =>
 	(iterable: Iterable<Item>) =>
 		getIterator(iterable).every(predicate)) as {
 	<Item, Predicated extends Item>(
 		predicate: Predicate<Item, Predicated>,
-	): (iterable: Iterable<Item>) => iterable is Iterable<Predicated>;
-	<Item>(
-		predicate: Unary<[item: Item], boolean>,
-	): (iterable: Iterable<Item>) => boolean;
+	): Predicate<Iterable<Item>, Iterable<Predicated>>;
+	<Item>(predicate: Filter<[item: Item]>): Filter<[iterable: Iterable<Item>]>;
 };

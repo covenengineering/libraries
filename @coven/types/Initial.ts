@@ -6,8 +6,8 @@ import type { ReadonlyArrayLike } from "./ReadonlyArrayLike.ts";
  *
  * @example
  * ```typescript
- * const array = ["🧙‍♀️", "🔮", "💀"] as const;
- * const initial = ["🧙‍♀️", "🔮"] as const satisfies Initial<typeof array>;
+ * const array = ["✨", "🔮", "💀"] as const;
+ * const initial = ["✨", "🔮"] as const satisfies Initial<typeof array>;
  * ```
  * @see {@linkcode InitialAndLast}
  * @see {@linkcode ReadonlyArrayLike}

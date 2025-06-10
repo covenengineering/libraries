@@ -2,9 +2,9 @@ import {
 	allow,
 	buildUnicode,
 	captureNamed,
+	characterClass,
 	END,
 	range,
-	set,
 	START,
 	WORD,
 } from "@coven/expression";
@@ -15,13 +15,10 @@ import type { Replace } from "@coven/types";
  */
 export const onRegExp: Replace<
 	RegExp,
-	{
-		readonly flags: "u";
-		readonly source: "^on(?<name>[A-Z]\\w*)$";
-	}
+	Readonly<{ flags: "u"; source: "^on(?<name>[A-Z]\\w*)$" }>
 > = buildUnicode(
 	START,
 	"on",
-	captureNamed("name")(set(range("A")("Z")), allow(WORD)),
+	captureNamed("name")(characterClass(range("A")("Z")), allow(WORD)),
 	END,
 );

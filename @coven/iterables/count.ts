@@ -1,4 +1,4 @@
-import type { Filter } from "@coven/types";
+import type { Filter, Unary } from "@coven/types";
 import { filter } from "./filter.ts";
 import { length } from "./length.ts";
 
@@ -16,7 +16,7 @@ import { length } from "./length.ts";
  */
 export const count = <Item>(
 	predicate: Filter<[item: Item]>,
-): ((iterable: Iterable<Item>) => number) => {
+): Unary<[iterable: Iterable<Item>], number> => {
 	const predicateFilter = filter(predicate);
 
 	return (iterable: Iterable<Item>) => length(predicateFilter(iterable));

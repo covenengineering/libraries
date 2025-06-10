@@ -8,10 +8,14 @@ import type { MemoCacheValueUnion } from "./MemoCacheValueUnion.ts";
 /**
  * Reducer used to access a nested `Map` used as cache.
  *
+ * > [!CAUTION]
+ * > This throws if value is not serializable by [structuredClone](https://coven.to/mdn/Window/structuredClone).
+ *
  * @param cache Cache to get the value from (`Map`).
  * @param item Item to retrieve.
  * @param value Optional value to set if not set still.
- *
+ * @template Item Cached item.
+ * @template Value Value to cache.
  * @returns Cache or value.
  */
 export const memoizedCacheReducer = <

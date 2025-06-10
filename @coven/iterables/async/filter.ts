@@ -1,4 +1,4 @@
-import type { AwaitableIterable, Predicate, Unary } from "@coven/types";
+import type { AwaitableIterable, Filter, Predicate, Unary } from "@coven/types";
 import { iteratorFunctionToAsyncIterableIterator } from "./iteratorFunctionToAsyncIterableIterator.ts";
 
 /**
@@ -20,14 +20,20 @@ import { iteratorFunctionToAsyncIterableIterator } from "./iteratorFunctionToAsy
 export const filter: {
 	<Item, Predicated extends Item>(
 		predicate: Predicate<Item, Predicated>,
-	): (iterable: AwaitableIterable<Item>) => AsyncIterableIterator<Predicated>;
+	): Unary<
+		[iterable: AwaitableIterable<Item>],
+		AsyncIterableIterator<Predicated>
+	>;
 	<Item>(
-		predicate: Unary<[item: Item], boolean>,
-	): (iterable: AwaitableIterable<Item>) => AsyncIterableIterator<Item>;
+		predicate: Filter<[item: Item]>,
+	): Unary<[iterable: AwaitableIterable<Item>], AsyncIterableIterator<Item>>;
 } =
 	<Item>(
-		predicate: Unary<[item: Item], boolean>,
-	): ((iterable: AwaitableIterable<Item>) => AsyncIterableIterator<Item>) =>
+		predicate: Filter<[item: Item]>,
+	): Unary<
+		[iterable: AwaitableIterable<Item>],
+		AsyncIterableIterator<Item>
+	> =>
 	iterable =>
 		iteratorFunctionToAsyncIterableIterator(
 			async function* (): AsyncGenerator<Item> {

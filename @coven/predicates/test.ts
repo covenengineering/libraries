@@ -1,4 +1,5 @@
 import { attempt } from "@coven/parsers";
+import type { Filter } from "@coven/types";
 
 /**
  * Given a regular expression and a string, returns `true` if the string matches
@@ -17,7 +18,7 @@ import { attempt } from "@coven/parsers";
 export const test = ({
 	flags,
 	source,
-}: Pick<Readonly<RegExp>, "flags" | "source">): ((text: string) => boolean) => {
+}: Pick<Readonly<RegExp>, "flags" | "source">): Filter<[text: string]> => {
 	const attemptTest = attempt((text: string) =>
 		new RegExp(source, flags).test(text),
 	);

@@ -7,5 +7,5 @@ import type { Effect, Single } from "@coven/types";
  * @see [Effect](https://coven.to/types/doc/~/Effect)
  */
 export type EventHandler<Data> = Effect<
-	Single<Data> extends Single<never> ? readonly [] : readonly [data: Data]
+	Single<Data> extends Single<never> ? Readonly<[]> : Readonly<[data: Data]>
 >;

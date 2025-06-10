@@ -2,24 +2,24 @@ import { EMPTY_ARRAY, EMPTY_OBJECT } from "@coven/constants";
 import { has } from "@coven/predicates";
 import { assert, assertFalse } from "@std/assert";
 
-const witch = "🧙🏻‍♀️";
-const witchSymbol = Symbol(witch);
+const magic = "✨";
+const magicSymbol = Symbol(magic);
 const number = 1;
 
-const objectWithString = { [witch]: witch };
-const objectWithSymbol = { [witchSymbol]: witchSymbol };
+const objectWithString = { [magic]: magic };
+const objectWithSymbol = { [magicSymbol]: magicSymbol };
 const objectWithNumber = { [number]: number };
-const arrayWith2Items = [witch, witch];
-const arrayWith1Item = [witch];
+const arrayWith2Items = [magic, magic];
+const arrayWith1Item = [magic];
 const emptyObject = EMPTY_OBJECT;
 const emptyArray = EMPTY_ARRAY;
 
 Deno.test("Object with string key when looking for a string key", () =>
-	assert(has(witch)(objectWithString)),
+	assert(has(magic)(objectWithString)),
 );
 
 Deno.test("Object with symbol key when looking for a symbol key", () =>
-	assert(has(witchSymbol)(objectWithSymbol)),
+	assert(has(magicSymbol)(objectWithSymbol)),
 );
 
 Deno.test("Object with number key when looking for a number key", () =>
@@ -39,11 +39,11 @@ Deno.test("Empty array looking for a number key", () =>
 );
 
 Deno.test("Empty object when looking for a string key", () =>
-	assertFalse(has(witch)(emptyObject)),
+	assertFalse(has(magic)(emptyObject)),
 );
 
 Deno.test("Empty object when looking for a symbol key", () =>
-	assertFalse(has(witchSymbol)(emptyObject)),
+	assertFalse(has(magicSymbol)(emptyObject)),
 );
 
 Deno.test("Empty object when looking for a number key", () =>
@@ -51,11 +51,11 @@ Deno.test("Empty object when looking for a number key", () =>
 );
 
 Deno.test("Object with symbol key when looking for a string key", () =>
-	assertFalse(has(witch)(objectWithSymbol)),
+	assertFalse(has(magic)(objectWithSymbol)),
 );
 
 Deno.test("Object with number key when looking for a symbol key", () =>
-	assertFalse(has(witchSymbol)(objectWithNumber)),
+	assertFalse(has(magicSymbol)(objectWithNumber)),
 );
 
 Deno.test("Object with string key when looking for a number key", () =>

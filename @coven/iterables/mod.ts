@@ -1,6 +1,7 @@
 export { append } from "./append.ts";
 export { count } from "./count.ts";
 export { drop } from "./drop.ts";
+export { EMPTY_ITERABLE_ITERATOR } from "./EMPTY_ITERABLE_ITERATOR.ts";
 export { entriesToObject } from "./entriesToObject.ts";
 export { every } from "./every.ts";
 export { filter } from "./filter.ts";

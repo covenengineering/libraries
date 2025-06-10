@@ -8,6 +8,6 @@ import type { Enumerate } from "./Enumerate.ts";
  * const daysOfWeek = [0, 1, 2, 3, 4, 5, 6] as const satisfies Iterable<DayOfWeek>;
  * ```
  * @see {@linkcode Enumerate}
- * @see [Date](https://mdn.io/Date)
+ * @see [Date](https://coven.to/mdn/Date)
  */
 export type DayOfWeek = Enumerate<6>;

@@ -1,5 +1,4 @@
 import { iterableToArray } from "@coven/iterables";
-import type { ReadonlyArray } from "@coven/types";
 import type { Difference } from "./Difference.ts";
 import type { FlatDifference } from "./FlatDifference.ts";
 import { flatPathMap } from "./flatPathMap.ts";

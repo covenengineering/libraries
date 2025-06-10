@@ -1,3 +1,4 @@
+import { memo } from "@coven/memo";
 import { parseDecimal } from "@coven/parsers";
 import type { Maybe } from "@coven/types";
 import type { AllToken } from "./AllToken.ts";
@@ -24,9 +25,11 @@ import type { RangeField } from "./RangeField.ts";
  * @param field Cron field value (should be validated before this).
  * @returns Parsed field.
  */
-export const parseField = (
+export const parseField: (
 	field: string,
-): AllToken | Maybe<number> | RangeField<number> | ListField<number> =>
-	isAllToken(field) ? field : (
-		(parseList(field) ?? parseRange(field) ?? parseDecimal(field))
-	);
+) => AllToken | Maybe<number> | RangeField<number> | ListField<number> = memo(
+	(field: string) =>
+		isAllToken(field) ? field : (
+			(parseList(field) ?? parseRange(field) ?? parseDecimal(field))
+		),
+);

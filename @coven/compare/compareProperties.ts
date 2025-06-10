@@ -1,6 +1,14 @@
-import { append, flat, map, unique } from "@coven/iterables";
+import {
+	append,
+	EMPTY_ITERABLE_ITERATOR,
+	flat,
+	map,
+	unique,
+} from "@coven/iterables";
+import { is, isObject } from "@coven/predicates";
 import { compare } from "./compare.ts";
 import type { CurriedComparison } from "./CurriedComparison.ts";
+import { differentiate } from "./differentiate.ts";
 import { getKeys } from "./getKeys.ts";
 import { MISSING_VALUE } from "./MISSING_VALUE.ts";
 import { pathPrepend } from "./pathPrepend.ts";
@@ -13,16 +21,18 @@ import { pathPrepend } from "./pathPrepend.ts";
  *
  * @example Compare objects
  * ```typescript
- * const compareWitch = compareProperties({ witch: "🧙‍♀️" });
- * compareWitch({ witch: "🎃" }); // Yields { kind: "UPDATE", left: "🧙‍♀️", right: "🎃", path: ["witch"] }
+ * const compareMagic = compareProperties({ magic: "✨" });
+ * compareMagic({ magic: "🎃" }); // Yields { kind: "UPDATE", left: "✨", right: "🎃", path: ["magic"] }
  * ```
  * @see {@linkcode compare}
  * @see {@linkcode getKeys}
  * @param left Original object.
  * @returns Curried generator with `left` in context.
  */
-export const compareProperties = (left: object): CurriedComparison<object> => {
+export const compareProperties = (left: object): CurriedComparison<unknown> => {
 	const ownKeysLeft = getKeys(left);
+	const isLeft = is(left);
+	const differentiateLeft = differentiate(left);
 
 	/**
 	 * Curried {@linkcode compareProperties} with `left` set in context.
@@ -31,19 +41,22 @@ export const compareProperties = (left: object): CurriedComparison<object> => {
 	 * @yields Differences.
 	 */
 	return right =>
-		flat(
-			map((key: string | symbol) =>
-				map(pathPrepend(key))(
-					compare(
-						key in left ?
-							left[key as keyof typeof left]
-						:	MISSING_VALUE,
-					)(
-						key in right ?
-							right[key as keyof typeof right]
-						:	MISSING_VALUE,
+		isLeft(right) ? EMPTY_ITERABLE_ITERATOR
+		: isObject(right) ?
+			flat(
+				map((key: string | symbol) =>
+					map(pathPrepend(key))(
+						compare(
+							key in left ?
+								left[key as keyof typeof left]
+							:	MISSING_VALUE,
+						)(
+							key in right ?
+								right[key as keyof typeof right]
+							:	MISSING_VALUE,
+						),
 					),
-				),
-			)(unique(append(getKeys(right))(ownKeysLeft))),
-		);
+				)(unique(append(getKeys(right))(ownKeysLeft))),
+			)
+		:	differentiateLeft(right);
 };

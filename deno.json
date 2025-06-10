@@ -12,15 +12,15 @@
 	},
 	"exclude": ["coverage"],
 	"imports": {
-		"@std/assert": "jsr:@std/assert@^1.0.11",
-		"@types/react": "npm:@types/react@^19.0.11",
-		"@types/react-dom": "npm:@types/react-dom@^19.0.4",
-		"linkedom": "npm:linkedom@^0.18.9",
-		"preact": "npm:preact@^10.26.4",
+		"@std/assert": "jsr:@std/assert@^1.0.13",
+		"@types/react": "npm:@types/react@^19.1.6",
+		"@types/react-dom": "npm:@types/react-dom@^19.1.5",
+		"linkedom": "npm:linkedom@^0.18.10",
+		"preact": "npm:preact@^10.26.8",
 		"preact-render-to-string": "npm:preact-render-to-string@^6.5.13",
 		"prettier": "npm:prettier@^3.5.3",
-		"react": "npm:react@^19.0.0",
-		"react-dom": "npm:react-dom@^19.0.0"
+		"react": "npm:react@^19.1.0",
+		"react-dom": "npm:react-dom@^19.1.0"
 	},
 	"lint": {
 		"rules": {
@@ -56,11 +56,11 @@
 	},
 	"nodeModulesDir": "auto",
 	"tasks": {
-		"format": "deno run --allow-env --allow-read --allow-write --allow-sys npm:prettier --log-level=warn --write './**/*.{json,md,ts,tsx}'",
-		"format-check": "deno run --allow-env --allow-read --allow-sys npm:prettier --check './**/*.{json,md,ts,tsx}'",
+		"format": "deno run --allow-env=_nodeLRUCacheForceNoSymbol,AC_APPCIRCLE,AGOLA_GIT_REF,APPCENTER_BUILD_ID,APPVEYOR,bamboo_planKey,BITBUCKET_COMMIT,BITRISE_IO,BUDDY_WORKSPACE_ID,BUILD_ID,BUILD_NUMBER,BUILDER_OUTPUT,BUILDKITE,CACHE_DIR,CF_BUILD_ID,CI_APP_ID,CI_BUILD_ID,CI_BUILD_NUMBER,CI_NAME,CI_XCODE_PROJECT,CI,CIRCLECI,CIRRUS_CI,CM_BUILD_ID,CODEBUILD_BUILD_ARN,COLORTERM,CONTINUOUS_INTEGRATION,DRONE,DSARI,EARTHLY_CI,EAS_BUILD,GERRIT_PROJECT,GITEA_ACTIONS,GITHUB_ACTIONS,GITLAB_CI,GO_PIPELINE_LABEL,HARNESS_BUILD_ID,HUDSON_URL,IGNORE_TEST_WIN32,JENKINS_URL,LAYERCI,MAGNUM,NETLIFY,NEVERCODE,NODE_ENV,NODE,NOW_BUILDER,npm_package_name,PRETTIER_PERF_REPEAT,PROW_JOB_ID,RELEASE_BUILD_ID,RENDER,RUN_ID,SAILCI,SCREWDRIVER,SEMAPHORE,STRIDER,TASK_ID,TEAMCITY_VERSION,TERM,TEST_PSEUDOMAP,TF_BUILD,TMPDIR,TRAVIS,VELA,VERCEL,XCS --allow-read=.,$TMPDIR/.prettier-cache --allow-write=.,$TMPDIR/.prettier-cache --allow-sys=cpus --no-prompt npm:prettier --log-level=warn --write './**/*.{json,md,ts,tsx}'",
+		"format-check": "deno run --allow-env=_nodeLRUCacheForceNoSymbol,AC_APPCIRCLE,AGOLA_GIT_REF,APPCENTER_BUILD_ID,APPVEYOR,bamboo_planKey,BITBUCKET_COMMIT,BITRISE_IO,BUDDY_WORKSPACE_ID,BUILD_ID,BUILD_NUMBER,BUILDER_OUTPUT,BUILDKITE,CACHE_DIR,CF_BUILD_ID,CI_APP_ID,CI_BUILD_ID,CI_BUILD_NUMBER,CI_NAME,CI_XCODE_PROJECT,CI,CIRCLECI,CIRRUS_CI,CM_BUILD_ID,CODEBUILD_BUILD_ARN,COLORTERM,CONTINUOUS_INTEGRATION,DRONE,DSARI,EARTHLY_CI,EAS_BUILD,GERRIT_PROJECT,GITEA_ACTIONS,GITHUB_ACTIONS,GITLAB_CI,GO_PIPELINE_LABEL,HARNESS_BUILD_ID,HUDSON_URL,IGNORE_TEST_WIN32,JENKINS_URL,LAYERCI,MAGNUM,NETLIFY,NEVERCODE,NODE_ENV,NODE,NOW_BUILDER,npm_package_name,PRETTIER_PERF_REPEAT,PROW_JOB_ID,RELEASE_BUILD_ID,RENDER,RUN_ID,SAILCI,SCREWDRIVER,SEMAPHORE,STRIDER,TASK_ID,TEAMCITY_VERSION,TERM,TEST_PSEUDOMAP,TF_BUILD,TMPDIR,TRAVIS,VELA,VERCEL,XCS --allow-read=.,$TMPDIR/.prettier-cache --allow-sys=cpus --no-prompt npm:prettier --check './**/*.{json,md,ts,tsx}'",
 		"lint-docs": "deno doc --lint ./@coven/**/*.ts ./@simulcast/**/*.ts",
-		"test": "deno test --parallel",
-		"test-coverage": "deno test --coverage --doc --parallel --quiet"
+		"test": "deno test --allow-env=NODE_ENV --parallel",
+		"test-coverage": "deno test --allow-env=NODE_ENV --coverage --doc --parallel --quiet"
 	},
 	"workspace": [
 		"./@coven/compare",

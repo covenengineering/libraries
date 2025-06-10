@@ -8,6 +8,6 @@ import type { Enumerate } from "./Enumerate.ts";
  * const seconds = [0, 30, 59] as const satisfies Iterable<Seconds>;
  * ```
  * @see {@linkcode Enumerate}
- * @see [Date](https://mdn.io/Date)
+ * @see [Date](https://coven.to/mdn/Date)
  */
 export type Seconds = Enumerate<59>;

@@ -1,3 +1,4 @@
+import { memo } from "@coven/memo";
 import { valueOrListRegExp } from "./valueOrListRegExp.ts";
 import { valueOrRangeRegExp } from "./valueOrRangeRegExp.ts";
 
@@ -11,7 +12,9 @@ import { valueOrRangeRegExp } from "./valueOrRangeRegExp.ts";
  * @param value Value to match by itself, as a range or as a list.
  * @returns RegExp to match value, range or list.
  */
-export const valueRangeOrListRegExp = <Value extends number | string>(
+export const valueRangeOrListRegExp: <Value extends number | string>(
 	value: Value,
-): `(?:${Value}(?:-${Value})?|(?:(?:${Value}(?:-${Value})?,)+${Value}(?:-${Value})?))` =>
-	valueOrListRegExp(valueOrRangeRegExp(value));
+) => `(?:${Value}(?:-${Value})?|(?:(?:${Value}(?:-${Value})?,)+${Value}(?:-${Value})?))` =
+	memo(<Value extends number | string>(value: Value) =>
+		valueOrListRegExp(valueOrRangeRegExp(value)),
+	);

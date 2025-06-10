@@ -1,9 +1,21 @@
 import { memo } from "@coven/memo";
-import type { Stringable } from "@coven/types";
+import type { Stringable, StringJoin } from "@coven/types";
+import { join } from "./join.ts";
 
 /**
- * Matches 0 or more of the preceding token.
+ * Matches a minimum of `0` and a maximum of `Infinity` of the given item.
+ *
+ * @example
+ * ```typescript
+ * allow("✨", "🔮", "💀"); // "✨🔮💀*"
+ * ```
+ * @see [Quantifier](https://coven.to/mdn/Regular_expressions/Quantifier)
+ * @param items Items to be quantified.
+ * @returns Quantified items.
  */
-export const allow: <const Token extends Stringable>(
-	token: Token,
-) => `${Token}*` = memo(token => `${token}*` as const);
+export const allow: <const Items extends ReadonlyArray<Stringable>>(
+	...items: Items
+) => `${StringJoin<Items, "">}*` = memo(
+	<const Items extends ReadonlyArray<Stringable>>(...items: Items) =>
+		join(...items, "*") as `${StringJoin<Items, "">}*`,
+);

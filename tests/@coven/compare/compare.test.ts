@@ -13,7 +13,7 @@ const property1 = "property1";
 const property2 = "property2";
 
 Deno.test("Comparing same string yields nothing", () =>
-	assertEquals(flat(compare("witch")("witch")), EMPTY_ARRAY),
+	assertEquals(flat(compare("magic")("magic")), EMPTY_ARRAY),
 );
 
 Deno.test("Comparing same object yields nothing", () =>
@@ -21,10 +21,10 @@ Deno.test("Comparing same object yields nothing", () =>
 );
 
 Deno.test("Comparing different string yields `UpdateDifference`", () =>
-	assertEquals(flat(compare("witch")("cat")), [
+	assertEquals(flat(compare("magic")("cat")), [
 		{
 			kind: UPDATE_KIND,
-			left: "witch",
+			left: "magic",
 			path: [],
 			right: "cat",
 		},
@@ -32,14 +32,14 @@ Deno.test("Comparing different string yields `UpdateDifference`", () =>
 );
 
 Deno.test("Comparing equal arrays yields nothing", () =>
-	assertEquals(flat(compare(["witch"])(["witch"])), EMPTY_ARRAY),
+	assertEquals(flat(compare(["magic"])(["magic"])), EMPTY_ARRAY),
 );
 
 Deno.test("Comparing different arrays yields `UpdateDifference`", () =>
-	assertEquals(flat(compare(["witch"])(["cat"])), [
+	assertEquals(flat(compare(["magic"])(["cat"])), [
 		{
 			kind: UPDATE_KIND,
-			left: "witch",
+			left: "magic",
 			path: [0],
 			right: "cat",
 		},
@@ -48,7 +48,7 @@ Deno.test("Comparing different arrays yields `UpdateDifference`", () =>
 
 Deno.test("Comparing equal objects yields nothing", () =>
 	assertEquals(
-		flat(compare({ [property1]: "witch" })({ [property1]: "witch" })),
+		flat(compare({ [property1]: "magic" })({ [property1]: "magic" })),
 		EMPTY_ARRAY,
 	),
 );
@@ -57,11 +57,11 @@ Deno.test(
 	"Comparing objects with different property values yields `UpdateDifference`",
 	() =>
 		assertEquals(
-			flat(compare({ [property1]: "witch" })({ [property1]: "cat" })),
+			flat(compare({ [property1]: "magic" })({ [property1]: "cat" })),
 			[
 				{
 					kind: UPDATE_KIND,
-					left: "witch",
+					left: "magic",
 					path: [property1],
 					right: "cat",
 				},
@@ -73,10 +73,10 @@ Deno.test(
 	"Comparing objects with different property keys yields `UpdateDifference`",
 	() =>
 		assertEquals(
-			flat(compare({ [property1]: "witch" })({ [property2]: "witch" })),
+			flat(compare({ [property1]: "magic" })({ [property2]: "magic" })),
 			[
-				{ kind: DELETE_KIND, left: "witch", path: [property1] },
-				{ kind: CREATE_KIND, path: [property2], right: "witch" },
+				{ kind: DELETE_KIND, left: "magic", path: [property1] },
+				{ kind: CREATE_KIND, path: [property2], right: "magic" },
 			],
 		),
 );
@@ -84,8 +84,8 @@ Deno.test(
 Deno.test("Comparing array with new items yields `CreateDifference`", () =>
 	assertEquals(
 		flat(
-			compare([{ [property1]: "witch" }])([
-				{ [property1]: "witch" },
+			compare([{ [property1]: "magic" }])([
+				{ [property1]: "magic" },
 				{ [property2]: "cat" },
 			]),
 		),
@@ -96,8 +96,8 @@ Deno.test("Comparing array with new items yields `CreateDifference`", () =>
 Deno.test("Comparing array with less items yields `DeleteDifference`", () =>
 	assertEquals(
 		flat(
-			compare([{ [property1]: "witch" }, { [property2]: "cat" }])([
-				{ [property1]: "witch" },
+			compare([{ [property1]: "magic" }, { [property2]: "cat" }])([
+				{ [property1]: "magic" },
 			]),
 		),
 		[
@@ -132,8 +132,8 @@ Deno.test("Comparing equal URL objects yields nothing", () =>
 Deno.test("Comparing equal `Error` objects yields nothing", () =>
 	assertEquals(
 		flat(
-			compare(Object.assign(new Error("witch"), { stack: "test" }))(
-				Object.assign(new Error("witch"), { stack: "test" }),
+			compare(Object.assign(new Error("magic"), { stack: "test" }))(
+				Object.assign(new Error("magic"), { stack: "test" }),
 			),
 		),
 		EMPTY_ARRAY,
@@ -143,8 +143,8 @@ Deno.test("Comparing equal `Error` objects yields nothing", () =>
 Deno.test("Comparing equal `Map` objects yields nothing", () =>
 	assertEquals(
 		flat(
-			compare(new Map([["coven", "witch"]]))(
-				new Map([["coven", "witch"]]),
+			compare(new Map([["coven", "magic"]]))(
+				new Map([["coven", "magic"]]),
 			),
 		),
 		EMPTY_ARRAY,
@@ -153,7 +153,7 @@ Deno.test("Comparing equal `Map` objects yields nothing", () =>
 
 Deno.test("Comparing equal `Set` objects yields nothing", () =>
 	assertEquals(
-		flat(compare(new Set(["witch"]))(new Set(["witch"]))),
+		flat(compare(new Set(["magic"]))(new Set(["magic"]))),
 		EMPTY_ARRAY,
 	),
 );

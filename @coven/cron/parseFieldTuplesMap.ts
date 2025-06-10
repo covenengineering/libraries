@@ -20,17 +20,19 @@ import type { RangeField } from "./RangeField.ts";
  * @see {@linkcode parseField}
  */
 export const parseFieldTuplesMap: (
-	fieldTuples: Iterable<readonly [name: keyof CronObject, field: string]>,
+	fieldTuples: Iterable<Readonly<[name: keyof CronObject, field: string]>>,
 ) => IterableIterator<
-	readonly [
-		name: keyof CronObject,
-		parsedField:
-			| AllToken
-			| Maybe<number>
-			| RangeField<number>
-			| ListField<number>,
-	]
+	Readonly<
+		[
+			name: keyof CronObject,
+			parsedField:
+				| AllToken
+				| Maybe<number>
+				| RangeField<number>
+				| ListField<number>,
+		]
+	>
 > = map(
-	([name, field]: readonly [name: keyof CronObject, field: string]) =>
+	([name, field]: Readonly<[name: keyof CronObject, field: string]>) =>
 		[name, parseField(field)] as const,
 );

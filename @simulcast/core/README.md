@@ -8,9 +8,15 @@
 This library is an extremely minimal pub-sub implementation that uses iterables
 to make the dispatched events as responsive as possible for users.
 
+The main idea behind this library is to make communication between different
+frameworks or even between vanilla JS and frameworks extremely easy to
+implement. This is specially useful when migrating from one framework to
+another.
+
 The library can be used directly, or through some of the framework specific
-adapters like `@simulcast/react`. Because it uses really simple structures, it
-can be consumed from pretty much any place that supports JavaScript.
+adapters like [`@simulcast/react`](https://simulcast.coven.to/react). Because it
+uses really simple structures, it can be consumed from pretty much any place
+that supports JavaScript.
 
 Like all [Coven Engineering](https://coven.engineering) libraries, it has 100%
 test coverage and it's built in top of modern tech compatible with all

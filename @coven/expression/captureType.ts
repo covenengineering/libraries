@@ -1,28 +1,30 @@
 import { memo } from "@coven/memo";
-import type {
-	EmptyString,
-	ReadonlyArray,
-	Stringable,
-	StringJoin,
-} from "@coven/types";
+import type { Stringable, StringJoin } from "@coven/types";
 import { capture } from "./capture.ts";
 import { join } from "./join.ts";
 
 /**
  * Helper for all groups that start with `?`.
+ *
+ * @example
+ * ```typescript
+ * captureType("✨")("🔮", "💀"); // "(?✨🔮💀)"
+ * ```
+ * @param type string that follows `?`.
+ * @returns Curried function with `type` in context.
  */
 export const captureType: <const Type extends Stringable>(
 	type: Type,
-) => <const Captured extends ReadonlyArray<Stringable>>(
-	...captured: Captured
-) => `(?${Type}${StringJoin<Captured, EmptyString>})` = memo(
+) => <const Pattern extends ReadonlyArray<Stringable>>(
+	...pattern: Pattern
+) => `(?${Type}${StringJoin<Pattern, "">})` = memo(
 	<const Type extends Stringable>(type: Type) =>
 		memo(
-			<const Captured extends ReadonlyArray<Stringable>>(
-				...captured: Captured
+			<const Pattern extends ReadonlyArray<Stringable>>(
+				...pattern: Pattern
 			) =>
 				capture(
-					`?${type}${join(...captured)}`,
-				) as `(?${Type}${StringJoin<Captured, EmptyString>})`,
+					`?${type}${join(...pattern)}`,
+				) as `(?${Type}${StringJoin<Pattern, "">})`,
 		),
 );

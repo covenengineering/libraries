@@ -1,5 +1,5 @@
 import { is } from "@coven/predicates";
-import type { AwaitableIterable } from "@coven/types";
+import type { AsyncFilter, AwaitableIterable } from "@coven/types";
 import { some } from "./some.ts";
 
 /**
@@ -16,4 +16,4 @@ import { some } from "./some.ts";
  */
 export const includes = <SearchItem>(
 	searchItem: SearchItem,
-): ((iterable: AwaitableIterable) => Promise<boolean>) => some(is(searchItem));
+): AsyncFilter<[iterable: AwaitableIterable]> => some(is(searchItem));

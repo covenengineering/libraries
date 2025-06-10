@@ -1,3 +1,4 @@
+import { memo } from "@coven/memo";
 import { ESCAPE } from "./ESCAPE.ts";
 
 /**
@@ -12,6 +13,6 @@ import { ESCAPE } from "./ESCAPE.ts";
  * @param input Input to escape.
  * @returns SGR sequence.
  */
-export const sgr = <const Input extends number>(
+export const sgr: <const Input extends number>(
 	input: Input,
-): `${typeof ESCAPE}[${Input}m` => `${ESCAPE}[${input}m`;
+) => `${typeof ESCAPE}[${Input}m` = memo(input => `${ESCAPE}[${input}m`);

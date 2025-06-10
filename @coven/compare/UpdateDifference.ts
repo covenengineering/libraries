@@ -1,5 +1,4 @@
 import type { UPDATE_KIND } from "./UPDATE_KIND.ts";
-import type { WithPropertyPath } from "./WithPropertyPath.ts";
 
 /**
  * Update difference (property or value changed).
@@ -16,17 +15,24 @@ import type { WithPropertyPath } from "./WithPropertyPath.ts";
  * @template Left Type of the original value.
  * @template Right Type of the new value.
  */
-export type UpdateDifference<Left = unknown, Right = unknown> = {
+export type UpdateDifference<Left = unknown, Right = unknown> = Readonly<{
 	/**
 	 * Update kind.
 	 */
-	readonly kind: typeof UPDATE_KIND;
+	kind: typeof UPDATE_KIND;
+
 	/**
 	 * Original value.
 	 */
-	readonly left: Left;
+	left: Left;
+
+	/**
+	 * Property path of updated property.
+	 */
+	path: IterableIterator<PropertyKey>;
+
 	/**
 	 * New value.
 	 */
-	readonly right: Right;
-} & WithPropertyPath;
+	right: Right;
+}>;

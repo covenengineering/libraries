@@ -8,7 +8,7 @@
  * @example
  * ```typescript
  * const record = {
- * 	"🧙‍♀️": [13, 42],
+ * 	"✨": [13, 42],
  * 	"😈": [665, 666],
  * } as const satisfies ReadonlyRecord<string, ReadonlyArray<number>>;
  * ```

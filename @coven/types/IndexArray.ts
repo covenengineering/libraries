@@ -1,5 +1,4 @@
 import type { EmptyArray } from "./EmptyArray.ts";
-import type { ReadonlyArray } from "./ReadonlyArray.ts";
 
 /**
  * Recursively generates an Array type with the given length.
@@ -11,11 +10,9 @@ import type { ReadonlyArray } from "./ReadonlyArray.ts";
  * ```typescript
  * type Array10 = IndexArray<10>; // [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
  * ```
- * @see {@linkcode ReadonlyArray}
  * @template Length Length of generated Array type.
  * @template _Accumulator **⚠️ INTERNAL:** Accumulator for the recursion.
  * @see {@linkcode EmptyArray}
- * @see {@linkcode ReadonlyArray}
  */
 export type IndexArray<
 	Length extends number = 0,

@@ -1,5 +1,5 @@
 /**
- * Identity function.
+ * Identity function (returns the same value it receives).
  *
  * @example
  * ```typescript

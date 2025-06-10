@@ -1,47 +1,53 @@
 export { allow } from "./allow.ts";
+export { backreference } from "./backreference.ts";
+export {
+	END,
+	NON_WORD_BOUNDARY,
+	START,
+	WORD_BOUNDARY,
+} from "./boundaryAssertionts.ts";
 export { build } from "./build.ts";
 export { buildUnicode } from "./buildUnicode.ts";
 export { capture } from "./capture.ts";
-export { capturedNumber } from "./capturedNumber.ts";
 export { captureNamed } from "./captureNamed.ts";
-export { captureNext } from "./captureNext.ts";
-export { capturePrevious } from "./capturePrevious.ts";
 export { captureType } from "./captureType.ts";
+export { characterClass } from "./characterClass.ts";
 export {
-	ALL,
-	CARRIAGE_RETURN,
 	DIGIT,
-	END,
-	FORM_FEED,
-	LINE_FEED,
-	NOT_DIGIT,
-	NOT_WHITESPACE,
-	NOT_WORD,
-	NOT_WORD_BOUNDARY,
-	NULL,
-	START,
-	TAB,
-	VERTICAL_TAB,
+	NON_DIGIT,
+	NON_WHITESPACE,
+	NON_WORD,
 	WHITESPACE,
 	WORD,
-	WORD_BOUNDARY,
-} from "./constants.ts";
+} from "./characterClassEscape.ts";
+export {
+	CARRIAGE_RETURN,
+	FORM_FEED,
+	HORIZONTAL_TAB,
+	LINE_FEED,
+	NULL,
+	VERTICAL_TAB,
+} from "./characterEscape.ts";
+export { complementClass } from "./complementClass.ts";
 export { controlCharacter } from "./controlCharacter.ts";
+export { disjunction } from "./disjunction.ts";
 export { escape } from "./escape.ts";
 export { exists } from "./exists.ts";
 export { group } from "./group.ts";
 export { hexadecimal } from "./hexadecimal.ts";
 export type { HexadecimalDigit } from "./HexadecimalDigit.ts";
 export { join } from "./join.ts";
-export { notCaptureNext } from "./notCaptureNext.ts";
-export { notCapturePrevious } from "./notCapturePrevious.ts";
-export { notSet } from "./notSet.ts";
-export { notUnicodeCharacterClassEscape } from "./notUnicodeCharacterClassEscape.ts";
+export { lookahead } from "./lookahead.ts";
+export { lookbehind } from "./lookbehind.ts";
+export { modifier } from "./modifier.ts";
+export { namedBackreference } from "./namedBackreference.ts";
+export { negativeLookahead } from "./negativeLookahead.ts";
+export { negativeLookbehind } from "./negativeLookbehind.ts";
+export { nonUnicodeCharacterClass } from "./nonUnicodeCharacterClass.ts";
 export { optional } from "./optional.ts";
-export { or } from "./or.ts";
 export { quantity } from "./quantity.ts";
 export { range } from "./range.ts";
-export { set } from "./set.ts";
 export { unicode } from "./unicode.ts";
-export { unicodeCharacterClassEscape } from "./unicodeCharacterClassEscape.ts";
+export { unicodeCharacterClass } from "./unicodeCharacterClass.ts";
 export type { UppercaseLetters } from "./UppercaseLetters.ts";
+export { WILDCARD } from "./WILDCARD.ts";

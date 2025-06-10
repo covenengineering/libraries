@@ -1,4 +1,4 @@
-import { EMPTY_ARRAY, EMPTY_OBJECT, EMPTY_STRING } from "@coven/constants";
+import { EMPTY_ARRAY, EMPTY_OBJECT } from "@coven/constants";
 import { isTruthy } from "@coven/predicates";
 import { assert, assertFalse } from "@std/assert";
 
@@ -64,7 +64,7 @@ Deno.test("Falsies", () =>
 			isTruthy(+0) ||
 			isTruthy(NaN) ||
 			// String
-			isTruthy(EMPTY_STRING) ||
+			isTruthy("") ||
 			isTruthy(``),
 	),
 );

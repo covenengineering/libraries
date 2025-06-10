@@ -6,11 +6,12 @@ import type { HasFunction } from "./HasFunction.ts";
  *
  * @example
  * ```typescript
- * const hasCircle = has("🧙🏻‍♀️");
+ * const hasCircle = has("✨");
  *
- * hasCircle({ "🧙🏻‍♀️": "🔮" }); // true
- * hasCircle({ "🔮": "🧙🏻‍♀️" }); // false
+ * hasCircle({ "✨": "🔮" }); // true
+ * hasCircle({ "🔮": "✨" }); // false
  * ```
+ * @param property Property to search.
  * @returns Curried function with `property` in context.
  */
 export const has =

@@ -1,5 +1,4 @@
 import type { Awaitable } from "./Awaitable.ts";
-import type { ReadonlyArray } from "./ReadonlyArray.ts";
 
 /**
  * Awaitable effect function.
@@ -9,10 +8,12 @@ import type { ReadonlyArray } from "./ReadonlyArray.ts";
  *
  * @example
  * ```typescript
- * const awaitableEffect = (input => Promise.resolve(console.log(input))) satisfies AwaitableEffect<[input: number]>;
+ * const awaitableEffect = (input => Promise.resolve(console.log(input))) satisfies AwaitableEffect<[input: string]>;
  * ```
+ * @see [Promise](https://coven.to/mdn/Promise)
+ * @see {@linkcode Awaitable}
  * @template Arguments Tuple of arguments.
  */
-export type AwaitableEffect<Arguments extends ReadonlyArray> =
-	Arguments extends readonly [] ? () => Awaitable<void>
+export type AwaitableEffect<Arguments extends ReadonlyArray<unknown>> =
+	Arguments extends Readonly<[]> ? () => Awaitable<void>
 	:	(..._: Arguments) => Awaitable<void>;

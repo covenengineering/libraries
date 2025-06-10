@@ -1,4 +1,4 @@
-import type { Head, IterableItem, Maybe, ReadonlyArray } from "@coven/types";
+import type { Head, IterableItem, Maybe } from "@coven/types";
 import { getIterator } from "./getIterator.ts";
 
 /**
@@ -13,10 +13,10 @@ import { getIterator } from "./getIterator.ts";
  */
 export const head = <IterableToGetHead extends Iterable<unknown>>(
 	iterable: IterableToGetHead,
-): IterableToGetHead extends ReadonlyArray ? Head<IterableToGetHead>
+): IterableToGetHead extends ReadonlyArray<unknown> ? Head<IterableToGetHead>
 :	Maybe<IterableItem<IterableToGetHead>> =>
 	getIterator(iterable).next().value as IterableToGetHead extends (
-		ReadonlyArray
+		ReadonlyArray<unknown>
 	) ?
 		Head<IterableToGetHead>
 	:	Maybe<IterableItem<IterableToGetHead>>;

@@ -1,27 +1,29 @@
+import type { AwaitableIterator, Nullary } from "@coven/types";
+
 /**
  * Takes a generator function and returns an iterable iterator or asynchronous
  * iterable iterator object.
  *
  * @example
  * ```typescript
- * const witchGenerator = function* () { yield "🧙🏻‍♀️"; };
- * const witchIterableIterator = iteratorFunctionToAsyncIterableIterator(witchGenerator);
+ * const magicGenerator = function* () { yield "✨"; };
+ * const magicIterableIterator = iteratorFunctionToAsyncIterableIterator(magicGenerator);
  *
- * for await (const value of witchIterableIterator) {
- * 	console.log(value); // "🧙🏻‍♀️"
+ * for await (const value of magicIterableIterator) {
+ * 	console.log(value); // "✨"
  * }
  *
  * // Same AsyncIterableIterator as above, return values again:
  *
- * for await (const value of witchIterableIterator) {
- * 	console.log(value); // "🧙🏻‍♀️"
+ * for await (const value of magicIterableIterator) {
+ * 	console.log(value); // "✨"
  * }
  * ```
  * @param iteratorFunction Generator to be used every time `Symbol.iterator` or `Symbol.asyncIterator` is called.
  * @returns Iterable iterator object.
  */
 export const iteratorFunctionToAsyncIterableIterator = <Item>(
-	iteratorFunction: (() => Iterator<Item>) | (() => AsyncIterator<Item>),
+	iteratorFunction: Nullary<AwaitableIterator<Item>>,
 ): AsyncIterableIterator<Item> => {
 	const iterator = iteratorFunction();
 

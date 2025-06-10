@@ -87,4 +87,4 @@ JavaScript runtimes.
 <!-- Reference -->
 
 [ansi-escape-code]: https://en.wikipedia.org/wiki/ANSI_escape_code
-[template-literals]: https:/mdn.io/Template_literals
+[template-literals]: https://coven.to/mdn/Template_literals

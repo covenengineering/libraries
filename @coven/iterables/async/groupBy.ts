@@ -2,7 +2,6 @@ import { EMPTY_ARRAY, EMPTY_OBJECT } from "@coven/constants";
 import type {
 	AwaitableIterable,
 	Maybe,
-	ReadonlyArray,
 	ReadonlyRecord,
 	Unary,
 } from "@coven/types";

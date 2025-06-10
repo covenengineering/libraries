@@ -8,14 +8,14 @@ import type { Primitive } from "./Primitive.ts";
  * const clone = structuredClone({} satisfies StructuredData);
  * ```
  * @see {@linkcode Primitive}
- * @see [structuredClone](https://mdn.io/structuredClone)
+ * @see [structuredClone](https://coven.to/mdn/Window/structuredClone)
  */
 export type StructuredData =
-	| {
+	| Readonly<{
 			/**
 			 * @see {@linkcode StructuredData} untyped property.
 			 */
-			readonly [property: string]: StructuredData;
-	  }
+			[property: string]: StructuredData;
+	  }>
 	| Exclude<Primitive, symbol>
 	| ReadonlyArray<StructuredData>;

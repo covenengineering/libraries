@@ -1,5 +1,5 @@
 import { EMPTY_ARRAY, EMPTY_OBJECT } from "@coven/constants";
-import type { Maybe, ReadonlyArray, ReadonlyRecord, Unary } from "@coven/types";
+import type { Maybe, ReadonlyRecord, Unary } from "@coven/types";
 import { set } from "@coven/utils";
 import { reduce } from "./reduce.ts";
 
@@ -17,7 +17,10 @@ import { reduce } from "./reduce.ts";
  */
 export const groupBy = <Item, Key extends PropertyKey>(
 	grouper: Unary<[item: Item], Key>,
-): ((iterable: Iterable<Item>) => Readonly<Record<Key, ReadonlyArray<Item>>>) =>
+): Unary<
+	[iterable: Iterable<Item>],
+	Readonly<Record<Key, ReadonlyArray<Item>>>
+> =>
 	reduce((item: Item) => {
 		const group = grouper(item);
 

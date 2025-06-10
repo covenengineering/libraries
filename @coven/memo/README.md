@@ -21,7 +21,8 @@ JavaScript runtimes.
 ```typescript
 import { memo } from "@coven/memo";
 
-memo(["foo", "bar"]) === memo(["foo", "bar"]); // true
+memo(["✨", "🔮", "💀"]) === memo(["✨", "🔮", "💀"]); // true
+memo(["✨", "🔮", "💀"]); // Frozen Array: ["✨", "🔮", "💀"]
 ```
 
 ## Other links

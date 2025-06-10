@@ -8,7 +8,7 @@ import type { ReadonlyArrayLike } from "./ReadonlyArrayLike.ts";
  * @example
  * ```typescript
  * const object = {
- * 	"🧙‍♀️": 13,
+ * 	"✨": 13,
  * 	"🔮": 42,
  * } as const;
  * const entries = Object.entries(object)[0] as EntryOf<typeof object>;
@@ -18,14 +18,14 @@ import type { ReadonlyArrayLike } from "./ReadonlyArrayLike.ts";
  * @see {@linkcode ReadonlyArrayLike}
  * @template Object Object to get the entry from.
  */
-export type EntryOf<Object extends object> = {
+export type EntryOf<Object extends object> = Readonly<{
 	/**
 	 * @see {@linkcode EntryOf} property that shouldn't be referenced directly
 	 */
-	readonly [Property in KeyOf<Object>]: Entry<
+	[Property in KeyOf<Object>]: Entry<
 		Property,
 		Property extends keyof Object ? Object[Property]
 		: Object extends ReadonlyArrayLike ? Object[number]
 		: never
 	>;
-}[KeyOf<Object>];
+}>[KeyOf<Object>];

@@ -1,4 +1,3 @@
-import type { ReadonlyArray } from "./ReadonlyArray.ts";
 import type { ReadonlyTemplateStringsArray } from "./ReadonlyTemplateStringsArray.ts";
 
 /**
@@ -10,14 +9,13 @@ import type { ReadonlyTemplateStringsArray } from "./ReadonlyTemplateStringsArra
  * 	parseInt(strings.join(""), 16)) satisfies Tagger<number>;
  * hexParser`f`; // 15
  * ```
- * @see {@linkcode ReadonlyArray}
- * @see [Template Literals](https://mdn.io/Template%20literals)
+ * @see [Template Literals](https://coven.to/mdn/Template_literals)
  * @template Output Type of the output value.
  * @template Expressions Type of the expressions.
  */
 export type Tagger<
 	Output = string,
-	Expressions extends ReadonlyArray = ReadonlyArray,
+	Expressions extends ReadonlyArray<unknown> = ReadonlyArray<unknown>,
 > = (
 	templateStrings: ReadonlyTemplateStringsArray,
 	...expressions: Expressions

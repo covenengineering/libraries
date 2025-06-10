@@ -4,7 +4,7 @@
  * @example
  * ```typescript
  * createObject(); // {}
- * createObject({ witch: "🧙🏻‍♀️" }); // { witch: "🧙🏻‍♀️" }
+ * createObject({ magic: "✨" }); // { magic: "✨" }
  * ```
  * @param source Optional base object.
  * @returns Clean object (with `null` prototype).

@@ -1,3 +1,4 @@
+import { memo } from "@coven/memo";
 import type { Field } from "./Field.ts";
 import type { FieldString } from "./FieldString.ts";
 import { isAllToken } from "./isAllToken.ts";
@@ -21,9 +22,11 @@ import { stringifyRange } from "./stringifyRange.ts";
  * @param field Cron object field.
  * @returns Cron string field.
  */
-export const stringifyField = (field: Field<number>): FieldString =>
-	isAllToken(field) ? field : (
-		((stringifyList(field) ??
-			stringifyRange(field) ??
-			`${field as number}`) as FieldString)
-	);
+export const stringifyField: (field: Field<number>) => FieldString = memo(
+	(field: Field<number>): FieldString =>
+		isAllToken(field) ? field : (
+			((stringifyList(field) ??
+				stringifyRange(field) ??
+				`${field as number}`) as FieldString)
+		),
+);

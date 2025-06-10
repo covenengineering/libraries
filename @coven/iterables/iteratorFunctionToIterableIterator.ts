@@ -1,18 +1,20 @@
+import type { Nullary } from "@coven/types";
+
 /**
  * Takes a generator function and returns an iterable iterator object.
  *
  * @example
  * ```typescript
- * const witchGenerator = function* () { yield "🧙🏻‍♀️"; };
- * const witchIterableIterator = iteratorFunctionToIterableIterator(witchGenerator);
+ * const magicGenerator = function* () { yield "✨"; };
+ * const magicIterableIterator = iteratorFunctionToIterableIterator(magicGenerator);
  *
- * for (const value of witchIterableIterator) {
+ * for (const value of magicIterableIterator) {
  * 	console.log(value); // "foo"
  * }
  *
  * // Same IterableIterator as above, return values again:
  *
- * for (const value of witchIterableIterator) {
+ * for (const value of magicIterableIterator) {
  * 	console.log(value); // "foo"
  * }
  * ```
@@ -20,7 +22,7 @@
  * @returns Iterable iterator object.
  */
 export const iteratorFunctionToIterableIterator = <Item>(
-	iteratorFunction: () => Iterator<Item>,
+	iteratorFunction: Nullary<Iterator<Item>>,
 ): IterableIterator<Item> => {
 	const iterator = iteratorFunction();
 

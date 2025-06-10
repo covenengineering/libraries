@@ -7,7 +7,7 @@ import type { ReadonlyArrayLike } from "./ReadonlyArrayLike.ts";
  * @example
  * ```typescript
  * const object = {
- * 	"🧙‍♀️": 13,
+ * 	"✨": 13,
  * 	"🔮": 42,
  * } as const;
  * const key = 13 as const satisfies ValueOf<typeof object>;

@@ -18,9 +18,9 @@ JavaScript runtimes.
 ```typescript
 import { get } from "@coven/utils";
 
-const getWitch = get("🧙🏻‍♀️");
+const getMagic = get("✨");
 
-getWitch({ "🧙🏻‍♀️": "🎃" }); // "🎃"
+getMagic({ "✨": "🎃" }); // "🎃"
 ```
 
 ## Other links

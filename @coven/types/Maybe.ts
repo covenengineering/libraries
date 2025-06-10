@@ -1,6 +1,3 @@
-import type { Either } from "./Either.ts";
-import type { Just } from "./Just.ts";
-
 /**
  * Value that could be `undefined`.
  *
@@ -11,8 +8,6 @@ import type { Just } from "./Just.ts";
  * const maybeNumber = 1 as const satisfies MaybeNumber;
  * const notNumber = undefined satisfies MaybeNumber;
  * ```
- * @see {@linkcode Either}
- * @see {@linkcode Just}
  * @template OptionalType The type of the value to make optional.
  */
-export type Maybe<OptionalType> = Either<Just<OptionalType>, undefined>;
+export type Maybe<OptionalType> = OptionalType | undefined;

@@ -1,5 +1,3 @@
-import type { ReadonlyArray } from "@coven/types";
-
 /**
  * Flattened `path` property.
  *
@@ -16,9 +14,9 @@ import type { ReadonlyArray } from "@coven/types";
  * @see {@linkcode FlatPath}
  * @see {@linkcode UpdateDifference}
  */
-export type FlatPath = {
+export type FlatPath = Readonly<{
 	/**
 	 * Path iterable as an array.
 	 */
-	readonly path: ReadonlyArray<PropertyKey>;
-};
+	path: ReadonlyArray<PropertyKey>;
+}>;

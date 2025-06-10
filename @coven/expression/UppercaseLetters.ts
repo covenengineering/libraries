@@ -1,5 +1,5 @@
 /**
- * Uppercase letter values.
+ * Uppercase letter values used by `controlCharacter`.
  */
 export type UppercaseLetters =
 	| "A"

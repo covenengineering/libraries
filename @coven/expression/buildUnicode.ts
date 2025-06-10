@@ -1,10 +1,4 @@
-import type {
-	EmptyString,
-	ReadonlyArray,
-	Replace,
-	Stringable,
-	StringJoin,
-} from "@coven/types";
+import type { Replace, Stringable, StringJoin } from "@coven/types";
 import { build } from "./build.ts";
 
 /**
@@ -19,12 +13,7 @@ import { build } from "./build.ts";
  * @param tokens String tokens to be used as the RegExp source.
  * @returns Regular Expression with the given tokens and the unicode flag.
  */
-export const buildUnicode: <const Tokens extends ReadonlyArray<Stringable>>(
-	...tokens: Tokens
-) => Replace<
-	RegExp,
-	{
-		readonly flags: "u";
-		readonly source: StringJoin<Tokens, EmptyString>;
-	}
-> = build();
+export const buildUnicode: <const Atoms extends ReadonlyArray<Stringable>>(
+	...atoms: Atoms
+) => Replace<RegExp, Readonly<{ flags: "u"; source: StringJoin<Atoms, ""> }>> =
+	build();

@@ -1,4 +1,5 @@
 import { is } from "@coven/predicates";
+import type { Filter } from "@coven/types";
 import { some } from "./some.ts";
 
 /**
@@ -15,4 +16,4 @@ import { some } from "./some.ts";
  */
 export const includes = <SearchItem>(
 	searchItem: SearchItem,
-): ((iterable: Iterable<unknown>) => boolean) => some(is(searchItem));
+): Filter<[iterable: Iterable<unknown>]> => some(is(searchItem));

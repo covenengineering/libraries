@@ -1,12 +1,21 @@
 import { memo } from "@coven/memo";
-import type { Stringable } from "@coven/types";
+import type { Stringable, StringJoin } from "@coven/types";
+import { join } from "./join.ts";
 
 /**
- * Matches 0 or 1 of the preceding token, effectively making it optional. Also
- * makes the preceding quantifier lazy, causing it to match as few characters as
- * possible. By default, quantifiers are greedy, and will match as many
- * characters as possible.
+ * Matches a minimum of `0` and a maximum of `1` of the given item.
+ *
+ * @example
+ * ```typescript
+ * optional("✨", "🔮", "💀"); // "✨🔮💀?"
+ * ```
+ * @see [Quantifier](https://coven.to/mdn/Regular_expressions/Quantifier)
+ * @param items Items to be quantified.
+ * @returns Quantified items.
  */
-export const optional: <const Token extends Stringable>(
-	token: Token,
-) => `${Token}?` = memo(token => `${token}?`);
+export const optional: <const Items extends ReadonlyArray<Stringable>>(
+	...items: Items
+) => `${StringJoin<Items, "">}?` = memo(
+	<const Items extends ReadonlyArray<Stringable>>(...items: Items) =>
+		join(...items, "?") as `${StringJoin<Items, "">}?`,
+);

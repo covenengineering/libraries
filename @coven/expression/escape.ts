@@ -6,7 +6,7 @@ import type { Stringable } from "@coven/types";
  *
  * @example
  * ```typescript
- * escape("n"); // "\\n"
+ * escape("n"); // "\n"
  * ```
  * @param escaped Value to escape.
  * @returns Escaped value.

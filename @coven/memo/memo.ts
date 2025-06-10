@@ -1,5 +1,4 @@
 import { EMPTY_ARRAY, EMPTY_OBJECT } from "@coven/constants";
-import type { ReadonlyArray } from "@coven/types";
 import { MEMO_ROOT } from "./MEMO_ROOT.ts";
 import type { MemoCache } from "./MemoCache.ts";
 import type { Memoizable } from "./Memoizable.ts";
@@ -13,12 +12,12 @@ import type { MemoizedRecordCache } from "./MemoizedRecordCache.ts";
 import type { MemoizedTupleCache } from "./MemoizedTupleCache.ts";
 
 /**
- * Cache of tuples.
+ * Private cache of tuples.
  */
 const memoizedTupleCache: MemoizedTupleCache = new Map();
 
 /**
- * Cache of records.
+ * Private cache of records.
  */
 const memoizedRecordCache: MemoizedRecordCache = new Map();
 
@@ -32,14 +31,14 @@ export const memo: {
 	 *
 	 * @example
 	 * ```typescript
-	 * memo(["foo", "bar"]) === memo(["foo", "bar"]); // true
+	 * memo(["✨", "🔮", "💀"]) === memo(["✨", "🔮", "💀"]); // true
 	 * ```
 	 * @param memoizable Value to memoize.
 	 * @returns Memoized read-ony record or tuple.
 	 */
 	<const MemoizableValue extends Memoizable>(
 		memoizable: MemoizableValue &
-			(MemoizableValue extends ReadonlyArray ? MemoizableTuple
+			(MemoizableValue extends ReadonlyArray<unknown> ? MemoizableTuple
 			:	MemoizableRecord),
 	): Memoized<MemoizableValue>;
 	/**
@@ -79,7 +78,7 @@ export const memo: {
 					)).get(tupleParameters);
 		};
 	} else {
-		// Array.isArray aren't great, so this is an inline patch
+		// Array.isArray type isn't great, so this is an inline patch
 		const isArray = (
 			Array.isArray as (value: unknown) => value is MemoizableTuple
 		)(value);

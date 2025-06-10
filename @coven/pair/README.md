@@ -20,7 +20,6 @@ Currently supported frameworks:
 
 ```tsx
 /** @jsxImportSource preact */
-import { createElement } from "preact";
 import { useState } from "preact/hooks";
 import { pair } from "@coven/pair/preact";
 
@@ -41,7 +40,10 @@ const Component = ({ array = [] }) => (
 
 					return (
 						<li>
-							<button type="button" {...props} />
+							<button
+								type="button"
+								{...props}
+							/>
 						</li>
 					);
 				}}
@@ -75,7 +77,10 @@ const Component = ({ array = [] }) => (
 
 					return (
 						<li>
-							<button type="button" {...props} />
+							<button
+								type="button"
+								{...props}
+							/>
 						</li>
 					);
 				}}

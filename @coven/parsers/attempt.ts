@@ -1,10 +1,8 @@
-import type { Just, Maybe, ReadonlyArray } from "@coven/types";
+import type { Just, Maybe } from "@coven/types";
 
 /**
- * Attempts to run a function and silences throws.
- *
- * It silences the `throw`s by wrapping it with a `try/catch` and returning
- * `undefined` instead.
+ * Attempts to run a function by wrapping it with a `try/catch` and silences
+ * throws, returning `undefined` instead.
  *
  * @example
  * ```typescript
@@ -20,7 +18,7 @@ import type { Just, Maybe, ReadonlyArray } from "@coven/types";
  * @returns Function wrapped in `try`/`catch`.
  */
 export const attempt =
-	<Arguments extends ReadonlyArray, Output>(
+	<Arguments extends ReadonlyArray<unknown>, Output>(
 		wrappedFunction: (...wrappedArguments: Arguments) => Output,
 	): ((...parameters: Arguments) => Maybe<Output>) =>
 	(...parameters) => {

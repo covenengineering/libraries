@@ -6,8 +6,8 @@
  * ```typescript
  * import type { Maybe } from "@coven/types";
  *
- * const maybeUndefined = "🧙‍♀️" as Maybe<string>;
- * const defined = "🧙‍♀️" as const satisfies Just<typeof maybeUndefined>;
+ * const maybeUndefined = "✨" as Maybe<string>;
+ * const defined = "✨" as const satisfies Just<typeof maybeUndefined>;
  * ```
  * @template MaybeUndefined Type to exclude `undefined` from.
  */

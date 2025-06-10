@@ -5,6 +5,7 @@ import type {
 	EntryKey,
 	EntryValue,
 	ReadonlyRecord,
+	Unary,
 } from "@coven/types";
 import { set } from "@coven/utils";
 import { reduce } from "./reduce.ts";
@@ -24,9 +25,10 @@ import { reduce } from "./reduce.ts";
  */
 export const entriesToObject = reduce(
 	<Key extends PropertyKey, Value>([key, value]: Entry<Key, Value>) =>
-		set(key)(value) as (
-			object: ReadonlyRecord<Key, Value>,
-		) => ReadonlyRecord<Key, Value>,
+		set(key)(value) as Unary<
+			[object: ReadonlyRecord<Key, Value>],
+			ReadonlyRecord<Key, Value>
+		>,
 )(EMPTY_OBJECT) as <Item extends Entry>(
 	iterable: AwaitableIterable<Item>,
 ) => Promise<ReadonlyRecord<EntryKey<Item>, EntryValue<Item>>>;

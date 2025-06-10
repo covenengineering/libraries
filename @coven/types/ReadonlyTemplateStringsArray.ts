@@ -7,6 +7,6 @@
  * 	raw: [],
  * }) satisfies ReadonlyTemplateStringsArray;
  * ```
- * @see [Template Literals](https://mdn.io/Template%20literals)
+ * @see [Template Literals](https://coven.to/mdn/Template_literals)
  */
 export type ReadonlyTemplateStringsArray = Readonly<TemplateStringsArray>;

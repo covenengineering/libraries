@@ -19,4 +19,3 @@ export { pathPrepend } from "./pathPrepend.ts";
 export { setPath } from "./setPath.ts";
 export { UPDATE_KIND } from "./UPDATE_KIND.ts";
 export type { UpdateDifference } from "./UpdateDifference.ts";
-export type { WithPropertyPath } from "./WithPropertyPath.ts";

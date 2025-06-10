@@ -4,15 +4,7 @@ export { compareRangeOrValue } from "./compareRangeOrValue.ts";
 export type { CronObject } from "./CronObject.ts";
 export { cronRegExp } from "./cronRegExp.ts";
 export type { CronString } from "./CronString.ts";
-export { dateInCron } from "./dateInCron.ts";
 export type { Field } from "./Field.ts";
-export {
-	DAY_OF_MONTH_NAME,
-	DAY_OF_WEEK_NAME,
-	HOUR_NAME,
-	MINUTE_NAME,
-	MONTH_NAME,
-} from "./fieldNames.ts";
 export { fieldNamesTuple } from "./fieldNamesTuple.ts";
 export { fieldRegExp } from "./fieldRegExp.ts";
 export type { FieldString } from "./FieldString.ts";
@@ -27,8 +19,8 @@ export type { ListExpressionSeparatorToken } from "./ListExpressionSeparatorToke
 export type { ListField } from "./ListField.ts";
 export type { ListString } from "./ListString.ts";
 export type { MonthValue } from "./MonthValue.ts";
-export { nextDate } from "./nextDate.ts";
-export { nextDates } from "./nextDates.ts";
+export { nextISODate } from "./nextISODate.ts";
+export { nextISODates } from "./nextISODates.ts";
 export { normalizeAliases } from "./normalizeAliases.ts";
 export { normalizeMap } from "./normalizeMap.ts";
 export { paddedRegExp } from "./paddedRegExp.ts";
@@ -43,13 +35,13 @@ export { parseNumberTest } from "./parseNumberTest.ts";
 export { parseRange } from "./parseRange.ts";
 export type { RangeExpressionSeparatorToken } from "./RangeExpressionSeparatorToken.ts";
 export type { RangeField } from "./RangeField.ts";
-export { FROM_NAME, TO_NAME } from "./rangeFieldNames.ts";
 export type { RangeString } from "./RangeString.ts";
 export { rangeStringTest } from "./rangeStringTest.ts";
 export { stringify } from "./stringify.ts";
 export { stringifyField } from "./stringifyField.ts";
 export { stringifyList } from "./stringifyList.ts";
 export { stringifyRange } from "./stringifyRange.ts";
+export { timestampInCron } from "./timestampInCron.ts";
 export {
 	ALL_TOKEN,
 	LIST_EXPRESSION_SEPARATOR_TOKEN,

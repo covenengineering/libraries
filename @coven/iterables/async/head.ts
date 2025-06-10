@@ -3,7 +3,6 @@ import type {
 	Head,
 	IterableItem,
 	Maybe,
-	ReadonlyArray,
 } from "@coven/types";
 import { getIterator } from "./getIterator.ts";
 
@@ -21,11 +20,11 @@ import { getIterator } from "./getIterator.ts";
 export const head = <const Iterable extends AwaitableIterable>(
 	iterable: Iterable,
 ): Promise<
-	Iterable extends ReadonlyArray ? Head<Iterable>
+	Iterable extends ReadonlyArray<unknown> ? Head<Iterable>
 	:	Maybe<IterableItem<Iterable>>
 > =>
 	Promise.resolve(getIterator(iterable).next()).then(
 		({ value }) =>
-			value as Iterable extends ReadonlyArray ? Head<Iterable>
+			value as Iterable extends ReadonlyArray<unknown> ? Head<Iterable>
 			:	Maybe<IterableItem<Iterable>>,
 	);

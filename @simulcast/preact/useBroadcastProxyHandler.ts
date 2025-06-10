@@ -1,5 +1,5 @@
 import { EMPTY_ARRAY, EMPTY_OBJECT } from "@coven/constants";
-import type { ReadonlyArray } from "@coven/types";
+
 import { createObject, mutate, set } from "@coven/utils";
 import type { EventHandler, EventTypeDictionary } from "@simulcast/core";
 import { onRegExp } from "./onRegExp.ts";
@@ -8,12 +8,12 @@ import type { UseBroadcastObject } from "./UseBroadcastObject.ts";
 /**
  * Proxy handler to call `on` events with hook parameter.
  */
-export const useBroadcastProxyHandler: {
-	readonly get: (
+export const useBroadcastProxyHandler: Readonly<{
+	get: (
 		broadcastObject: UseBroadcastObject<EventTypeDictionary>,
 		property: string,
 	) => unknown;
-} = createObject({
+}> = createObject({
 	get: (broadcast, property) => {
 		const { name } =
 			(!(property in broadcast) && onRegExp.exec(property)?.groups) ||
@@ -26,7 +26,7 @@ export const useBroadcastProxyHandler: {
 			const setHandler = setProperty(
 				(
 					handler: EventHandler<unknown>,
-					dependencies: ReadonlyArray = EMPTY_ARRAY,
+					dependencies: ReadonlyArray<unknown> = EMPTY_ARRAY,
 				) => on(event, handler, dependencies),
 			)(broadcast);
 			const commitHandler = mutate(setHandler);

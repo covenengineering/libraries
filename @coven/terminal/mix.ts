@@ -1,4 +1,3 @@
-import type { ReadonlyArray } from "@coven/types";
 import type { Formatter } from "./Formatter.ts";
 
 /**

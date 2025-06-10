@@ -2,8 +2,18 @@ import { memo } from "@coven/memo";
 import type { StringQuantity } from "./StringQuantity.ts";
 
 /**
- * Matches the specified quantity of the previous token. {1,3} will match 1 to
- * 3. {3} will match exactly 3. {3,} will match 3 or more.
+ * Takes a {@linkcode StringQuantity} and based on it it defines the maximum and
+ * minimum of matches.
+ *
+ * @example
+ * ```typescript
+ * quantity(13)("✨", "🔮", "💀"); // "✨🔮💀{13}"
+ * quantity("13,")("✨", "🔮", "💀"); // "✨🔮💀{13,}"
+ * quantity("13,42")("✨", "🔮", "💀"); // "✨🔮💀{13,42}"
+ * ```
+ * @see [Quantifier](https://coven.to/mdn/Regular_expressions/Quantifier)
+ * @param items Items to be quantified.
+ * @returns Quantified items.
  */
 export const quantity: <const Quantities extends StringQuantity | number>(
 	quantities: Quantities,

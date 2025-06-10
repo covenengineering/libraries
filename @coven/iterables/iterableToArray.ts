@@ -1,5 +1,3 @@
-import type { ReadonlyArray } from "@coven/types";
-
 /**
  * Turns given iterable into an array.
  *

@@ -3,7 +3,7 @@ import type { MinimumLengthNumberString } from "./MinimumLengthNumberString.ts";
 
 /**
  * [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format of a date (returned
- * by [Date#toISOString](https://mdn.io/Date.prototype.toISOString)). It uses
+ * by [Date#toISOString](https://coven.to/mdn/Date/toISOString)). It uses
  * {@linkcode MinimumLengthNumberString} because the type complexity using better
  * types would be too hight (32,140,800,000 union types approximately).
  *
@@ -13,8 +13,8 @@ import type { MinimumLengthNumberString } from "./MinimumLengthNumberString.ts";
  * ```
  * @see {@linkcode ISOYear}
  * @see {@linkcode MinimumLengthNumberString}
- * @see [Date](https://mdn.io/Date)
- * @see [Date#toISOString](https://mdn.io/Date.prototype.toISOString)
+ * @see [Date](https://coven.to/mdn/Date)
+ * @see [Date#toISOString](https://coven.to/mdn/Date/toISOString)
  * @see [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)
  */
 export type ISODate =

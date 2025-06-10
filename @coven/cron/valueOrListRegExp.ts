@@ -1,4 +1,5 @@
-import { exists, group, or } from "@coven/expression";
+import { disjunction, exists, group } from "@coven/expression";
+import { memo } from "@coven/memo";
 import { LIST_EXPRESSION_SEPARATOR_TOKEN } from "./tokens.ts";
 
 /**
@@ -11,12 +12,17 @@ import { LIST_EXPRESSION_SEPARATOR_TOKEN } from "./tokens.ts";
  * @param value Value to match by itself or as a list.
  * @returns RegExp to match value or list.
  */
-export const valueOrListRegExp = <Value extends number | string>(
+export const valueOrListRegExp: <Value extends number | string>(
 	value: Value,
-): `(?:${Value}|(?:(?:${Value},)+${Value}))` =>
-	group(
-		or(
-			value,
-			group(exists(group(value, LIST_EXPRESSION_SEPARATOR_TOKEN)), value),
+) => `(?:${Value}|(?:(?:${Value},)+${Value}))` = memo(
+	<Value extends number | string>(value: Value) =>
+		group(
+			disjunction(
+				value,
+				group(
+					exists(group(value, LIST_EXPRESSION_SEPARATOR_TOKEN)),
+					value,
+				),
+			),
 		),
-	);
+);

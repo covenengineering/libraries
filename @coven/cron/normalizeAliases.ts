@@ -1,5 +1,6 @@
-import { build, or } from "@coven/expression";
-import type { KeyOf, ReadonlyArray } from "@coven/types";
+import { build, disjunction } from "@coven/expression";
+import { memo } from "@coven/memo";
+import type { KeyOf } from "@coven/types";
 import type { FieldString } from "./FieldString.ts";
 import { normalizeMap } from "./normalizeMap.ts";
 
@@ -15,19 +16,21 @@ const buildGIU = build("giu");
  * @param expression String expression.
  * @returns Normalized expression
  */
-export const normalizeAliases = (expression: string): FieldString =>
-	expression.replaceAll(
-		buildGIU(
-			or(
-				...(Object.keys(normalizeMap) as ReadonlyArray<
-					KeyOf<typeof normalizeMap>
-				>),
+export const normalizeAliases: (expression: string) => FieldString = memo(
+	(expression: string) =>
+		expression.replaceAll(
+			buildGIU(
+				disjunction(
+					...(Object.keys(normalizeMap) as ReadonlyArray<
+						KeyOf<typeof normalizeMap>
+					>),
+				),
 			),
-		),
-		alias =>
-			`${
-				normalizeMap[
-					alias.toLocaleLowerCase() as KeyOf<typeof normalizeMap>
-				]
-			}`,
-	) as FieldString;
+			alias =>
+				`${
+					normalizeMap[
+						alias.toLocaleLowerCase() as KeyOf<typeof normalizeMap>
+					]
+				}`,
+		) as FieldString,
+);

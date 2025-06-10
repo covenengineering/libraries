@@ -1,5 +1,5 @@
 import { memo } from "@coven/memo";
-import type { Stringable, Unary } from "@coven/types";
+import type { AsyncUnary, Stringable } from "@coven/types";
 
 const textEncoder = new TextEncoder();
 const LITTLE_ENDIAN = true;
@@ -7,7 +7,8 @@ const sha256ToNumber = (sha256: ArrayBuffer) =>
 	new DataView(sha256).getUint32(0, LITTLE_ENDIAN) / 0xff_ff_ff_ff;
 
 /**
- * Generates `number` using `SubtleCrypto#digest` and the given seed.
+ * Generates a `Math.random`-like `number` using `SubtleCrypto#digest` and the
+ * given seed.
  *
  * > [!IMPORTANT]
  * > This only works in secure contexts.
@@ -19,13 +20,13 @@ const sha256ToNumber = (sha256: ArrayBuffer) =>
  *
  * seededRandom1 === seededRandom2; // true because it has the same seed
  * ```
- * @see [SubtleCrypto#digest](https://mdn.io/SubtleCrypto.digest)
+ * @see [SubtleCrypto#digest](https://coven.to/mdn/SubtleCrypto/digest)
+ * @see [Math.random](https://coven.to/mdn/Math/random)
  * @param seed Seed to be used to generate random numbers.
  * @returns Pseudo-random number from seed.
  */
-export const cryptoNumber: Unary<[seed: Stringable], Promise<number>> = memo(
-	seed =>
-		crypto.subtle
-			.digest("SHA-256", textEncoder.encode(`${seed}`))
-			.then(sha256ToNumber),
+export const cryptoNumber: AsyncUnary<[seed: Stringable], number> = memo(seed =>
+	crypto.subtle
+		.digest("SHA-256", textEncoder.encode(`${seed}`))
+		.then(sha256ToNumber),
 );

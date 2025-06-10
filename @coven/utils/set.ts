@@ -1,5 +1,8 @@
+import { createObject } from "./createObject.ts";
+
 /**
- * Set the value of a property in an object (read only).
+ * Set the value of a property in an object (doesn't mutate, use `mutate` to
+ * apply the changes).
  *
  * @example
  * ```typescript
@@ -21,4 +24,5 @@ export const set =
 	) => Omit<Source, Key> & Record<Key, Value>) =>
 	<const Value>(value: Value) =>
 	<const Source extends object>(object: Source) =>
-		({ ...object, [key]: value }) as Omit<Source, Key> & Record<Key, Value>;
+		createObject({ ...object, [key]: value }) as Omit<Source, Key> &
+			Record<Key, Value>;

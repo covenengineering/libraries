@@ -1,3 +1,4 @@
+import { memo } from "@coven/memo";
 import type { TypeOfDictionary, TypeOfValue } from "@coven/types";
 import type { IsTypeFunction } from "./IsTypeFunction.ts";
 
@@ -19,7 +20,10 @@ import type { IsTypeFunction } from "./IsTypeFunction.ts";
  * @returns Curried function with `type` in context that returns `true` if
  * `input` is of `typeof` `type`, `false` otherwise.
  */
-export const isType =
+export const isType: <Type extends TypeOfValue>(
+	type: Type,
+) => IsTypeFunction<Type> = memo(
 	<Type extends TypeOfValue>(type: Type): IsTypeFunction<Type> =>
-	(input): input is TypeOfDictionary[Type] =>
-		(input === null ? `${input}` : typeof input) === type;
+		(input): input is TypeOfDictionary[Type] =>
+			(input === null ? `${input}` : typeof input) === type,
+);

@@ -1,4 +1,3 @@
-import type { ReadonlyArray } from "@coven/types";
 import type { ValueOrRangeField } from "./ValueOrRangeField.ts";
 
 /**

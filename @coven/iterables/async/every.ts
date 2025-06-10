@@ -1,4 +1,9 @@
-import type { AwaitableIterable, Predicate, Unary } from "@coven/types";
+import type {
+	AsyncFilter,
+	AwaitableIterable,
+	Filter,
+	Predicate,
+} from "@coven/types";
 
 /**
  * Evaluates items in an iterable or asynchronous iterable against a predicate
@@ -17,14 +22,14 @@ export const every: {
 	<Item, Predicated extends Item>(
 		predicate: Predicate<Item, Predicated>,
 		// FIXME: Update to `Promise<iterable is Iterable<Predicated>>` when supported by TS
-	): (iterable: AwaitableIterable<Item>) => Promise<boolean>;
+	): AsyncFilter<[iterable: AwaitableIterable<Item>]>;
 	<Item>(
-		predicate: Unary<[item: Item], boolean>,
-	): (iterable: AwaitableIterable<Item>) => Promise<boolean>;
+		predicate: Filter<[item: Item]>,
+	): AsyncFilter<[iterable: AwaitableIterable<Item>]>;
 } =
 	<Item>(
-		predicate: Unary<[item: Item], boolean>,
-	): ((iterable: AwaitableIterable<Item>) => Promise<boolean>) =>
+		predicate: Filter<[item: Item]>,
+	): AsyncFilter<[iterable: AwaitableIterable<Item>]> =>
 	async iterable => {
 		for await (const item of iterable) {
 			if (!predicate(item)) {

@@ -1,19 +1,28 @@
 import { memo } from "@coven/memo";
-import type {
-	EmptyString,
-	ReadonlyArray,
-	Stringable,
-	StringJoin,
-} from "@coven/types";
+import type { Stringable, StringJoin } from "@coven/types";
 import { join } from "./join.ts";
 
 /**
- * Groups multiple tokens together and creates a capture group for extracting a
- * substring or using a back reference.
+ * A capturing group groups a subpattern, allowing you to apply a
+ * [quantifier](https://coven.to/mdn/Regular_expressions/Quantifier) to
+ * the entire group or use
+ * [disjunctions](https://coven.to/mdn/Regular_expressions/Disjunction) within
+ * it. It memorizes information about the subpattern match, so that you can
+ * refer back to it later with a
+ * [backreference](https://coven.to/mdn/Regular_expressions/Backreference), or
+ * access the information through the match results.
+ *
+ * @example
+ * ```typescript
+ * capture("✨", "🔮", "💀"); // "(✨🔮💀)"
+ * ```
+ * @see [Capturing group](https://coven.to/mdn/Regular_expressions/Capturing_group)
+ * @param pattern Pattern to capture.
+ * @returns Captured pattern.
  */
-export const capture: <const Captured extends ReadonlyArray<Stringable>>(
-	...captured: Captured
-) => `(${StringJoin<Captured, EmptyString>})` = memo(
-	<const Captured extends ReadonlyArray<Stringable>>(...captured: Captured) =>
-		`(${join(...captured)})` as `(${StringJoin<Captured, EmptyString>})`,
+export const capture: <const Pattern extends ReadonlyArray<Stringable>>(
+	...pattern: Pattern
+) => `(${StringJoin<Pattern, "">})` = memo(
+	<const Pattern extends ReadonlyArray<Stringable>>(...pattern: Pattern) =>
+		`(${join(...pattern)})` as `(${StringJoin<Pattern, "">})`,
 );

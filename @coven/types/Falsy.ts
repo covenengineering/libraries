@@ -1,4 +1,3 @@
-import type { EmptyString } from "./EmptyString.ts";
 import type { Nullish } from "./Nullish.ts";
 
 /**
@@ -16,8 +15,7 @@ import type { Nullish } from "./Nullish.ts";
  * const falsyZero = 0 as const satisfies Falsy;
  * const falsyZeroBigInt = 0n as const satisfies Falsy;
  * ```
- * @see {@linkcode EmptyString}
  * @see {@linkcode Nullish}
- * @see [Falsy](https://mdn.io/Falsy)
+ * @see [Falsy](https://coven.to/mdn/Glossary/Falsy)
  */
-export type Falsy = 0 | 0n | EmptyString | false | Nullish;
+export type Falsy = 0 | 0n | "" | false | Nullish;

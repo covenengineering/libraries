@@ -2,10 +2,10 @@ import {
 	allow,
 	buildUnicode,
 	captureNamed,
+	characterClass,
+	disjunction,
 	END,
-	or,
 	range,
-	set,
 	START,
 	WORD,
 } from "@coven/expression";
@@ -24,13 +24,13 @@ import type { Replace } from "@coven/types";
  */
 export const eventRegExp: Replace<
 	RegExp,
-	{
-		readonly flags: "u";
-		readonly source: "^(?<type>emit|on)(?<name>[A-Z]\\w*)$";
-	}
+	Readonly<{
+		flags: "u";
+		source: "^(?<type>emit|on)(?<name>[A-Z]\\w*)$";
+	}>
 > = buildUnicode(
 	START,
-	captureNamed("type")(or("emit", "on")),
-	captureNamed("name")(set(range("A")("Z")), allow(WORD)),
+	captureNamed("type")(disjunction("emit", "on")),
+	captureNamed("name")(characterClass(range("A")("Z")), allow(WORD)),
 	END,
 );

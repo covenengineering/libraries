@@ -1,7 +1,5 @@
 import type { Digit } from "./Digit.ts";
-import type { EmptyString } from "./EmptyString.ts";
 import type { IndexArray } from "./IndexArray.ts";
-import type { ReadonlyArray } from "./ReadonlyArray.ts";
 
 /**
  * String with more than 1 number on it. This type is useful when a given string
@@ -14,8 +12,6 @@ import type { ReadonlyArray } from "./ReadonlyArray.ts";
  * const test3 = "012" as const satisfies MinimumLengthNumberString<3>;
  * ```
  * @see {@linkcode Digit}
- * @see {@linkcode EmptyString}
- * @see {@linkcode ReadonlyArray}
  * @template MinimumLength Minimum length for the number string.
  * @template _Accumulator **⚠️ INTERNAL:** Output accumulator.
  * @template _Tracker **⚠️ INTERNAL:** Loop tracking accumulator.
@@ -25,7 +21,7 @@ export type MinimumLengthNumberString<
 	_Accumulator extends string = `${bigint}${bigint}`,
 	_Tracker extends ReadonlyArray<number> = IndexArray<2>,
 > =
-	MinimumLength extends 0 ? EmptyString
+	MinimumLength extends 0 ? ""
 	: MinimumLength extends 1 ? `${Digit}`
 	: _Tracker["length"] extends MinimumLength ? _Accumulator
 	: MinimumLengthNumberString<
