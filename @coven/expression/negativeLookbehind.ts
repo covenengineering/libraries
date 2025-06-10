@@ -19,4 +19,4 @@ export const negativeLookbehind: <
 	const Pattern extends ReadonlyArray<Stringable>,
 >(
 	...pattern: Pattern
-) => `(?<!${StringJoin<Pattern, "">})` = captureType("<!");
+) => `(?<!${StringJoin<Pattern>})` = captureType("<!");

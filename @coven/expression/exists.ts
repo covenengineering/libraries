@@ -15,7 +15,7 @@ import { join } from "./join.ts";
  */
 export const exists: <const Items extends ReadonlyArray<Stringable>>(
 	...items: Items
-) => `${StringJoin<Items, "">}+` = memo(
+) => `${StringJoin<Items>}+` = memo(
 	<const Items extends ReadonlyArray<Stringable>>(...items: Items) =>
-		join(...items, "+") as `${StringJoin<Items, "">}+`,
+		join(...items, "+") as `${StringJoin<Items>}+`,
 );

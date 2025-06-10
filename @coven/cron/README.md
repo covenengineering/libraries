@@ -93,6 +93,8 @@ parse("* * 31 2 *"); // undefined because 31 of February is invalid
 We can get the next matching date for a cron expression like this:
 
 ```typescript
+import { nextISODate } from "@coven/cron";
+
 nextISODate("1989-10-13T10:15:42.123Z")("* * * * *"); // Next will be "1989-10-13T10:16:00.000Z"
 ```
 
@@ -100,9 +102,10 @@ nextISODate("1989-10-13T10:15:42.123Z")("* * * * *"); // Next will be "1989-10-1
 iterator with all the coming dates:
 
 ```typescript
+import { nextISODates } from "@coven/cron";
 import { take } from "@coven/iterables";
 
-take(2)(nextISODates("1989-10-13T10:15:42.123")("* * * * *"));
+take(2)(nextISODates("1989-10-13T10:15:42.123Z")("* * * * *"));
 // ["1989-10-13T10:16:00.000Z", "1989-10-13T10:17:00.000Z"]
 ```
 

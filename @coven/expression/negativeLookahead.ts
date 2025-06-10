@@ -18,4 +18,4 @@ export const negativeLookahead: <
 	const Pattern extends ReadonlyArray<Stringable>,
 >(
 	...pattern: Pattern
-) => `(?!${StringJoin<Pattern, "">})` = captureType("!");
+) => `(?!${StringJoin<Pattern>})` = captureType("!");

@@ -19,6 +19,7 @@ import { characterClass } from "./characterClass.ts";
  */
 export const complementClass: <const Tokens extends ReadonlyArray<Stringable>>(
 	...tokens: Tokens
-) => `[${StringJoin<["^", ...Tokens], "">}]` = memo((...tokens) =>
-	characterClass(START, ...tokens),
+) => `[${StringJoin<["^", ...Tokens]>}]` = memo(
+	<const Tokens extends ReadonlyArray<Stringable>>(...tokens: Tokens) =>
+		characterClass(START, ...tokens) as `[${StringJoin<["^", ...Tokens]>}]`,
 );

@@ -8,6 +8,7 @@ import {
 import { EMPTY_ARRAY, EMPTY_OBJECT } from "@coven/constants";
 import { createObject } from "@coven/utils";
 import { assertEquals } from "@std/assert";
+import { EMPTY_ITERABLE_ITERATOR } from "@coven/iterables";
 
 const property1 = "property1";
 const property2 = "property2";
@@ -250,6 +251,24 @@ Deno.test("Comparing 0 with -0 should yield `UpdateDifference`", () =>
 			left: -0,
 			path: [],
 			right: 0,
+		},
+	]),
+);
+
+Deno.test("Comparing iterator to itself", () =>
+	assertEquals(
+		flat(compare(EMPTY_ITERABLE_ITERATOR)(EMPTY_ITERABLE_ITERATOR)),
+		[],
+	),
+);
+
+Deno.test("Comparing iterator to plain object", () =>
+	assertEquals(flat(compare(EMPTY_ITERABLE_ITERATOR)(EMPTY_OBJECT)), [
+		{
+			kind: UPDATE_KIND,
+			left: EMPTY_ITERABLE_ITERATOR,
+			path: [],
+			right: EMPTY_OBJECT,
 		},
 	]),
 );

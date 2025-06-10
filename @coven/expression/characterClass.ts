@@ -18,6 +18,7 @@ import { join } from "./join.ts";
  */
 export const characterClass: <const Tokens extends ReadonlyArray<Stringable>>(
 	...tokens: Tokens
-) => `[${StringJoin<[...Tokens], "">}]` = memo(
-	(...tokens) => `[${join(...tokens)}]`,
+) => `[${StringJoin<Tokens>}]` = memo(
+	<const Tokens extends ReadonlyArray<Stringable>>(...tokens: Tokens) =>
+		`[${join(...tokens)}]` as `[${StringJoin<Tokens>}]`,
 );

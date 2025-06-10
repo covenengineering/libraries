@@ -39,8 +39,11 @@ export const precise: {
 	(base: number): Precise;
 } = memo((base: MaybeInfinity, exponent = 0n): Precise => {
 	if (isBigInt(base)) {
-		const { normalizedBase = "", zeroes = "" } =
-			rightSideZeroes.exec(`${base}`)?.groups ?? EMPTY_OBJECT;
+		const { normalizedBase, zeroes } = rightSideZeroes.exec(`${base}`)
+			?.groups as Readonly<{
+			normalizedBase: `${bigint}`;
+			zeroes: `${bigint}`;
+		}>;
 		const normalizedExponent = BigInt(zeroes.length) + (exponent as bigint);
 
 		return memo([
