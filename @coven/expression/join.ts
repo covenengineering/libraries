@@ -13,7 +13,7 @@ import type { Stringable, StringJoin } from "@coven/types";
  */
 export const join: <const Items extends ReadonlyArray<Stringable>>(
 	...items: Items
-) => StringJoin<Items, ""> = memo(
+) => StringJoin<Items> = memo(
 	<const Items extends ReadonlyArray<Stringable>>(...items: Items) =>
-		items.join("") as StringJoin<Items, "">,
+		items.join("") as StringJoin<Items>,
 );

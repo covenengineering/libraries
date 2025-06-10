@@ -4,7 +4,7 @@ import { useBroadcast } from "@simulcast/preact";
 import { assertStrictEquals } from "@std/assert";
 import { type JSX, render } from "preact";
 import { useState } from "preact/hooks";
-import "../../utils/setupPreactDOM.ts";
+import { setup } from "../../utils/setupPreactDOM.ts";
 import { timeout } from "../../utils/timeout.ts";
 
 const CountComponent = (properties: JSX.IntrinsicElements["button"]) => {
@@ -52,6 +52,7 @@ const BroadcastComponent = ({
 Deno.test(
 	"Broadcast's on handler is called once even when it re-renders",
 	async () => {
+		const cleanup = setup();
 		const state = { calledTimes: 0 };
 		const root = document.querySelector("#root") as HTMLDivElement;
 		const { registry } = broadcast<{
@@ -80,10 +81,13 @@ Deno.test(
 		broadcastButton.click(); // Click broadcast button once
 		assertStrictEquals(state.calledTimes, 1); // State should be updated once
 		assertStrictEquals(addButton.textContent, "2"); // Even when it re-rendered twice
+
+		cleanup();
 	},
 );
 
 Deno.test("Broadcast's on handler is removed when unmounted", async () => {
+	const cleanup = setup();
 	const state1 = { calledTimes: 0 };
 	const state2 = { calledTimes: 0 };
 	const root = document.querySelector("#root") as HTMLDivElement;
@@ -146,4 +150,6 @@ Deno.test("Broadcast's on handler is removed when unmounted", async () => {
 	alwaysVisibleBroadcastButton.click();
 	assertStrictEquals(state1.calledTimes, 2); // State 1 should have registered events until removed
 	assertStrictEquals(state2.calledTimes, 3); // State 2 should have registered all events
+
+	cleanup();
 });

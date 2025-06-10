@@ -22,7 +22,7 @@ import { join } from "./join.ts";
  */
 export const capture: <const Pattern extends ReadonlyArray<Stringable>>(
 	...pattern: Pattern
-) => `(${StringJoin<Pattern, "">})` = memo(
+) => `(${StringJoin<Pattern>})` = memo(
 	<const Pattern extends ReadonlyArray<Stringable>>(...pattern: Pattern) =>
-		`(${join(...pattern)})` as `(${StringJoin<Pattern, "">})`,
+		`(${join(...pattern)})` as `(${StringJoin<Pattern>})`,
 );

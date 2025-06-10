@@ -1,5 +1,7 @@
 import { memo } from "@coven/memo";
 import type { StringQuantity } from "./StringQuantity.ts";
+import type { Stringable, StringJoin } from "@coven/types";
+import { join } from "./join.ts";
 
 /**
  * Takes a {@linkcode StringQuantity} and based on it it defines the maximum and
@@ -17,5 +19,17 @@ import type { StringQuantity } from "./StringQuantity.ts";
  */
 export const quantity: <const Quantities extends StringQuantity | number>(
 	quantities: Quantities,
-) => <const Token extends string>(token: Token) => `${Token}{${Quantities}}` =
-	memo(quantities => memo(token => `${token}{${quantities}}`));
+) => <const Items extends ReadonlyArray<Stringable>>(
+	...items: Items
+) => `${StringJoin<Items>}{${Quantities}}` = memo(
+	<const Quantities extends StringQuantity | number>(
+		quantities: Quantities,
+	) =>
+		memo(
+			<const Items extends ReadonlyArray<Stringable>>(...items: Items) =>
+				join(
+					...items,
+					`{${quantities}}`,
+				) as `${StringJoin<Items>}{${Quantities}}`,
+		),
+);

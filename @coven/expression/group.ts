@@ -23,4 +23,4 @@ import { captureType } from "./captureType.ts";
  */
 export const group: <const Pattern extends ReadonlyArray<Stringable>>(
 	...pattern: Pattern
-) => `(?:${StringJoin<Pattern, "">})` = captureType(":");
+) => `(?:${StringJoin<Pattern>})` = captureType(":");

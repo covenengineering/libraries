@@ -3,7 +3,7 @@
  *
  * @example
  * ```typescript
- * ["✨", "🔮", "💀"].values() satisfies AwaitableIterableIterator<number>;
+ * ["✨", "🔮", "💀"].values() satisfies AwaitableIterableIterator<string>;
  * ```
  * @template Item Type of the items in the `AwaitableIterableIterator`.
  * @template Return Type of the return value in the `AwaitableIterableIterator`.

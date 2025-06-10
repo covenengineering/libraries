@@ -16,4 +16,4 @@ import { captureType } from "./captureType.ts";
  */
 export const lookahead: <const Pattern extends ReadonlyArray<Stringable>>(
 	...pattern: Pattern
-) => `(?=${StringJoin<Pattern, "">})` = captureType("=");
+) => `(?=${StringJoin<Pattern>})` = captureType("=");
