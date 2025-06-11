@@ -14,7 +14,7 @@ to `1.0.0` for everything. Now about the actual "to do":
 - [x] Move `*-pair` as `@coven/pair`.
 - [x] Check if is worth it to create `@coven/solid-pair` (they don't need this).
 - [x] Cleanup tests (next is @coven/pair)
-- [ ] Cleanup docs (all `@example` should have a description).
+- [x] Cleanup docs (~~all~~ most `@example` should have a description 😅).
 - [x] Start working on new `@simulcast/{name}` libs:
     - [ ] `@simulcast/angular`.
     - [x] `@simulcast/preact`.
