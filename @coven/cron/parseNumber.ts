@@ -4,9 +4,10 @@ import type { Maybe } from "@coven/types";
 import { parseNumberTest } from "./parseNumberTest.ts";
 
 /**
- * Parses a cron list into an array.
+ * Parses a string number into a number (only valid values for a cron
+ * expression), returning `undefined` when invalid.
  *
- * @example
+ * @example Parse cron numbers
  * ```typescript
  * parseNumber("5"); // 5
  * parseNumber("13"); // 13

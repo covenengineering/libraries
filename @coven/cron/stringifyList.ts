@@ -9,7 +9,7 @@ import { LIST_EXPRESSION_SEPARATOR_TOKEN } from "./tokens.ts";
 /**
  * Turns cron list into a string.
  *
- * @example
+ * @example Stringify cron list back to cron expression list
  * ```typescript
  * stringifyList([10, 11, 13]); // "10,11,13"
  * ```

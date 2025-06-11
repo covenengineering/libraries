@@ -10,7 +10,7 @@ import type { RangeField } from "./RangeField.ts";
  * Given an iterable of tuples with the name of a field and a field value,
  * run each field through {@linkcode parseField}.
  *
- * @example
+ * @example Parsing cron field tuple values
  * ```typescript
  * parseFieldTuplesMap([["minute", "*"]]); // [["minute", "*"]]
  * parseFieldTuplesMap([["minute", "13"]]); // [["minute", 13]]

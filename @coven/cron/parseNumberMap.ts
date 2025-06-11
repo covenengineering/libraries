@@ -5,7 +5,7 @@ import { parseNumber } from "./parseNumber.ts";
 /**
  * Maps given iterable through {@linkcode parseNumber}.
  *
- * @example
+ * @example Parse iterables containing cron numbers
  * ```typescript
  * parseNumberMap(["05"]); // [5]
  * parseNumberMap(["13"]); // [13]

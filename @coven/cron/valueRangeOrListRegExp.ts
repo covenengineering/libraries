@@ -5,7 +5,7 @@ import { valueOrRangeRegExp } from "./valueOrRangeRegExp.ts";
 /**
  * Regular expression to match values, ranges or lists.
  *
- * @example
+ * @example Generate a value, range op list regular expression
  * ```typescript
  * valueRangeOrListRegExp(13); // "(?:13(?:-13)?|(?:(?:13(?:-13)?,)+13(?:-13)?))"
  * ```

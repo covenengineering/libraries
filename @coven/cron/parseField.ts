@@ -11,7 +11,7 @@ import type { RangeField } from "./RangeField.ts";
 /**
  * Parses a cron field.
  *
- * @example
+ * @example Parse a single cron field
  * ```typescript
  * parseField("*"); // "*"
  * parseField("13"); // 13

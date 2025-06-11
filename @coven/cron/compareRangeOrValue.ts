@@ -5,7 +5,7 @@ import { isRangeField } from "./isRangeField.ts";
 /**
  * Compares `value` to a {@linkcode ValueOrRangeField}.
  *
- * @example
+ * @example Compare cron range or cron field
  * ```typescript
  * compareRangeOrValue(13)({ from: 0, to: 99 }); // true
  * compareRangeOrValue(13)({ from: 0, to: 10 }); // false

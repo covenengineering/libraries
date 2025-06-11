@@ -9,7 +9,7 @@ const buildGIU = build("giu");
 /**
  * Normalizes day and month 3 letter aliases into their number counterparts.
  *
- * @example
+ * @example Turn  aliases to numbers
  * ```typescript
  * normalizeAliases("* * 13 oct fri"); // "* * 13 10 5"
  * ```

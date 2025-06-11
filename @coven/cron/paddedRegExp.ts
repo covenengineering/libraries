@@ -4,7 +4,7 @@ import { memo } from "@coven/memo";
 /**
  * Regular expression to match field with an optional `0` to it's left.
  *
- * @example
+ * @example Create some optionally padded with zeroes numbers
  * ```typescript
  * paddedRegExp(5); // "0?5"
  * ```
