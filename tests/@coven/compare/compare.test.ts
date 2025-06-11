@@ -6,9 +6,9 @@ import {
 	UPDATE_KIND,
 } from "@coven/compare";
 import { EMPTY_ARRAY, EMPTY_OBJECT } from "@coven/constants";
+import { EMPTY_ITERABLE_ITERATOR } from "@coven/iterables";
 import { createObject } from "@coven/utils";
 import { assertEquals } from "@std/assert";
-import { EMPTY_ITERABLE_ITERATOR } from "@coven/iterables";
 
 const property1 = "property1";
 const property2 = "property2";
