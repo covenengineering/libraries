@@ -1,7 +1,7 @@
 /**
  * Type union to enforce the `i`, `m` and `s` flas supported by `modifier`.
  *
- * @example
+ * @example Creating constants that have valid regular expression modifier flags
  * ```typescript
  * const flags1: ModifierFlags = "i";
  * const flags2: ModifierFlags = "im";

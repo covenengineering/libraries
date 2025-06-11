@@ -7,7 +7,7 @@ import { captureType } from "./captureType.ts";
  * position in the input stays the same. It negatively matches each atom in its
  * pattern in the reverse order.
  *
- * @example
+ * @example Create negative lookbehind
  * ```typescript
  * negativeLookbehind("✨", "🔮", "💀"); // "(?<!✨🔮💀)"
  * ```

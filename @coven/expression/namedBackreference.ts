@@ -11,7 +11,7 @@ import { escape } from "./escape.ts";
  * [backreference](https://coven.to/mdn/Regular_expressions/Backreference)
  * syntax.
  *
- * @example
+ * @example Create named backreference
  * ```typescript
  * namedBackreference("✨"); // "\k<✨>"
  * ```

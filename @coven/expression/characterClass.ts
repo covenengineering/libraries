@@ -8,7 +8,7 @@ import { join } from "./join.ts";
  * character enclosed in the square brackets, it is taken as a literal hyphen to
  * be included in the character class as a normal character.
  *
- * @example
+ * @example Create character class
  * ```typescript
  * characterClass("✨", "🔮", "💀"); // [✨🔮💀]
  * ```

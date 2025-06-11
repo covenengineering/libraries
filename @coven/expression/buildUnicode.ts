@@ -4,7 +4,7 @@ import { build } from "./build.ts";
 /**
  * Builds an unicode `RegExp` (alias for `build()`).
  *
- * @example
+ * @example Build regular expression with the unicode flag
  * ```typescript
  * import { group, disjunction } from "@coven/expression";
  *

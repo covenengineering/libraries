@@ -11,7 +11,7 @@ import { join } from "./join.ts";
  * Builds a `RegExp` with required `u` flag and strongly typed source (using
  * {@linkcode join}).
  *
- * @example
+ * @example Build regular expressions
  * ```typescript
  * import { group, disjunction } from "@coven/expression";
  *

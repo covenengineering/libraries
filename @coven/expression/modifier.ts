@@ -11,7 +11,7 @@ import type { ModifierFlags } from "./ModifierFlags.ts";
  * [`m`](https://coven.to/mdn/RegExp/multiline), and
  * [`s`](https://coven.to/mdn/RegExp/dotAll).
  *
- * @example
+ * @example Create modifier with `i`, `m` and `s` flags
  * ```typescript
  * modifier("ims")("✨", "🔮", "💀"); // "(?ims:✨🔮💀)"
  * modifier("i-ms")("✨", "🔮", "💀"); // "(?i-ms:✨🔮💀)"

@@ -6,7 +6,7 @@ import { captureType } from "./captureType.ts";
  * not consume any of the input. If the match is successful, the current
  * position in the input stays the same.
  *
- * @example
+ * @example Create lookahead
  * ```typescript
  * lookahead("✨", "🔮", "💀"); // "(?=✨🔮💀)"
  * ```

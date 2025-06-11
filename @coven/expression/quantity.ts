@@ -7,7 +7,7 @@ import type { StringQuantity } from "./StringQuantity.ts";
  * Takes a {@linkcode StringQuantity} and based on it it defines the maximum and
  * minimum of matches.
  *
- * @example
+ * @example Create a variable quantity quantifier for the given strings
  * ```typescript
  * quantity(13)("✨", "🔮", "💀"); // "✨🔮💀{13}"
  * quantity("13,")("✨", "🔮", "💀"); // "✨🔮💀{13,}"

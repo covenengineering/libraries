@@ -8,7 +8,7 @@ import { escape } from "./escape.ts";
  * code point of `J` is 74, and 74 modulo 32 is 10, which is the code point of
  * line break.
  *
- * @example
+ * @example Create control character
  * ```typescript
  * controlCharacter("J"); // "\cJ"
  * ```

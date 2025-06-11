@@ -6,7 +6,7 @@ import { escape } from "./escape.ts";
  * Represents the character with the given hexadecimal Unicode code point. The
  * hexadecimal number must be exactly two digits long.
  *
- * @example
+ * @example Escape two letter hexadecimal
  * ```typescript
  * hexadecimal("0C"); // "\x0C"
  * ```

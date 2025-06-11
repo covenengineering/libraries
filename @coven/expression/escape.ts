@@ -4,7 +4,7 @@ import type { Stringable } from "@coven/types";
 /**
  * Escape given string with a `\`.
  *
- * @example
+ * @example Escape given value
  * ```typescript
  * escape("n"); // "\n"
  * ```

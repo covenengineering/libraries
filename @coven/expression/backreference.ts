@@ -5,7 +5,7 @@ import { escape } from "./escape.ts";
  * [capturing group](https://coven.to/mdn/Regular_expressions/Capturing_group)
  * and matches the same text as that group.
  *
- * @example
+ * @example Create a backreference to the given value
  * ```typescript
  * backreference(1); // "\1"
  * ```
