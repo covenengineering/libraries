@@ -5,7 +5,7 @@ import type { Stringable } from "@coven/types";
  * Matches a character having a character code between the two specified
  * characters inclusive. Must be used with `characterClass`.
  *
- * @example
+ * @example Create a range
  * ```typescript
  * range("✨")("🔮"); // "✨-🔮"
  * ```

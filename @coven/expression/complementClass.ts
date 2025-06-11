@@ -9,7 +9,7 @@ import { characterClass } from "./characterClass.ts";
  * last character enclosed in the square brackets, it is taken as a literal
  * hyphen to be excluded in the complement class as a normal character.
  *
- * @example
+ * @example Create complement class
  * ```typescript
  * complementClass("✨", "🔮", "💀"); // [^✨🔮💀]
  * ```

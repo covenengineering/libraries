@@ -13,7 +13,7 @@ import { captureType } from "./captureType.ts";
  * it does not memorize the matched text, allowing for better performance and
  * avoiding confusion when the pattern also contains useful capturing groups.
  *
- * @example
+ * @example Create non-capturing group
  * ```typescript
  * group("✨", "🔮", "💀"); // "(?:✨🔮💀)"
  * ```

@@ -7,7 +7,7 @@ import { captureType } from "./captureType.ts";
  * the input stays the same. It matches each atom in its pattern in the reverse
  * order.
  *
- * @example
+ * @example Create lookbehind
  * ```typescript
  * lookbehind("✨", "🔮", "💀"); // "(?<=✨🔮💀)"
  * ```

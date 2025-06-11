@@ -5,7 +5,7 @@ import { join } from "./join.ts";
 /**
  * Matches a minimum of `0` and a maximum of `Infinity` of the given item.
  *
- * @example
+ * @example Create 0 or more quantifier for the given strings
  * ```typescript
  * allow("✨", "🔮", "💀"); // "✨🔮💀*"
  * ```

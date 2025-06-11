@@ -12,7 +12,7 @@ import { join } from "./join.ts";
  * [backreference](https://coven.to/mdn/Regular_expressions/Backreference), or
  * access the information through the match results.
  *
- * @example
+ * @example Create capture group
  * ```typescript
  * capture("✨", "🔮", "💀"); // "(✨🔮💀)"
  * ```

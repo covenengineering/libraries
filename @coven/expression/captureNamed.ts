@@ -8,7 +8,7 @@ import { captureType } from "./captureType.ts";
  * that allows to give a name to the group. The group's matching result can
  * later be identified by this name instead of by its index in the pattern.
  *
- * @example
+ * @example Create named capture group
  * ```typescript
  * captureNamed("✨")("🔮", "💀"); // "(?<✨>🔮💀)"
  * ```

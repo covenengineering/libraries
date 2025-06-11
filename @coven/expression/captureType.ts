@@ -6,7 +6,7 @@ import { join } from "./join.ts";
 /**
  * Helper for all groups that start with `?`.
  *
- * @example
+ * @example Create new capture type
  * ```typescript
  * captureType("✨")("🔮", "💀"); // "(?✨🔮💀)"
  * ```

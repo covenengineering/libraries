@@ -4,7 +4,7 @@ import type { Stringable, StringJoin } from "@coven/types";
 /**
  * Concatenates items.
  *
- * @example
+ * @example Concatenate strings
  * ```typescript
  * join("✨", "🔮", "💀"); // "✨🔮💀"
  * ```

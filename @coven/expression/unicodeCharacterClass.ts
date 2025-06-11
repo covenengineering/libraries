@@ -12,7 +12,7 @@ import { escape } from "./escape.ts";
  * > [!WARNING]
  * > [Unicode-aware](https://coven.to/mdn/RegExp/unicode) mode required.
  *
- * @example
+ * @example Create a unicode character class
  * ```typescript
  * unicodeCharacterClass("Emoji_Presentation"); // "\p{Emoji_Presentation}"
  * ```

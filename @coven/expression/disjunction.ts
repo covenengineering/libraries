@@ -5,7 +5,7 @@ import type { Stringable, StringJoin } from "@coven/types";
  * A disjunction specifies multiple alternatives. Any alternative matching the
  * input causes the entire disjunction to be matched.
  *
- * @example
+ * @example Create disjunction
  * ```typescript
  * disjunction("✨", "🔮", "💀"); // "✨|🔮|💀"
  * ```

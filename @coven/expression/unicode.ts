@@ -9,7 +9,7 @@ import { escape } from "./escape.ts";
  * > [!WARNING]
  * > [Unicode-aware](https://coven.to/mdn/RegExp/unicode) mode required.
  *
- * @example
+ * @example Create an escaped hex value
  * ```typescript
  * unicode("0c"); // "\u0c"
  * ```

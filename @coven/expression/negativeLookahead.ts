@@ -6,7 +6,7 @@ import { captureType } from "./captureType.ts";
  * does not consume any of the input. If the match is not successful, the
  * current position in the input stays the same.
  *
- * @example
+ * @example Create negative lookahead
  * ```typescript
  * negativeLookahead("✨", "🔮", "💀"); // "(?!✨🔮💀)"
  * ```

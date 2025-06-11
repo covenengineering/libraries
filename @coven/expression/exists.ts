@@ -5,7 +5,7 @@ import { join } from "./join.ts";
 /**
  * Matches 1 or more of the preceding item. Equivalent to `{1,}`.
  *
- * @example
+ * @example Create 1 or more quantifier for the given strings
  * ```typescript
  * exists("✨", "🔮", "💀"); // "✨🔮💀+"
  * ```
