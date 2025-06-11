@@ -1,6 +1,5 @@
 {
 	"deno.enable": true,
-	"editor.codeActionsOnSave": { "source.organizeImports": "explicit" },
 	"editor.defaultFormatter": "esbenp.prettier-vscode",
 	"editor.formatOnSave": true,
 	"[yaml]": {

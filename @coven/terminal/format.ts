@@ -1,8 +1,8 @@
+import { memo } from "@coven/memo";
 import type { Stringable } from "@coven/types";
 import type { FormatFunction } from "./FormatFunction.ts";
 import { normalizeString } from "./normalizeString.ts";
 import { sgr } from "./sgr.ts";
-import { memo } from "@coven/memo";
 
 /**
  * Format wrapper function.

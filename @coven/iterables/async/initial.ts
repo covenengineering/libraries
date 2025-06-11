@@ -30,7 +30,9 @@ export const initial = <Iterable extends AwaitableIterable>(
 				// deno-lint-ignore no-await-in-loop
 				item = await iterator.next();
 
-				if (!item.done) yield value;
+				if (!item.done) {
+					yield value;
+				}
 			}
 		},
 	) as AwaitableIterableIterator<IterableItem<Iterable>>;

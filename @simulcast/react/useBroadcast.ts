@@ -6,9 +6,9 @@ import {
 	type EventTypeDictionary,
 } from "@simulcast/core";
 import {
-	useBroadcastProxyHandler,
 	type UseBroadcastObject,
 	type UseBroadcastOn,
+	useBroadcastProxyHandler,
 } from "@simulcast/preact";
 import { useEffect, useMemo } from "react";
 
@@ -20,14 +20,14 @@ import { useEffect, useMemo } from "react";
  * /** @jsxImportSource react *\/
  * import { broadcast } from "@simulcast/core";
  * import type { MouseEvent } from "react";
- * 
+ *
  * const { registry } = broadcast<{
  * 	click: MouseEvent<HTMLButtonElement>;
  * }>();
  *
  * const Component = () => {
  * 	const { emitClick, onClick } = useBroadcast(registry);
- * 
+ *
  * 	onClick(console.log);
  *
  * 	return (

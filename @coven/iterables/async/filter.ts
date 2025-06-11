@@ -38,7 +38,9 @@ export const filter: {
 		iteratorFunctionToAsyncIterableIterator(
 			async function* (): AsyncGenerator<Item> {
 				for await (const item of iterable) {
-					if (predicate(item)) yield item;
+					if (predicate(item)) {
+						yield item;
+					}
 				}
 			},
 		);

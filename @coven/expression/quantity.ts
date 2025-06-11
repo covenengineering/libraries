@@ -1,7 +1,7 @@
 import { memo } from "@coven/memo";
-import type { StringQuantity } from "./StringQuantity.ts";
 import type { Stringable, StringJoin } from "@coven/types";
 import { join } from "./join.ts";
+import type { StringQuantity } from "./StringQuantity.ts";
 
 /**
  * Takes a {@linkcode StringQuantity} and based on it it defines the maximum and

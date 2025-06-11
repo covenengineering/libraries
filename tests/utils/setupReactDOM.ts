@@ -1,5 +1,5 @@
-import { parseHTML } from "linkedom/worker";
 import type { Effect } from "@coven/types";
+import { parseHTML } from "linkedom/worker";
 
 export const setup = (): Effect => {
 	const originals = {

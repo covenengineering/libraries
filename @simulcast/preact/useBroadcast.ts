@@ -18,14 +18,14 @@ import { useBroadcastProxyHandler } from "./useBroadcastProxyHandler.ts";
  * /** @jsxImportSource preact *\/
  * import { broadcast } from "@simulcast/core";
  * import type { JSX } from "preact";
- * 
+ *
  * const { registry } = broadcast<{
  * 	click: JSX.TargetedMouseEvent<HTMLButtonElement>;
  * }>();
  *
  * const Component = () => {
  * 	const { emitClick, onClick } = useBroadcast(registry);
- * 
+ *
  * 	onClick(console.log);
  *
  * 	return (
