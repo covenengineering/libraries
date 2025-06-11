@@ -16,7 +16,7 @@ import { paddedRegExp } from "./paddedRegExp.ts";
  * Matches only valid number values for a cron expression (from `0` or `00` to
  * `59`).
  *
- * @example
+ * @example Regular expression test to parse cron numbers
  * ```typescript
  * parseNumberTest("13"); // true
  * parseNumberTest("05"); // true

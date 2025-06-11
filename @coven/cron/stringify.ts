@@ -11,7 +11,7 @@ import { ALL_TOKEN } from "./tokens.ts";
 /**
  * Takes a cron object and returns a sting expression.
  *
- * @example
+ * @example Stringify cron object back to cron expression
  * ```typescript
  * stringify({}); // "* * * * *"
  * stringify({ dayOfMonth: 13, month: 10 }); // "* * 13 10 *"

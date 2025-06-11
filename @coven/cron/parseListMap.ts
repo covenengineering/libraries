@@ -7,7 +7,7 @@ import type { RangeField } from "./RangeField.ts";
 /**
  * Map to parse cron list items (can be either a range or a number).
  *
- * @example
+ * @example Parse valid range items on a list
  * ```typescript
  * parseListMap(["1", "05", "13", "5-13", "13-13", "13-5", "99"]);
  * // [1, 5, 13, { from: 5, to: 13 }, 13, undefined, undefined]

@@ -8,7 +8,7 @@ import { RANGE_EXPRESSION_SEPARATOR_TOKEN } from "./tokens.ts";
 /**
  * Turn a cron range into a string.
  *
- * @example
+ * @example Stringify cron range back to cron expression range
  * ```typescript
  * stringifyRange({ from: 1, to: 13 }); // "1-13"
  * ```

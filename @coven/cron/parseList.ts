@@ -9,7 +9,7 @@ import { LIST_EXPRESSION_SEPARATOR_TOKEN } from "./tokens.ts";
 /**
  * Parses a cron list into an array.
  *
- * @example
+ * @example Parse cron list
  * ```typescript
  * parseList("10,11,13"); // [10, 11, 13]
  * ```

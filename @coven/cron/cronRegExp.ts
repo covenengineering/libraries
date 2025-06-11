@@ -36,7 +36,8 @@ import { valueRangeOrListRegExp } from "./valueRangeOrListRegExp.ts";
  * aliases like `oct`).
  * 	-   `dayOfWeek`: Digits from `0` to `6` (all padded, and also including 3
  * letter aliases like `fri`).
- * @example
+ *
+ * @example Using cron regular expression
  * ```typescript
  * new RegExp(cronRegExp).test("* * * * *"); // true
  * new RegExp(cronRegExp).test("nope"); // false

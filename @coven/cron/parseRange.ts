@@ -10,7 +10,7 @@ import { zipRangeNames } from "./zipRangeNames.ts";
 /**
  * Parses a cron range into an object.
  *
- * @example
+ * @example Parsing cron range
  * ```typescript
  * parseRange("1-13"); // { from: 1, to: 13 }
  * parseRange("13-13"); // 13 (normalized)

@@ -8,7 +8,7 @@ import { nextISODates } from "./nextISODates.ts";
 /**
  * Get next ISO date string for the given date and the given cron expression.
  *
- * @example
+ * @example Getting the next ISO Date string corresponding to ghe given cron expression
  * ```typescript
  * nextISODate("1989-10-13T10:15:00.000Z")("* * * * *"); // "1989-10-13T10:16:00.000Z"
  * ```

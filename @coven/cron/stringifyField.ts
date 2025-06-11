@@ -8,7 +8,7 @@ import { stringifyRange } from "./stringifyRange.ts";
 /**
  * Takes a cron object and returns a string expression.
  *
- * @example
+ * @example Stringify cron field back to cron expression field
  * ```typescript
  * stringifyField("*"); // "*"
  * stringifyField(13); // "13"

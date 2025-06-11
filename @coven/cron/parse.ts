@@ -17,7 +17,7 @@ const buildIU = build("iu");
  * > [!IMPORTANT]
  * > `parse` doesn't work with non-standard cron expressions such as cron quartz.
  *
- * @example
+ * @example Parse valid and invalid cron expressions
  * ```typescript
  * parse("* * * * *"); // { minute: "*", hour: "*", dayOfMonth: "*", month: "*", dayOfWeek: "*" }
  * parse("* * 13 10 *"); // { minute: "*", hour: "*", dayOfMonth: 13, month: 10, dayOfWeek: "*" }

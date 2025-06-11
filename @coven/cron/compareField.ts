@@ -7,7 +7,7 @@ import { isListField } from "./isListField.ts";
 /**
  * Checks if given value is included in given field.
  *
- * @example
+ * @example Compare cron fields
  * ```typescript
  * compareField(13, 13); // true
  * compareField(13, 99); // false
