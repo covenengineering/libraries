@@ -36,7 +36,7 @@ import { useEffect, useMemo } from "react";
  * 		</button>
  * 	);
  * };
-```
+ * ```
  * @template Events Event registry.
  * @param registry Optional record of event names mapped to an array of handlers.
  * @returns An object that gives access to the broadcast hooked to React.

@@ -19,5 +19,6 @@ to `1.0.0` for everything. Now about the actual "to do":
     - [ ] `@simulcast/angular`.
     - [x] `@simulcast/preact`.
     - [x] `@simulcast/react`.
-    - [ ] `@simulcast/svelte`.
-    - [ ] `@simulcast/vue`.
+    - [x] ~~@simulcast/svelte~~ svelte library dev is painful, will skip for
+          now.
+    - [x] `@simulcast/vue`.
