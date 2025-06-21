@@ -22,7 +22,8 @@
 		"prettier": "npm:prettier@^3.5.3",
 		"prettier-plugin-organize-imports": "npm:prettier-plugin-organize-imports@^4.1.0",
 		"react": "npm:react@^19.1.0",
-		"react-dom": "npm:react-dom@^19.1.0"
+		"react-dom": "npm:react-dom@^19.1.0",
+		"vue": "npm:vue@^3.5.16"
 	},
 	"lint": {
 		"rules": {
@@ -80,6 +81,7 @@
 		"./@coven/utils",
 		"./@simulcast/core",
 		"./@simulcast/preact",
-		"./@simulcast/react"
+		"./@simulcast/react",
+		"./@simulcast/vue"
 	]
 }
