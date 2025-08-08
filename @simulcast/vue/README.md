@@ -12,7 +12,6 @@
 <script setup>
 	import { broadcast } from "@simulcast/core";
 	import { useBroadcast } from "@simulcast/vue";
-	import type { MouseEvent } from "vue";
 
 	const { registry } = broadcast<{ click: MouseEvent }>();
 	const { emitClick, onClick } = useBroadcast(registry);
