@@ -6,7 +6,7 @@ import { preciseAdd } from "./preciseAdd.ts";
  *
  * @example
  * ```typescript
- * const addDot2 = add(2);
+ * const addDot2 = add(0.2);
  *
  * addDot2(0.1); // 0.3
  * ```
