@@ -4,7 +4,7 @@ import { useBroadcast } from "@simulcast/react";
 import { assertStrictEquals } from "@std/assert";
 import { type JSX, type MouseEvent, useState } from "react";
 import { createRoot } from "react-dom/client";
-import { setup } from "../../utils/setupReactDOM.ts";
+import { mockDOM } from "../../utils/mockDOM.ts";
 import { timeout } from "../../utils/timeout.ts";
 
 const CountComponent = (properties: JSX.IntrinsicElements["button"]) => {
@@ -50,7 +50,7 @@ const BroadcastComponent = ({
 Deno.test(
 	"Broadcast's on handler is called once even when it re-renders",
 	async () => {
-		const cleanup = setup();
+		mockDOM();
 		const root = createRoot(
 			document.querySelector("#root") as HTMLDivElement,
 		);
@@ -84,13 +84,11 @@ Deno.test(
 		broadcastButton.click(); // Click broadcast button once
 		assertStrictEquals(state.calledTimes, 1); // State should be updated once
 		assertStrictEquals(addButton.textContent, "2"); // Even when it re-rendered twice
-
-		cleanup();
 	},
 );
 
 Deno.test("Broadcast's on handler is removed when unmounted", async () => {
-	const cleanup = setup();
+	mockDOM();
 	const root = createRoot(document.querySelector("#root") as HTMLDivElement);
 
 	const state1 = { calledTimes: 0 };
@@ -157,6 +155,4 @@ Deno.test("Broadcast's on handler is removed when unmounted", async () => {
 	await timeout();
 	assertStrictEquals(state1.calledTimes, 2); // State 1 should have registered events until removed
 	assertStrictEquals(state2.calledTimes, 3); // State 2 should have registered all events
-
-	cleanup();
 });
