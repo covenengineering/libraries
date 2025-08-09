@@ -39,6 +39,7 @@
 		]
 	},
 	"imports": {
+		"@angular/core": "npm:@angular/core@^20.1.6",
 		"@std/assert": "jsr:@std/assert@^1.0.13",
 		"@types/react": "npm:@types/react@^19.1.9",
 		"@types/react-dom": "npm:@types/react-dom@^19.1.7",
@@ -107,6 +108,7 @@
 		"./@coven/terminal",
 		"./@coven/types",
 		"./@coven/utils",
+		"./@simulcast/angular",
 		"./@simulcast/core",
 		"./@simulcast/preact",
 		"./@simulcast/react",
