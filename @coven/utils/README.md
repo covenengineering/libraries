@@ -25,4 +25,4 @@ getMagic({ "✨": "🎃" }); // "🎃"
 
 ## Other links
 
-- [Coverage](https://coveralls.io/github/covenengineering/libraries).
+- [Coverage](https://app.codecov.io/github/covenengineering/libraries).
