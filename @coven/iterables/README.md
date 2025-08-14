@@ -66,4 +66,4 @@ doubles([13, 42]); // Yields [26, 84]
 
 ## Other links
 
-- [Coverage](https://coveralls.io/github/covenengineering/libraries).
+- [Coverage](https://app.codecov.io/github/covenengineering/libraries).

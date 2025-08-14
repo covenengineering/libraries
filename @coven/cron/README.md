@@ -111,4 +111,4 @@ take(2)(nextISODates("1989-10-13T10:15:42.123Z")("* * * * *"));
 
 ## Other links
 
-- [Coverage](https://coveralls.io/github/covenengineering/libraries).
+- [Coverage](https://app.codecov.io/github/covenengineering/libraries).
