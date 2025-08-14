@@ -13,8 +13,8 @@ import { RANGE_EXPRESSION_SEPARATOR_TOKEN } from "./tokens.ts";
  */
 export const isRangeString: (value: string) => value is RangeString = memo(
 	(value: string): value is RangeString =>
-		rangeStringTest(value) &&
-		(([from, to]) => from <= to)(
+		rangeStringTest(value)
+		&& (([from, to]) => from <= to)(
 			value.split(RANGE_EXPRESSION_SEPARATOR_TOKEN).map(parseDecimal) as [
 				from: number,
 				to: number,

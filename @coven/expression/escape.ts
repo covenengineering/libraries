@@ -13,4 +13,4 @@ import type { Stringable } from "@coven/types";
  */
 export const escape: <const Escaped extends Stringable>(
 	escaped: Escaped,
-) => `\\${Escaped}` = memo(escaped => `\\${escaped}`);
+) => `\\${Escaped}` = memo((escaped) => `\\${escaped}`);

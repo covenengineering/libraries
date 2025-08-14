@@ -22,17 +22,13 @@ Deno.test(
 );
 
 Deno.test("Positive float without zeroes on the right returns a tuple", () =>
-	assertEquals(numberToPrecise(13.1), [131n, -1n]),
-);
+	assertEquals(numberToPrecise(13.1), [131n, -1n]));
 
 Deno.test("Positive float with zeroes on the right returns a tuple", () =>
-	assertEquals(numberToPrecise(1300.1), [13_001n, -1n]),
-);
+	assertEquals(numberToPrecise(1300.1), [13_001n, -1n]));
 
 Deno.test("Negative float without zeroes on the right returns tuple", () =>
-	assertEquals(numberToPrecise(-13.1), [-131n, -1n]),
-);
+	assertEquals(numberToPrecise(-13.1), [-131n, -1n]));
 
 Deno.test("Negative float with zeroes on the right returns a tuple", () =>
-	assertEquals(numberToPrecise(-1300.1), [-13_001n, -1n]),
-);
+	assertEquals(numberToPrecise(-1300.1), [-13_001n, -1n]));

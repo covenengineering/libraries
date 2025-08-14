@@ -18,9 +18,9 @@ import { nextISODates } from "./nextISODates.ts";
 export const nextISODate: (
 	isoDate: ISODate,
 ) => (cron: CronString | Partial<CronObject>) => Maybe<ISODate> = memo(
-	isoDate => {
+	(isoDate) => {
 		const nextDatesFor = nextISODates(isoDate);
 
-		return memo(cron => head(nextDatesFor(cron)));
+		return memo((cron) => head(nextDatesFor(cron)));
 	},
 );

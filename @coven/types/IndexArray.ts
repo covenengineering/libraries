@@ -17,6 +17,5 @@ import type { EmptyArray } from "./EmptyArray.ts";
 export type IndexArray<
 	Length extends number = 0,
 	_Accumulator extends ReadonlyArray<number> = EmptyArray,
-> =
-	_Accumulator["length"] extends Length ? _Accumulator
-	:	IndexArray<Length, [..._Accumulator, _Accumulator["length"]]>;
+> = _Accumulator["length"] extends Length ? _Accumulator
+	: IndexArray<Length, [..._Accumulator, _Accumulator["length"]]>;

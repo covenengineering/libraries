@@ -13,9 +13,7 @@ import type { IsInstanceOfFunction } from "./IsInstanceOfFunction.ts";
  * ```
  * @returns Returns a curried function with `constructor` in context.
  */
-export const isInstanceOf =
-	<Expected extends Class<never>>(
-		constructor: Expected,
-	): IsInstanceOfFunction<Expected> =>
-	(input): input is InstanceType<Expected> =>
-		input instanceof constructor;
+export const isInstanceOf = <Expected extends Class<never>>(
+	constructor: Expected,
+): IsInstanceOfFunction<Expected> =>
+(input): input is InstanceType<Expected> => input instanceof constructor;

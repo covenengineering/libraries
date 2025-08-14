@@ -22,7 +22,7 @@ import { subtract } from "./subtract.ts";
  */
 export const calculate: <const Value extends number = number>(
 	value: Value,
-) => Calculation<Value> = memo(value => ({
+) => Calculation<Value> = memo((value) => ({
 	/**
 	 * Divide previous `value` in calculation by the given `divisor`.
 	 *

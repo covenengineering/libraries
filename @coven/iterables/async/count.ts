@@ -20,5 +20,5 @@ export const count = <Item>(
 ): AsyncUnary<[iterable: AwaitableIterable<Item>], number> => {
 	const predicateFilter = filter(predicate);
 
-	return iterable => length(predicateFilter(iterable));
+	return (iterable) => length(predicateFilter(iterable));
 };

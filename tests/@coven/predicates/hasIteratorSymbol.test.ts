@@ -5,11 +5,9 @@ import { assert, assertFalse } from "@std/assert";
 const objectWithIteratorSymbol = { [Symbol.iterator]: () => void 0 };
 
 Deno.test("Object with an iterator symbol", () =>
-	assert(hasIteratorSymbol(objectWithIteratorSymbol)),
-);
+	assert(hasIteratorSymbol(objectWithIteratorSymbol)));
 
 Deno.test("Object without an iterator symbol", () =>
-	assertFalse(hasIteratorSymbol(EMPTY_OBJECT)),
-);
+	assertFalse(hasIteratorSymbol(EMPTY_OBJECT)));
 
 Deno.test("Array", () => assert(hasIteratorSymbol(EMPTY_ARRAY)));

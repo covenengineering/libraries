@@ -33,12 +33,12 @@ const filterIsISODate = filter(
 export const nextISODates: (
 	isoDate: ISODate,
 ) => (cron: CronString | Partial<CronObject>) => IterableIterator<ISODate> =
-	memo(isoDate => {
+	memo((isoDate) => {
 		const initialTimestamp = new Date(
 			isoDate.replace(buildUnicode(dateReplace), "00.000"),
 		).getTime();
 
-		return memo(cron => {
+		return memo((cron) => {
 			const cronObject = parse(
 				isString(cron) ? cron : (stringify(cron) ?? ("" as CronString)),
 			);
@@ -48,7 +48,7 @@ export const nextISODates: (
 			} else {
 				const validDate = timestampInCron(cronObject);
 				const mapValidDate = map((minute: number) =>
-					validDate(initialTimestamp + minute),
+					validDate(initialTimestamp + minute)
 				);
 
 				return filterIsISODate(mapValidDate(minuteRange));

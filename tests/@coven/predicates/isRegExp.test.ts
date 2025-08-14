@@ -3,53 +3,51 @@ import { isRegExp } from "@coven/predicates";
 import { assert, assertFalse } from "@std/assert";
 
 Deno.test("Regular expressions", () =>
-	assert(isRegExp(/expression/u) && isRegExp(new RegExp("expression", "u"))),
-);
+	assert(isRegExp(/expression/u) && isRegExp(new RegExp("expression", "u"))));
 
 Deno.test("Other types", () =>
 	assertFalse(
 		// Array
-		isRegExp(EMPTY_ARRAY) ||
+		isRegExp(EMPTY_ARRAY)
 			// AsyncIterator
-			isRegExp((async function* (): AsyncGenerator {})()) ||
+			|| isRegExp((async function* (): AsyncGenerator {})())
 			// BigInt
-			isRegExp(BigInt(13)) ||
-			isRegExp(BigInt("13")) ||
-			isRegExp(13n) ||
+			|| isRegExp(BigInt(13))
+			|| isRegExp(BigInt("13"))
+			|| isRegExp(13n)
 			// Boolean
 			// deno-lint-ignore no-boolean-literal-for-arguments
-			isRegExp(true) ||
+			|| isRegExp(true)
 			// deno-lint-ignore no-boolean-literal-for-arguments
-			isRegExp(false) ||
+			|| isRegExp(false)
 			// Date
-			isRegExp(new Date()) ||
+			|| isRegExp(new Date())
 			// Function
-			isRegExp(() => undefined) ||
-			isRegExp(async () => await undefined) ||
-			isRegExp(function (): void {}) ||
-			isRegExp(async function (): Promise<void> {}) ||
-			isRegExp(function* (): Generator {}) ||
-			isRegExp(async function* (): AsyncGenerator {}) ||
+			|| isRegExp(() => undefined)
+			|| isRegExp(async () => await undefined)
+			|| isRegExp(function (): void {})
+			|| isRegExp(async function (): Promise<void> {})
+			|| isRegExp(function* (): Generator {})
+			|| isRegExp(async function* (): AsyncGenerator {})
 			// Iterator
-			isRegExp((function* (): Generator {})()) ||
+			|| isRegExp((function* (): Generator {})())
 			// Null
-			isRegExp(null) ||
+			|| isRegExp(null)
 			// Number
-			isRegExp(13) ||
-			isRegExp(Infinity) ||
-			isRegExp(NaN) ||
+			|| isRegExp(13)
+			|| isRegExp(Infinity)
+			|| isRegExp(NaN)
 			// Object
-			isRegExp(EMPTY_OBJECT) ||
+			|| isRegExp(EMPTY_OBJECT)
 			// Promise
-			isRegExp(Promise.resolve()) ||
+			|| isRegExp(Promise.resolve())
 			// String
-			isRegExp("string") ||
-			isRegExp(`string`) ||
+			|| isRegExp("string")
+			|| isRegExp(`string`)
 			// Symbol
-			isRegExp(Symbol("description")) ||
-			isRegExp(Symbol()) ||
-			isRegExp(Symbol.iterator) ||
+			|| isRegExp(Symbol("description"))
+			|| isRegExp(Symbol())
+			|| isRegExp(Symbol.iterator)
 			// Undefined
-			isRegExp(undefined),
-	),
-);
+			|| isRegExp(undefined),
+	));

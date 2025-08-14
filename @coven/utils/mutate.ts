@@ -12,9 +12,7 @@
  * @param update Update to apply to given target.
  * @returns Curried function with `update` in context.
  */
-export const mutate =
-	<const Update extends object>(
-		update: Update,
-	): (<const Target extends object>(target: Target) => Target & Update) =>
-	target =>
-		Object.assign(target, update);
+export const mutate = <const Update extends object>(
+	update: Update,
+): <const Target extends object>(target: Target) => Target & Update =>
+(target) => Object.assign(target, update);

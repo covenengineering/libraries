@@ -24,12 +24,11 @@ export const quantity: <const Quantities extends StringQuantity | number>(
 ) => `${StringJoin<Items>}{${Quantities}}` = memo(
 	<const Quantities extends StringQuantity | number>(
 		quantities: Quantities,
-	) =>
-		memo(
-			<const Items extends ReadonlyArray<Stringable>>(...items: Items) =>
-				join(
-					...items,
-					`{${quantities}}`,
-				) as `${StringJoin<Items>}{${Quantities}}`,
-		),
+	) => memo(
+		<const Items extends ReadonlyArray<Stringable>>(...items: Items) =>
+			join(
+				...items,
+				`{${quantities}}`,
+			) as `${StringJoin<Items>}{${Quantities}}`,
+	),
 );

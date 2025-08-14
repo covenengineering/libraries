@@ -15,12 +15,10 @@ Deno.test("Emit with handlers calls the handlers", () => {
 });
 
 Deno.test("Generated and manual emit are the same", () =>
-	assertStrictEquals(emitTest, emit("test")),
-);
+	assertStrictEquals(emitTest, emit("test")));
 
 Deno.test("Generated and manual on are the same", () =>
-	assertStrictEquals(onTest, on("test")),
-);
+	assertStrictEquals(onTest, on("test")));
 
 Deno.test("Custom emit with custom handlers calls the handlers", () => {
 	let called = false;

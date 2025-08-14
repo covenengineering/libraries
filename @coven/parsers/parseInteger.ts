@@ -21,7 +21,7 @@ import { undefineNaN } from "./undefineNaN.ts";
  * @param radix Radix to use for parsing (`16` for hexadecimal, `10` for decimal, and so on).
  * @returns Curried function with `radix` in context.
  */
-export const parseInteger: (radix: Radix) => NumberParser = memo(radix =>
+export const parseInteger: (radix: Radix) => NumberParser = memo((radix) =>
 	/**
 	 * Curried function with `radix` set.
 	 *
@@ -30,5 +30,5 @@ export const parseInteger: (radix: Radix) => NumberParser = memo(radix =>
 	 * @param string String to parse.
 	 * @returns Parsed `number` or `undefined` if it fails.
 	 */
-	memo(string => undefineNaN(parseInt(string, radix as number))),
+	memo((string) => undefineNaN(parseInt(string, radix as number)))
 );

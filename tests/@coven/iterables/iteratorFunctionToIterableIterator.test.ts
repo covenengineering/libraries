@@ -3,7 +3,7 @@ import { assertEquals } from "@std/assert";
 
 const numbers = [0, 1, 2, 3];
 const iterableIteratorNumbers = iteratorFunctionToIterableIterator(() =>
-	Iterator.from(numbers),
+	Iterator.from(numbers)
 );
 const iterableIteratorSimple = iteratorFunctionToIterableIterator(() => {
 	let done = false;

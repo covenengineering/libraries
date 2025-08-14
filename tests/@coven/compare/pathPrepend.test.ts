@@ -15,8 +15,7 @@ Deno.test("Prepend key to existing path", () =>
 			}),
 		]),
 		[{ kind: DELETE_KIND, left: "✨", path: [13, 42] }],
-	),
-);
+	));
 
 Deno.test("Prepend key to missing path yields prepended key", () =>
 	assertEquals(
@@ -34,5 +33,4 @@ Deno.test("Prepend key to missing path yields prepended key", () =>
 				path: [13],
 			},
 		],
-	),
-);
+	));

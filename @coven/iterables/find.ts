@@ -14,9 +14,7 @@ import { getIterator } from "./getIterator.ts";
  * @param predicate Predicate function to search for item.
  * @returns Curried function with `predicate` set in context.
  */
-export const find =
-	<Item>(
-		predicate: Filter<[item: Item]>,
-	): Unary<[iterable: Iterable<Item>], Maybe<Item>> =>
-	iterable =>
-		getIterator(iterable).find(predicate) as Maybe<Item>;
+export const find = <Item>(
+	predicate: Filter<[item: Item]>,
+): Unary<[iterable: Iterable<Item>], Maybe<Item>> =>
+(iterable) => getIterator(iterable).find(predicate) as Maybe<Item>;

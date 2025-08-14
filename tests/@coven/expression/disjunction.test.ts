@@ -7,5 +7,4 @@ Deno.test(
 );
 
 Deno.test("Number 1, and a 3 are joined with a | in between", () =>
-	assertStrictEquals(disjunction(1, 3), "1|3"),
-);
+	assertStrictEquals(disjunction(1, 3), "1|3"));

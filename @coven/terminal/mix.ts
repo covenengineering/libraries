@@ -20,18 +20,17 @@ import type { Formatter } from "./Formatter.ts";
  * @param formatters Array of formatters to be composed.
  * @returns Formatter composed of the given formatters.
  */
-export const mix =
-	(...formatters: ReadonlyArray<Formatter>): Formatter =>
-	/**
-	 * {@linkcode mix} function with formatters set in context.
-	 *
-	 * @see {@linkcode mix}
-	 * @param input String or template string.
-	 * @param expressions Possible values passed to the template string.
-	 * @returns Formatted string.
-	 */
-	(input, ...expressions) =>
-		formatters.reduce(
-			(output, formatter) => formatter(output, ...expressions),
-			input,
-		) as string;
+export const mix = (...formatters: ReadonlyArray<Formatter>): Formatter =>
+/**
+ * {@linkcode mix} function with formatters set in context.
+ *
+ * @see {@linkcode mix}
+ * @param input String or template string.
+ * @param expressions Possible values passed to the template string.
+ * @returns Formatted string.
+ */
+(input, ...expressions) =>
+	formatters.reduce(
+		(output, formatter) => formatter(output, ...expressions),
+		input,
+	) as string;

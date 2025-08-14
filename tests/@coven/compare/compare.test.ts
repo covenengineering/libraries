@@ -14,12 +14,10 @@ const property1 = "property1";
 const property2 = "property2";
 
 Deno.test("Comparing same string yields nothing", () =>
-	assertEquals(flat(compare("magic")("magic")), EMPTY_ARRAY),
-);
+	assertEquals(flat(compare("magic")("magic")), EMPTY_ARRAY));
 
 Deno.test("Comparing same object yields nothing", () =>
-	assertEquals(flat(compare(EMPTY_OBJECT)(EMPTY_OBJECT)), EMPTY_ARRAY),
-);
+	assertEquals(flat(compare(EMPTY_OBJECT)(EMPTY_OBJECT)), EMPTY_ARRAY));
 
 Deno.test("Comparing different string yields `UpdateDifference`", () =>
 	assertEquals(flat(compare("magic")("cat")), [
@@ -29,12 +27,10 @@ Deno.test("Comparing different string yields `UpdateDifference`", () =>
 			path: [],
 			right: "cat",
 		},
-	]),
-);
+	]));
 
 Deno.test("Comparing equal arrays yields nothing", () =>
-	assertEquals(flat(compare(["magic"])(["magic"])), EMPTY_ARRAY),
-);
+	assertEquals(flat(compare(["magic"])(["magic"])), EMPTY_ARRAY));
 
 Deno.test("Comparing different arrays yields `UpdateDifference`", () =>
 	assertEquals(flat(compare(["magic"])(["cat"])), [
@@ -44,15 +40,13 @@ Deno.test("Comparing different arrays yields `UpdateDifference`", () =>
 			path: [0],
 			right: "cat",
 		},
-	]),
-);
+	]));
 
 Deno.test("Comparing equal objects yields nothing", () =>
 	assertEquals(
 		flat(compare({ [property1]: "magic" })({ [property1]: "magic" })),
 		EMPTY_ARRAY,
-	),
-);
+	));
 
 Deno.test(
 	"Comparing objects with different property values yields `UpdateDifference`",
@@ -91,8 +85,7 @@ Deno.test("Comparing array with new items yields `CreateDifference`", () =>
 			]),
 		),
 		[{ kind: CREATE_KIND, path: [1], right: { [property2]: "cat" } }],
-	),
-);
+	));
 
 Deno.test("Comparing array with less items yields `DeleteDifference`", () =>
 	assertEquals(
@@ -108,16 +101,13 @@ Deno.test("Comparing array with less items yields `DeleteDifference`", () =>
 				path: [1],
 			},
 		],
-	),
-);
+	));
 
 Deno.test("Comparing equal Date objects yields nothing", () =>
-	assertEquals(flat(compare(new Date(0))(new Date(0))), EMPTY_ARRAY),
-);
+	assertEquals(flat(compare(new Date(0))(new Date(0))), EMPTY_ARRAY));
 
 Deno.test("Comparing equal RegExp objects yields nothing", () =>
-	assertEquals(flat(compare(/coven/gu)(/coven/gu)), EMPTY_ARRAY),
-);
+	assertEquals(flat(compare(/coven/gu)(/coven/gu)), EMPTY_ARRAY));
 
 Deno.test("Comparing equal URL objects yields nothing", () =>
 	assertEquals(
@@ -127,8 +117,7 @@ Deno.test("Comparing equal URL objects yields nothing", () =>
 			),
 		),
 		EMPTY_ARRAY,
-	),
-);
+	));
 
 Deno.test("Comparing equal `Error` objects yields nothing", () =>
 	assertEquals(
@@ -138,8 +127,7 @@ Deno.test("Comparing equal `Error` objects yields nothing", () =>
 			),
 		),
 		EMPTY_ARRAY,
-	),
-);
+	));
 
 Deno.test("Comparing equal `Map` objects yields nothing", () =>
 	assertEquals(
@@ -149,15 +137,13 @@ Deno.test("Comparing equal `Map` objects yields nothing", () =>
 			),
 		),
 		EMPTY_ARRAY,
-	),
-);
+	));
 
 Deno.test("Comparing equal `Set` objects yields nothing", () =>
 	assertEquals(
 		flat(compare(new Set(["magic"]))(new Set(["magic"]))),
 		EMPTY_ARRAY,
-	),
-);
+	));
 
 Deno.test(
 	"Comparing left `null` and right object yields `UpdateDifference`",
@@ -236,7 +222,7 @@ Deno.test(
 					Symbol.iterator,
 					Symbol.unscopables,
 				] as const
-			).map(key => ({
+			).map((key) => ({
 				kind: DELETE_KIND,
 				left: Array.prototype[key],
 				path: [key],
@@ -252,15 +238,13 @@ Deno.test("Comparing 0 with -0 should yield `UpdateDifference`", () =>
 			path: [],
 			right: 0,
 		},
-	]),
-);
+	]));
 
 Deno.test("Comparing iterator to itself", () =>
 	assertEquals(
 		flat(compare(EMPTY_ITERABLE_ITERATOR)(EMPTY_ITERABLE_ITERATOR)),
 		[],
-	),
-);
+	));
 
 Deno.test("Comparing iterator to plain object", () =>
 	assertEquals(flat(compare(EMPTY_ITERABLE_ITERATOR)(EMPTY_OBJECT)), [
@@ -270,5 +254,4 @@ Deno.test("Comparing iterator to plain object", () =>
 			path: [],
 			right: EMPTY_OBJECT,
 		},
-	]),
-);
+	]));

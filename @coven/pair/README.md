@@ -33,9 +33,9 @@ const PairedCount = pair(useCount);
 
 const Component = ({ array = [] }) => (
 	<ul>
-		{array.map(key => (
+		{array.map((key) => (
 			<PairedCount key={key}>
-				{usePairedCount => {
+				{(usePairedCount) => {
 					const props = usePairedCount(key);
 
 					return (
@@ -70,9 +70,9 @@ const PairedCount = pair(useCount);
 
 const Component = ({ array = [] }) => (
 	<ul>
-		{array.map(key => (
+		{array.map((key) => (
 			<PairedCount key={key}>
-				{usePairedCount => {
+				{(usePairedCount) => {
 					const props = usePairedCount(key);
 
 					return (

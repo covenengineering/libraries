@@ -24,20 +24,21 @@ import type { EventTypeDictionary } from "./EventTypeDictionary.ts";
  */
 export const emit = <Events extends EventTypeDictionary>(
 	eventRegistry: EventRegistry<Events>,
-): (<Event extends keyof Events>(
+): <Event extends keyof Events>(
 	event: Event,
-) => EventHandler<Events[Event]>) =>
+) => EventHandler<Events[Event]> =>
 	memo(<Event extends keyof Events>(event: Event) => {
 		const getEventHandlers = get(event) as (
 			eventRegistry: EventRegistry<Events>,
 		) => Just<EventRegistry<Events>[Event]>;
 		const hasEventHandlers = has(event);
 
-		return (data => {
+		return ((data) => {
 			if (hasEventHandlers(eventRegistry)) {
 				const applyToData = applyTo(data);
-				const applyEachHandlerToData =
-					forEach<EventHandler<typeof data>>(applyToData);
+				const applyEachHandlerToData = forEach<
+					EventHandler<typeof data>
+				>(applyToData);
 				const eventHandlers = getEventHandlers(eventRegistry);
 
 				applyEachHandlerToData(eventHandlers);

@@ -6,5 +6,4 @@ Deno.test("When both values are missing returns an empty difference", () =>
 	assertEquals(
 		flat(differentiate(MISSING_VALUE)(MISSING_VALUE)),
 		EMPTY_ARRAY,
-	),
-);
+	));

@@ -26,7 +26,7 @@ export const mockDOM = (
 ): void => {
 	const parsed = parseHTML(template);
 
-	properties.forEach(property =>
-		Object.assign(globalThis, { [property]: parsed[property] }),
+	properties.forEach((property) =>
+		Object.assign(globalThis, { [property]: parsed[property] })
 	);
 };

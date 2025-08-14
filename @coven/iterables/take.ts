@@ -12,11 +12,10 @@ import { iteratorFunctionToIterableIterator } from "./iteratorFunctionToIterable
  * @param amount Amount of items to take.
  * @returns Curried function with `amount` in context.
  */
-export const take =
-	(
-		amount: number,
-	): (<Item>(iterable: Iterable<Item>) => IterableIterator<Item>) =>
-	<Item>(iterable: Iterable<Item>) =>
-		iteratorFunctionToIterableIterator(() =>
-			getIterator(iterable).take(amount),
-		);
+export const take = (
+	amount: number,
+): <Item>(iterable: Iterable<Item>) => IterableIterator<Item> =>
+<Item>(iterable: Iterable<Item>) =>
+	iteratorFunctionToIterableIterator(() =>
+		getIterator(iterable).take(amount)
+	);

@@ -1,6 +1,14 @@
 {
-	"format_on_save": "prettier",
-	"lsp": { "deno": { "settings": { "deno": { "enable": true } } } },
+	"format_on_save": "language_server",
+	"lsp": {
+		"deno": {
+			"settings": {
+				"deno": {
+					"enable": true
+				}
+			}
+		}
+	},
 	"languages": {
 		"TypeScript": {
 			"language_servers": [

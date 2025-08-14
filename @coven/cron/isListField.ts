@@ -9,7 +9,7 @@ import type { ValueOrRangeField } from "./ValueOrRangeField.ts";
 const everyIsNumberOrRangeField = every<
 	ValueOrRangeField<number>,
 	ValueOrRangeField<number>
->(item => isNumber(item) || isRangeField(item));
+>((item) => isNumber(item) || isRangeField(item));
 
 /**
  * Predicate checking if given value is a {@linkcode ListField}.

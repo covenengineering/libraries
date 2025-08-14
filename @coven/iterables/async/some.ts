@@ -26,16 +26,15 @@ export const some: {
 	<Item>(
 		predicate: Filter<[item: Item]>,
 	): AsyncFilter<[iterable: AwaitableIterable<Item>]>;
-} =
-	<Item>(
-		predicate: Filter<[item: Item]>,
-	): AsyncFilter<[iterable: AwaitableIterable<Item>]> =>
-	async iterable => {
-		for await (const item of iterable) {
-			if (predicate(item)) {
-				return true;
-			}
+} = <Item>(
+	predicate: Filter<[item: Item]>,
+): AsyncFilter<[iterable: AwaitableIterable<Item>]> =>
+async (iterable) => {
+	for await (const item of iterable) {
+		if (predicate(item)) {
+			return true;
 		}
+	}
 
-		return false;
-	};
+	return false;
+};

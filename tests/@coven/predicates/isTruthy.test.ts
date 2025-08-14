@@ -5,66 +5,64 @@ import { assert, assertFalse } from "@std/assert";
 Deno.test("Truthy", () =>
 	assert(
 		// Array
-		isTruthy(EMPTY_ARRAY) &&
+		isTruthy(EMPTY_ARRAY)
 			// AsyncIterator
-			isTruthy((async function* (): AsyncGenerator {})()) &&
+			&& isTruthy((async function* (): AsyncGenerator {})())
 			// BigInt
-			isTruthy(BigInt(13)) &&
-			isTruthy(BigInt("13")) &&
-			isTruthy(13n) &&
+			&& isTruthy(BigInt(13))
+			&& isTruthy(BigInt("13"))
+			&& isTruthy(13n)
 			// Boolean
 			// deno-lint-ignore no-boolean-literal-for-arguments
-			isTruthy(true) &&
+			&& isTruthy(true)
 			// Date
-			isTruthy(new Date()) &&
+			&& isTruthy(new Date())
 			// Function
-			isTruthy(() => undefined) &&
-			isTruthy(async () => await undefined) &&
-			isTruthy(function (): void {}) &&
-			isTruthy(async function (): Promise<void> {}) &&
-			isTruthy(function* (): Generator {}) &&
-			isTruthy(async function* (): AsyncGenerator {}) &&
+			&& isTruthy(() => undefined)
+			&& isTruthy(async () => await undefined)
+			&& isTruthy(function (): void {})
+			&& isTruthy(async function (): Promise<void> {})
+			&& isTruthy(function* (): Generator {})
+			&& isTruthy(async function* (): AsyncGenerator {})
 			// Iterator
-			isTruthy((function* (): Generator {})()) &&
+			&& isTruthy((function* (): Generator {})())
 			// Number
-			isTruthy(13) &&
-			isTruthy(Infinity) &&
+			&& isTruthy(13)
+			&& isTruthy(Infinity)
 			// Object
-			isTruthy(EMPTY_OBJECT) &&
+			&& isTruthy(EMPTY_OBJECT)
 			// Promise
-			isTruthy(Promise.resolve()) &&
+			&& isTruthy(Promise.resolve())
 			// RegExp
-			isTruthy(/expression/u) &&
-			isTruthy(new RegExp("expression", "u")) &&
+			&& isTruthy(/expression/u)
+			&& isTruthy(new RegExp("expression", "u"))
 			// String
-			isTruthy("string") &&
-			isTruthy(`string`) &&
+			&& isTruthy("string")
+			&& isTruthy(`string`)
 			// Symbol
-			isTruthy(Symbol("description")) &&
-			isTruthy(Symbol()) &&
-			isTruthy(Symbol.iterator),
-	),
-);
+			&& isTruthy(Symbol("description"))
+			&& isTruthy(Symbol())
+			&& isTruthy(Symbol.iterator),
+	));
 
 Deno.test("Falsies", () =>
 	assertFalse(
 		// Bigint
-		isTruthy(BigInt(0)) ||
-			isTruthy(BigInt("0")) ||
-			isTruthy(0n) ||
+		isTruthy(BigInt(0))
+			|| isTruthy(BigInt("0"))
+			|| isTruthy(0n)
 			// Boolean
 			// deno-lint-ignore no-boolean-literal-for-arguments
-			isTruthy(false) ||
+			|| isTruthy(false)
 			// Nullish
-			isTruthy(null) ||
-			isTruthy(undefined) ||
+			|| isTruthy(null)
+			|| isTruthy(undefined)
 			// Number
-			isTruthy(0) ||
-			isTruthy(-0) ||
-			isTruthy(+0) ||
-			isTruthy(NaN) ||
+			|| isTruthy(0)
+			|| isTruthy(-0)
+			|| isTruthy(+0)
+			|| isTruthy(NaN)
 			// String
-			isTruthy("") ||
-			isTruthy(``),
-	),
-);
+			|| isTruthy("")
+			|| isTruthy(``),
+	));

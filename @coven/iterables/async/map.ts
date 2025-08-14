@@ -14,18 +14,17 @@ import { iteratorFunctionToAsyncIterableIterator } from "./iteratorFunctionToAsy
  * @param mapper Mapper function.
  * @returns Generator function with `mapper` function set in context.
  */
-export const map =
-	<Item, MappedItem>(
-		mapper: Unary<[item: Item], MappedItem>,
-	): Unary<
-		[iterable: AwaitableIterable<Item>],
-		Readonly<AsyncIterableIterator<Awaited<MappedItem>>>
-	> =>
-	(iterable: AwaitableIterable<Item>) =>
-		iteratorFunctionToAsyncIterableIterator(
-			async function* (): AsyncGenerator<Awaited<MappedItem>> {
-				for await (const item of iterable) {
-					yield mapper(item);
-				}
-			},
-		);
+export const map = <Item, MappedItem>(
+	mapper: Unary<[item: Item], MappedItem>,
+): Unary<
+	[iterable: AwaitableIterable<Item>],
+	Readonly<AsyncIterableIterator<Awaited<MappedItem>>>
+> =>
+(iterable: AwaitableIterable<Item>) =>
+	iteratorFunctionToAsyncIterableIterator(
+		async function* (): AsyncGenerator<Awaited<MappedItem>> {
+			for await (const item of iterable) {
+				yield mapper(item);
+			}
+		},
+	);

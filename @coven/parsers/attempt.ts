@@ -17,14 +17,13 @@ import type { Just, Maybe } from "@coven/types";
  * @param wrappedFunction Function to be wrapped.
  * @returns Function wrapped in `try`/`catch`.
  */
-export const attempt =
-	<Arguments extends ReadonlyArray<unknown>, Output>(
-		wrappedFunction: (...wrappedArguments: Arguments) => Output,
-	): ((...parameters: Arguments) => Maybe<Output>) =>
-	(...parameters) => {
-		try {
-			return wrappedFunction(...parameters) as Just<Output>;
-		} catch {
-			return undefined;
-		}
-	};
+export const attempt = <Arguments extends ReadonlyArray<unknown>, Output>(
+	wrappedFunction: (...wrappedArguments: Arguments) => Output,
+): (...parameters: Arguments) => Maybe<Output> =>
+(...parameters) => {
+	try {
+		return wrappedFunction(...parameters) as Just<Output>;
+	} catch {
+		return undefined;
+	}
+};

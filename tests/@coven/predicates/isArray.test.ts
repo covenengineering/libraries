@@ -7,48 +7,47 @@ Deno.test("Array", () => assert(isArray(EMPTY_ARRAY)));
 Deno.test("Other types", () =>
 	assertFalse(
 		// AsyncIterator
-		isArray((async function* (): AsyncGenerator {})()) ||
+		isArray((async function* (): AsyncGenerator {})())
 			// BigInt
-			isArray(BigInt(13)) ||
-			isArray(BigInt("13")) ||
-			isArray(13n) ||
+			|| isArray(BigInt(13))
+			|| isArray(BigInt("13"))
+			|| isArray(13n)
 			// Boolean
 			// deno-lint-ignore no-boolean-literal-for-arguments
-			isArray(true) ||
+			|| isArray(true)
 			// deno-lint-ignore no-boolean-literal-for-arguments
-			isArray(false) ||
+			|| isArray(false)
 			// Date
-			isArray(new Date()) ||
+			|| isArray(new Date())
 			// Function
-			isArray(() => undefined) ||
-			isArray(async () => await undefined) ||
-			isArray(function (): void {}) ||
-			isArray(async function (): Promise<void> {}) ||
-			isArray(function* (): Generator {}) ||
-			isArray(async function* (): AsyncGenerator {}) ||
+			|| isArray(() => undefined)
+			|| isArray(async () => await undefined)
+			|| isArray(function (): void {})
+			|| isArray(async function (): Promise<void> {})
+			|| isArray(function* (): Generator {})
+			|| isArray(async function* (): AsyncGenerator {})
 			// Iterator
-			isArray((function* (): Generator {})()) ||
+			|| isArray((function* (): Generator {})())
 			// Null
-			isArray(null) ||
+			|| isArray(null)
 			// Number
-			isArray(13) ||
-			isArray(Infinity) ||
-			isArray(NaN) ||
+			|| isArray(13)
+			|| isArray(Infinity)
+			|| isArray(NaN)
 			// Object
-			isArray(EMPTY_OBJECT) ||
+			|| isArray(EMPTY_OBJECT)
 			// Promise
-			isArray(Promise.resolve()) ||
+			|| isArray(Promise.resolve())
 			// RegExp
-			isArray(/expression/u) ||
-			isArray(new RegExp("expression", "u")) ||
+			|| isArray(/expression/u)
+			|| isArray(new RegExp("expression", "u"))
 			// String
-			isArray("string") ||
-			isArray(`string`) ||
+			|| isArray("string")
+			|| isArray(`string`)
 			// Symbol
-			isArray(Symbol("description")) ||
-			isArray(Symbol()) ||
-			isArray(Symbol.iterator) ||
+			|| isArray(Symbol("description"))
+			|| isArray(Symbol())
+			|| isArray(Symbol.iterator)
 			// Undefined
-			isArray(undefined),
-	),
-);
+			|| isArray(undefined),
+	));

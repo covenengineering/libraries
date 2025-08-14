@@ -30,7 +30,8 @@ export const parseJSON: {
 	[string: string, reviver?: (key: string, value: unknown) => unknown],
 	JSONValue
 >((string, reviver) =>
-	JSON.parse(string, (key, value) =>
-		omitProtoReviver(key, reviver?.(key, value) ?? value),
-	),
+	JSON.parse(
+		string,
+		(key, value) => omitProtoReviver(key, reviver?.(key, value) ?? value),
+	)
 ) as <Output extends JSONValue = JSONValue>(string: string) => Maybe<Output>;

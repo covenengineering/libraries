@@ -24,6 +24,6 @@ export const isType: <Type extends TypeOfValue>(
 	type: Type,
 ) => IsTypeFunction<Type> = memo(
 	<Type extends TypeOfValue>(type: Type): IsTypeFunction<Type> =>
-		(input): input is TypeOfDictionary[Type] =>
-			(input === null ? `${input}` : typeof input) === type,
+	(input): input is TypeOfDictionary[Type] =>
+		(input === null ? `${input}` : typeof input) === type,
 );

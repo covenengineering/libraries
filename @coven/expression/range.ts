@@ -18,6 +18,6 @@ export const range: <From extends Stringable>(
 ) => /**
  * @param to Final value of the range (inclusive).
  * @returns Range from `from` to `to`.
- */ <To extends Stringable>(to: To) => `${From}-${To}` = memo(from =>
-	memo(to => `${from}-${to}`),
+ */ <To extends Stringable>(to: To) => `${From}-${To}` = memo((from) =>
+	memo((to) => `${from}-${to}`)
 );

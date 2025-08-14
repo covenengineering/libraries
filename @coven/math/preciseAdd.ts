@@ -38,8 +38,8 @@ export const preciseAdd: (
 					preciseToNumber(
 						addendBase,
 						(addendExponent ?? 0n) - commonExponent,
-					) +
-						preciseToNumber(
+					)
+						+ preciseToNumber(
 							augendBase,
 							(augendExponent ?? 0n) - commonExponent,
 						),

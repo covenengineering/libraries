@@ -13,5 +13,6 @@ import type { IsInstanceOfFunction } from "./IsInstanceOfFunction.ts";
  * ```
  * @returns `true` if the given value is an instance of `Promise`, `false` otherwise.
  */
-export const isPromise: IsInstanceOfFunction<PromiseConstructor> =
-	isInstanceOf(Promise);
+export const isPromise: IsInstanceOfFunction<PromiseConstructor> = isInstanceOf(
+	Promise,
+);

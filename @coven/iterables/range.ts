@@ -16,8 +16,8 @@ import { iteratorFunctionToIterableIterator } from "./iteratorFunctionToIterable
 export const range = (
 	step: number,
 ): Unary<[from: number], Unary<[to: number], IterableIterator<number>>> =>
-	memo(from =>
-		memo(to =>
+	memo((from) =>
+		memo((to) =>
 			iteratorFunctionToIterableIterator(function* (): Generator<number> {
 				if (from === to) {
 					yield from;
@@ -30,6 +30,6 @@ export const range = (
 						yield current;
 					}
 				}
-			}),
-		),
+			})
+		)
 	);

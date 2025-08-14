@@ -20,8 +20,8 @@ export const test = ({
 	source,
 }: Pick<Readonly<RegExp>, "flags" | "source">): Filter<[text: string]> => {
 	const attemptTest = attempt((text: string) =>
-		new RegExp(source, flags).test(text),
+		new RegExp(source, flags).test(text)
 	);
 
-	return text => attemptTest(text) ?? false;
+	return (text) => attemptTest(text) ?? false;
 };

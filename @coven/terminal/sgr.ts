@@ -15,4 +15,4 @@ import { ESCAPE } from "./ESCAPE.ts";
  */
 export const sgr: <const Input extends number>(
 	input: Input,
-) => `${typeof ESCAPE}[${Input}m` = memo(input => `${ESCAPE}[${input}m`);
+) => `${typeof ESCAPE}[${Input}m` = memo((input) => `${ESCAPE}[${input}m`);

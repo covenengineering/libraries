@@ -35,15 +35,16 @@ export const parse: (expression: CronString) => Maybe<CronObject> = memo(
 			objectToEntries(
 				(buildIU(cronRegExp).exec(normalizeAliases(expression))
 					?.groups ?? EMPTY_OBJECT) as ReadonlyRecord<
-					KeyOf<CronObject>,
-					string
-				>,
+						KeyOf<CronObject>,
+						string
+					>,
 			),
 		);
 
 		return (
 			length(entries) === 0 ? undefined : (
 				entriesToObject(entries)
-			)) as Maybe<CronObject>;
+			)
+		) as Maybe<CronObject>;
 	},
 );

@@ -15,8 +15,8 @@ export const broadcastProxyHandler: Readonly<{
 }> = createObject({
 	get: (broadcast, property) => {
 		const { name, type } =
-			(!(property in broadcast) && eventRegExp.exec(property)?.groups) ||
-			EMPTY_OBJECT;
+			(!(property in broadcast) && eventRegExp.exec(property)?.groups)
+			|| EMPTY_OBJECT;
 
 		if (name && type) {
 			const setProperty = set(property);
