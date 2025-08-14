@@ -38,9 +38,9 @@ jobs:
                   coverage.lcov
 
             - name: Publish Coverage
-              uses: coverallsapp/github-action@v2
+              uses: codecov/codecov-action@v5
               with:
-                  github-token: ${{ secrets.GITHUB_TOKEN }}
+                  token: ${{ secrets.CODECOV_TOKEN }}
     publish:
         name: Publish to JSR
         runs-on: macos-latest
