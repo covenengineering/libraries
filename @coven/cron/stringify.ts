@@ -32,7 +32,7 @@ import { ALL_TOKEN } from "./tokens.ts";
 export const stringify: (cron?: Partial<CronObject>) => Maybe<CronString> =
 	memo((cron: Partial<CronObject> = EMPTY_OBJECT) => {
 		const expression = fieldNamesTuple
-			.map(name => stringifyField(cron[name] ?? ALL_TOKEN))
+			.map((name) => stringifyField(cron[name] ?? ALL_TOKEN))
 			.join(" ");
 
 		return isValidExpression(expression) ? expression : undefined;

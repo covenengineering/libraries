@@ -20,7 +20,7 @@ export const objectToEntries = <Key extends PropertyKey, Value>(
 	iteratorFunctionToIterableIterator(function* (): Generator<
 		Entry<Key extends number ? `${Key}` : Key, Value>
 	> {
-		yield* Iterator.from(Reflect.ownKeys(input)).map(key => [
+		yield* Iterator.from(Reflect.ownKeys(input)).map((key) => [
 			key as Key extends number ? `${Key}` : Key,
 			input[key as keyof ReadonlyRecord<Key, Value>],
 		]);

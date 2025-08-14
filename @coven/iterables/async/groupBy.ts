@@ -22,14 +22,14 @@ import { reduce } from "./reduce.ts";
  */
 export const groupBy = <Item, Key extends PropertyKey>(
 	grouper: Unary<[item: Item], Key>,
-): (<Iterable extends AwaitableIterable<Item>>(
+): <Iterable extends AwaitableIterable<Item>>(
 	iterable: Iterable,
-) => Promise<ReadonlyRecord<Key, Maybe<ReadonlyArray<Item>>>>) =>
+) => Promise<ReadonlyRecord<Key, Maybe<ReadonlyArray<Item>>>> =>
 	reduce((item: Item) => {
 		const group = grouper(item);
 
 		return ((groups: ReadonlyRecord<Key, Maybe<ReadonlyArray<Item>>>) =>
 			set(group)([...(groups[group] ?? EMPTY_ARRAY), item])(groups)) as (
-			groups: ReadonlyRecord<Key, Maybe<ReadonlyArray<Item>>>,
-		) => ReadonlyRecord<Key, ReadonlyArray<Item>>;
+				groups: ReadonlyRecord<Key, Maybe<ReadonlyArray<Item>>>,
+			) => ReadonlyRecord<Key, ReadonlyArray<Item>>;
 	})(EMPTY_OBJECT as ReadonlyRecord<Key, ReadonlyArray<Item>>);

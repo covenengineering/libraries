@@ -5,66 +5,64 @@ import { assert, assertFalse } from "@std/assert";
 Deno.test("Falsies", () =>
 	assert(
 		// Bigint
-		isFalsy(BigInt(0)) &&
-			isFalsy(BigInt("0")) &&
-			isFalsy(0n) &&
+		isFalsy(BigInt(0))
+			&& isFalsy(BigInt("0"))
+			&& isFalsy(0n)
 			// Boolean
 			// deno-lint-ignore no-boolean-literal-for-arguments
-			isFalsy(false) &&
+			&& isFalsy(false)
 			// Nullish
-			isFalsy(null) &&
-			isFalsy(undefined) &&
+			&& isFalsy(null)
+			&& isFalsy(undefined)
 			// Number
-			isFalsy(0) &&
-			isFalsy(-0) &&
-			isFalsy(+0) &&
-			isFalsy(NaN) &&
+			&& isFalsy(0)
+			&& isFalsy(-0)
+			&& isFalsy(+0)
+			&& isFalsy(NaN)
 			// String
-			isFalsy("") &&
-			isFalsy(``),
-	),
-);
+			&& isFalsy("")
+			&& isFalsy(``),
+	));
 
 Deno.test("Truthy", () =>
 	assertFalse(
 		// Array
-		isFalsy(EMPTY_ARRAY) ||
+		isFalsy(EMPTY_ARRAY)
 			// AsyncIterator
-			isFalsy((async function* (): AsyncGenerator {})()) ||
+			|| isFalsy((async function* (): AsyncGenerator {})())
 			// BigInt
-			isFalsy(BigInt(13)) ||
-			isFalsy(BigInt("13")) ||
-			isFalsy(13n) ||
+			|| isFalsy(BigInt(13))
+			|| isFalsy(BigInt("13"))
+			|| isFalsy(13n)
 			// Boolean
 			// deno-lint-ignore no-boolean-literal-for-arguments
-			isFalsy(true) ||
+			|| isFalsy(true)
 			// Date
-			isFalsy(new Date()) ||
+			|| isFalsy(new Date())
 			// Function
-			isFalsy(() => undefined) ||
-			isFalsy(async () => await undefined) ||
-			isFalsy(function (): void {}) ||
-			isFalsy(async function (): Promise<void> {}) ||
-			isFalsy(function* (): Generator {}) ||
-			isFalsy(async function* (): AsyncGenerator {}) ||
+			|| isFalsy(() => undefined)
+			|| isFalsy(async () => await undefined)
+			|| isFalsy(function (): void {})
+			|| isFalsy(async function (): Promise<void> {})
+			|| isFalsy(function* (): Generator {})
+			|| isFalsy(async function* (): AsyncGenerator {})
 			// Iterator
-			isFalsy((function* (): Generator {})()) ||
+			|| isFalsy((function* (): Generator {})())
 			// Number
-			isFalsy(13) ||
-			isFalsy(Infinity) ||
+			|| isFalsy(13)
+			|| isFalsy(Infinity)
 			// Object
-			isFalsy(EMPTY_OBJECT) ||
+			|| isFalsy(EMPTY_OBJECT)
 			// Promise
-			isFalsy(Promise.resolve()) ||
+			|| isFalsy(Promise.resolve())
 			// RegExp
-			isFalsy(/expression/u) ||
-			isFalsy(new RegExp("expression", "u")) ||
+			|| isFalsy(/expression/u)
+			|| isFalsy(new RegExp("expression", "u"))
 			// String
-			isFalsy("string") ||
-			isFalsy(`string`) ||
+			|| isFalsy("string")
+			|| isFalsy(`string`)
 			// Symbol
-			isFalsy(Symbol("description")) ||
-			isFalsy(Symbol()) ||
-			isFalsy(Symbol.iterator),
-	),
-);
+			|| isFalsy(Symbol("description"))
+			|| isFalsy(Symbol())
+			|| isFalsy(Symbol.iterator),
+	));

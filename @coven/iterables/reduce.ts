@@ -14,19 +14,18 @@ import { getIterator } from "./getIterator.ts";
  * @param reducer Reducer function.
  * @returns Curried function with `reducer` in context.
  */
-export const reduce =
-	<Item, Accumulator>(
-		reducer: Unary<
-			[item: Item],
-			Unary<[accumulator: Accumulator], Accumulator>
-		>,
-	): Unary<
-		[initialValue: Accumulator],
-		Unary<[iterable: Iterable<Item>], Accumulator>
-	> =>
-	initialValue =>
-	iterable =>
-		getIterator(iterable).reduce(
-			(accumulator, item) => reducer(item)(accumulator),
-			initialValue,
-		);
+export const reduce = <Item, Accumulator>(
+	reducer: Unary<
+		[item: Item],
+		Unary<[accumulator: Accumulator], Accumulator>
+	>,
+): Unary<
+	[initialValue: Accumulator],
+	Unary<[iterable: Iterable<Item>], Accumulator>
+> =>
+(initialValue) =>
+(iterable) =>
+	getIterator(iterable).reduce(
+		(accumulator, item) => reducer(item)(accumulator),
+		initialValue,
+	);

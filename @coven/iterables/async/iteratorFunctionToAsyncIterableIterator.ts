@@ -29,12 +29,12 @@ export const iteratorFunctionToAsyncIterableIterator = <Item>(
 
 	return {
 		next: async (...next) => await iterator.next(...next),
-		...(iterator.return ?
-			{ return: async value => await iterator.return?.(value) }
-		:	undefined),
-		...(iterator.throw ?
-			{ throw: async error => await iterator.throw?.(error) }
-		:	undefined),
+		...(iterator.return
+			? { return: async (value) => await iterator.return?.(value) }
+			: undefined),
+		...(iterator.throw
+			? { throw: async (error) => await iterator.throw?.(error) }
+			: undefined),
 		[Symbol.asyncIterator]: () =>
 			iteratorFunctionToAsyncIterableIterator(iteratorFunction),
 	} as AsyncIterableIterator<Item>;

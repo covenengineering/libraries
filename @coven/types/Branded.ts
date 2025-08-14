@@ -23,5 +23,6 @@ export declare const BRAND: unique symbol;
  * @template Brand Name of brand.
  * @template Value Value to brand with {@linkcode Brand}.
  */
-export type Branded<Brand extends string, Value> = Value &
-	Readonly<{ [BRAND]: Brand }>;
+export type Branded<Brand extends string, Value> =
+	& Value
+	& Readonly<{ [BRAND]: Brand }>;

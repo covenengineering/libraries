@@ -18,24 +18,24 @@ import type { Numeric } from "@coven/types";
  */
 export const between = <NumericOrString extends Numeric | string>(
 	start: NumericOrString,
-): ((
+): (
 	end: NumericOrString extends string ? string
-	: NumericOrString extends number ? number
-	: bigint,
+		: NumericOrString extends number ? number
+		: bigint,
 ) => (
 	value: NumericOrString extends string ? string
-	: NumericOrString extends number ? number
-	: bigint,
-) => boolean) =>
-	memo(end =>
+		: NumericOrString extends number ? number
+		: bigint,
+) => boolean =>
+	memo((end) =>
 		memo(
-			value =>
-				((start as number) === (end as number) &&
-					(value as number) === (start as number)) ||
-				((start as number) < (end as number) &&
-					(value as number) >= (start as number) &&
-					(value as number) <= (end as number)) ||
-				((value as number) <= (start as number) &&
-					(value as number) >= (end as number)),
-		),
+			(value) =>
+				((start as number) === (end as number)
+					&& (value as number) === (start as number))
+				|| ((start as number) < (end as number)
+					&& (value as number) >= (start as number)
+					&& (value as number) <= (end as number))
+				|| ((value as number) <= (start as number)
+					&& (value as number) >= (end as number)),
+		)
 	);

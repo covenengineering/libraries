@@ -26,7 +26,7 @@ export const compareField: (
 	value: number,
 	field: Exclude<Field<number>, AllToken>,
 ) => boolean = memo((value: number, field: Exclude<Field<number>, AllToken>) =>
-	isListField(field) ?
-		field.some(compareRangeOrValue(value))
-	:	compareRangeOrValue(value)(field),
+	isListField(field)
+		? field.some(compareRangeOrValue(value))
+		: compareRangeOrValue(value)(field)
 );

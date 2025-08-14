@@ -8,5 +8,4 @@ Deno.test('Grouping 13 and the string "coven" returns expected RegExp', () =>
 	assertEquals(
 		{ flags: createdRegExp.flags, source: createdRegExp.source },
 		{ flags: regExp.flags, source: regExp.source },
-	),
-);
+	));

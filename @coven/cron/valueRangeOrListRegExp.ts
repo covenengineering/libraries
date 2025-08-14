@@ -14,7 +14,8 @@ import { valueOrRangeRegExp } from "./valueOrRangeRegExp.ts";
  */
 export const valueRangeOrListRegExp: <Value extends number | string>(
 	value: Value,
-) => `(?:${Value}(?:-${Value})?|(?:(?:${Value}(?:-${Value})?,)+${Value}(?:-${Value})?))` =
-	memo(<Value extends number | string>(value: Value) =>
-		valueOrListRegExp(valueOrRangeRegExp(value)),
-	);
+) =>
+	`(?:${Value}(?:-${Value})?|(?:(?:${Value}(?:-${Value})?,)+${Value}(?:-${Value})?))` =
+		memo(<Value extends number | string>(value: Value) =>
+			valueOrListRegExp(valueOrRangeRegExp(value))
+		);

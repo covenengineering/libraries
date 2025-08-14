@@ -7,48 +7,47 @@ Deno.test("Date", () => assert(isDate(new Date())));
 Deno.test("Other types", () =>
 	assertFalse(
 		// Array
-		isDate(EMPTY_ARRAY) ||
+		isDate(EMPTY_ARRAY)
 			// AsyncIterator
-			isDate((async function* (): AsyncGenerator {})()) ||
+			|| isDate((async function* (): AsyncGenerator {})())
 			// BigInt
-			isDate(BigInt(13)) ||
-			isDate(BigInt("13")) ||
-			isDate(13n) ||
+			|| isDate(BigInt(13))
+			|| isDate(BigInt("13"))
+			|| isDate(13n)
 			// Boolean
 			// deno-lint-ignore no-boolean-literal-for-arguments
-			isDate(true) ||
+			|| isDate(true)
 			// deno-lint-ignore no-boolean-literal-for-arguments
-			isDate(false) ||
+			|| isDate(false)
 			// Function
-			isDate(() => undefined) ||
-			isDate(async () => await undefined) ||
-			isDate(function (): void {}) ||
-			isDate(async function (): Promise<void> {}) ||
-			isDate(function* (): Generator {}) ||
-			isDate(async function* (): AsyncGenerator {}) ||
+			|| isDate(() => undefined)
+			|| isDate(async () => await undefined)
+			|| isDate(function (): void {})
+			|| isDate(async function (): Promise<void> {})
+			|| isDate(function* (): Generator {})
+			|| isDate(async function* (): AsyncGenerator {})
 			// Iterator
-			isDate((function* (): Generator {})()) ||
+			|| isDate((function* (): Generator {})())
 			// Null
-			isDate(null) ||
+			|| isDate(null)
 			// Number
-			isDate(13) ||
-			isDate(Infinity) ||
-			isDate(NaN) ||
+			|| isDate(13)
+			|| isDate(Infinity)
+			|| isDate(NaN)
 			// Object
-			isDate(EMPTY_OBJECT) ||
+			|| isDate(EMPTY_OBJECT)
 			// Promise
-			isDate(Promise.resolve()) ||
+			|| isDate(Promise.resolve())
 			// RegExp
-			isDate(/expression/u) ||
-			isDate(new RegExp("expression", "u")) ||
+			|| isDate(/expression/u)
+			|| isDate(new RegExp("expression", "u"))
 			// String
-			isDate("string") ||
-			isDate(`string`) ||
+			|| isDate("string")
+			|| isDate(`string`)
 			// Symbol
-			isDate(Symbol("description")) ||
-			isDate(Symbol()) ||
-			isDate(Symbol.iterator) ||
+			|| isDate(Symbol("description"))
+			|| isDate(Symbol())
+			|| isDate(Symbol.iterator)
 			// Undefined
-			isDate(undefined),
-	),
-);
+			|| isDate(undefined),
+	));

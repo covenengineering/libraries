@@ -61,10 +61,12 @@ Deno.test(
 		}>();
 
 		root.render(
-			<>
-				<BroadcastComponent {...{ registry, state }} />
-				<CountComponent />
-			</>,
+			(
+				<>
+					<BroadcastComponent {...{ registry, state }} />
+					<CountComponent />
+				</>
+			),
 		);
 
 		await timeout(3);
@@ -103,12 +105,14 @@ Deno.test("Broadcast's on handler is removed when unmounted", async () => {
 
 		return (
 			<>
-				{visible ?
-					<BroadcastComponent
-						{...{ registry }}
-						state={state1}
-					/>
-				:	null}
+				{visible
+					? (
+						<BroadcastComponent
+							{...{ registry }}
+							state={state1}
+						/>
+					)
+					: null}
 				<BroadcastComponent
 					className="always-visible-broadcast"
 					{...{ registry }}
@@ -135,10 +139,11 @@ Deno.test("Broadcast's on handler is removed when unmounted", async () => {
 	const broadcastButton = document.querySelector<HTMLButtonElement>(
 		"button.broadcast",
 	) as HTMLButtonElement;
-	const alwaysVisibleBroadcastButton =
-		document.querySelector<HTMLButtonElement>(
-			"button.always-visible-broadcast",
-		) as HTMLButtonElement;
+	const alwaysVisibleBroadcastButton = document.querySelector<
+		HTMLButtonElement
+	>(
+		"button.always-visible-broadcast",
+	) as HTMLButtonElement;
 
 	// Click broadcast button that will be removed from the DOM
 	await timeout();

@@ -6,6 +6,7 @@ Deno.test(
 	() =>
 		assertStrictEquals(
 			fieldRegExp("test", "13"),
-			String.raw`(?<test>\*|(?:13(?:-13)?|(?:(?:13(?:-13)?,)+13(?:-13)?)))`,
+			String
+				.raw`(?<test>\*|(?:13(?:-13)?|(?:(?:13(?:-13)?,)+13(?:-13)?)))`,
 		),
 );

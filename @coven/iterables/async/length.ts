@@ -14,4 +14,4 @@ import { reduce } from "./reduce.ts";
  */
 export const length: <Iterable extends AwaitableIterable>(
 	iterable: Iterable,
-) => Promise<number> = reduce<unknown, number>(always(total => total + 1))(0);
+) => Promise<number> = reduce<unknown, number>(always((total) => total + 1))(0);

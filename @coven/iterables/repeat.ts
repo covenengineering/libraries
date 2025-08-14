@@ -16,17 +16,17 @@ import { iteratorFunctionToIterableIterator } from "./iteratorFunctionToIterable
 export const repeat: (
 	times: number,
 ) => <const Item>(item: Item) => IterableIterator<Item> = memo(
-	(times): (<const Item>(item: Item) => IterableIterator<Item>) =>
-		<const Item>(item: Item) =>
-			iteratorFunctionToIterableIterator(function* (): Generator<Item> {
-				if (times === Infinity) {
-					for (;;) {
-						yield item;
-					}
-				} else {
-					for (let count = 0n; count < times; count += 1n) {
-						yield item;
-					}
+	(times): <const Item>(item: Item) => IterableIterator<Item> =>
+	<const Item>(item: Item) =>
+		iteratorFunctionToIterableIterator(function* (): Generator<Item> {
+			if (times === Infinity) {
+				for (;;) {
+					yield item;
 				}
-			}),
+			} else {
+				for (let count = 0n; count < times; count += 1n) {
+					yield item;
+				}
+			}
+		}),
 );

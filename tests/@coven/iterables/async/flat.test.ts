@@ -9,8 +9,7 @@ const arrayOfArrays = [
 const arrayDeeper = [arrayOfArrays, arrayOfArrays];
 
 Deno.test("an array that already is flat returns the same array", async () =>
-	assertEquals(await iterableToArray(flat(array)), array),
-);
+	assertEquals(await iterableToArray(flat(array)), array));
 
 Deno.test(
 	"an array of arrays and a depth of 1 returns a flattened array",

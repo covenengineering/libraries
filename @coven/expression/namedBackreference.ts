@@ -21,4 +21,4 @@ import { escape } from "./escape.ts";
  */
 export const namedBackreference: <const Name extends Stringable>(
 	name: Name,
-) => `\\k<${Name}>` = memo(name => escape(`k<${name}>`));
+) => `\\k<${Name}>` = memo((name) => escape(`k<${name}>`));

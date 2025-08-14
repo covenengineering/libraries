@@ -7,7 +7,9 @@ import type { RangeField } from "./RangeField.ts";
  */
 export const zipRangeNames: <RangeNames>(
 	rangeNames: Iterable<RangeNames>,
-) => IterableIterator<Readonly<[KeyOf<RangeField<number>>, RangeNames]>> = zip([
-	"from",
-	"to",
-] as const);
+) => IterableIterator<Readonly<[KeyOf<RangeField<number>>, RangeNames]>> = zip(
+	[
+		"from",
+		"to",
+	] as const,
+);

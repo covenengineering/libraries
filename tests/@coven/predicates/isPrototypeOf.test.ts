@@ -7,8 +7,7 @@ const isPrototypeOfObject = isPrototypeOf(Object);
 Deno.test("Empty object", () => assert(isPrototypeOfObject({})));
 
 Deno.test("Empty object with null prototype", () =>
-	assertFalse(isPrototypeOfObject(EMPTY_OBJECT)),
-);
+	assertFalse(isPrototypeOfObject(EMPTY_OBJECT)));
 
 Deno.test("Array", () => assertFalse(isPrototypeOfObject(EMPTY_ARRAY)));
 

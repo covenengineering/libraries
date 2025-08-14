@@ -25,8 +25,9 @@ const sha256ToNumber = (sha256: ArrayBuffer) =>
  * @param seed Seed to be used to generate random numbers.
  * @returns Pseudo-random number from seed.
  */
-export const cryptoNumber: AsyncUnary<[seed: Stringable], number> = memo(seed =>
-	crypto.subtle
-		.digest("SHA-256", textEncoder.encode(`${seed}`))
-		.then(sha256ToNumber),
+export const cryptoNumber: AsyncUnary<[seed: Stringable], number> = memo(
+	(seed) =>
+		crypto.subtle
+			.digest("SHA-256", textEncoder.encode(`${seed}`))
+			.then(sha256ToNumber),
 );

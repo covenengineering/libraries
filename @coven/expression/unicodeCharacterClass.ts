@@ -22,4 +22,4 @@ import { escape } from "./escape.ts";
  */
 export const unicodeCharacterClass: <const Category extends Stringable>(
 	category: Category,
-) => `\\p{${Category}}` = memo(category => escape(`p{${category}}`));
+) => `\\p{${Category}}` = memo((category) => escape(`p{${category}}`));

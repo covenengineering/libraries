@@ -16,15 +16,15 @@ export const useBroadcastProxyHandler: Readonly<{
 }> = createObject({
 	get: (broadcast, property) => {
 		const { name } =
-			(!(property in broadcast) && onRegExp.exec(property)?.groups) ||
-			EMPTY_OBJECT;
+			(!(property in broadcast) && onRegExp.exec(property)?.groups)
+			|| EMPTY_OBJECT;
 
 		if (name) {
 			const setProperty = set(property);
 			const on = Reflect.get(broadcast, "on");
 			const event = `${name.slice(0, 1).toLowerCase()}${name.slice(1)}`;
 			const setHandler = setProperty((handler: EventHandler<unknown>) =>
-				on(event, handler),
+				on(event, handler)
 			)(broadcast);
 			const commitHandler = mutate(setHandler);
 

@@ -3,53 +3,51 @@ import { isString } from "@coven/predicates";
 import { assert, assertFalse } from "@std/assert";
 
 Deno.test("Regular expressions", () =>
-	assert(isString("string") && isString(`string`)),
-);
+	assert(isString("string") && isString(`string`)));
 
 Deno.test("Other types", () =>
 	assertFalse(
 		// Array
-		isString(EMPTY_ARRAY) ||
+		isString(EMPTY_ARRAY)
 			// AsyncIterator
-			isString((async function* (): AsyncGenerator {})()) ||
+			|| isString((async function* (): AsyncGenerator {})())
 			// BigInt
-			isString(BigInt(13)) ||
-			isString(BigInt("13")) ||
-			isString(13n) ||
+			|| isString(BigInt(13))
+			|| isString(BigInt("13"))
+			|| isString(13n)
 			// Boolean
 			// deno-lint-ignore no-boolean-literal-for-arguments
-			isString(true) ||
+			|| isString(true)
 			// deno-lint-ignore no-boolean-literal-for-arguments
-			isString(false) ||
+			|| isString(false)
 			// Date
-			isString(new Date()) ||
+			|| isString(new Date())
 			// Function
-			isString(() => undefined) ||
-			isString(async () => await undefined) ||
-			isString(function (): void {}) ||
-			isString(async function (): Promise<void> {}) ||
-			isString(function* (): Generator {}) ||
-			isString(async function* (): AsyncGenerator {}) ||
+			|| isString(() => undefined)
+			|| isString(async () => await undefined)
+			|| isString(function (): void {})
+			|| isString(async function (): Promise<void> {})
+			|| isString(function* (): Generator {})
+			|| isString(async function* (): AsyncGenerator {})
 			// Iterator
-			isString((function* (): Generator {})()) ||
+			|| isString((function* (): Generator {})())
 			// Null
-			isString(null) ||
+			|| isString(null)
 			// Number
-			isString(13) ||
-			isString(Infinity) ||
-			isString(NaN) ||
+			|| isString(13)
+			|| isString(Infinity)
+			|| isString(NaN)
 			// Object
-			isString(EMPTY_OBJECT) ||
+			|| isString(EMPTY_OBJECT)
 			// Promise
-			isString(Promise.resolve()) ||
+			|| isString(Promise.resolve())
 			// RegExp
-			isString(/expression/u) ||
-			isString(new RegExp("expression", "u")) ||
+			|| isString(/expression/u)
+			|| isString(new RegExp("expression", "u"))
 			// Symbol
-			isString(Symbol("description")) ||
-			isString(Symbol()) ||
-			isString(Symbol.iterator) ||
+			|| isString(Symbol("description"))
+			|| isString(Symbol())
+			|| isString(Symbol.iterator)
 			// Undefined
-			isString(undefined),
-	),
-);
+			|| isString(undefined),
+	));

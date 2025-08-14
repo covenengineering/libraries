@@ -16,8 +16,8 @@ export const useBroadcastProxyHandler: Readonly<{
 }> = createObject({
 	get: (broadcast, property) => {
 		const { name } =
-			(!(property in broadcast) && onRegExp.exec(property)?.groups) ||
-			EMPTY_OBJECT;
+			(!(property in broadcast) && onRegExp.exec(property)?.groups)
+			|| EMPTY_OBJECT;
 
 		if (name) {
 			const setProperty = set(property);

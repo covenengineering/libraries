@@ -29,19 +29,20 @@ export const compareObjects = (left: object): CurriedComparison<unknown> => {
 	const differentiateLeft = differentiate(left);
 	const isLeftConstructor = is(left.constructor);
 
-	return leftIsIterator ?
-			/**
-			 * Curried {@linkcode compareObjects} with `left` set in context.
-			 *
-			 * @param right New object.
-			 * @returns Generator with differences.
-			 */
-			right =>
-				isLeft(right) ?
-					EMPTY_ITERABLE_ITERATOR
-				:	(isObject(right) && isLeftConstructor(right.constructor) ?
-						isIterable(right) ? compareIterableLeft
-						:	comparePropertiesLeft
-					:	differentiateLeft)(right as Iterable<unknown>)
-		:	comparePropertiesLeft;
+	return leftIsIterator
+		/**
+		 * Curried {@linkcode compareObjects} with `left` set in context.
+		 *
+		 * @param right New object.
+		 * @returns Generator with differences.
+		 */
+		? (right) =>
+			isLeft(right)
+				? EMPTY_ITERABLE_ITERATOR
+				: (isObject(right) && isLeftConstructor(right.constructor)
+					? isIterable(right)
+						? compareIterableLeft
+						: comparePropertiesLeft
+					: differentiateLeft)(right as Iterable<unknown>)
+		: comparePropertiesLeft;
 };

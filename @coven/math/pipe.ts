@@ -26,11 +26,11 @@ export const pipe = <
 	) => (...left: Precise) => Precise,
 >(
 	preciseOperation: PreciseOperation,
-): ((right: number) => (left: number) => number) =>
-	memo(right => {
+): (right: number) => (left: number) => number =>
+	memo((right) => {
 		const rightOperation = preciseOperation(...numberToPrecise(right));
 
-		return memo(left =>
-			preciseToNumber(...rightOperation(...numberToPrecise(left))),
+		return memo((left) =>
+			preciseToNumber(...rightOperation(...numberToPrecise(left)))
 		);
 	});

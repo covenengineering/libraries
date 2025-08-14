@@ -4,9 +4,7 @@ import { assertStrictEquals } from "@std/assert";
 const anObject = { lucky: 13 };
 
 Deno.test("Identity returns the same string it receives", () =>
-	assertStrictEquals(identity("✨"), "✨"),
-);
+	assertStrictEquals(identity("✨"), "✨"));
 
 Deno.test("Identity returns the same object it receives, not a copy", () =>
-	assertStrictEquals(identity(anObject), anObject),
-);
+	assertStrictEquals(identity(anObject), anObject));

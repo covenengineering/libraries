@@ -5,7 +5,7 @@ Deno.test(
 	"`Array#pop` should throw",
 	() =>
 		void assertThrows(() =>
-			(EMPTY_ARRAY as unknown as Array<string>).pop(),
+			(EMPTY_ARRAY as unknown as Array<string>).pop()
 		),
 );
 
@@ -13,7 +13,7 @@ Deno.test(
 	"`Array#push` should throw",
 	() =>
 		void assertThrows(() =>
-			(EMPTY_ARRAY as unknown as Array<string>).push("💀"),
+			(EMPTY_ARRAY as unknown as Array<string>).push("💀")
 		),
 );
 
@@ -21,7 +21,7 @@ Deno.test(
 	"`Array#shift` should throw",
 	() =>
 		void assertThrows(() =>
-			(EMPTY_ARRAY as unknown as Array<string>).shift(),
+			(EMPTY_ARRAY as unknown as Array<string>).shift()
 		),
 );
 
@@ -29,7 +29,7 @@ Deno.test(
 	"`Array#splice` should throw",
 	() =>
 		void assertThrows(() =>
-			(EMPTY_ARRAY as unknown as Array<string>).splice(0),
+			(EMPTY_ARRAY as unknown as Array<string>).splice(0)
 		),
 );
 
@@ -37,7 +37,7 @@ Deno.test(
 	"`Array#unshift` should throw",
 	() =>
 		void assertThrows(() =>
-			(EMPTY_ARRAY as unknown as Array<string>).unshift(),
+			(EMPTY_ARRAY as unknown as Array<string>).unshift()
 		),
 );
 
@@ -53,6 +53,6 @@ Deno.test(
 	"Using `Object.defineProperty` should throw",
 	() =>
 		void assertThrows(() =>
-			Object.defineProperty(EMPTY_ARRAY, "test", { value: "💀" }),
+			Object.defineProperty(EMPTY_ARRAY, "test", { value: "💀" })
 		),
 );

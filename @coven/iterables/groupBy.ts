@@ -20,12 +20,11 @@ export const groupBy = <Item, Key extends PropertyKey>(
 ): Unary<
 	[iterable: Iterable<Item>],
 	Readonly<Record<Key, ReadonlyArray<Item>>>
-> =>
-	reduce((item: Item) => {
-		const group = grouper(item);
+> => reduce((item: Item) => {
+	const group = grouper(item);
 
-		return ((groups: ReadonlyRecord<Key, Maybe<ReadonlyArray<Item>>>) =>
-			set(group)([...(groups[group] ?? EMPTY_ARRAY), item])(groups)) as (
+	return ((groups: ReadonlyRecord<Key, Maybe<ReadonlyArray<Item>>>) =>
+		set(group)([...(groups[group] ?? EMPTY_ARRAY), item])(groups)) as (
 			groups: ReadonlyRecord<Key, Maybe<ReadonlyArray<Item>>>,
 		) => ReadonlyRecord<Key, ReadonlyArray<Item>>;
-	})(EMPTY_OBJECT as ReadonlyRecord<Key, ReadonlyArray<Item>>);
+})(EMPTY_OBJECT as ReadonlyRecord<Key, ReadonlyArray<Item>>);

@@ -18,4 +18,4 @@ import { escape } from "./escape.ts";
  */
 export const controlCharacter: <const Character extends UppercaseLetters>(
 	character: Character,
-) => `\\c${Character}` = memo(character => escape(`c${character}`));
+) => `\\c${Character}` = memo((character) => escape(`c${character}`));

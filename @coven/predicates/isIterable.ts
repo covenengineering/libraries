@@ -15,7 +15,7 @@ import { isString } from "./isString.ts";
  * @returns `true` when is an `Iterable`, `false` otherwise.
  */
 export const isIterable = <Item>(input: unknown): input is Iterable<Item> =>
-	isString(input) ||
-	(isObject(input) &&
-		hasIteratorSymbol(input) &&
-		isFunction(input[Symbol.iterator]));
+	isString(input)
+	|| (isObject(input)
+		&& hasIteratorSymbol(input)
+		&& isFunction(input[Symbol.iterator]));

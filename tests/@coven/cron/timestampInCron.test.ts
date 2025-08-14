@@ -10,9 +10,9 @@ const dateInCronTest = timestampInCron({
 });
 
 Deno.test("Date inside the cron expression returns true", () =>
-	assert(dateInCronTest(new Date("1989-05-05T05:05:00.000Z").getTime())),
-);
+	assert(dateInCronTest(new Date("1989-05-05T05:05:00.000Z").getTime())));
 
 Deno.test("Date outside the cron expression returns false", () =>
-	assertFalse(dateInCronTest(new Date("2024-05-05T05:05:00.000Z").getTime())),
-);
+	assertFalse(
+		dateInCronTest(new Date("2024-05-05T05:05:00.000Z").getTime()),
+	));

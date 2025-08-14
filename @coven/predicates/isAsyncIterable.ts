@@ -21,6 +21,6 @@ import { isObject } from "./isObject.ts";
 export const isAsyncIterable = <Item>(
 	input: unknown,
 ): input is AsyncIterable<Item> =>
-	isObject(input) &&
-	hasAsyncIteratorSymbol(input) &&
-	isFunction(input[Symbol.asyncIterator]);
+	isObject(input)
+	&& hasAsyncIteratorSymbol(input)
+	&& isFunction(input[Symbol.asyncIterator]);

@@ -13,10 +13,10 @@ const hasTo = has("to");
 export const isRangeField: (value: unknown) => value is RangeField<number> =
 	memo(
 		(value: unknown): value is RangeField<number> =>
-			isObject(value) &&
-			hasFrom(value) &&
-			hasTo(value) &&
-			isNumber(value.from) &&
-			isNumber(value.to) &&
-			value.from < value.to,
+			isObject(value)
+			&& hasFrom(value)
+			&& hasTo(value)
+			&& isNumber(value.from)
+			&& isNumber(value.to)
+			&& value.from < value.to,
 	);

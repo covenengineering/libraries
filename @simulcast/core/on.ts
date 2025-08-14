@@ -32,9 +32,9 @@ import type { EventTypeDictionary } from "./EventTypeDictionary.ts";
  */
 export const on = <Events extends EventTypeDictionary>(
 	eventRegistry: EventRegistry<Events>,
-): (<Event extends keyof Events>(
+): <Event extends keyof Events>(
 	event: Event,
-) => (handler: EventHandler<Events[Event]>) => Effect) =>
+) => (handler: EventHandler<Events[Event]>) => Effect =>
 	memo(<Event extends keyof Events>(event: Event) => {
 		const getEventHandlers = get(event) as (
 			eventRegistry: EventRegistry<Events>,
@@ -46,13 +46,13 @@ export const on = <Events extends EventTypeDictionary>(
 			const handlerIterable = toIterable(handler);
 			const appendHandler = append(handlerIterable);
 			const filterHandler = filter(
-				currentHandler => currentHandler !== handler,
+				(currentHandler) => currentHandler !== handler,
 			);
 			const eventHandlers = getEventHandlers(eventRegistry);
 			const setNewHandlers = setEventHandlers(
-				hasEventHandlers(eventRegistry) ?
-					appendHandler(eventHandlers)
-				:	handlerIterable,
+				hasEventHandlers(eventRegistry)
+					? appendHandler(eventHandlers)
+					: handlerIterable,
 			);
 			const commitUpdate = mutate(setNewHandlers(eventRegistry));
 

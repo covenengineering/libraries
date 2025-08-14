@@ -30,6 +30,6 @@ export const modifier: <
  * @returns Modifier with given `flags` and `pattern`.
  */ <const Pattern extends ReadonlyArray<Stringable>>(
 	...pattern: Pattern
-) => `(?${Flags}:${StringJoin<Pattern>})` = memo(flags =>
-	captureType(`${flags}:`),
+) => `(?${Flags}:${StringJoin<Pattern>})` = memo((flags) =>
+	captureType(`${flags}:`)
 );

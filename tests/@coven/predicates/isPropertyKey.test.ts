@@ -5,55 +5,53 @@ import { assert, assertFalse } from "@std/assert";
 Deno.test("Promise", () =>
 	assert(
 		// Number
-		isPropertyKey(13) &&
-			isPropertyKey(Infinity) &&
-			isPropertyKey(NaN) &&
+		isPropertyKey(13)
+			&& isPropertyKey(Infinity)
+			&& isPropertyKey(NaN)
 			// String
-			isPropertyKey("string") &&
-			isPropertyKey(`string`) &&
+			&& isPropertyKey("string")
+			&& isPropertyKey(`string`)
 			// Symbol
-			isPropertyKey(Symbol("description")) &&
-			isPropertyKey(Symbol()) &&
-			isPropertyKey(Symbol.iterator),
-	),
-);
+			&& isPropertyKey(Symbol("description"))
+			&& isPropertyKey(Symbol())
+			&& isPropertyKey(Symbol.iterator),
+	));
 
 Deno.test("Other types", () =>
 	assertFalse(
 		// Array
-		isPropertyKey(EMPTY_ARRAY) ||
+		isPropertyKey(EMPTY_ARRAY)
 			// AsyncIterator
-			isPropertyKey((async function* (): AsyncGenerator {})()) ||
+			|| isPropertyKey((async function* (): AsyncGenerator {})())
 			// BigInt
-			isPropertyKey(BigInt(13)) ||
-			isPropertyKey(BigInt("13")) ||
-			isPropertyKey(13n) ||
+			|| isPropertyKey(BigInt(13))
+			|| isPropertyKey(BigInt("13"))
+			|| isPropertyKey(13n)
 			// Boolean
 			// deno-lint-ignore no-boolean-literal-for-arguments
-			isPropertyKey(true) ||
+			|| isPropertyKey(true)
 			// deno-lint-ignore no-boolean-literal-for-arguments
-			isPropertyKey(false) ||
+			|| isPropertyKey(false)
 			// Date
-			isPropertyKey(new Date()) ||
+			|| isPropertyKey(new Date())
 			// Function
-			isPropertyKey(() => undefined) ||
-			isPropertyKey(async () => await undefined) ||
-			isPropertyKey(function (): void {}) ||
-			isPropertyKey(async function (): Promise<void> {}) ||
-			isPropertyKey(function* (): Generator {}) ||
-			isPropertyKey(async function* (): AsyncGenerator {}) ||
+			|| isPropertyKey(() => undefined)
+			|| isPropertyKey(async () => await undefined)
+			|| isPropertyKey(function (): void {})
+			|| isPropertyKey(async function (): Promise<void> {})
+			|| isPropertyKey(function* (): Generator {})
+			|| isPropertyKey(async function* (): AsyncGenerator {})
 			// Iterator
-			isPropertyKey((function* (): Generator {})()) ||
+			|| isPropertyKey((function* (): Generator {})())
 			// Null
-			isPropertyKey(null) ||
+			|| isPropertyKey(null)
 			// Object
-			isPropertyKey(EMPTY_OBJECT) ||
+			|| isPropertyKey(EMPTY_OBJECT)
 			// Promise
-			isPropertyKey(Promise.resolve()) ||
+			|| isPropertyKey(Promise.resolve())
 			// RegExp
-			isPropertyKey(/expression/u) ||
-			isPropertyKey(new RegExp("expression", "u")) ||
+			|| isPropertyKey(/expression/u)
+			|| isPropertyKey(new RegExp("expression", "u"))
 			// Undefined
-			isPropertyKey(undefined),
-	),
-);
+			|| isPropertyKey(undefined),
+	));

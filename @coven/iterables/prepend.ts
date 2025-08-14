@@ -11,11 +11,9 @@ import { append } from "./append.ts";
  * @param initialIterable Iterable to be appended.
  * @returns Curried generator function with `initialIterable` set in context.
  */
-export const prepend =
-	<InitialItem>(
-		initialIterable: Iterable<InitialItem>,
-	): (<TailItem>(
-		tailIterable: Iterable<TailItem>,
-	) => IterableIterator<InitialItem | TailItem>) =>
-	tailIterable =>
-		append(tailIterable)(initialIterable);
+export const prepend = <InitialItem>(
+	initialIterable: Iterable<InitialItem>,
+): <TailItem>(
+	tailIterable: Iterable<TailItem>,
+) => IterableIterator<InitialItem | TailItem> =>
+(tailIterable) => append(tailIterable)(initialIterable);

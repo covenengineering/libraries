@@ -14,12 +14,10 @@ import type { Effect, Unary } from "@coven/types";
  * @param tapper Tapper function to be called with the value.
  * @returns Curried function with `tapper` in context.
  */
-export const tap =
-	<Input, Output>(
-		tapper: Unary<[input: Input], Output>,
-	): (<Tapped extends Effect<[input: Input]>>(
-		tapped: Tapped,
-	) => Unary<[input: Input], Output>) =>
-	tapped =>
-	input =>
-		(tapper(input), tapped(input)) as Output;
+export const tap = <Input, Output>(
+	tapper: Unary<[input: Input], Output>,
+): <Tapped extends Effect<[input: Input]>>(
+	tapped: Tapped,
+) => Unary<[input: Input], Output> =>
+(tapped) =>
+(input) => (tapper(input), tapped(input)) as Output;

@@ -50,13 +50,13 @@ export const differentiate = (left: unknown): CurriedComparison<unknown> => {
 	 * @param right Right/New value.
 	 * @returns Difference object.
 	 */
-	return right =>
-		isLeft(right) ?
-			EMPTY_ITERABLE_ITERATOR
-		:	toIterable({
-				...(right === MISSING_VALUE ? { left, kind: DELETE_KIND }
-				: left === MISSING_VALUE ? { kind: CREATE_KIND, right }
+	return (right) =>
+		isLeft(right) ? EMPTY_ITERABLE_ITERATOR : toIterable({
+			...(right === MISSING_VALUE
+				? { left, kind: DELETE_KIND }
+				: left === MISSING_VALUE
+				? { kind: CREATE_KIND, right }
 				: { left, kind: UPDATE_KIND, right }),
-				path: EMPTY_ITERABLE_ITERATOR,
-			});
+			path: EMPTY_ITERABLE_ITERATOR,
+		});
 };

@@ -13,6 +13,6 @@ Deno.test(
 	"Using `defineProperty` should throw",
 	() =>
 		void assertThrows(() =>
-			Object.defineProperty(EMPTY_OBJECT, "test", { value: "💀" }),
+			Object.defineProperty(EMPTY_OBJECT, "test", { value: "💀" })
 		),
 );

@@ -9,7 +9,7 @@ import type { EventTypeDictionary } from "./EventTypeDictionary.ts";
  * Object containing `emit` and `on` methods with a shared event dictionary.
  */
 export type BroadcastObject<Events extends EventTypeDictionary> = Readonly<
-	{
+	& {
 		/**
 		 * Emit events for the current broadcast registry.
 		 *
@@ -32,14 +32,17 @@ export type BroadcastObject<Events extends EventTypeDictionary> = Readonly<
 		 * Broadcast registry.
 		 */
 		registry: EventRegistry<Events>;
-	} & {
+	}
+	& {
 		/**
 		 * Dynamically generated `emit`.
 		 */
-		[Event in keyof Events as `emit${Capitalize<keyof Events & string>}`]: EventHandler<
-			Events[Event]
-		>;
-	} & {
+		[Event in keyof Events as `emit${Capitalize<keyof Events & string>}`]:
+			EventHandler<
+				Events[Event]
+			>;
+	}
+	& {
 		/**
 		 * Dynamically generated `on`.
 		 */
