@@ -1,5 +1,13 @@
 {
 	"format_on_save": "language_server",
+	"code_actions_on_format": {
+		"source.organizeImports": true
+	},
+	"formatter": {
+		"code_actions": {
+			"source.organizeImports": true
+		}
+	},
 	"lsp": {
 		"deno": {
 			"settings": {
@@ -10,6 +18,14 @@
 		}
 	},
 	"languages": {
+		"JavaScript": {
+			"language_servers": [
+				"deno",
+				"!typescript-language-server",
+				"!vtsls",
+				"!eslint"
+			]
+		},
 		"TypeScript": {
 			"language_servers": [
 				"deno",
