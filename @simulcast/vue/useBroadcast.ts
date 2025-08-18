@@ -40,7 +40,7 @@ const broadcastMemo = new Map<
  * </template>
  * ```
  * @template Events Event registry.
- * @param registry Optional record of event names mapped to an array of handlers.
+ * @param registry Record of event names mapped to an IterableIterator of handlers.
  * @returns An object that gives access to the broadcast hooked to React.
  */
 export const useBroadcast = <Events extends EventTypeDictionary>(

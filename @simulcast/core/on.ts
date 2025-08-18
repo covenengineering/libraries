@@ -27,7 +27,7 @@ import type { EventTypeDictionary } from "./EventTypeDictionary.ts";
  * emitEvent("Will not log");
  * ```
  * @template Events Event registry.
- * @param eventRegistry Record of event names mapped to an array of handlers.
+ * @param eventRegistry Record of event names mapped to an IterableIterator of handlers.
  * @returns Curried function with `eventRegistry` in context.
  */
 export const on = <Events extends EventTypeDictionary>(
