@@ -19,7 +19,7 @@ import { on } from "./on.ts";
  * emitEvent("Nope"); // Nothing happens
  * ```
  * @template Events Event registry.
- * @param registry Optional record of event names mapped to an array of handlers.
+ * @param registry Optional record of event names mapped to an IterableIterator of handlers.
  * @param overrides Overrides of the default {@linkcode BroadcastObject} methods and properties.
  * @returns Object with `emit` and `on` functions.
  */

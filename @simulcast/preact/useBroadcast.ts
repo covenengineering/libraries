@@ -36,7 +36,7 @@ import { useBroadcastProxyHandler } from "./useBroadcastProxyHandler.ts";
  * };
  * ```
  * @template Events Event registry.
- * @param registry Optional record of event names mapped to an array of handlers.
+ * @param registry Record of event names mapped to an IterableIterator of handlers.
  * @returns An object that gives access to the broadcast hooked to preact.
  */
 export const useBroadcast = <Events extends EventTypeDictionary>(

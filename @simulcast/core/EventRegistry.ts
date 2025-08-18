@@ -2,7 +2,7 @@ import type { EventHandler } from "./EventHandler.ts";
 import type { EventTypeDictionary } from "./EventTypeDictionary.ts";
 
 /**
- * Registry of event names to array of handlers.
+ * Registry of event names to IterableIterator of handlers.
  *
  * @see {@linkcode EventHandler}
  * @see {@linkcode EventTypeDictionary}
