@@ -15,7 +15,7 @@ import { escape } from "./escape.ts";
  * ```typescript
  * namedBackreference("✨"); // "\k<✨>"
  * ```
- * @see [Named backreference](https://coven.to/mdn/Regular_expressions/Named_backreference)
+ * @see {@linkcode https://coven.to/mdn/Regular_expressions/Named_backreference Named backreference}
  * @param name name of a capturing group.
  * @returns Named backreference to the given `name`.
  */

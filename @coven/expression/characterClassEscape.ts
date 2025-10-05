@@ -3,14 +3,14 @@ import { escape } from "./escape.ts";
 /**
  * Matches any digit character. Equivalent to `[0-9]`.
  *
- * @see [Character class escape](https://coven.to/mdn/Regular_expressions/Character_class_escape)
+ * @see {@linkcode https://coven.to/mdn/Regular_expressions/Character_class_escape Character class escap})
  */
 export const DIGIT: "\\d" = escape("d");
 
 /**
  * Matches any character that isn't a digit. Equivalent to `[^0-9]`.
  *
- * @see [Character class escape](https://coven.to/mdn/Regular_expressions/Character_class_escape)
+ * @see {@linkcode https://coven.to/mdn/Regular_expressions/Character_class_escape Character class escap})
  */
 export const NON_DIGIT: "\\D" = escape("D");
 
@@ -23,7 +23,7 @@ export const NON_DIGIT: "\\D" = escape("D");
  * above through
  * [case folding](https://unicode.org/Public/UCD/latest/ucd/CaseFolding.txt).
  *
- * @see [Character class escape](https://coven.to/mdn/Regular_expressions/Character_class_escape)
+ * @see {@linkcode https://coven.to/mdn/Regular_expressions/Character_class_escape Character class escap})
  */
 export const WORD: "\\w" = escape("w");
 
@@ -36,20 +36,20 @@ export const WORD: "\\w" = escape("w");
  * characters above through
  * [case folding](https://unicode.org/Public/UCD/latest/ucd/CaseFolding.txt).
  *
- * @see [Character class escape](https://coven.to/mdn/Regular_expressions/Character_class_escape)
+ * @see {@linkcode https://coven.to/mdn/Regular_expressions/Character_class_escape Character class escap})
  */
 export const NON_WORD: "\\W" = escape("W");
 
 /**
  * Matches any whitespace or line terminator character.
  *
- * @see [Character class escape](https://coven.to/mdn/Regular_expressions/Character_class_escape)
+ * @see {@linkcode https://coven.to/mdn/Regular_expressions/Character_class_escape Character class escap})
  */
 export const WHITESPACE: "\\s" = escape("s");
 
 /**
  * Matches any character that is not a whitespace or line terminator character.
  *
- * @see [Character class escape](https://coven.to/mdn/Regular_expressions/Character_class_escape)
+ * @see {@linkcode https://coven.to/mdn/Regular_expressions/Character_class_escape Character class escap})
  */
 export const NON_WHITESPACE: "\\S" = escape("S");

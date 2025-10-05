@@ -11,7 +11,7 @@
  *
  * Promise.all([promisedValue, plainValue]).then(console.log); // ["✨", "🔮"]
  * ```
- * @see [Promise](https://coven.to/mdn/Promise)
+ * @see {@linkcode https://coven.to/mdn/Promise Promise}
  * @template Type The type to await.
  */
 export type Awaitable<Type = unknown> = Readonly<PromiseLike<Type> | Type>;

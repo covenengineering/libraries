@@ -17,8 +17,8 @@
  * 	console.log(item); // Also works
  * }
  * ```
- * @see [@@iterator](https://coven.to/mdn/Symbol/iterator)
- * @see [@@asyncIterator](https://coven.to/mdn/Symbol/asyncIterator)
+ * @see {@linkcode https://coven.to/mdn/Symbol/iterator @@iterator}
+ * @see {@linkcode https://coven.to/mdn/Symbol/asyncIterator @@asyncIterator}
  * @template Item Type of the items in the `AwaitableIterable`.
  * @template Return Type of the return value in the `AwaitableIterable`.
  * @template Next Type of the next value in the `AwaitableIterable`.

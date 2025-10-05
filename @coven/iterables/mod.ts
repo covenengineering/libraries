@@ -21,6 +21,7 @@ export { length } from "./length.ts";
 export { map } from "./map.ts";
 export { objectToEntries } from "./objectToEntries.ts";
 export { prepend } from "./prepend.ts";
+export { random } from "./random.ts";
 export { range } from "./range.ts";
 export { reduce } from "./reduce.ts";
 export { repeat } from "./repeat.ts";

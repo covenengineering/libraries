@@ -9,7 +9,7 @@ import type { LanguageCode } from "./LanguageCode.ts";
  * const locale = "en-US" as const satisfies LanguageTag;
  * ```
  * @see {@linkcode LanguageCode}
- * @see [ISO 639](https://en.wikipedia.org/wiki/IETF_language_tag)
- * @see [IETF BCP 47](https://en.wikipedia.org/wiki/ISO_639)
+ * @see {@linkcode https://en.wikipedia.org/wiki/IETF_language_tag ISO 639}
+ * @see {@linkcode https://en.wikipedia.org/wiki/ISO_639 IETF BCP 47}
  */
 export type LanguageTag = LanguageCode | `${LanguageCode}-${string}`;

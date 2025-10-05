@@ -24,7 +24,6 @@ export { join } from "./join.ts";
 export { length } from "./length.ts";
 export { map } from "./map.ts";
 export { prepend } from "./prepend.ts";
-export { random } from "./random.ts";
 export { reduce } from "./reduce.ts";
 export { some } from "./some.ts";
 export { take } from "./take.ts";

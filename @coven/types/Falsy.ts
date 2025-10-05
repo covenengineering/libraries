@@ -16,6 +16,6 @@ import type { Nullish } from "./Nullish.ts";
  * const falsyZeroBigInt = 0n as const satisfies Falsy;
  * ```
  * @see {@linkcode Nullish}
- * @see [Falsy](https://coven.to/mdn/Glossary/Falsy)
+ * @see {@linkcode https://coven.to/mdn/Glossary/Falsy Falsy}
  */
 export type Falsy = 0 | 0n | "" | false | Nullish;

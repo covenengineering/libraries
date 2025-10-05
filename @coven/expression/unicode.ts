@@ -13,7 +13,7 @@ import { escape } from "./escape.ts";
  * ```typescript
  * unicode("0c"); // "\u0c"
  * ```
- * @see [Character escape](https://coven.to/mdn/Regular_expressions/Character_escape)
+ * @see {@linkcode https://coven.to/mdn/Regular_expressions/Character_escape Character escape}
  * @param hexadecimalValue Hex value (between 1 and 6 digits).
  * @returns Unicode character escape.
  */

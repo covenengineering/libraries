@@ -10,7 +10,7 @@ import { escape } from "./escape.ts";
  * ```typescript
  * hexadecimal("0C"); // "\x0C"
  * ```
- * @see [Character escape](https://coven.to/mdn/Regular_expressions/Character_escape)
+ * @see {@linkcode https://coven.to/mdn/Regular_expressions/Character_escape Character escape}
  */
 export const hexadecimal: <
 	const HexadecimalValue extends `${HexadecimalDigit}${HexadecimalDigit}`,

@@ -9,8 +9,8 @@
  * type TypeOfFunction = TypeOfDictionary["function"]; // `Function`
  * type TypeOfNull = TypeOfDictionary["null"]; // `null`
  * ```
- * @see [typeof null bug](https://lou.cx/null-bug)
- * @see [typeof typeof rejected proposal](https://lou.cx/null-typeof)
+ * @see {@linkcode https://lou.cx/null-bug typeof null bug}
+ * @see {@linkcode https://lou.cx/null-typeof typeof typeof rejected proposal}
  */
 export type TypeOfDictionary = Readonly<{
 	/**

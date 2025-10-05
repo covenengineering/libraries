@@ -17,7 +17,7 @@ import type { ModifierFlags } from "./ModifierFlags.ts";
  * modifier("i-ms")("✨", "🔮", "💀"); // "(?i-ms:✨🔮💀)"
  * modifier("-i")("✨", "🔮", "💀"); // "(?-i:✨🔮💀)"
  * ```
- * @see [Modifier](https://coven.to/mdn/Regular_expressions/Modifier)
+ * @see {@linkcode https://coven.to/mdn/Regular_expressions/Modifier Modifier}
  * @param flags Flags to enable or disable
  * @returns Curried function with `flags` in context.
  */

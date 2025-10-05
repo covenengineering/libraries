@@ -11,7 +11,7 @@ import { captureType } from "./captureType.ts";
  * ```typescript
  * negativeLookbehind("✨", "🔮", "💀"); // "(?<!✨🔮💀)"
  * ```
- * @see [Lookbehind assertion](https://coven.to/mdn/Regular_expressions/Lookbehind_assertion)
+ * @see {@linkcode https://coven.to/mdn/Regular_expressions/Lookbehind_asserti}n Lookbehind assertion)
  * @param pattern Pattern to not lookbehind.
  * @returns Negated lookbehind expression.
  */

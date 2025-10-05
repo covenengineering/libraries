@@ -13,7 +13,7 @@ import { characterClass } from "./characterClass.ts";
  * ```typescript
  * complementClass("✨", "🔮", "💀"); // [^✨🔮💀]
  * ```
- * @see [Character class](https://coven.to/mdn/Reference/Regular_expressions/Character_class)
+ * @see {@linkcode https://coven.to/mdn/Reference/Regular_expressions/Character_cla}s Character class)
  * @param tokens Tokens to put on the set.
  * @returns Complement class with given `tokens` on it.
  */

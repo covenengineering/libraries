@@ -9,7 +9,7 @@ import type { Stringable } from "@coven/types";
  * ```typescript
  * range("✨")("🔮"); // "✨-🔮"
  * ```
- * @see [Character class](https://coven.to/mdn/Reference/Regular_expressions/Character_class)
+ * @see {@linkcode https://coven.to/mdn/Reference/Regular_expressions/Character_cla}s Character class)
  * @param from Initial value of the range (inclusive).
  * @returns Curried function with `from` in range.
  */

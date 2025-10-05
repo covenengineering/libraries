@@ -9,7 +9,7 @@
  * const flags3: RegularExpressionFlags = "iu";
  * const flags4: RegularExpressionFlags = "giu";
  * ```
- * @see [Regular Expressions](https://coven.to/mdn/Regular_expressions/Cheatsheet)
+ * @see {@linkcode https://coven.to/mdn/Regular_expressions/Cheatsheet Regular Expressions}
  */
 export type RegularExpressionFlags =
 	| "u"

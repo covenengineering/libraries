@@ -12,7 +12,7 @@ import { captureType } from "./captureType.ts";
  * ```typescript
  * captureNamed("✨")("🔮", "💀"); // "(?<✨>🔮💀)"
  * ```
- * @see [Named capturing group](https://coven.to/mdn/Regular_expressions/Named_capturing_group)
+ * @see {@linkcode https://coven.to/mdn/Regular_expressions/Named_capturing_group Named capturing grou})
  * @param groupName Name of the capture group.
  * @returns Curried function witn `groupName` in context.
  */

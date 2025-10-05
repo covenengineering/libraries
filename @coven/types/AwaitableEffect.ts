@@ -10,7 +10,7 @@ import type { Awaitable } from "./Awaitable.ts";
  * ```typescript
  * const awaitableEffect = (input => Promise.resolve(console.log(input))) satisfies AwaitableEffect<[input: string]>;
  * ```
- * @see [Promise](https://coven.to/mdn/Promise)
+ * @see {@linkcode https://coven.to/mdn/Promise Promise}
  * @see {@linkcode Awaitable}
  * @template Arguments Tuple of arguments.
  */

@@ -8,7 +8,7 @@
  * is2(2); // true
  * is2(8); // false
  * ```
- * @see [Object.is](https://coven.to/mdn/Object/is)
+ * @see {@linkcode https://coven.to/mdn/Object/is Object.is}
  * @returns Curried function with `expected` in context.
  */
 export const is: <const Expected>(

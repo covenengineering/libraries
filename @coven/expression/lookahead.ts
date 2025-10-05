@@ -10,7 +10,7 @@ import { captureType } from "./captureType.ts";
  * ```typescript
  * lookahead("✨", "🔮", "💀"); // "(?=✨🔮💀)"
  * ```
- * @see [Lookahead assertion](https://coven.to/mdn/Regular_expressions/Lookahead_assertion)
+ * @see {@linkcode https://coven.to/mdn/Regular_expressions/Lookahead_assertion Lookahead assertion}
  * @param pattern Pattern to lookahead.
  * @returns Lookahead expression.
  */
