@@ -13,7 +13,7 @@ import type { StringQuantity } from "./StringQuantity.ts";
  * quantity("13,")("✨", "🔮", "💀"); // "✨🔮💀{13,}"
  * quantity("13,42")("✨", "🔮", "💀"); // "✨🔮💀{13,42}"
  * ```
- * @see [Quantifier](https://coven.to/mdn/Regular_expressions/Quantifier)
+ * @see {@linkcode https://coven.to/mdn/Regular_expressions/Quantifier Quantifier}
  * @param items Items to be quantified.
  * @returns Quantified items.
  */

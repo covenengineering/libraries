@@ -8,6 +8,6 @@
  * this matches any Unicode code point; otherwise, it matches any UTF-16 code
  * unit.
  *
- * @see [Wildcard](https://coven.to/mdn/Regular_expressions/Wildcard)
+ * @see {@linkcode https://coven.to/mdn/Regular_expressions/Wildcard Wildcard}
  */
 export const WILDCARD = ".";

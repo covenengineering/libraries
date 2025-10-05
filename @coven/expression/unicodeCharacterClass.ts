@@ -16,7 +16,7 @@ import { escape } from "./escape.ts";
  * ```typescript
  * unicodeCharacterClass("Emoji_Presentation"); // "\p{Emoji_Presentation}"
  * ```
- * @see [Unicode Character class escape](https://coven.to/mdn/Regular_expressions/Unicode_character_class_escape)
+ * @see {@linkcode https://coven.to/mdn/Regular_expressions/Unicode_character_class_escape Unicode Character class escap})
  * @param category Unicode category.
  * @returns Unicode character class escape.
  */

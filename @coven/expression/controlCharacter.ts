@@ -12,7 +12,7 @@ import { escape } from "./escape.ts";
  * ```typescript
  * controlCharacter("J"); // "\cJ"
  * ```
- * @see [Character escape](https://coven.to/mdn/Regular_expressions/Character_escape)
+ * @see {@linkcode https://coven.to/mdn/Regular_expressions/Character_escape Character escape}
  * @param character Control character.
  * @returns Control character.
  */

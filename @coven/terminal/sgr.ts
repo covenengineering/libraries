@@ -9,7 +9,7 @@ import { ESCAPE } from "./ESCAPE.ts";
  * sgr(13); // "[13m"
  * sgr(42); // "[42m"
  * ```
- * @see [SGR (Select Graphic Rendition) sequences](https://en.wikipedia.org/wiki/ANSI_escape_code#SGR)
+ * @see {@linkcode https://en.wikipedia.org/wiki/ANSI_escape_code#SGR SGR (Select Graphic Rendition) sequence}
  * @param input Input to escape.
  * @returns SGR sequence.
  */

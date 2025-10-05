@@ -9,7 +9,7 @@ import { join } from "./join.ts";
  * ```typescript
  * exists("✨", "🔮", "💀"); // "✨🔮💀+"
  * ```
- * @see [Quantifier](https://coven.to/mdn/Regular_expressions/Quantifier)
+ * @see {@linkcode https://coven.to/mdn/Regular_expressions/Quantifier Quantifier}
  * @param items Items to be quantified.
  * @returns Quantified items.
  */

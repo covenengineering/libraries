@@ -13,9 +13,9 @@ import type { MinimumLengthNumberString } from "./MinimumLengthNumberString.ts";
  * ```
  * @see {@linkcode ISOYear}
  * @see {@linkcode MinimumLengthNumberString}
- * @see [Date](https://coven.to/mdn/Date)
- * @see [Date#toISOString](https://coven.to/mdn/Date/toISOString)
- * @see [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)
+ * @see {@linkcode https://coven.to/mdn/Date Date}
+ * @see {@linkcode https://coven.to/mdn/Date/toISOString Date#toISOString}
+ * @see {@linkcode https://en.wikipedia.org/wiki/ISO_8601 ISO 8601}
  */
 export type ISODate =
 	`${ISOYear}-${MinimumLengthNumberString}-${MinimumLengthNumberString}T${MinimumLengthNumberString}:${MinimumLengthNumberString}:${MinimumLengthNumberString}.${MinimumLengthNumberString<

@@ -9,7 +9,7 @@ import type { Primitive } from "./Primitive.ts";
  * const json = JSON.parse('{"✨": "🔮"}') satisfies JSONValue;
  * ```
  * @see {@linkcode Primitive}
- * @see [JSON](https://www.json.org/json-en.html)
+ * @see {@linkcode https://www.json.org/json-en.html JSON}
  */
 export type JSONValue =
 	| Readonly<{

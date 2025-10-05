@@ -14,7 +14,7 @@ import { attempt } from "./attempt.ts";
  * clone({ function: (() => {}) as unknown as string }); // undefined
  * ```
  * @see {@linkcode attempt}
- * @see [structuredClone](https://coven.to/mdn/Window/structuredClone)
+ * @see {@linkcode https://coven.to/mdn/Window/structuredClone structuredClone}
  * @template Type Type of the value to be cloned.
  * @param value Value to be cloned.
  * @returns Clone of the value or `undefined` if can't be serialized.

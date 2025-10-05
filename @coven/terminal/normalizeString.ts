@@ -13,7 +13,7 @@ import type {
  * normalizeString(`Hello ${13}!`); // "Hello 13!"
  * normalizeString`Hello ${13}!`; // "Hello 13!"
  * ```
- * @see [Tagged templates](https://coven.to/mdn/Template_literals)
+ * @see {@linkcode https://coven.to/mdn/Template_literals Tagged templates}
  * @param input String or template string.
  * @param expressions Possible values passed to the template string.
  * @returns Plain string.

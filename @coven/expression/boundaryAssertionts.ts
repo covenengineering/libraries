@@ -14,7 +14,7 @@ import { escape } from "./escape.ts";
  *
  * The `y` flag doesn't change the meaning of this assertion.
  *
- * @see [Input boundary assertion](https://coven.to/mdn/Regular_expressions/Input_boundary_assertion)
+ * @see {@linkcode https://coven.to/mdn/Regular_expressions/Input_boundary_assertion Input boundary assertio})
  */
 export const START = "^";
 
@@ -32,7 +32,7 @@ export const START = "^";
  *
  * The `y` flag doesn't change the meaning of this assertion.
  *
- * @see [Input boundary assertion](https://coven.to/mdn/Regular_expressions/Input_boundary_assertion)
+ * @see {@linkcode https://coven.to/mdn/Regular_expressions/Input_boundary_assertion Input boundary assertio})
  */
 export const END = "$";
 
@@ -54,7 +54,7 @@ export const END = "$";
  *
  * Out-of-bounds input positions are considered non-word characters
  *
- * @see [Word boundary assertion](https://coven.to/mdn/Regular_expressions/Word_boundary_assertion)
+ * @see {@linkcode https://coven.to/mdn/Regular_expressions/Word_boundary_assertion Word boundary assertio})
  */
 export const WORD_BOUNDARY: "\\b" = escape("b");
 
@@ -76,6 +76,6 @@ export const WORD_BOUNDARY: "\\b" = escape("b");
  *
  * Out-of-bounds input positions are considered non-word characters
  *
- * @see [Word boundary assertion](https://coven.to/mdn/Regular_expressions/Word_boundary_assertion)
+ * @see {@linkcode https://coven.to/mdn/Regular_expressions/Word_boundary_assertion Word boundary assertio})
  */
 export const NON_WORD_BOUNDARY: "\\B" = escape("B");

@@ -8,6 +8,6 @@ import type { Enumerate } from "./Enumerate.ts";
  * const months = [1, 6, 11] as const satisfies Iterable<Month>;
  * ```
  * @see {@linkcode Enumerate}
- * @see [Date](https://coven.to/mdn/Date)
+ * @see {@linkcode https://coven.to/mdn/Date Date}
  */
 export type Month = Enumerate<11>;

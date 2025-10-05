@@ -16,6 +16,6 @@ import { format } from "./format.ts";
  * ```
  * @see {@linkcode format}
  * @see {@linkcode Foreground}
- * @see [3-bit and 4-bit ANSI colors](https://en.wikipedia.org/wiki/ANSI_escape_code#3-bit_and_4-bit)
+ * @see {@linkcode https://en.wikipedia.org/wiki/ANSI_escape_code#3-bit_and_4-bit 3-bit and 4-bit ANSI color}
  */
 export const green: Foreground<32> = format(32, CLOSE_FOREGROUND);

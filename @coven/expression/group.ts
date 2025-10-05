@@ -17,7 +17,7 @@ import { captureType } from "./captureType.ts";
  * ```typescript
  * group("✨", "🔮", "💀"); // "(?:✨🔮💀)"
  * ```
- * @see [Non-capturing group](https://coven.to/mdn/Regular_expressions/Non-capturing_group)
+ * @see {@linkcode https://coven.to/mdn/Regular_expressions/Non-capturing_group Non-capturing group}
  * @param pattern Pattern to capture.
  * @returns Captured pattern.
  */

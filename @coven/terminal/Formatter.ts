@@ -15,7 +15,7 @@ import type { ReadonlyTemplateStringsArray, Stringable } from "@coven/types";
  * formatter("Coven Engineering"); // "Coven Engineering"
  * formatter`Coven Engineering`; // "Coven Engineering"
  * ```
- * @see [Tagged templates](https://coven.to/mdn/Template_literals)
+ * @see {@linkcode https://coven.to/mdn/Template_literals Tagged templates}
  * @param input Array of strings for template strings or a single string,
  * followed by an array of expressions (if any).
  * @returns A plain string.

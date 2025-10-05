@@ -9,7 +9,7 @@ import type { Stringable, StringJoin } from "@coven/types";
  * ```typescript
  * disjunction("✨", "🔮", "💀"); // "✨|🔮|💀"
  * ```
- * @see [Disjunction](https://coven.to/mdn/Regular_expressions/Disjunction)
+ * @see {@linkcode https://coven.to/mdn/Regular_expressions/Disjunction Disjunction}
  * @param alternatives Alternative patterns, composed of a sequence of atoms and assertions.
  */
 export const disjunction: <

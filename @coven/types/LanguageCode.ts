@@ -6,7 +6,7 @@
  * const en = "en" as const satisfies LanguageCode;
  * const es = "es" as const satisfies LanguageCode;
  * ```
- * @see [ISO 639](https://en.wikipedia.org/wiki/ISO_639)
+ * @see {@linkcode https://en.wikipedia.org/wiki/ISO_639 ISO 639}
  */
 export type LanguageCode =
 	| "qu"

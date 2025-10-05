@@ -7,6 +7,6 @@
  * const flags2: ModifierFlags = "im";
  * const flags3: ModifierFlags = "ims";
  * ```
- * @see [Modifier](https://coven.to/mdn/Regular_expressions/Modifier)
+ * @see {@linkcode https://coven.to/mdn/Regular_expressions/Modifier Modifier}
  */
 export type ModifierFlags = "i" | "im" | "ims" | "is" | "m" | "ms" | "s";

@@ -9,7 +9,7 @@ import { escape } from "./escape.ts";
  * ```typescript
  * backreference(1); // "\1"
  * ```
- * @see [Backreference](https://coven.to/mdn/Regular_expressions/Backreference)
+ * @see {@linkcode https://coven.to/mdn/Regular_expressions/Backreference Backreference}
  * @param groupNumber A positive integer referring to the number of a capturing group
  * @returns Backreference to given `groupNumber`.
  */

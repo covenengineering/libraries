@@ -8,7 +8,7 @@ import type { Primitive } from "./Primitive.ts";
  * const clone = structuredClone({} satisfies StructuredData);
  * ```
  * @see {@linkcode Primitive}
- * @see [structuredClone](https://coven.to/mdn/Window/structuredClone)
+ * @see {@linkcode https://coven.to/mdn/Window/structuredClone structuredClone}
  */
 export type StructuredData =
 	| Readonly<{

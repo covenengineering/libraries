@@ -16,7 +16,7 @@ import { join } from "./join.ts";
  * ```typescript
  * capture("✨", "🔮", "💀"); // "(✨🔮💀)"
  * ```
- * @see [Capturing group](https://coven.to/mdn/Regular_expressions/Capturing_group)
+ * @see {@linkcode https://coven.to/mdn/Regular_expressions/Capturing_group Capturing group}
  * @param pattern Pattern to capture.
  * @returns Captured pattern.
  */

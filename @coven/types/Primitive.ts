@@ -16,6 +16,6 @@ import type { Numeric } from "./Numeric.ts";
  * ```
  * @see {@linkcode Nullish}
  * @see {@linkcode Numeric}
- * @see [Primitive](https://coven.to/mdn/Glossary/Primitive)
+ * @see {@linkcode https://coven.to/mdn/Glossary/Primitive Primitive}
  */
 export type Primitive = boolean | Nullish | Numeric | string | symbol;

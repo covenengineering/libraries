@@ -10,6 +10,6 @@ import type { Enumerate } from "./Enumerate.ts";
  * ```
  * @see {@linkcode Digit}
  * @see {@linkcode Enumerate}
- * @see [Date](https://coven.to/mdn/Date)
+ * @see {@linkcode https://coven.to/mdn/Date Date}
  */
 export type ISOSeconds = `${Enumerate<5>}${Digit}`;
