@@ -1,5 +1,6 @@
-import type { Stringable } from "@coven/types";
+import type { Stringable, Unary } from "@coven/types";
 import { fnv1aReducer, FNV_OFFSET_32 } from "./fnv1aReducer.ts";
+import { memo } from "@coven/memo";
 
 /**
  * Unsigned 32-bit integer.
@@ -47,9 +48,10 @@ const textEncoder = new TextEncoder();
  * @param seed String seed used to generate the pseudo-random number.
  * @returns A floating-point number between 0 (inclusive) and 1 (exclusive).
  */
-export const seededRandom = (seed: Stringable): number =>
+export const seededRandom: Unary<[seed: Stringable], number> = memo((seed) =>
 	((textEncoder.encode(`${seed}`).reduce(fnv1aReducer, FNV_OFFSET_32)
 			* LCG_MULTIPLIER
 		+ LCG_INCREMENT)
 		>>> 0)
-	/ UINT32;
+	/ UINT32
+);
