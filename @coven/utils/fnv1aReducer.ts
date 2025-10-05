@@ -1,3 +1,5 @@
+import { memo } from "@coven/memo";
+
 /**
  * 32-bit FNV prime.
  */
@@ -30,7 +32,6 @@ export const FNV_OFFSET_32 = 0x811c9dc5;
  * @param byte Byte (`0` to `255`) to incorporate into the hash.
  * @returns Updated 32-bit unsigned hash value.
  */
-export const fnv1aReducer = (
-	hash: number,
-	byte: number,
-): number => (((hash ^ byte) * FNV_PRIME_32) >>> 0);
+export const fnv1aReducer: (hash: number, byte: number) => number = memo(
+	(hash, byte) => ((hash ^ byte) * FNV_PRIME_32) >>> 0,
+);
