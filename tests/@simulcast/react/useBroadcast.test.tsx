@@ -2,12 +2,12 @@
 import { broadcast, type EventRegistry } from "@simulcast/core";
 import { useBroadcast } from "@simulcast/react";
 import { assertStrictEquals } from "@std/assert";
-import { type JSX, type MouseEvent, useState } from "react";
+import { type ComponentProps, type MouseEvent, useState } from "react";
 import { createRoot } from "react-dom/client";
 import { mockDOM } from "../../utils/mockDOM.ts";
 import { timeout } from "../../utils/timeout.ts";
 
-const CountComponent = (properties: JSX.IntrinsicElements["button"]) => {
+const CountComponent = (properties: ComponentProps<"button">) => {
 	const [count, setCount] = useState(0);
 
 	return (
@@ -27,7 +27,7 @@ const BroadcastComponent = ({
 	state,
 	...properties
 }: Readonly<
-	JSX.IntrinsicElements["button"] & {
+	ComponentProps<"button"> & {
 		state: { calledTimes: number };
 		registry: EventRegistry<{ click: MouseEvent<HTMLButtonElement> }>;
 	}
