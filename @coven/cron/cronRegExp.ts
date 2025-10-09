@@ -22,7 +22,6 @@ import { valueRangeOrListRegExp } from "./valueRangeOrListRegExp.ts";
 /**
  * Regular expression to test for valid cron expressions.
  *
- * @remarks
  * -   We allow 0 or more whitespace before and after the expression.
  * -   Negative lookahead to avoid impossible matches:
  * 	-   30 or 31 of February (Any combination like 30,31; 30-31; 30-30; etc.)
