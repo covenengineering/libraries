@@ -16,17 +16,33 @@ const properties = [
  * @param template Optional template.
  */
 export const mockDOM = (
-	template = `
-		<html>
-			<body>
-				<div id="root" />
-			</body>
-		</html>
-	`,
+	{
+		fakeTimers = false,
+		template = `
+			<html>
+				<body>
+					<div id="root"></div>
+				</body>
+			</html>
+		`,
+	}: {
+		fakeTimers?: boolean;
+		template?: string;
+	} = {},
 ): void => {
 	const parsed = parseHTML(template);
 
 	properties.forEach((property) =>
 		Object.assign(globalThis, { [property]: parsed[property] })
 	);
+
+	if (fakeTimers) {
+		const { setTimeout, setInterval } = globalThis;
+
+		globalThis.setTimeout = (handler, _timeout, ...args) =>
+			setTimeout(handler, 0, ...args);
+
+		globalThis.setInterval = (handler, _timeout, ...args) =>
+			setInterval(handler, 0, ...args);
+	}
 };

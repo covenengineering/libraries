@@ -1,16 +1,16 @@
 import { nextISODate } from "@coven/cron";
 import { assertEquals } from "@std/assert";
 
-const testDate = nextISODate("1989-10-13T10:15:00.123Z");
+const testDate = nextISODate("1992-01-01T00:00:00.000Z");
 
 Deno.test("* * * * * gets next minute", () =>
-	assertEquals(testDate("* * * * *"), "1989-10-13T10:16:00.000Z"));
+	assertEquals(testDate("* * * * *"), "1992-01-01T00:01:00.000Z"));
 
 Deno.test("5 * * * * gets next hour's minute 5", () =>
-	assertEquals(testDate("5 * * * *"), "1989-10-13T11:05:00.000Z"));
+	assertEquals(testDate("5 * * * *"), "1992-01-01T00:05:00.000Z"));
 
 Deno.test("5 10-13 * * * gets next hour's minute 5", () =>
-	assertEquals(testDate("5 10-13 * * *"), "1989-10-13T11:05:00.000Z"));
+	assertEquals(testDate("5 10-13 * * *"), "1992-01-01T10:05:00.000Z"));
 
 Deno.test("* * 31 2 * returns nothing because it's an invalid date", () =>
 	assertEquals(testDate("* * 31 2 *"), undefined));
@@ -33,16 +33,16 @@ Deno.test("* * * * * as an object gets next minute", () =>
 			minute: "*",
 			month: "*",
 		}),
-		"1989-10-13T10:16:00.000Z",
+		"1992-01-01T00:01:00.000Z",
 	));
 
 Deno.test("5 * * * * as an object gets next hour's minute 5", () =>
-	assertEquals(testDate({ minute: 5 }), "1989-10-13T11:05:00.000Z"));
+	assertEquals(testDate({ minute: 5 }), "1992-01-01T00:05:00.000Z"));
 
 Deno.test("5 10-13 * * * as an object gets next hour's minute 5", () =>
 	assertEquals(
 		testDate({ hour: { from: 10, to: 13 }, minute: 5 }),
-		"1989-10-13T11:05:00.000Z",
+		"1992-01-01T10:05:00.000Z",
 	));
 
 Deno.test(
