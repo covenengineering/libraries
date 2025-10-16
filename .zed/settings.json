@@ -1,13 +1,11 @@
 {
-	"format_on_save": "language_server",
-	"code_actions_on_format": {
-		"source.organizeImports": true
-	},
-	"formatter": {
-		"code_actions": {
-			"source.organizeImports": true
-		}
-	},
+	"format_on_save": "on",
+	"formatter": [
+		{
+			"code_action": "source.organizeImports"
+		},
+		"language_server"
+	],
 	"lsp": {
 		"deno": {
 			"settings": {
@@ -24,7 +22,8 @@
 				"!typescript-language-server",
 				"!vtsls",
 				"!eslint"
-			]
+			],
+			"formatter": "language_server"
 		},
 		"TypeScript": {
 			"language_servers": [
@@ -32,7 +31,8 @@
 				"!typescript-language-server",
 				"!vtsls",
 				"!eslint"
-			]
+			],
+			"formatter": "language_server"
 		},
 		"TSX": {
 			"language_servers": [
@@ -40,7 +40,8 @@
 				"!typescript-language-server",
 				"!vtsls",
 				"!eslint"
-			]
+			],
+			"formatter": "language_server"
 		}
 	}
 }
