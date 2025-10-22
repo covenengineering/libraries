@@ -2,6 +2,7 @@ import { EMPTY_ARRAY, EMPTY_OBJECT } from "@coven/constants";
 import { isNull } from "@coven/predicates";
 import { assert, assertFalse } from "@std/assert";
 
+// deno-lint-ignore coven/no-null
 Deno.test("Null", () => assert(isNull(null)));
 
 Deno.test("Other types", () =>

@@ -40,7 +40,7 @@
 	},
 	"imports": {
 		"@std/assert": "jsr:@std/assert@^1.0.15",
-		"@test/": "./@test/",
+		"@test/": "./test/",
 		"@types/react": "npm:@types/react@^19.2.2",
 		"@types/react-dom": "npm:@types/react-dom@^19.2.2",
 		"@vue/test-utils": "npm:@vue/test-utils@^2.4.6",
@@ -52,6 +52,9 @@
 		"vue": "npm:vue@^3.5.22"
 	},
 	"lint": {
+		"plugins": [
+			"./lint/mod.ts"
+		],
 		"rules": {
 			"include": [
 				"ban-untagged-todo",
@@ -84,15 +87,16 @@
 				"jsr",
 				"jsx",
 				"react",
-				"recommended"
+				"recommended",
+				"workspace"
 			]
 		}
 	},
 	"nodeModulesDir": "auto",
 	"tasks": {
 		"lint-docs": "deno doc --lint ./@coven/**/*.ts ./@simulcast/**/*.ts",
-		"test": "deno test --allow-env=NODE_ENV --import=./@test/setupTests.ts --parallel",
-		"test-coverage": "deno test --allow-env=NODE_ENV --coverage --doc --import=./@test/setupTests.ts --parallel --quiet"
+		"test": "deno test --allow-env=NODE_ENV --import=./test/setupTests.ts --parallel",
+		"test-coverage": "deno test --allow-env=NODE_ENV --coverage --doc --import=./test/setupTests.ts --parallel --quiet"
 	},
 	"workspace": [
 		"./@coven/compare",

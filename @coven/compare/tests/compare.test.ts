@@ -148,9 +148,11 @@ Deno.test("Comparing equal `Set` objects yields nothing", () =>
 Deno.test(
 	"Comparing left `null` and right object yields `UpdateDifference`",
 	() =>
+		// deno-lint-ignore coven/no-null
 		assertEquals(flat(compare(null)(EMPTY_OBJECT)), [
 			{
 				kind: UPDATE_KIND,
+				// deno-lint-ignore coven/no-null
 				left: null,
 				path: [],
 				right: EMPTY_OBJECT,
@@ -161,8 +163,15 @@ Deno.test(
 Deno.test(
 	"Comparing right `null` and left object yields `UpdateDifference`",
 	() =>
+		// deno-lint-ignore coven/no-null
 		assertEquals(flat(compare(EMPTY_OBJECT)(null)), [
-			{ kind: UPDATE_KIND, left: EMPTY_OBJECT, path: [], right: null },
+			{
+				kind: UPDATE_KIND,
+				left: EMPTY_OBJECT,
+				path: [],
+				// deno-lint-ignore coven/no-null
+				right: null,
+			},
 		]),
 );
 

@@ -66,6 +66,7 @@ Deno.test("Empty record is the same as EMPTY_OBJECT", () =>
 	assertStrictEquals(memo({}), EMPTY_OBJECT));
 
 Deno.test("Record doesn't have a prototype", () =>
+	// deno-lint-ignore coven/no-null
 	assertStrictEquals(Object.getPrototypeOf(memo({ foo: "🔮" })), null));
 
 Deno.test(

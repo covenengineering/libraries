@@ -6,6 +6,7 @@ const DOES_NOT_THROW = false;
 
 const throwingFunction = (shouldThrow: boolean) => {
 	if (shouldThrow) {
+		// deno-lint-ignore coven/no-throw
 		throw new Error("fail");
 	} else {
 		return "success";

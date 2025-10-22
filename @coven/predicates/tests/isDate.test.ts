@@ -29,6 +29,7 @@ Deno.test("Other types", () =>
 			// Iterator
 			|| isDate((function* (): Generator {})())
 			// Null
+			// deno-lint-ignore coven/no-null
 			|| isDate(null)
 			// Number
 			|| isDate(13)

@@ -28,6 +28,7 @@ Deno.test("Other types", () =>
 			// Iterator
 			|| isBigInt((function* (): Generator {})())
 			// Null
+			// deno-lint-ignore coven/no-null
 			|| isBigInt(null)
 			// Number
 			|| isBigInt(13)

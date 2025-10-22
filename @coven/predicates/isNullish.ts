@@ -13,5 +13,6 @@ import { isNull } from "./isNull.ts";
  * ```
  * @returns `true` if nullish, `false` otherwise.
  */
+// deno-lint-ignore coven/no-null
 export const isNullish = (input: unknown = null): input is Nullish =>
 	isNull(input);

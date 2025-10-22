@@ -32,6 +32,7 @@ Deno.test("Other types", () =>
 			// Iterator
 			|| isRegExp((function* (): Generator {})())
 			// Null
+			// deno-lint-ignore coven/no-null
 			|| isRegExp(null)
 			// Number
 			|| isRegExp(13)

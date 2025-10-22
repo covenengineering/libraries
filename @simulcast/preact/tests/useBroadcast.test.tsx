@@ -109,7 +109,7 @@ Deno.test("Broadcast's on handler is removed when unmounted", async () => {
 							{...{ registry }}
 						/>
 					)
-					: null}
+					: undefined}
 				<BroadcastComponent
 					className="always-visible-broadcast"
 					state={state2}

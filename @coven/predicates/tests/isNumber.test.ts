@@ -32,6 +32,7 @@ Deno.test("Other types", () =>
 			// Iterator
 			|| isNumber((function* (): Generator {})())
 			// Null
+			// deno-lint-ignore coven/no-null
 			|| isNumber(null)
 			// Object
 			|| isNumber(EMPTY_OBJECT)

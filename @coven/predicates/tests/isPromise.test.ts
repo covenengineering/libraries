@@ -31,6 +31,7 @@ Deno.test("Other types", () =>
 			// Iterator
 			|| isPromise((function* (): Generator {})())
 			// Null
+			// deno-lint-ignore coven/no-null
 			|| isPromise(null)
 			// Number
 			|| isPromise(13)
