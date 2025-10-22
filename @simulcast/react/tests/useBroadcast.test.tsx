@@ -4,8 +4,8 @@ import { useBroadcast } from "@simulcast/react";
 import { assertStrictEquals } from "@std/assert";
 import { type ComponentProps, type MouseEvent, useState } from "react";
 import { createRoot } from "react-dom/client";
-import { mockDOM } from "../../utils/mockDOM.ts";
-import { timeout } from "../../utils/timeout.ts";
+import { mockDOM } from "@test/mockDOM.ts";
+import { timeout } from "@test/timeout.ts";
 
 const CountComponent = (properties: ComponentProps<"button">) => {
 	const [count, setCount] = useState(0);

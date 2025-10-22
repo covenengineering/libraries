@@ -4,8 +4,8 @@ import { useBroadcast } from "@simulcast/preact";
 import { assertStrictEquals } from "@std/assert";
 import { type ComponentProps, render, type TargetedMouseEvent } from "preact";
 import { useState } from "preact/hooks";
-import { mockDOM } from "../../utils/mockDOM.ts";
-import { timeout } from "../../utils/timeout.ts";
+import { mockDOM } from "@test/mockDOM.ts";
+import { timeout } from "@test/timeout.ts";
 
 const CountComponent = (properties: ComponentProps<"button">) => {
 	const [count, setCount] = useState(0);
