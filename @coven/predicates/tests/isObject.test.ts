@@ -40,6 +40,7 @@ Deno.test("Other types", () =>
 			|| isObject(function* (): Generator {})
 			|| isObject(async function* (): AsyncGenerator {})
 			// Null
+			// deno-lint-ignore coven/no-null
 			|| isObject(null)
 			// Number
 			|| isObject(13)

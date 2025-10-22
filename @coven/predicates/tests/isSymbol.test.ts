@@ -36,6 +36,7 @@ Deno.test("Other types", () =>
 			// Iterator
 			|| isSymbol((function* (): Generator {})())
 			// Null
+			// deno-lint-ignore coven/no-null
 			|| isSymbol(null)
 			// Number
 			|| isSymbol(13)

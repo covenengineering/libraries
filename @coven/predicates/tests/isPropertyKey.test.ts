@@ -44,6 +44,7 @@ Deno.test("Other types", () =>
 			// Iterator
 			|| isPropertyKey((function* (): Generator {})())
 			// Null
+			// deno-lint-ignore coven/no-null
 			|| isPropertyKey(null)
 			// Object
 			|| isPropertyKey(EMPTY_OBJECT)

@@ -31,6 +31,7 @@ Deno.test("Other types", () =>
 			// Iterator
 			|| isUndefined((function* (): Generator {})())
 			// Null
+			// deno-lint-ignore coven/no-null
 			|| isUndefined(null)
 			// Number
 			|| isUndefined(13)

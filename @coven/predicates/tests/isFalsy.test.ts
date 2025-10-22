@@ -12,6 +12,7 @@ Deno.test("Falsies", () =>
 			// deno-lint-ignore no-boolean-literal-for-arguments
 			&& isFalsy(false)
 			// Nullish
+			// deno-lint-ignore coven/no-null
 			&& isFalsy(null)
 			&& isFalsy(undefined)
 			// Number

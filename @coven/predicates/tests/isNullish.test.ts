@@ -2,7 +2,9 @@ import { EMPTY_ARRAY, EMPTY_OBJECT } from "@coven/constants";
 import { isNullish } from "@coven/predicates";
 import { assert, assertFalse } from "@std/assert";
 
-Deno.test("Nullish", () => assert(isNullish(null) && isNullish(undefined)));
+Deno.test("Nullish", () =>
+	// deno-lint-ignore coven/no-null
+	assert(isNullish(null) && isNullish(undefined)));
 
 Deno.test("Other types", () =>
 	assertFalse(

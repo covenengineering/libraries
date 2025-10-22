@@ -29,6 +29,7 @@ Deno.test("Other types", () =>
 			// Iterator
 			|| isArray((function* (): Generator {})())
 			// Null
+			// deno-lint-ignore coven/no-null
 			|| isArray(null)
 			// Number
 			|| isArray(13)

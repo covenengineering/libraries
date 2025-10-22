@@ -28,6 +28,7 @@ Deno.test("Other types", () =>
 			// Iterator
 			|| isBoolean((function* (): Generator {})())
 			// Null
+			// deno-lint-ignore coven/no-null
 			|| isBoolean(null)
 			// Number
 			|| isBoolean(13)

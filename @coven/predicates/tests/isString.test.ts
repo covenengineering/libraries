@@ -32,6 +32,7 @@ Deno.test("Other types", () =>
 			// Iterator
 			|| isString((function* (): Generator {})())
 			// Null
+			// deno-lint-ignore coven/no-null
 			|| isString(null)
 			// Number
 			|| isString(13)

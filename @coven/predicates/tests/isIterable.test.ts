@@ -35,6 +35,7 @@ Deno.test("Other types", () =>
 			|| isIterable(function* (): Generator {})
 			|| isIterable(async function* (): AsyncGenerator {})
 			// Null
+			// deno-lint-ignore coven/no-null
 			|| isIterable(null)
 			// Number
 			|| isIterable(13)
