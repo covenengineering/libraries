@@ -1,6 +1,6 @@
 {
 	"name": "@coven/pair",
-	"version": "0.8.3",
+	"version": "0.8.4",
 	"exports": {
 		"./preact": "./preact/mod.ts",
 		"./react": "./react/mod.ts"
