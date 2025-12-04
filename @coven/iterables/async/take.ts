@@ -28,7 +28,7 @@ export const take = (
 						yield item;
 						count += 1n;
 					} else {
-						break;
+						return;
 					}
 				}
 			}

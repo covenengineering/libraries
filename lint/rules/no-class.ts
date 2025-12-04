@@ -1,10 +1,6 @@
-export const noClass: Deno.lint.Rule = {
-	create: (context): Deno.lint.LintVisitor => ({
-		ClassExpression: (node) => {
-			context.report({
-				node,
-				message: "Avoid using `class`. Use a function instead.",
-			});
-		},
-	}),
-};
+import { no } from "../no.ts";
+
+export const noClass: Deno.lint.Rule = no(
+	"ClassExpression",
+	"Avoid using `class`. Use a function instead.",
+);
