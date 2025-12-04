@@ -1,3 +1,5 @@
+import { no } from "../no.ts";
+
 /**
  * Checks for `Object.create`.
  */
@@ -11,14 +13,8 @@ const isObjectCreate = (
 	&& node.callee.property.type === "Identifier"
 	&& node.callee.property.name === "create";
 
-export const noNull: Deno.lint.Rule = {
-	create: (context): Deno.lint.LintVisitor => ({
-		Literal: (node): void =>
-			(node.raw === "null" && !isObjectCreate(node.parent))
-				? context.report({
-					node,
-					message: "Use `undefined` instead of `null`.",
-				})
-				: undefined,
-	}),
-};
+export const noNull: Deno.lint.Rule = no(
+	"Literal",
+	"Avoid using `null`. Use `undefined` instead.",
+	({ node }) => node.raw === "null" && !isObjectCreate(node.parent),
+);

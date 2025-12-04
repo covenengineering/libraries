@@ -32,7 +32,7 @@ export const zip = <ItemFirst>(
 					.next();
 
 				if (done) {
-					break;
+					return;
 				}
 
 				yield [itemFirst as ItemFirst, value] as const;

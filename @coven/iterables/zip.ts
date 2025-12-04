@@ -28,7 +28,7 @@ export const zip = <ItemFirst>(
 			const { done = false, value } = iteratorSecond.next();
 
 			if (done) {
-				break;
+				return;
 			}
 
 			yield [itemFirst, value as ItemSecond];
