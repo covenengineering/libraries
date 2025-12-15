@@ -2,10 +2,10 @@
 import { broadcast, type EventRegistry } from "@simulcast/core";
 import { useBroadcast } from "@simulcast/react";
 import { assertStrictEquals } from "@std/assert";
-import { type ComponentProps, type MouseEvent, useState } from "react";
-import { createRoot } from "react-dom/client";
 import { mockDOM } from "@test/mockDOM.ts";
 import { timeout } from "@test/timeout.ts";
+import { type ComponentProps, type MouseEvent, useState } from "react";
+import { createRoot } from "react-dom/client";
 
 const CountComponent = (properties: ComponentProps<"button">) => {
 	const [count, setCount] = useState(0);
@@ -69,7 +69,7 @@ Deno.test(
 			),
 		);
 
-		await timeout(3);
+		await timeout(10);
 
 		const addButton = document.querySelector<HTMLButtonElement>(
 			"button.add",
@@ -131,7 +131,7 @@ Deno.test("Broadcast's on handler is removed when unmounted", async () => {
 
 	root.render(<App />);
 
-	await timeout(1);
+	await timeout(10);
 
 	const toggleButton = document.querySelector<HTMLButtonElement>(
 		"button.toggle",

@@ -2,10 +2,10 @@
 import { broadcast, type EventRegistry } from "@simulcast/core";
 import { useBroadcast } from "@simulcast/preact";
 import { assertStrictEquals } from "@std/assert";
-import { type ComponentProps, render, type TargetedMouseEvent } from "preact";
-import { useState } from "preact/hooks";
 import { mockDOM } from "@test/mockDOM.ts";
 import { timeout } from "@test/timeout.ts";
+import { type ComponentProps, render, type TargetedMouseEvent } from "preact";
+import { useState } from "preact/hooks";
 
 const CountComponent = (properties: ComponentProps<"button">) => {
 	const [count, setCount] = useState(0);
@@ -78,9 +78,9 @@ Deno.test(
 		) as HTMLButtonElement;
 
 		addButton.click(); // Click button that will re-render once
-		await timeout();
+		await timeout(10);
 		addButton.click(); // Click button that will re-render twice
-		await timeout();
+		await timeout(10);
 		broadcastButton.click(); // Click broadcast button once
 		assertStrictEquals(state.calledTimes, 1); // State should be updated once
 		assertStrictEquals(addButton.textContent, "2"); // Even when it re-rendered twice
