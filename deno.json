@@ -44,11 +44,11 @@
 		"@types/react": "npm:@types/react@^19.2.7",
 		"@types/react-dom": "npm:@types/react-dom@^19.2.3",
 		"@vue/test-utils": "npm:@vue/test-utils@^2.4.6",
-		"linkedom": "npm:linkedom@^0.18.12",
-		"preact": "npm:preact@~10.27.2",
-		"preact-render-to-string": "npm:preact-render-to-string@~6.6.3",
-		"react": "npm:react@^19.2.0",
-		"react-dom": "npm:react-dom@^19.2.0",
+		"happy-dom": "npm:happy-dom@^20.0.11",
+		"preact": "npm:preact@~10.28.0",
+		"preact-render-to-string": "npm:preact-render-to-string@~6.6.4",
+		"react": "npm:react@^19.2.3",
+		"react-dom": "npm:react-dom@^19.2.3",
 		"vue": "npm:vue@^3.5.25"
 	},
 	"lint": {

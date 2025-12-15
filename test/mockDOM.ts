@@ -1,4 +1,5 @@
-import { parseHTML } from "linkedom/worker";
+// deno-coverage-ignore-file
+import { Window } from "happy-dom";
 
 Error.stackTraceLimit = Infinity;
 
@@ -8,7 +9,7 @@ const properties = [
 	"SVGElement",
 	"document",
 	"window",
-] as const satisfies ReadonlyArray<keyof ReturnType<typeof parseHTML>>;
+] as const satisfies ReadonlyArray<keyof InstanceType<typeof Window>>;
 
 /**
  * Sets a global mocked DOM or resets it if it's already set.
@@ -30,10 +31,12 @@ export const mockDOM = (
 		template?: string;
 	} = {},
 ): void => {
-	const parsed = parseHTML(template);
+	const window = new Window();
+
+	window.document.body.innerHTML = template;
 
 	properties.forEach((property) =>
-		Object.assign(globalThis, { [property]: parsed[property] })
+		Object.assign(globalThis, { [property]: window[property] })
 	);
 
 	if (fakeTimers) {
