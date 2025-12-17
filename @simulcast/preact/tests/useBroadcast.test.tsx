@@ -2,9 +2,9 @@
 import { broadcast, type EventRegistry } from "@simulcast/core";
 import { useBroadcast } from "@simulcast/preact";
 import { assertStrictEquals } from "@std/assert";
-import { mockDOM } from "@test/mockDOM.ts";
-import { timeout } from "@test/timeout.ts";
-import { type ComponentProps, render, type TargetedMouseEvent } from "preact";
+import { cleanup, render, screen } from "@testing-library/preact";
+import { userEvent } from "@testing-library/user-event";
+import type { ComponentProps, TargetedMouseEvent } from "preact";
 import { useState } from "preact/hooks";
 
 const CountComponent = (properties: ComponentProps<"button">) => {
@@ -12,8 +12,8 @@ const CountComponent = (properties: ComponentProps<"button">) => {
 
 	return (
 		<button
-			className="add"
 			onClick={() => setCount(count + 1)}
+			title="Add"
 			{...properties}
 		>
 			{count}
@@ -22,7 +22,6 @@ const CountComponent = (properties: ComponentProps<"button">) => {
 };
 
 const BroadcastComponent = ({
-	className,
 	registry,
 	state,
 	...properties
@@ -40,8 +39,8 @@ const BroadcastComponent = ({
 
 	return (
 		<button
-			className={className ?? "broadcast"}
 			onClick={emitClick}
+			title="Broadcast"
 			{...properties}
 		>
 			Click me!
@@ -49,13 +48,12 @@ const BroadcastComponent = ({
 	);
 };
 
+Deno.test.afterEach(cleanup);
+
 Deno.test(
 	"Broadcast's on handler is called once even when it re-renders",
 	async () => {
-		mockDOM({ fakeTimers: true });
-
 		const state = { calledTimes: 0 };
-		const root = document.querySelector("#root") as HTMLDivElement;
 		const { registry } = broadcast<{
 			click: TargetedMouseEvent<HTMLButtonElement>;
 		}>();
@@ -67,31 +65,24 @@ Deno.test(
 					<CountComponent />
 				</>
 			),
-			root,
 		);
 
-		const addButton = document.querySelector<HTMLButtonElement>(
-			"button.add",
-		) as HTMLButtonElement;
-		const broadcastButton = document.querySelector<HTMLButtonElement>(
-			"button.broadcast",
-		) as HTMLButtonElement;
+		const addButton = screen.getByTitle<HTMLButtonElement>("Add");
+		const broadcastButton = screen.getByTitle<HTMLButtonElement>(
+			"Broadcast",
+		);
 
-		addButton.click(); // Click button that will re-render once
-		await timeout(10);
-		addButton.click(); // Click button that will re-render twice
-		await timeout(10);
-		broadcastButton.click(); // Click broadcast button once
+		await userEvent.click(addButton); // Click button that will re-render once
+		await userEvent.click(addButton); // Click button that will re-render twice
+		await userEvent.click(broadcastButton); // Click broadcast button once
 		assertStrictEquals(state.calledTimes, 1); // State should be updated once
 		assertStrictEquals(addButton.textContent, "2"); // Even when it re-rendered twice
 	},
 );
 
 Deno.test("Broadcast's on handler is removed when unmounted", async () => {
-	mockDOM({ fakeTimers: true });
 	const state1 = { calledTimes: 0 };
 	const state2 = { calledTimes: 0 };
-	const root = document.querySelector("#root") as HTMLDivElement;
 	const { registry } = broadcast<{
 		click: TargetedMouseEvent<HTMLButtonElement>;
 	}>();
@@ -111,13 +102,13 @@ Deno.test("Broadcast's on handler is removed when unmounted", async () => {
 					)
 					: undefined}
 				<BroadcastComponent
-					className="always-visible-broadcast"
 					state={state2}
+					title="Always visible Broadcast"
 					{...{ registry }}
 				/>
 				<button
-					className="toggle"
 					onClick={() => setVisible(!visible)}
+					title="Toggle"
 					type="button"
 				>
 					Toggle Visibility
@@ -126,32 +117,22 @@ Deno.test("Broadcast's on handler is removed when unmounted", async () => {
 		);
 	};
 
-	render(<App />, root);
+	render(<App />);
 
-	await timeout();
-
-	const toggleButton = document.querySelector<HTMLButtonElement>(
-		"button.toggle",
-	) as HTMLButtonElement;
-	const broadcastButton = document.querySelector<HTMLButtonElement>(
-		"button.broadcast",
-	) as HTMLButtonElement;
-	const alwaysVisibleBroadcastButton = document.querySelector<
+	const toggleButton = screen.getByTitle<HTMLButtonElement>("Toggle");
+	const broadcastButton = screen.getByTitle<HTMLButtonElement>("Broadcast");
+	const alwaysVisibleBroadcastButton = screen.getByTitle<
 		HTMLButtonElement
-	>(
-		"button.always-visible-broadcast",
-	) as HTMLButtonElement;
+	>("Always visible Broadcast");
 
-	await timeout();
 	// Click broadcast button that will be removed from the DOM
-	broadcastButton.click();
+	await userEvent.click(broadcastButton);
 	// Click broadcast button that will stay in the DOM
-	alwaysVisibleBroadcastButton.click();
+	await userEvent.click(alwaysVisibleBroadcastButton);
 	// Click toggle button (removes the first broadcast button)
-	toggleButton.click();
-	await timeout();
+	await userEvent.click(toggleButton);
 	// Click broadcast button that stayed again
-	alwaysVisibleBroadcastButton.click();
+	await userEvent.click(alwaysVisibleBroadcastButton);
 	assertStrictEquals(state1.calledTimes, 2); // State 1 should have registered events until removed
 	assertStrictEquals(state2.calledTimes, 3); // State 2 should have registered all events
 });
