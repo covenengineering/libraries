@@ -17,7 +17,6 @@ import { useEffect, useMemo } from "react";
  *
  * @example
  * ```tsx
- * /** @jsxImportSource react *\/
  * import { broadcast } from "@simulcast/core";
  * import type { MouseEvent } from "react";
  *

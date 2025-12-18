@@ -1,5 +1,10 @@
 {
+	"$schema": "https://raw.githubusercontent.com/denoland/deno/main/cli/schemas/config-file.v1.json",
+	"exports": "./mod.ts",
+	"imports": {
+		"@vue/test-utils": "npm:@vue/test-utils@^2.4.6",
+		"vue": "npm:vue@^3.5.26"
+	},
 	"name": "@simulcast/vue",
-	"version": "0.8.4",
-	"exports": "./mod.ts"
+	"version": "0.8.5"
 }

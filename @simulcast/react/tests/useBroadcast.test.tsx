@@ -1,4 +1,3 @@
-/** @jsxImportSource react */
 import { broadcast, type EventRegistry } from "@simulcast/core";
 import { useBroadcast } from "@simulcast/react";
 import { assertStrictEquals } from "@std/assert";

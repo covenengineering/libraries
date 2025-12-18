@@ -9,7 +9,6 @@
 ## Example
 
 ```tsx
-/** @jsxImportSource react */
 import { broadcast } from "@simulcast/core";
 import { useBroadcast } from "@simulcast/react";
 import type { MouseEvent } from "react";

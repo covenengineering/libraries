@@ -1,4 +1,3 @@
-/** @jsxImportSource preact */
 import { broadcast, type EventRegistry } from "@simulcast/core";
 import { useBroadcast } from "@simulcast/preact";
 import { assertStrictEquals } from "@std/assert";

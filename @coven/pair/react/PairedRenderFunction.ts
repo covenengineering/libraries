@@ -6,6 +6,7 @@ import type { ReactElement } from "react";
  *
  * @example
  * ```tsx
+ * /** @jsxImportSource react *\/
  * import { createElement, Fragment } from "react";
  *
  * const Example: PairedRenderFunction<() => number> = hook =>
