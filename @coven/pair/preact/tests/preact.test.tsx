@@ -1,4 +1,3 @@
-/** @jsxImportSource preact */
 import { pair, type PairedComponentProperties } from "@coven/pair/preact";
 import { assertStrictEquals } from "@std/assert";
 import { renderToString } from "preact-render-to-string";

@@ -1,9 +1,7 @@
 {
-	"$schema": "https://raw.githubusercontent.com/denoland/deno/refs/heads/main/cli/schemas/config-file.v1.json",
+	"$schema": "https://raw.githubusercontent.com/denoland/deno/main/cli/schemas/config-file.v1.json",
 	"compilerOptions": {
 		"exactOptionalPropertyTypes": true,
-		"jsxFactory": "createElement",
-		"jsxFragmentFactory": "Fragment",
 		"noFallthroughCasesInSwitch": true,
 		"noImplicitOverride": true,
 		"noImplicitReturns": true,
@@ -40,18 +38,7 @@
 	},
 	"imports": {
 		"@std/assert": "jsr:@std/assert@^1.0.16",
-		"@testing-library/preact": "npm:@testing-library/preact@^3.2.4",
-		"@testing-library/react": "npm:@testing-library/react@^16.3.1",
-		"@testing-library/user-event": "npm:@testing-library/user-event@^14.6.1",
-		"@types/react": "npm:@types/react@^19.2.7",
-		"@types/react-dom": "npm:@types/react-dom@^19.2.3",
-		"@vue/test-utils": "npm:@vue/test-utils@^2.4.6",
-		"happy-dom": "npm:happy-dom@^20.0.11",
-		"preact": "npm:preact@~10.28.0",
-		"preact-render-to-string": "npm:preact-render-to-string@~6.6.4",
-		"react": "npm:react@^19.2.3",
-		"react-dom": "npm:react-dom@^19.2.3",
-		"vue": "npm:vue@^3.5.25"
+		"happy-dom": "npm:happy-dom@^20.0.11"
 	},
 	"lint": {
 		"plugins": [

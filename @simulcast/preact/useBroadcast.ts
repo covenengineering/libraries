@@ -15,7 +15,6 @@ import { useBroadcastProxyHandler } from "./useBroadcastProxyHandler.ts";
  *
  * @example
  * ```tsx
- * /** @jsxImportSource preact *\/
  * import { broadcast } from "@simulcast/core";
  * import type { JSX } from "preact";
  *
