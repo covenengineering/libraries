@@ -5,8 +5,8 @@
 
 💾 Memoization utilities.
 
-The whole idea is to have an experience similar to what we would get out of the
-Record and Tuple proposal from TC39: Readonly memoized structures with
+The whole idea is to have an experience similar to we could have gotten out of
+the now withdrawn Record and Tuple proposal: Readonly memoized structures with
 preservation of identity.
 
 This library uses nested `Map`s to save a "tree" with references to all
