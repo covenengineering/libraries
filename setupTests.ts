@@ -9,4 +9,4 @@ const {
 	window,
 } = new Window();
 
-Object.assign(globalThis, { window, Element, Node, SVGElement, document });
+Object.assign(globalThis, { Element, Node, SVGElement, document, window });
