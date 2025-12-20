@@ -1,47 +1,31 @@
 {
 	"format_on_save": "on",
-	"formatter": [
-		{
-			"code_action": "source.organizeImports"
-		},
-		"language_server"
-	],
+	"formatter": [{ "code_action": "source.organizeImports" }, "prettier"],
 	"languages": {
 		"JavaScript": {
-			"formatter": "language_server",
 			"language_servers": [
 				"deno",
 				"!typescript-language-server",
 				"!vtsls",
-				"!eslint"
-			]
+				"!eslint",
+			],
 		},
 		"TSX": {
-			"formatter": "language_server",
 			"language_servers": [
 				"deno",
 				"!typescript-language-server",
 				"!vtsls",
-				"!eslint"
-			]
+				"!eslint",
+			],
 		},
 		"TypeScript": {
-			"formatter": "language_server",
 			"language_servers": [
 				"deno",
 				"!typescript-language-server",
 				"!vtsls",
-				"!eslint"
-			]
-		}
+				"!eslint",
+			],
+		},
 	},
-	"lsp": {
-		"deno": {
-			"settings": {
-				"deno": {
-					"enable": true
-				}
-			}
-		}
-	}
+	"lsp": { "deno": { "settings": { "deno": { "enable": true } } } },
 }
