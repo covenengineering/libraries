@@ -27,19 +27,20 @@ export const filter: {
 	<Item>(
 		predicate: Filter<[item: Item]>,
 	): Unary<[iterable: AwaitableIterable<Item>], AsyncIterableIterator<Item>>;
-} = <Item>(
-	predicate: Filter<[item: Item]>,
-): Unary<
-	[iterable: AwaitableIterable<Item>],
-	AsyncIterableIterator<Item>
-> =>
-(iterable) =>
-	iteratorFunctionToAsyncIterableIterator(
-		async function* (): AsyncGenerator<Item> {
-			for await (const item of iterable) {
-				if (predicate(item)) {
-					yield item;
+} =
+	<Item>(
+		predicate: Filter<[item: Item]>,
+	): Unary<
+		[iterable: AwaitableIterable<Item>],
+		AsyncIterableIterator<Item>
+	> =>
+	(iterable) =>
+		iteratorFunctionToAsyncIterableIterator(
+			async function* (): AsyncGenerator<Item> {
+				for await (const item of iterable) {
+					if (predicate(item)) {
+						yield item;
+					}
 				}
-			}
-		},
-	);
+			},
+		);

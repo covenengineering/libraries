@@ -9,7 +9,8 @@ Deno.test(
 );
 
 Deno.test("String and an array not containing that string returns false", () =>
-	assertFalse(includesFoo(["baz", "bar"])));
+	assertFalse(includesFoo(["baz", "bar"])),
+);
 
 Deno.test(
 	"String and an iterable of strings containing that string returns true",

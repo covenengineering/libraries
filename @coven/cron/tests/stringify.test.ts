@@ -102,7 +102,8 @@ Deno.test("All fields set returns object with all properties set", () =>
 			month: 10,
 		}),
 		"13 13 13 10 5",
-	));
+	),
+);
 
 Deno.test(
 	"All fields set with ranges returns object with all properties set",
@@ -150,10 +151,13 @@ Deno.test(
 );
 
 Deno.test("Empty object returns all set to *", () =>
-	assertStrictEquals(stringify(EMPTY_OBJECT), "* * * * *"));
+	assertStrictEquals(stringify(EMPTY_OBJECT), "* * * * *"),
+);
 
 Deno.test("Only hour set returns all set to *", () =>
-	assertStrictEquals(stringify({ hour: 13 }), "* 13 * * *"));
+	assertStrictEquals(stringify({ hour: 13 }), "* 13 * * *"),
+);
 
 Deno.test("Invalid value returns undefined", () =>
-	assertStrictEquals(stringify({ hour: 99 as 13 }), undefined));
+	assertStrictEquals(stringify({ hour: 99 as 13 }), undefined),
+);

@@ -14,5 +14,5 @@ import { memo } from "@coven/memo";
 export const paddedRegExp: <Value extends number | string>(
 	value: Value,
 ) => `0?${Value}` = memo(<Value extends number | string>(value: Value) =>
-	join(optional(0), value)
+	join(optional(0), value),
 );

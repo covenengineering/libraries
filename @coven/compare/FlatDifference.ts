@@ -34,10 +34,9 @@ import type { UpdateDifference } from "./UpdateDifference.ts";
  * @see {@linkcode FlatPath}
  * @see {@linkcode UpdateDifference}
  */
-export type FlatDifference =
-	& (
-		| Omit<CreateDifference, "path">
-		| Omit<DeleteDifference, "path">
-		| Omit<UpdateDifference, "path">
-	)
+export type FlatDifference = (
+	| Omit<CreateDifference, "path">
+	| Omit<DeleteDifference, "path">
+	| Omit<UpdateDifference, "path">
+)
 	& FlatPath;

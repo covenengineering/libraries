@@ -51,4 +51,5 @@ Deno.test("Other types", () =>
 			|| isDate(Symbol.iterator)
 			// Undefined
 			|| isDate(undefined),
-	));
+	),
+);

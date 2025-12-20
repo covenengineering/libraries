@@ -19,16 +19,16 @@ import { iteratorFunctionToIterableIterator } from "./iteratorFunctionToIterable
  * @param seed Seed to be used to generate random numbers.
  * @returns Curried generator function with `seed` set in context.
  */
-export const random = (
-	seed: Stringable,
-): Unary<
-	[from: number],
-	Unary<[to: number], Readonly<IterableIterator<number>>>
-> =>
-(from) =>
-(to) =>
-	iteratorFunctionToIterableIterator(
-		function* (): Generator<number> {
+export const random =
+	(
+		seed: Stringable,
+	): Unary<
+		[from: number],
+		Unary<[to: number], Readonly<IterableIterator<number>>>
+	> =>
+	(from) =>
+	(to) =>
+		iteratorFunctionToIterableIterator(function* (): Generator<number> {
 			let state: string | number = `${seed}`;
 			const min = from < to ? from : to;
 			const max = from > to ? from : to;
@@ -36,15 +36,13 @@ export const random = (
 			for (;;) {
 				yield Math.min(
 					Math.max(
-						state = (seededRandom(
-									`${state}(${min}-${max})`,
-								))
+						(state =
+							seededRandom(`${state}(${min}-${max})`)
 								* (max + 2 - min)
-							+ (min - 1),
+							+ (min - 1)),
 						min,
 					),
 					max,
 				);
 			}
-		},
-	);
+		});

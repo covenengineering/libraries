@@ -9,10 +9,12 @@ Deno.test("Mix works", () =>
 	assertEquals(
 		mixed("Coven Engineering"),
 		second(first("Coven Engineering")),
-	));
+	),
+);
 
 Deno.test("Mix works as a template string tag function", () =>
 	assertEquals(
 		mixed`Coven Engineering ${13}`,
 		second`${first`Coven Engineering ${13}`}`,
-	));
+	),
+);

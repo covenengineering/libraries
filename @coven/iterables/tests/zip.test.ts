@@ -5,7 +5,8 @@ import { assertEquals } from "@std/assert";
 const zipFooBar = zip(["foo", "bar"]);
 
 Deno.test("zip empty array returns empty array", () =>
-	assertEquals(iterableToArray(zipFooBar(EMPTY_ARRAY)), EMPTY_ARRAY));
+	assertEquals(iterableToArray(zipFooBar(EMPTY_ARRAY)), EMPTY_ARRAY),
+);
 
 Deno.test(
 	"zip with 2 strings an array with 2 numbers zips numbers and strings",

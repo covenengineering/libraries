@@ -24,20 +24,20 @@ import type { UndefinedFallback } from "./UndefinedFallback.ts";
  * @template ArrayLike `ReadonlyArrayLike` to get the initial and last types.
  */
 export type InitialAndLast<ArrayLike extends ReadonlyArrayLike> =
-	ArrayLike extends Readonly<[...infer InitialItems, infer LastItem]>
-		? Readonly<[initial: InitialItems, last: LastItem]>
-		: ArrayLike extends EmptyArray | ""
-			? Readonly<[initial: undefined, last: undefined]>
-		: ArrayLike extends `${infer FirstCharacter}${infer RestOfString}`
-			? Readonly<
-				[
-					initial: `${RestOfString extends "" ? ""
-						: FirstCharacter}${UndefinedFallback<
-						Head<InitialAndLast<RestOfString>>,
-						""
-					>}`,
-					last: `${RestOfString extends "" ? FirstCharacter
-						: Last<RestOfString>}`,
-				]
-			>
-		: Readonly<[initial: Maybe<ArrayLike>, last: Maybe<ArrayLike[number]>]>;
+	ArrayLike extends Readonly<[...infer InitialItems, infer LastItem]> ?
+		Readonly<[initial: InitialItems, last: LastItem]>
+	: ArrayLike extends EmptyArray | "" ?
+		Readonly<[initial: undefined, last: undefined]>
+	: ArrayLike extends `${infer FirstCharacter}${infer RestOfString}` ?
+		Readonly<
+			[
+				initial: `${RestOfString extends "" ? ""
+				:	FirstCharacter}${UndefinedFallback<
+					Head<InitialAndLast<RestOfString>>,
+					""
+				>}`,
+				last: `${RestOfString extends "" ? FirstCharacter
+				:	Last<RestOfString>}`,
+			]
+		>
+	:	Readonly<[initial: Maybe<ArrayLike>, last: Maybe<ArrayLike[number]>]>;

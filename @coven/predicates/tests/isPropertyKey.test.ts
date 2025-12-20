@@ -15,7 +15,8 @@ Deno.test("Promise", () =>
 			&& isPropertyKey(Symbol("description"))
 			&& isPropertyKey(Symbol())
 			&& isPropertyKey(Symbol.iterator),
-	));
+	),
+);
 
 Deno.test("Other types", () =>
 	assertFalse(
@@ -55,4 +56,5 @@ Deno.test("Other types", () =>
 			|| isPropertyKey(new RegExp("expression", "u"))
 			// Undefined
 			|| isPropertyKey(undefined),
-	));
+	),
+);

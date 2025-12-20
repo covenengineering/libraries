@@ -13,15 +13,16 @@ import { iteratorFunctionToIterableIterator } from "./iteratorFunctionToIterable
  * @param tailIterable Iterable to be appended.
  * @returns Curried generator function with `tailIterable` set in context.
  */
-export const append = <TailItem>(
-	tailIterable: Iterable<TailItem>,
-): <InitialItem>(
-	initialIterable: Iterable<InitialItem>,
-) => IterableIterator<TailItem | InitialItem> =>
-<InitialItem>(initialIterable: Iterable<InitialItem>) =>
-	iteratorFunctionToIterableIterator(function* (): Generator<
-		TailItem | InitialItem
-	> {
-		yield* initialIterable;
-		yield* tailIterable;
-	});
+export const append =
+	<TailItem>(
+		tailIterable: Iterable<TailItem>,
+	): (<InitialItem>(
+		initialIterable: Iterable<InitialItem>,
+	) => IterableIterator<TailItem | InitialItem>) =>
+	<InitialItem>(initialIterable: Iterable<InitialItem>) =>
+		iteratorFunctionToIterableIterator(function* (): Generator<
+			TailItem | InitialItem
+		> {
+			yield* initialIterable;
+			yield* tailIterable;
+		});

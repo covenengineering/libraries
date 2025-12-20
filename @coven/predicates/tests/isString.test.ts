@@ -3,7 +3,8 @@ import { isString } from "@coven/predicates";
 import { assert, assertFalse } from "@std/assert";
 
 Deno.test("Regular expressions", () =>
-	assert(isString("string") && isString(`string`)));
+	assert(isString("string") && isString(`string`)),
+);
 
 Deno.test("Other types", () =>
 	assertFalse(
@@ -51,4 +52,5 @@ Deno.test("Other types", () =>
 			|| isString(Symbol.iterator)
 			// Undefined
 			|| isString(undefined),
-	));
+	),
+);

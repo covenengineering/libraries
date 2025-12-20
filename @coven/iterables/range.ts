@@ -30,6 +30,6 @@ export const range = (
 						yield current;
 					}
 				}
-			})
-		)
+			}),
+		),
 	);

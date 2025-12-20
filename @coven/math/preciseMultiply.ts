@@ -27,11 +27,11 @@ export const preciseMultiply: (
 	multiplicandExponent?: bigint,
 ) => Precise = memo((multiplierBase, multiplierExponent) =>
 	memo((multiplicandBase, multiplicandExponent) =>
-		isBigInt(multiplicandBase) && isBigInt(multiplierBase)
-			? precise(
+		isBigInt(multiplicandBase) && isBigInt(multiplierBase) ?
+			precise(
 				multiplicandBase * multiplierBase,
 				(multiplicandExponent ?? 0n) + (multiplierExponent ?? 0n),
 			)
-			: precise(Infinity)
-	)
+		:	precise(Infinity),
+	),
 );

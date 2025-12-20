@@ -39,11 +39,10 @@ export const format = memo((open, close) => {
 		(
 			input: string | TemplateStringsArray,
 			...expressions: ReadonlyArray<Stringable>
-		) => `${sgrOpen}${
-			normalizeString(input, ...expressions).replaceAll(
+		) =>
+			`${sgrOpen}${normalizeString(input, ...expressions).replaceAll(
 				sgrClose,
 				sgrOpen,
-			)
-		}${sgrClose}`,
+			)}${sgrClose}`,
 	);
 }) as FormatFunction;

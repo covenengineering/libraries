@@ -14,6 +14,5 @@ import { thunk } from "./thunk.ts";
  * @param input Input value to always return.
  * @returns Function that always return the given value.
  */
-export const always: <const Input>(input: Input) => Nullary<Input> = thunk(
-	identity,
-);
+export const always: <const Input>(input: Input) => Nullary<Input> =
+	thunk(identity);

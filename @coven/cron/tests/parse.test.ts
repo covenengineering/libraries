@@ -1,3 +1,5 @@
+// This file is huge, but is because we have to cover quite a lot
+// deno-lint-ignore coven/max-lines
 import type { CronString } from "@coven/cron";
 import { parse } from "@coven/cron";
 import { assertEquals, assertStrictEquals } from "@std/assert";
@@ -113,7 +115,8 @@ Deno.test("all fields set return object with all properties set", () =>
 		hour: 13,
 		minute: 13,
 		month: 10,
-	}));
+	}),
+);
 
 Deno.test(
 	"all fields set with ranges return object with all properties set",
@@ -182,7 +185,8 @@ Deno.test("* * * Mar-oct MON-FRI handle month and day aliases", () =>
 		hour: "*",
 		minute: "*",
 		month: { from: 3, to: 10 },
-	}));
+	}),
+);
 
 Deno.test(
 	"all fields set with lists with ranges, but a mistake in hour return undefined",
@@ -194,19 +198,24 @@ Deno.test(
 );
 
 Deno.test("an invalid string return undefined", () =>
-	assertEquals(parse("INVALID" as CronString), undefined));
+	assertEquals(parse("INVALID" as CronString), undefined),
+);
 
 Deno.test("an invalid date return undefined", () =>
-	assertEquals(parse("* * 31 2 *"), undefined));
+	assertEquals(parse("* * 31 2 *"), undefined),
+);
 
 Deno.test("an invalid date return undefined", () =>
-	assertEquals(parse("* * 30 02 *"), undefined));
+	assertEquals(parse("* * 30 02 *"), undefined),
+);
 
 Deno.test("an invalid date return undefined", () =>
-	assertEquals(parse("* * 31 feb *" as CronString), undefined));
+	assertEquals(parse("* * 31 feb *" as CronString), undefined),
+);
 
 Deno.test("an invalid date return undefined", () =>
-	assertEquals(parse("* * 31 4 *"), undefined));
+	assertEquals(parse("* * 31 4 *"), undefined),
+);
 
 Deno.test(
 	"a valid date containing an invalid one return it because there's a valid date",
@@ -227,7 +236,8 @@ Deno.test("a list with duplicated values return flattened values", () =>
 		hour: "*",
 		minute: [1, 2, 3],
 		month: "*",
-	}));
+	}),
+);
 
 Deno.test(
 	"a list of ranges with duplicated values return flattened values",
@@ -246,7 +256,8 @@ februaryBadDaysOfMonth.forEach((februaryBadDayOfMonth) =>
 		assertStrictEquals(
 			parse(`* * ${februaryBadDayOfMonth} 2 *`),
 			undefined,
-		))
+		),
+	),
 );
 
 februaryBadDaysOfMonth.forEach((februaryBadDayOfMonth) =>
@@ -267,7 +278,7 @@ februaryBadDaysOfMonth.forEach((februaryBadDayOfMonth) =>
 					month: [2, 3],
 				} as const,
 			),
-	)
+	),
 );
 
 februaryBadDaysOfMonth.forEach((februaryBadDayOfMonth) =>
@@ -287,5 +298,5 @@ februaryBadDaysOfMonth.forEach((februaryBadDayOfMonth) =>
 					month: { from: 2, to: 4 },
 				} as const,
 			),
-	)
+	),
 );

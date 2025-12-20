@@ -48,7 +48,7 @@ export const nextISODates: (
 			} else {
 				const validDate = timestampInCron(cronObject);
 				const mapValidDate = map((minute: number) =>
-					validDate(initialTimestamp + minute)
+					validDate(initialTimestamp + minute),
 				);
 
 				return filterIsISODate(mapValidDate(minuteRange));

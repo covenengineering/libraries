@@ -20,7 +20,7 @@ import { parseNumberTest } from "./parseNumberTest.ts";
  */
 export const parseNumber: (value: string) => Maybe<number> = memo(
 	(value: string) =>
-		(parseNumberTest(value) ? parseDecimal(value) : undefined) as Maybe<
-			number
-		>,
+		(parseNumberTest(value) ?
+			parseDecimal(value)
+		:	undefined) as Maybe<number>,
 );

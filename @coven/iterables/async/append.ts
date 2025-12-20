@@ -14,15 +14,16 @@ import { iteratorFunctionToAsyncIterableIterator } from "./iteratorFunctionToAsy
  * @param tailIterable Iterable or asynchronous to be appended.
  * @returns Curried generator function with `tailIterable` set in context.
  */
-export const append = <TailItem>(
-	tailIterable: AwaitableIterable<TailItem>,
-): <InitialItem>(
-	initialIterable: AwaitableIterable<InitialItem>,
-) => AsyncIterableIterator<InitialItem | TailItem> =>
-<InitialItem>(initialIterable: AwaitableIterable<InitialItem>) =>
-	iteratorFunctionToAsyncIterableIterator(
-		async function* (): AsyncGenerator<InitialItem | TailItem> {
-			yield* initialIterable;
-			yield* tailIterable;
-		},
-	);
+export const append =
+	<TailItem>(
+		tailIterable: AwaitableIterable<TailItem>,
+	): (<InitialItem>(
+		initialIterable: AwaitableIterable<InitialItem>,
+	) => AsyncIterableIterator<InitialItem | TailItem>) =>
+	<InitialItem>(initialIterable: AwaitableIterable<InitialItem>) =>
+		iteratorFunctionToAsyncIterableIterator(
+			async function* (): AsyncGenerator<InitialItem | TailItem> {
+				yield* initialIterable;
+				yield* tailIterable;
+			},
+		);

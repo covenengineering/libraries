@@ -28,7 +28,7 @@ jobs:
               run: deno task lint-docs
 
             - name: Format
-              run: deno task format
+              run: deno task format-check
 
             - name: Test
               run: deno task test-coverage

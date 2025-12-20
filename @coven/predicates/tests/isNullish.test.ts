@@ -4,7 +4,8 @@ import { assert, assertFalse } from "@std/assert";
 
 Deno.test("Nullish", () =>
 	// deno-lint-ignore coven/no-null
-	assert(isNullish(null) && isNullish(undefined)));
+	assert(isNullish(null) && isNullish(undefined)),
+);
 
 Deno.test("Other types", () =>
 	assertFalse(
@@ -50,4 +51,5 @@ Deno.test("Other types", () =>
 			|| isNullish(Symbol("description"))
 			|| isNullish(Symbol())
 			|| isNullish(Symbol.iterator),
-	));
+	),
+);

@@ -20,5 +20,5 @@ import { escape } from "./escape.ts";
 export const unicode: <const HexadecimalValue extends Stringable>(
 	hexadecimalValue: HexadecimalValue,
 ) => `\\u{${HexadecimalValue}}` = memo((hexadecimalValue) =>
-	escape(`u{${hexadecimalValue}}`)
+	escape(`u{${hexadecimalValue}}`),
 );

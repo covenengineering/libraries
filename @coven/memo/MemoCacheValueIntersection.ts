@@ -6,8 +6,7 @@ import type { MemoizedTupleCache } from "./MemoizedTupleCache.ts";
 /**
  * Intersection of `MemoCache` possible values.
  */
-export type MemoCacheValueIntersection =
-	& MemoizableRecord
+export type MemoCacheValueIntersection = MemoizableRecord
 	& MemoizableTuple
 	& MemoizedRecordCache
 	& MemoizedTupleCache;

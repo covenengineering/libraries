@@ -16,6 +16,5 @@ import { preciseAdd } from "./preciseAdd.ts";
  * @param augend Augend value to be on the right side.
  * @returns Curried function with `augend` in context.
  */
-export const add: (augend: number) => (addend: number) => number = pipe(
-	preciseAdd,
-);
+export const add: (augend: number) => (addend: number) => number =
+	pipe(preciseAdd);

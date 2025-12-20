@@ -22,17 +22,17 @@ export const getKeys = (object: object): IterableIterator<string | symbol> =>
 		> {
 			yield* Reflect.ownKeys(object);
 
-			hasPrototype(object)
-				? yield* Reflect.ownKeys(object.prototype)
-				: undefined;
+			hasPrototype(object) ?
+				yield* Reflect.ownKeys(object.prototype)
+			:	undefined;
 
 			const constructor = object.constructor;
 
 			(
-					isObjectConstructor(constructor)
-					|| isFunctionConstructor(constructor)
-				)
-				? undefined
-				: yield* getKeys(constructor);
+				isObjectConstructor(constructor)
+				|| isFunctionConstructor(constructor)
+			) ?
+				undefined
+			:	yield* getKeys(constructor);
 		}),
 	);

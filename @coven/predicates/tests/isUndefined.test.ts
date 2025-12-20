@@ -51,4 +51,5 @@ Deno.test("Other types", () =>
 			|| isUndefined(Symbol("description"))
 			|| isUndefined(Symbol())
 			|| isUndefined(Symbol.iterator),
-	));
+	),
+);

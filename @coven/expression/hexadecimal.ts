@@ -17,5 +17,5 @@ export const hexadecimal: <
 >(
 	hexadecimalValue: HexadecimalValue,
 ) => `\\x${HexadecimalValue}` = memo((hexadecimalValue) =>
-	escape(`x${hexadecimalValue}`)
+	escape(`x${hexadecimalValue}`),
 );

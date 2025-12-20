@@ -13,18 +13,19 @@ import { reduce } from "./reduce.ts";
  * @param separator String to use as separator.
  * @returns Curried function with `separator` in context.
  */
-export const join = <const Separator extends string>(
-	separator: Separator,
-): <Item extends Stringable>(
-	iterable: Iterable<Item>,
-) => `${string}${Separator}${string}` =>
-<Item extends Stringable>(iterable: Iterable<Item>) => {
-	let first = true;
+export const join =
+	<const Separator extends string>(
+		separator: Separator,
+	): (<Item extends Stringable>(
+		iterable: Iterable<Item>,
+	) => `${string}${Separator}${string}`) =>
+	<Item extends Stringable>(iterable: Iterable<Item>) => {
+		let first = true;
 
-	return reduce<Stringable, string>(
-		(item) => (string) =>
-			first
-				? ((first = false), `${item}`)
-				: `${string}${separator}${item}`,
-	)("")(iterable) as `${string}${Separator}${string}`;
-};
+		return reduce<Stringable, string>(
+			(item) => (string) =>
+				first ?
+					((first = false), `${item}`)
+				:	`${string}${separator}${item}`,
+		)("")(iterable) as `${string}${Separator}${string}`;
+	};
