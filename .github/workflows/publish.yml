@@ -28,13 +28,14 @@ jobs:
               run: deno task lint-docs
 
             - name: Format
-              run: deno fmt --check
+              run: deno task format
 
             - name: Test
               run: deno task test-coverage
 
             - name: Generate Coverage
-              run: deno coverage --exclude='tests/' --lcov coverage/ >
+              run:
+                  deno coverage --exclude='tests/' --lcov coverage/ >
                   coverage.lcov
 
             - name: Publish Coverage

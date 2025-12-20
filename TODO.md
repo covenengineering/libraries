@@ -1,1 +1,1 @@
-[ ] `@simulcast/angular`.
+- [ ] `@simulcast/angular`.

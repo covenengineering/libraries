@@ -2,8 +2,6 @@
 	{
 		"command": "deno test -A --filter '/^$ZED_CUSTOM_DENO_TEST_NAME$/' $ZED_FILE",
 		"label": "deno test",
-		"tags": [
-			"js-test"
-		]
+		"tags": ["js-test"]
 	}
 ]
