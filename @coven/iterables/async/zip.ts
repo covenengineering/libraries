@@ -15,27 +15,28 @@ import { iteratorFunctionToAsyncIterableIterator } from "./iteratorFunctionToAsy
  * @param iterableFirst One of the iterables to be zipped.
  * @returns Curried function with `iterableFirst` in context.
  */
-export const zip = <ItemFirst>(
-	iterableFirst: AwaitableIterable<ItemFirst>,
-): <ItemSecond>(
-	iterableSecond: AwaitableIterable<ItemSecond>,
-) => AsyncIterableIterator<Readonly<[ItemFirst, ItemSecond]>> =>
-<ItemSecond>(iterableSecond: AwaitableIterable<ItemSecond>) =>
-	iteratorFunctionToAsyncIterableIterator(
-		async function* (): AsyncGenerator<
-			Readonly<[ItemFirst, ItemSecond]>
-		> {
-			const asyncIteratorSecond = getIterator(iterableSecond);
+export const zip =
+	<ItemFirst>(
+		iterableFirst: AwaitableIterable<ItemFirst>,
+	): (<ItemSecond>(
+		iterableSecond: AwaitableIterable<ItemSecond>,
+	) => AsyncIterableIterator<Readonly<[ItemFirst, ItemSecond]>>) =>
+	<ItemSecond>(iterableSecond: AwaitableIterable<ItemSecond>) =>
+		iteratorFunctionToAsyncIterableIterator(
+			async function* (): AsyncGenerator<
+				Readonly<[ItemFirst, ItemSecond]>
+			> {
+				const asyncIteratorSecond = getIterator(iterableSecond);
 
-			for await (const itemFirst of iterableFirst) {
-				const { done = false, value } = await asyncIteratorSecond
-					.next();
+				for await (const itemFirst of iterableFirst) {
+					const { done = false, value } =
+						await asyncIteratorSecond.next();
 
-				if (done) {
-					return;
+					if (done) {
+						return;
+					}
+
+					yield [itemFirst as ItemFirst, value] as const;
 				}
-
-				yield [itemFirst as ItemFirst, value] as const;
-			}
-		},
-	);
+			},
+		);

@@ -13,7 +13,9 @@
  */
 export const is: <const Expected>(
 	expected: Expected,
-) => (actual: unknown) => actual is Expected = <const Expected>(
-	expected: Expected,
-): (actual: unknown) => actual is Expected =>
-(actual): actual is Expected => Object.is(expected, actual);
+) => (actual: unknown) => actual is Expected =
+	<const Expected>(
+		expected: Expected,
+	): ((actual: unknown) => actual is Expected) =>
+	(actual): actual is Expected =>
+		Object.is(expected, actual);

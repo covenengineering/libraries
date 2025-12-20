@@ -25,5 +25,5 @@ export const captureNamed: <const GroupName extends Stringable>(
 <const Pattern extends ReadonlyArray<Stringable>>(
 	...pattern: Pattern
 ) => `(?<${GroupName}>${StringJoin<Pattern>})` = memo((name) =>
-	captureType(`<${name}>`)
+	captureType(`<${name}>`),
 );

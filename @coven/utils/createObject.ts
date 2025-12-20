@@ -16,7 +16,7 @@ export const createObject = <
 ): Object => {
 	const nullPrototypeObject = Object.create(null);
 
-	return source !== undefined
-		? Object.assign(nullPrototypeObject, source)
-		: nullPrototypeObject;
+	return source !== undefined ?
+			Object.assign(nullPrototypeObject, source)
+		:	nullPrototypeObject;
 };

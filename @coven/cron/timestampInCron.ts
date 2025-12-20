@@ -13,7 +13,7 @@ import { isAllToken } from "./isAllToken.ts";
 export const timestampInCron: (
 	cron: CronObject,
 ) => (timestamp: number) => Maybe<ISODate> = memo(
-	(cron: CronObject): (timestamp: number) => Maybe<ISODate> => {
+	(cron: CronObject): ((timestamp: number) => Maybe<ISODate>) => {
 		const minuteIsAll = isAllToken(cron.minute);
 		const hourIsAll = isAllToken(cron.hour);
 		const dayOfMonthIsAll = isAllToken(cron.dayOfMonth);
@@ -27,17 +27,17 @@ export const timestampInCron: (
 			return (
 					(minuteIsAll
 						|| compareField(date.getUTCMinutes(), cron.minute))
-					&& (hourIsAll
-						|| compareField(date.getUTCHours(), cron.hour))
-					&& (dayOfMonthIsAll
-						|| compareField(date.getUTCDate(), cron.dayOfMonth))
-					&& (monthIsAll
-						|| compareField(date.getUTCMonth() + 1, cron.month))
-					&& (dayOfWeekIsAll
-						|| compareField(date.getUTCDay(), cron.dayOfWeek))
-				)
-				? (date.toISOString() as ISODate)
-				: undefined;
+						&& (hourIsAll
+							|| compareField(date.getUTCHours(), cron.hour))
+						&& (dayOfMonthIsAll
+							|| compareField(date.getUTCDate(), cron.dayOfMonth))
+						&& (monthIsAll
+							|| compareField(date.getUTCMonth() + 1, cron.month))
+						&& (dayOfWeekIsAll
+							|| compareField(date.getUTCDay(), cron.dayOfWeek))
+				) ?
+					(date.toISOString() as ISODate)
+				:	undefined;
 		};
 	},
 );

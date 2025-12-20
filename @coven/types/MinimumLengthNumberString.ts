@@ -20,11 +20,12 @@ export type MinimumLengthNumberString<
 	MinimumLength extends number = 2,
 	_Accumulator extends string = `${bigint}${bigint}`,
 	_Tracker extends ReadonlyArray<number> = IndexArray<2>,
-> = MinimumLength extends 0 ? ""
+> =
+	MinimumLength extends 0 ? ""
 	: MinimumLength extends 1 ? `${Digit}`
 	: _Tracker["length"] extends MinimumLength ? _Accumulator
 	: MinimumLengthNumberString<
-		MinimumLength,
-		`${_Accumulator}${bigint}`,
-		[..._Tracker, _Tracker["length"]]
-	>;
+			MinimumLength,
+			`${_Accumulator}${bigint}`,
+			[..._Tracker, _Tracker["length"]]
+		>;

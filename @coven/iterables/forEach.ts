@@ -15,4 +15,5 @@ import { getIterator } from "./getIterator.ts";
  */
 export const forEach =
 	<Item>(effect: Effect<[item: Item]>): Effect<[iterable: Iterable<Item>]> =>
-	(iterable) => getIterator(iterable).forEach(effect);
+	(iterable) =>
+		getIterator(iterable).forEach(effect);

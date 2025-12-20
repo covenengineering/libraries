@@ -10,7 +10,8 @@ Deno.test("Functions", () =>
 			&& isFunction(async function (): Promise<void> {})
 			&& isFunction(function* (): Generator {})
 			&& isFunction(async function* (): AsyncGenerator {}),
-	));
+	),
+);
 
 Deno.test("Other types", () =>
 	assertFalse(
@@ -54,4 +55,5 @@ Deno.test("Other types", () =>
 			|| isFunction(EMPTY_OBJECT)
 			// Undefined
 			|| isFunction(undefined),
-	));
+	),
+);

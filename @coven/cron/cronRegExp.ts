@@ -46,117 +46,112 @@ import { valueRangeOrListRegExp } from "./valueRangeOrListRegExp.ts";
  * new RegExp(cronRegExp).test("1 2 3 4 5"); // true
  * ```
  */
-export const cronRegExp:
-	"^\\s*(?!(?:\\S+\\s+){2}(?:(?:(?:3[01](?:-3[01])?|(?:(?:3[01](?:-3[01])?,)+3[01](?:-3[01])?))\\s+(?:(?:0?2|feb)(?:-(?:0?2|feb))?|(?:(?:(?:0?2|feb)(?:-(?:0?2|feb))?,)+(?:0?2|feb)(?:-(?:0?2|feb))?)))|(?:(?:31(?:-31)?|(?:(?:31(?:-31)?,)+31(?:-31)?))\\s+(?:(?:0?[2469]|11|feb|apr|jun|sep|nov)|(?:(?:(?:0?[2469]|11|feb|apr|jun|sep|nov),)+(?:0?[2469]|11|feb|apr|jun|sep|nov)))))\\s+\\S+)(?<minute>\\*|(?:(?:0?\\d|[1-5]\\d)(?:-(?:0?\\d|[1-5]\\d))?|(?:(?:(?:0?\\d|[1-5]\\d)(?:-(?:0?\\d|[1-5]\\d))?,)+(?:0?\\d|[1-5]\\d)(?:-(?:0?\\d|[1-5]\\d))?)))\\s+(?<hour>\\*|(?:(?:0?\\d|1\\d|20-3)(?:-(?:0?\\d|1\\d|20-3))?|(?:(?:(?:0?\\d|1\\d|20-3)(?:-(?:0?\\d|1\\d|20-3))?,)+(?:0?\\d|1\\d|20-3)(?:-(?:0?\\d|1\\d|20-3))?)))\\s+(?<dayOfMonth>\\*|(?:(?:0?[1-9]|[12]\\d|3[01])(?:-(?:0?[1-9]|[12]\\d|3[01]))?|(?:(?:(?:0?[1-9]|[12]\\d|3[01])(?:-(?:0?[1-9]|[12]\\d|3[01]))?,)+(?:0?[1-9]|[12]\\d|3[01])(?:-(?:0?[1-9]|[12]\\d|3[01]))?)))\\s+(?<month>\\*|(?:(?:jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec|0?[1-9]|1[0-2])(?:-(?:jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec|0?[1-9]|1[0-2]))?|(?:(?:(?:jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec|0?[1-9]|1[0-2])(?:-(?:jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec|0?[1-9]|1[0-2]))?,)+(?:jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec|0?[1-9]|1[0-2])(?:-(?:jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec|0?[1-9]|1[0-2]))?)))\\s+(?<dayOfWeek>\\*|(?:(?:sun|mon|tue|wed|thu|fri|sat|0?[0-6])(?:-(?:sun|mon|tue|wed|thu|fri|sat|0?[0-6]))?|(?:(?:(?:sun|mon|tue|wed|thu|fri|sat|0?[0-6])(?:-(?:sun|mon|tue|wed|thu|fri|sat|0?[0-6]))?,)+(?:sun|mon|tue|wed|thu|fri|sat|0?[0-6])(?:-(?:sun|mon|tue|wed|thu|fri|sat|0?[0-6]))?)))\\s*$" =
-		join(
-			START,
-			allow(WHITESPACE),
-			negativeLookahead(
-				quantity(2)(group(exists(NON_WHITESPACE), exists(WHITESPACE))),
-				group(
-					disjunction(
-						group(
-							valueRangeOrListRegExp(
-								join(3, characterClass(0, 1)),
-							),
-							exists(WHITESPACE),
-							valueRangeOrListRegExp(
-								group(disjunction(paddedRegExp(2), "feb")),
-							),
+export const cronRegExp: "^\\s*(?!(?:\\S+\\s+){2}(?:(?:(?:3[01](?:-3[01])?|(?:(?:3[01](?:-3[01])?,)+3[01](?:-3[01])?))\\s+(?:(?:0?2|feb)(?:-(?:0?2|feb))?|(?:(?:(?:0?2|feb)(?:-(?:0?2|feb))?,)+(?:0?2|feb)(?:-(?:0?2|feb))?)))|(?:(?:31(?:-31)?|(?:(?:31(?:-31)?,)+31(?:-31)?))\\s+(?:(?:0?[2469]|11|feb|apr|jun|sep|nov)|(?:(?:(?:0?[2469]|11|feb|apr|jun|sep|nov),)+(?:0?[2469]|11|feb|apr|jun|sep|nov)))))\\s+\\S+)(?<minute>\\*|(?:(?:0?\\d|[1-5]\\d)(?:-(?:0?\\d|[1-5]\\d))?|(?:(?:(?:0?\\d|[1-5]\\d)(?:-(?:0?\\d|[1-5]\\d))?,)+(?:0?\\d|[1-5]\\d)(?:-(?:0?\\d|[1-5]\\d))?)))\\s+(?<hour>\\*|(?:(?:0?\\d|1\\d|20-3)(?:-(?:0?\\d|1\\d|20-3))?|(?:(?:(?:0?\\d|1\\d|20-3)(?:-(?:0?\\d|1\\d|20-3))?,)+(?:0?\\d|1\\d|20-3)(?:-(?:0?\\d|1\\d|20-3))?)))\\s+(?<dayOfMonth>\\*|(?:(?:0?[1-9]|[12]\\d|3[01])(?:-(?:0?[1-9]|[12]\\d|3[01]))?|(?:(?:(?:0?[1-9]|[12]\\d|3[01])(?:-(?:0?[1-9]|[12]\\d|3[01]))?,)+(?:0?[1-9]|[12]\\d|3[01])(?:-(?:0?[1-9]|[12]\\d|3[01]))?)))\\s+(?<month>\\*|(?:(?:jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec|0?[1-9]|1[0-2])(?:-(?:jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec|0?[1-9]|1[0-2]))?|(?:(?:(?:jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec|0?[1-9]|1[0-2])(?:-(?:jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec|0?[1-9]|1[0-2]))?,)+(?:jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec|0?[1-9]|1[0-2])(?:-(?:jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec|0?[1-9]|1[0-2]))?)))\\s+(?<dayOfWeek>\\*|(?:(?:sun|mon|tue|wed|thu|fri|sat|0?[0-6])(?:-(?:sun|mon|tue|wed|thu|fri|sat|0?[0-6]))?|(?:(?:(?:sun|mon|tue|wed|thu|fri|sat|0?[0-6])(?:-(?:sun|mon|tue|wed|thu|fri|sat|0?[0-6]))?,)+(?:sun|mon|tue|wed|thu|fri|sat|0?[0-6])(?:-(?:sun|mon|tue|wed|thu|fri|sat|0?[0-6]))?)))\\s*$" =
+	join(
+		START,
+		allow(WHITESPACE),
+		negativeLookahead(
+			quantity(2)(group(exists(NON_WHITESPACE), exists(WHITESPACE))),
+			group(
+				disjunction(
+					group(
+						valueRangeOrListRegExp(join(3, characterClass(0, 1))),
+						exists(WHITESPACE),
+						valueRangeOrListRegExp(
+							group(disjunction(paddedRegExp(2), "feb")),
 						),
-						group(
-							valueRangeOrListRegExp(31),
-							exists(WHITESPACE),
-							valueOrListRegExp(
-								group(
-									disjunction(
-										paddedRegExp(
-											characterClass(2, 4, 6, 9),
-										),
-										11,
-										"feb",
-										"apr",
-										"jun",
-										"sep",
-										"nov",
-									),
+					),
+					group(
+						valueRangeOrListRegExp(31),
+						exists(WHITESPACE),
+						valueOrListRegExp(
+							group(
+								disjunction(
+									paddedRegExp(characterClass(2, 4, 6, 9)),
+									11,
+									"feb",
+									"apr",
+									"jun",
+									"sep",
+									"nov",
 								),
 							),
 						),
 					),
 				),
-				exists(WHITESPACE),
-				exists(NON_WHITESPACE),
-			),
-			fieldRegExp(
-				"minute",
-				group(
-					disjunction(
-						paddedRegExp(DIGIT),
-						join(characterClass(range(1)(5)), DIGIT),
-					),
-				),
 			),
 			exists(WHITESPACE),
-			fieldRegExp(
-				"hour",
-				group(
-					disjunction(
-						paddedRegExp(DIGIT),
-						join(1, DIGIT),
-						join(2, range(0)(3)),
-					),
+			exists(NON_WHITESPACE),
+		),
+		fieldRegExp(
+			"minute",
+			group(
+				disjunction(
+					paddedRegExp(DIGIT),
+					join(characterClass(range(1)(5)), DIGIT),
 				),
 			),
-			exists(WHITESPACE),
-			fieldRegExp(
-				"dayOfMonth",
-				group(
-					disjunction(
-						paddedRegExp(characterClass(range(1)(9))),
-						join(characterClass(1, 2), DIGIT),
-						join(3, characterClass(0, 1)),
-					),
+		),
+		exists(WHITESPACE),
+		fieldRegExp(
+			"hour",
+			group(
+				disjunction(
+					paddedRegExp(DIGIT),
+					join(1, DIGIT),
+					join(2, range(0)(3)),
 				),
 			),
-			exists(WHITESPACE),
-			fieldRegExp(
-				"month",
-				group(
-					disjunction(
-						"jan",
-						"feb",
-						"mar",
-						"apr",
-						"may",
-						"jun",
-						"jul",
-						"aug",
-						"sep",
-						"oct",
-						"nov",
-						"dec",
-						paddedRegExp(characterClass(range(1)(9))),
-						join(1, characterClass(range(0)(2))),
-					),
+		),
+		exists(WHITESPACE),
+		fieldRegExp(
+			"dayOfMonth",
+			group(
+				disjunction(
+					paddedRegExp(characterClass(range(1)(9))),
+					join(characterClass(1, 2), DIGIT),
+					join(3, characterClass(0, 1)),
 				),
 			),
-			exists(WHITESPACE),
-			fieldRegExp(
-				"dayOfWeek",
-				group(
-					disjunction(
-						"sun",
-						"mon",
-						"tue",
-						"wed",
-						"thu",
-						"fri",
-						"sat",
-						paddedRegExp(characterClass(range(0)(6))),
-					),
+		),
+		exists(WHITESPACE),
+		fieldRegExp(
+			"month",
+			group(
+				disjunction(
+					"jan",
+					"feb",
+					"mar",
+					"apr",
+					"may",
+					"jun",
+					"jul",
+					"aug",
+					"sep",
+					"oct",
+					"nov",
+					"dec",
+					paddedRegExp(characterClass(range(1)(9))),
+					join(1, characterClass(range(0)(2))),
 				),
 			),
-			allow(WHITESPACE),
-			END,
-		);
+		),
+		exists(WHITESPACE),
+		fieldRegExp(
+			"dayOfWeek",
+			group(
+				disjunction(
+					"sun",
+					"mon",
+					"tue",
+					"wed",
+					"thu",
+					"fri",
+					"sat",
+					paddedRegExp(characterClass(range(0)(6))),
+				),
+			),
+		),
+		allow(WHITESPACE),
+		END,
+	);

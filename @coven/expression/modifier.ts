@@ -31,5 +31,5 @@ export const modifier: <
  */ <const Pattern extends ReadonlyArray<Stringable>>(
 	...pattern: Pattern
 ) => `(?${Flags}:${StringJoin<Pattern>})` = memo((flags) =>
-	captureType(`${flags}:`)
+	captureType(`${flags}:`),
 );

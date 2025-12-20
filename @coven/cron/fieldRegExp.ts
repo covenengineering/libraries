@@ -17,13 +17,10 @@ import { valueRangeOrListRegExp } from "./valueRangeOrListRegExp.ts";
 export const fieldRegExp: <Name extends string, Value extends string>(
 	name: Name,
 	value: Value,
-) =>
-	`(?<${Name}>\\*|(?:${Value}(?:-${Value})?|(?:(?:${Value}(?:-${Value})?,)+${Value}(?:-${Value})?)))` =
-		memo(
-			<Name extends string, Value extends string>(
-				name: Name,
-				value: Value,
-			) => captureNamed(name)(
+) => `(?<${Name}>\\*|(?:${Value}(?:-${Value})?|(?:(?:${Value}(?:-${Value})?,)+${Value}(?:-${Value})?)))` =
+	memo(
+		<Name extends string, Value extends string>(name: Name, value: Value) =>
+			captureNamed(name)(
 				disjunction(escape(ALL_TOKEN), valueRangeOrListRegExp(value)),
 			),
-		);
+	);

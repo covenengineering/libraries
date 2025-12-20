@@ -24,7 +24,7 @@ export const isType: <Type extends TypeOfValue>(
 	type: Type,
 ) => IsTypeFunction<Type> = memo(
 	<Type extends TypeOfValue>(type: Type): IsTypeFunction<Type> =>
-	(input): input is TypeOfDictionary[Type] =>
-		// deno-lint-ignore coven/no-null
-		(input === null ? `${input}` : typeof input) === type,
+		(input): input is TypeOfDictionary[Type] =>
+			// deno-lint-ignore coven/no-null
+			(input === null ? `${input}` : typeof input) === type,
 );

@@ -7,10 +7,7 @@ const Render = (usePairedState: typeof useState) => {
 	const [count, setCount] = usePairedState(0);
 
 	return (
-		<button
-			onClick={() => setCount(count + 1)}
-			type="button"
-		>
+		<button onClick={() => setCount(count + 1)} type="button">
 			{count}
 		</button>
 	);

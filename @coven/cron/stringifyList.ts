@@ -23,9 +23,9 @@ export const stringifyList: (
 	field: Readonly<Field<number>>,
 ) => Maybe<ListString> = memo(
 	(field: Readonly<Field<number>>) =>
-		(isListField(field)
-			? field
+		(isListField(field) ?
+			field
 				.map((item) => stringifyRange(item) ?? `${item as number}`)
 				.join(LIST_EXPRESSION_SEPARATOR_TOKEN)
-			: undefined) as Maybe<ListString>,
+		:	undefined) as Maybe<ListString>,
 );

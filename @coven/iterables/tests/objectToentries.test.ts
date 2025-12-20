@@ -5,7 +5,8 @@ import { assertEquals } from "@std/assert";
 const symbol = Symbol("🟩");
 
 Deno.test("an empty object returns an empty array", () =>
-	assertEquals(iterableToArray(objectToEntries(EMPTY_OBJECT)), EMPTY_ARRAY));
+	assertEquals(iterableToArray(objectToEntries(EMPTY_OBJECT)), EMPTY_ARRAY),
+);
 
 Deno.test(
 	"an object with a single property returns an array with a single tuple",
@@ -38,4 +39,5 @@ Deno.test(
 Deno.test("an object with a symbol property returns that symbol entry", () =>
 	assertEquals(iterableToArray(objectToEntries({ [symbol]: "🟢" })), [
 		[symbol, "🟢"],
-	]));
+	]),
+);

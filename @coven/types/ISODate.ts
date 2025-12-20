@@ -18,6 +18,4 @@ import type { MinimumLengthNumberString } from "./MinimumLengthNumberString.ts";
  * @see {@linkcode https://en.wikipedia.org/wiki/ISO_8601 ISO 8601}
  */
 export type ISODate =
-	`${ISOYear}-${MinimumLengthNumberString}-${MinimumLengthNumberString}T${MinimumLengthNumberString}:${MinimumLengthNumberString}:${MinimumLengthNumberString}.${MinimumLengthNumberString<
-		3
-	>}Z`;
+	`${ISOYear}-${MinimumLengthNumberString}-${MinimumLengthNumberString}T${MinimumLengthNumberString}:${MinimumLengthNumberString}:${MinimumLengthNumberString}.${MinimumLengthNumberString<3>}Z`;

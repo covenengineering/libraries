@@ -37,10 +37,9 @@ export const memo: {
 	 * @returns Memoized read-ony record or tuple.
 	 */
 	<const MemoizableValue extends Memoizable>(
-		memoizable:
-			& MemoizableValue
+		memoizable: MemoizableValue
 			& (MemoizableValue extends ReadonlyArray<unknown> ? MemoizableTuple
-				: MemoizableRecord),
+			:	MemoizableRecord),
 	): Memoized<MemoizableValue>;
 	/**
 	 * Memoize function return values. Given the same arguments, the same value
@@ -70,30 +69,25 @@ export const memo: {
 			const tupleParameters = memo(parameters);
 
 			return (
-				memoizedOutputCache.has(tupleParameters)
-					? memoizedOutputCache
-					: memoizedOutputCache.set(
+				memoizedOutputCache.has(tupleParameters) ? memoizedOutputCache
+				:	memoizedOutputCache.set(
 						tupleParameters,
 						value(
-							...(tupleParameters as unknown as ReadonlyArray<
-								never
-							>),
+							...(tupleParameters as unknown as ReadonlyArray<never>),
 						),
-					)
-			).get(tupleParameters);
+					)).get(tupleParameters);
 		};
 	} else {
 		// Array.isArray type isn't great, so this is an inline patch
 		const isArray = (
 			Array.isArray as (value: unknown) => value is MemoizableTuple
 		)(value);
-		const normalizedValue = isArray
-			? value
-			: memoizableRecordToMemoizableTuple(value);
+		const normalizedValue =
+			isArray ? value : memoizableRecordToMemoizableTuple(value);
 
 		return (
-			normalizedValue.length > 0
-				? memoizedCacheReducer(
+			normalizedValue.length > 0 ?
+				memoizedCacheReducer(
 					normalizedValue.reduce(
 						memoizedCacheReducer as (
 							cache: MemoCache,
@@ -104,9 +98,8 @@ export const memo: {
 					MEMO_ROOT,
 					value,
 				)
-				: isArray
-				? EMPTY_ARRAY
-				: EMPTY_OBJECT
+			: isArray ? EMPTY_ARRAY
+			: EMPTY_OBJECT
 		);
 	}
 };

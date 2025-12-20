@@ -16,10 +16,12 @@ Deno.test(
 );
 
 Deno.test("Empty array returns empty string", async () =>
-	assertEquals(await spaceJoin(EMPTY_ARRAY), ""));
+	assertEquals(await spaceJoin(EMPTY_ARRAY), ""),
+);
 
 Deno.test("Empty iterable returns empty string", async () =>
-	assertEquals(await spaceJoin(toIterable(EMPTY_ARRAY)), ""));
+	assertEquals(await spaceJoin(toIterable(EMPTY_ARRAY)), ""),
+);
 
 Deno.test(
 	"Iterable with empty strings returns spaces for each value",

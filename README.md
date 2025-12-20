@@ -27,11 +27,11 @@ libraries:
 - 🛠️ [`@coven/utils`](https://coven.to/utils) — General utilities.
 - 📡 [`@simulcast/core`](https://simulcast.coven.to/core) — Cross-framework
   communication.
-  - 📡 [`@simulcast/angular`](https://simulcast.coven.to/angular) — Angular
-    service for `@simulcast/core`.
-  - 📡 [`@simulcast/preact`](https://simulcast.coven.to/preact) — Preact hook
-    for `@simulcast/core`.
-  - 📡 [`@simulcast/react`](https://simulcast.coven.to/react) — React hook for
-    `@simulcast/core`.
-  - 📡 [`@simulcast/vue`](https://simulcast.coven.to/vue) — Vue composable for
-    `@simulcast/core`.
+    - 📡 [`@simulcast/angular`](https://simulcast.coven.to/angular) — Angular
+      service for `@simulcast/core`.
+    - 📡 [`@simulcast/preact`](https://simulcast.coven.to/preact) — Preact hook
+      for `@simulcast/core`.
+    - 📡 [`@simulcast/react`](https://simulcast.coven.to/react) — React hook for
+      `@simulcast/core`.
+    - 📡 [`@simulcast/vue`](https://simulcast.coven.to/vue) — Vue composable for
+      `@simulcast/core`.

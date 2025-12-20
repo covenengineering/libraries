@@ -17,7 +17,8 @@ Deno.test(
 );
 
 Deno.test("Array of numbers and a take 0 function returns an empty array", () =>
-	assertEquals(iterableToArray(takeNone([0, 1, 2, 3, 4])), EMPTY_ARRAY));
+	assertEquals(iterableToArray(takeNone([0, 1, 2, 3, 4])), EMPTY_ARRAY),
+);
 
 Deno.test(
 	"Array of numbers and a take all function returns the whole array",

@@ -12,7 +12,8 @@ Deno.test(
 );
 
 Deno.test("Empty array empties iterable", () =>
-	assertEquals(iterableToArray(zipIndex(EMPTY_ARRAY)), EMPTY_ARRAY));
+	assertEquals(iterableToArray(zipIndex(EMPTY_ARRAY)), EMPTY_ARRAY),
+);
 
 Deno.test(
 	"Iterable of strings returns Iterable of tuples with indexes and strings",

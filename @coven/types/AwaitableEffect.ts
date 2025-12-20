@@ -16,4 +16,4 @@ import type { Awaitable } from "./Awaitable.ts";
  */
 export type AwaitableEffect<Arguments extends ReadonlyArray<unknown>> =
 	Arguments extends Readonly<[]> ? () => Awaitable<void>
-		: (..._: Arguments) => Awaitable<void>;
+	:	(..._: Arguments) => Awaitable<void>;

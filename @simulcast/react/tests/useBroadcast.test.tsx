@@ -9,11 +9,7 @@ const CountComponent = (properties: ComponentProps<"button">) => {
 	const [count, setCount] = useState(0);
 
 	return (
-		<button
-			onClick={() => setCount(count + 1)}
-			title="Add"
-			{...properties}
-		>
+		<button onClick={() => setCount(count + 1)} title="Add" {...properties}>
 			{count}
 		</button>
 	);
@@ -34,11 +30,7 @@ const BroadcastComponent = ({
 	onClick(() => state.calledTimes++);
 
 	return (
-		<button
-			onClick={emitClick}
-			title="Broadcast"
-			{...properties}
-		>
+		<button onClick={emitClick} title="Broadcast" {...properties}>
 			Click me!
 		</button>
 	);
@@ -55,18 +47,15 @@ Deno.test(
 		}>();
 
 		render(
-			(
-				<>
-					<BroadcastComponent {...{ registry, state }} />
-					<CountComponent />
-				</>
-			),
+			<>
+				<BroadcastComponent {...{ registry, state }} />
+				<CountComponent />
+			</>,
 		);
 
 		const addButton = screen.getByTitle<HTMLButtonElement>("Add");
-		const broadcastButton = screen.getByTitle<HTMLButtonElement>(
-			"Broadcast",
-		);
+		const broadcastButton =
+			screen.getByTitle<HTMLButtonElement>("Broadcast");
 
 		await userEvent.click(addButton); // Click button that will re-render once
 		await userEvent.click(addButton); // Click button that will re-render twice
@@ -89,14 +78,9 @@ Deno.test("Broadcast's on handler is removed when unmounted", async () => {
 
 		return (
 			<>
-				{visible
-					? (
-						<BroadcastComponent
-							state={state1}
-							{...{ registry }}
-						/>
-					)
-					: undefined}
+				{visible ?
+					<BroadcastComponent state={state1} {...{ registry }} />
+				:	undefined}
 				<BroadcastComponent
 					state={state2}
 					title="Always visible Broadcast"
@@ -117,9 +101,9 @@ Deno.test("Broadcast's on handler is removed when unmounted", async () => {
 
 	const toggleButton = screen.getByTitle<HTMLButtonElement>("Toggle");
 	const broadcastButton = screen.getByTitle<HTMLButtonElement>("Broadcast");
-	const alwaysVisibleBroadcastButton = screen.getByTitle<
-		HTMLButtonElement
-	>("Always visible Broadcast");
+	const alwaysVisibleBroadcastButton = screen.getByTitle<HTMLButtonElement>(
+		"Always visible Broadcast",
+	);
 
 	// Click broadcast button that will be removed from the DOM
 

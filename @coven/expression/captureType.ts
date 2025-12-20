@@ -22,8 +22,9 @@ export const captureType: <const Type extends Stringable>(
 		memo(
 			<const Pattern extends ReadonlyArray<Stringable>>(
 				...pattern: Pattern
-			) => capture(
-				`?${type}${join(...pattern)}`,
-			) as `(?${Type}${StringJoin<Pattern>})`,
+			) =>
+				capture(
+					`?${type}${join(...pattern)}`,
+				) as `(?${Type}${StringJoin<Pattern>})`,
 		),
 );

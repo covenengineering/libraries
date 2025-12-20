@@ -20,12 +20,7 @@
 </script>
 
 <template>
-	<button
-		@click="emitClick"
-		type="button"
-	>
-		Click me!
-	</button>
+	<button @click="emitClick" type="button"> Click me! </button>
 </template>
 ```
 

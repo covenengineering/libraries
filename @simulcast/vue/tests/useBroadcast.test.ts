@@ -71,9 +71,8 @@ Deno.test(
 		);
 
 		const addButton = wrapper.find<HTMLButtonElement>("button.add");
-		const broadcastButton = wrapper.find<HTMLButtonElement>(
-			"button.broadcast",
-		);
+		const broadcastButton =
+			wrapper.find<HTMLButtonElement>("button.broadcast");
 
 		await addButton.trigger("click"); // Click button that will re-render once
 		await addButton.trigger("click"); // Click button that will re-render twice

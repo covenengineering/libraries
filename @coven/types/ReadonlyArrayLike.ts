@@ -31,15 +31,14 @@ import type { Single } from "./Single.ts";
 export type ReadonlyArrayLike<
 	Item = unknown,
 	Length extends number = number,
-> =
-	& Readonly<{
-		/**
-		 * Amount of items in the {@linkcode ReadonlyArrayLike}.
-		 */
-		length: Length;
-	}>
+> = Readonly<{
+	/**
+	 * Amount of items in the {@linkcode ReadonlyArrayLike}.
+	 */
+	length: Length;
+}>
 	& ReadonlyRecord<
 		NeverFallback<Exclude<Enumerate<Length>, Length>, number> & PropertyKey,
 		Exclude<Enumerate<Length>, Length> extends Single<never> ? Maybe<Item>
-			: Item
+		:	Item
 	>;

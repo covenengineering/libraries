@@ -18,10 +18,10 @@ import { isRangeField } from "./isRangeField.ts";
 export const compareRangeOrValue: (
 	value: number,
 ) => (valueOrRange: ValueOrRangeField<number>) => boolean = memo(
-	(value: number): (valueOrRange: ValueOrRangeField<number>) => boolean =>
+	(value: number): ((valueOrRange: ValueOrRangeField<number>) => boolean) =>
 		memo((valueOrRange) =>
-			isRangeField(valueOrRange)
-				? value >= valueOrRange.from && value <= valueOrRange.to
-				: value === valueOrRange
+			isRangeField(valueOrRange) ?
+				value >= valueOrRange.from && value <= valueOrRange.to
+			:	value === valueOrRange,
 		),
 );

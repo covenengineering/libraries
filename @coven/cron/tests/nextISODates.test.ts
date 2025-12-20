@@ -12,7 +12,8 @@ Deno.test("* * * * * gives a new date every minute", () =>
 		"1992-01-01T00:03:00.000Z",
 		"1992-01-01T00:04:00.000Z",
 		"1992-01-01T00:05:00.000Z",
-	]));
+	]),
+);
 
 Deno.test("5 * * * * gives a new date on minute 5 of each hour", () =>
 	assertEquals(iterableToArray(take(5)(testDate("5 * * * *"))), [
@@ -21,7 +22,8 @@ Deno.test("5 * * * * gives a new date on minute 5 of each hour", () =>
 		"1992-01-01T02:05:00.000Z",
 		"1992-01-01T03:05:00.000Z",
 		"1992-01-01T04:05:00.000Z",
-	]));
+	]),
+);
 
 Deno.test(
 	"5 10-13 * * * gives a new date on minute 5 of hours 10 to 13 of each day",
@@ -36,22 +38,22 @@ Deno.test(
 );
 
 Deno.test("* * 31 2 * returns nothing because it's an invalid date", () =>
-	assertEquals(
-		iterableToArray(take(5)(testDate("* * 31 2 *"))),
-		EMPTY_ARRAY,
-	));
+	assertEquals(iterableToArray(take(5)(testDate("* * 31 2 *"))), EMPTY_ARRAY),
+);
 
 Deno.test("* * 30,31 2 * returns nothing because it's an invalid date", () =>
 	assertEquals(
 		iterableToArray(take(5)(testDate("* * 30,31 2 *"))),
 		EMPTY_ARRAY,
-	));
+	),
+);
 
 Deno.test("* * 30,31 2 * returns nothing because it's an invalid date", () =>
 	assertEquals(
 		iterableToArray(take(5)(testDate("* * 30,31 2 *"))),
 		EMPTY_ARRAY,
-	));
+	),
+);
 
 Deno.test(
 	"* * 29,30,31 2 * returns only 29 of february dates skip the invalid ones",
@@ -72,7 +74,8 @@ Deno.test("* * * * * as object gives a new date every minute", () =>
 		"1992-01-01T00:03:00.000Z",
 		"1992-01-01T00:04:00.000Z",
 		"1992-01-01T00:05:00.000Z",
-	]));
+	]),
+);
 
 Deno.test("5 * * * * as object gives a new date on minute 5 of each hour", () =>
 	assertEquals(iterableToArray(take(5)(testDate({ minute: 5 }))), [
@@ -81,7 +84,8 @@ Deno.test("5 * * * * as object gives a new date on minute 5 of each hour", () =>
 		"1992-01-01T02:05:00.000Z",
 		"1992-01-01T03:05:00.000Z",
 		"1992-01-01T04:05:00.000Z",
-	]));
+	]),
+);
 
 Deno.test(
 	"5 10-13 * * * as object gives a new date on minute 5 of hours 10 to 13 of each day",

@@ -24,7 +24,7 @@ export const useBroadcastProxyHandler: Readonly<{
 			const on = Reflect.get(broadcast, "on");
 			const event = `${name.slice(0, 1).toLowerCase()}${name.slice(1)}`;
 			const setHandler = setProperty((handler: EventHandler<unknown>) =>
-				on(event, handler)
+				on(event, handler),
 			)(broadcast);
 			const commitHandler = mutate(setHandler);
 

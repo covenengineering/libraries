@@ -27,18 +27,20 @@ export const parseRange: <Predicated extends number>(
 	value: string,
 ) => Maybe<Predicated | RangeField<Predicated>> = memo(
 	<Predicated extends number>(value: string) => {
-		const maybeRange = isRangeString(value)
-			? entriesToObject(
-				zipRangeNames(
-					parseNumberMap(
-						value.split(RANGE_EXPRESSION_SEPARATOR_TOKEN),
+		const maybeRange =
+			isRangeString(value) ?
+				entriesToObject(
+					zipRangeNames(
+						parseNumberMap(
+							value.split(RANGE_EXPRESSION_SEPARATOR_TOKEN),
+						),
 					),
-				),
-			)
-			: undefined;
+				)
+			:	undefined;
 
 		return (
-			maybeRange?.from === maybeRange?.to ? maybeRange?.from : maybeRange
-		) as Maybe<Predicated | RangeField<Predicated>>;
+			maybeRange?.from === maybeRange?.to ?
+				maybeRange?.from
+			:	maybeRange) as Maybe<Predicated | RangeField<Predicated>>;
 	},
 );

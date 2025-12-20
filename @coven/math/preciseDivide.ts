@@ -29,10 +29,12 @@ export const preciseDivide: (
 	divisorExponent?: bigint,
 ) => (dividendBase: MaybeInfinity, dividendExponent?: bigint) => Precise = memo(
 	(divisorBase, divisorExponent) =>
-		divisorBase === 0n ? always(precise(Infinity)) : preciseMultiply(
-			...numberToPrecise(
-				preciseToNumber(1n, -(divisorExponent ?? 0n))
-					/ preciseToNumber(divisorBase, 0n),
+		divisorBase === 0n ?
+			always(precise(Infinity))
+		:	preciseMultiply(
+				...numberToPrecise(
+					preciseToNumber(1n, -(divisorExponent ?? 0n))
+						/ preciseToNumber(divisorBase, 0n),
+				),
 			),
-		),
 );

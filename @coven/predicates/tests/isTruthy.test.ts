@@ -43,7 +43,8 @@ Deno.test("Truthy", () =>
 			&& isTruthy(Symbol("description"))
 			&& isTruthy(Symbol())
 			&& isTruthy(Symbol.iterator),
-	));
+	),
+);
 
 Deno.test("Falsies", () =>
 	assertFalse(
@@ -66,4 +67,5 @@ Deno.test("Falsies", () =>
 			// String
 			|| isTruthy("")
 			|| isTruthy(``),
-	));
+	),
+);

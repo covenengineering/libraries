@@ -11,10 +11,12 @@ Deno.test(
 );
 
 Deno.test("Empty array and an even counter returns 0", async () =>
-	assertEquals(await countEvens(EMPTY_ARRAY), 0));
+	assertEquals(await countEvens(EMPTY_ARRAY), 0),
+);
 
 Deno.test("Array of odd numbers and an even counter returns 0", async () =>
-	assertEquals(await countEvens([1, 3, 5, 7]), 0));
+	assertEquals(await countEvens([1, 3, 5, 7]), 0),
+);
 
 Deno.test(
 	"Array of mixed numbers and a counter with no filter returns full length",

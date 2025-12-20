@@ -73,11 +73,12 @@
 	"nodeModulesDir": "auto",
 	"tasks": {
 		"format": {
-			"command": "deno run --allow-env=TMPDIR --ignore-env --allow-read=.,$TMPDIR/.prettier-cache --allow-write=.,$TMPDIR/.prettier-cache --allow-sys=cpus --no-prompt prettier --log-level=warn --write './**/*.{json,md,ts,tsx}'",
+			"TMPDIR=. deno run --allow-env=TMPDIR --allow-read=. --allow-sys=cpus --allow-write=. --ignore-env --log-level=warn --no-prompt prettier --write './**/*.{json,md,ts,tsx}'": "",
+			"command": "TMPDIR=. deno run --allow-env=TMPDIR --allow-read=. --allow-sys=cpus --allow-write=. --ignore-env --no-prompt prettier --log-level=warn --write './**/*.{json,md,ts,tsx}'",
 			"description": "Format code using Prettier"
 		},
 		"format-check": {
-			"command": "deno run --allow-env=TMPDIR --ignore-env --allow-read=.,$TMPDIR/.prettier-cache --allow-sys=cpus --no-prompt prettier --check './**/*.{json,md,ts,tsx}'",
+			"command": "TMPDIR=. deno run --allow-env=TMPDIR --allow-read=. --allow-sys=cpus --ignore-env --no-prompt prettier --check './**/*.{json,md,ts,tsx}'",
 			"description": "Check formatting using Prettier"
 		},
 		"lint-docs": {

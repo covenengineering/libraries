@@ -13,24 +13,25 @@ import { iteratorFunctionToIterableIterator } from "./iteratorFunctionToIterable
  * @param iterableFirst One of the iterables to be zipped.
  * @returns Curried function with `iterableFirst` in context.
  */
-export const zip = <ItemFirst>(
-	iterableFirst: Iterable<ItemFirst>,
-): <ItemSecond>(
-	iterableSecond: Iterable<ItemSecond>,
-) => IterableIterator<Readonly<[ItemFirst, ItemSecond]>> =>
-<ItemSecond>(iterableSecond: Iterable<ItemSecond>) =>
-	iteratorFunctionToIterableIterator(function* (): Generator<
-		Readonly<[ItemFirst, ItemSecond]>
-	> {
-		const iteratorSecond = getIterator(iterableSecond);
+export const zip =
+	<ItemFirst>(
+		iterableFirst: Iterable<ItemFirst>,
+	): (<ItemSecond>(
+		iterableSecond: Iterable<ItemSecond>,
+	) => IterableIterator<Readonly<[ItemFirst, ItemSecond]>>) =>
+	<ItemSecond>(iterableSecond: Iterable<ItemSecond>) =>
+		iteratorFunctionToIterableIterator(function* (): Generator<
+			Readonly<[ItemFirst, ItemSecond]>
+		> {
+			const iteratorSecond = getIterator(iterableSecond);
 
-		for (const itemFirst of iterableFirst) {
-			const { done = false, value } = iteratorSecond.next();
+			for (const itemFirst of iterableFirst) {
+				const { done = false, value } = iteratorSecond.next();
 
-			if (done) {
-				return;
+				if (done) {
+					return;
+				}
+
+				yield [itemFirst, value as ItemSecond];
 			}
-
-			yield [itemFirst, value as ItemSecond];
-		}
-	});
+		});

@@ -12,15 +12,16 @@ type FindContext<
 export const no = <Visitor extends keyof Deno.lint.LintVisitor>(
 	visitor: Visitor,
 	message: string,
-	condition?: (
-		data: { context: Deno.lint.RuleContext; node: FindContext<Visitor> },
-	) => boolean,
+	condition?: (data: {
+		context: Deno.lint.RuleContext;
+		node: FindContext<Visitor>;
+	}) => boolean,
 ): Deno.lint.Rule => ({
 	create: (context): Deno.lint.LintVisitor => ({
 		[visitor]: (node: FindContext<Visitor>): void => {
-			(condition?.({ context, node }) ?? true)
-				? context.report({ message, node })
-				: undefined;
+			(condition?.({ context, node }) ?? true) ?
+				context.report({ message, node })
+			:	undefined;
 		},
 	}),
 });

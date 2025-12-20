@@ -21,10 +21,12 @@ Deno.test("Emit without handlers does nothing", () =>
 			TEST_EVENT,
 		)(),
 		undefined,
-	));
+	),
+);
 
 Deno.test("Emit without an event does nothing", () =>
 	assertStrictEquals(
 		emit<TestRegistry>(EMPTY_OBJECT)(TEST_EVENT)(),
 		undefined,
-	));
+	),
+);

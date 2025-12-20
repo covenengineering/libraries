@@ -30,15 +30,17 @@ export const build: <Flags extends RegularExpressionFlags = "u">(
 	memo(
 		<Flags extends RegularExpressionFlags = "u">(
 			flags: Flags | "u" = "u",
-		) => memo(
-			<const Atoms extends ReadonlyArray<Stringable>>(
-				...atoms: Atoms
-			) => new RegExp(join(...atoms), flags) as Replace<
-				RegExp,
-				Readonly<{
-					flags: Flags;
-					source: StringJoin<Atoms>;
-				}>
-			>,
-		),
+		) =>
+			memo(
+				<const Atoms extends ReadonlyArray<Stringable>>(
+					...atoms: Atoms
+				) =>
+					new RegExp(join(...atoms), flags) as Replace<
+						RegExp,
+						Readonly<{
+							flags: Flags;
+							source: StringJoin<Atoms>;
+						}>
+					>,
+			),
 	);

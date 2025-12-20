@@ -14,7 +14,9 @@ import type { Nullary, Unary } from "@coven/types";
  * ```
  * @returns Function that will run the given function when called.
  */
-export const thunk = <Input, Output>(
-	unary: Unary<[input: Input], Output>,
-): Unary<[input: Input], Nullary<Output>> =>
-(input) => memo(() => unary(input));
+export const thunk =
+	<Input, Output>(
+		unary: Unary<[input: Input], Output>,
+	): Unary<[input: Input], Nullary<Output>> =>
+	(input) =>
+		memo(() => unary(input));

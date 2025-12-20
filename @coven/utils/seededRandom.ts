@@ -48,10 +48,11 @@ const textEncoder = new TextEncoder();
  * @param seed String seed used to generate the pseudo-random number.
  * @returns A floating-point number between 0 (inclusive) and 1 (exclusive).
  */
-export const seededRandom: Unary<[seed: Stringable], number> = memo((seed) =>
-	((textEncoder.encode(`${seed}`).reduce(fnv1aReducer, FNV_OFFSET_32)
+export const seededRandom: Unary<[seed: Stringable], number> = memo(
+	(seed) =>
+		((textEncoder.encode(`${seed}`).reduce(fnv1aReducer, FNV_OFFSET_32)
 			* LCG_MULTIPLIER
-		+ LCG_INCREMENT)
-		>>> 0)
-	/ UINT32
+			+ LCG_INCREMENT)
+			>>> 0)
+		/ UINT32,
 );
