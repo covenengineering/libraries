@@ -6,6 +6,7 @@ import type { Attributes, VNode } from "preact";
  *
  * @example
  * ```tsx
+ * /** @jsxImportSource preact *\/
  * import { createElement, Fragment } from "preact";
  *
  * const Example: PairedRenderFunction<() => number> = hook =>

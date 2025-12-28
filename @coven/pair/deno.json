@@ -1,9 +1,5 @@
 {
 	"$schema": "https://raw.githubusercontent.com/denoland/deno/main/cli/schemas/config-file.v1.json",
-	"compilerOptions": {
-		"jsx": "react-jsx",
-		"jsxImportSource": "preact"
-	},
 	"exports": {
 		"./preact": "./preact/mod.ts",
 		"./react": "./react/mod.ts"
@@ -11,7 +7,7 @@
 	"imports": {
 		"@types/react": "npm:@types/react@^19.2.7",
 		"@types/react-dom": "npm:@types/react-dom@^19.2.3",
-		"preact": "npm:preact@^10.28.0",
+		"preact": "npm:preact@^10.28.1",
 		"preact-render-to-string": "npm:preact-render-to-string@^6.6.4",
 		"react": "npm:react@^19.2.3",
 		"react-dom": "npm:react-dom@^19.2.3"

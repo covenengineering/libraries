@@ -1,3 +1,4 @@
+<!-- deno-coverage-ignore-file -->
 <img alt="Coven Engineering Pair logo" src="https://raw.githubusercontent.com/covenengineering/libraries/main/@coven/pair/logo.svg" height="108" />
 
 [![JSR](https://jsr.io/badges/@coven/pair)](https://coven.to/pair)

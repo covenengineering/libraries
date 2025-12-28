@@ -1,17 +1,21 @@
-/** @jsxImportSource react */
 import { pair, type PairedComponentProperties } from "@coven/pair/react";
 import { assertStrictEquals } from "@std/assert";
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import { renderToString } from "react-dom/server";
+import { jsx } from "react/jsx-runtime";
 
 const Render = (usePairedState: typeof useState) => {
 	const [count, setCount] = usePairedState(0);
-
-	return (
-		<button onClick={() => setCount(count + 1)} type="button">
-			{count}
-		</button>
+	const onClick = useCallback(
+		() => setCount((currentCount) => currentCount + 1),
+		[],
 	);
+
+	return jsx("button", {
+		children: count,
+		onClick,
+		type: "button",
+	});
 };
 
 const Wanted = ({ children }: PairedComponentProperties<typeof useState>) =>
@@ -25,8 +29,8 @@ Deno.test(
 	"Generated HTML with a prop should be the same from using `pair` or doing everything manually",
 	() =>
 		assertStrictEquals(
-			renderToString(<PairedState key={key}>{Render}</PairedState>),
-			renderToString(<Wanted key={key}>{Render}</Wanted>),
+			renderToString(jsx(PairedState, { key, children: Render })),
+			renderToString(jsx(Wanted, { key, children: Render })),
 		),
 );
 
@@ -34,8 +38,8 @@ Deno.test(
 	"Generated HTML should be the same from using `pair` or doing everything manually",
 	() =>
 		assertStrictEquals(
-			renderToString(<PairedState>{Render}</PairedState>),
-			renderToString(<Wanted>{Render}</Wanted>),
+			renderToString(jsx(PairedState, { children: Render })),
+			renderToString(jsx(Wanted, { children: Render })),
 		),
 );
 

@@ -8,7 +8,7 @@
 	"imports": {
 		"@testing-library/preact": "npm:@testing-library/preact@^3.2.4",
 		"@testing-library/user-event": "npm:@testing-library/user-event@^14.6.1",
-		"preact": "npm:preact@^10.28.0"
+		"preact": "npm:preact@^10.28.1"
 	},
 	"name": "@simulcast/preact",
 	"version": "0.8.5"
