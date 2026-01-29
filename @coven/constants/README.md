@@ -18,14 +18,17 @@ mutations throws.
 
 - `EMPTY_ARRAY`: Empty read-only array.
 - `EMPTY_OBJECT`: Empty read-only `null` prototype object.
+- `SIGIL`: Internal value to be used as bottom value (like `null` and
+  `undefined`) when native bottom values have to be used.
 
 ## Example
 
 ```typescript
-import { EMPTY_ARRAY, EMPTY_OBJECT } from "@coven/constants";
+import { EMPTY_ARRAY, EMPTY_OBJECT, SIGIL } from "@coven/constants";
 
 console.log(EMPTY_ARRAY); // []
 console.log(EMPTY_OBJECT); // {}
+console.log(SIGIL); // Symbol("⛧")
 ```
 
 ## Other links
