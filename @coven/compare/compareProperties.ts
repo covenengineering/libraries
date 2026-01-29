@@ -1,3 +1,4 @@
+import { SIGIL } from "@coven/constants";
 import {
 	append,
 	EMPTY_ITERABLE_ITERATOR,
@@ -10,7 +11,6 @@ import { compare } from "./compare.ts";
 import type { CurriedComparison } from "./CurriedComparison.ts";
 import { differentiate } from "./differentiate.ts";
 import { getKeys } from "./getKeys.ts";
-import { MISSING_VALUE } from "./MISSING_VALUE.ts";
 import { pathPrepend } from "./pathPrepend.ts";
 
 /**
@@ -49,11 +49,11 @@ export const compareProperties = (left: object): CurriedComparison<unknown> => {
 						compare(
 							key in left ?
 								left[key as keyof typeof left]
-							:	MISSING_VALUE,
+							:	SIGIL,
 						)(
 							key in right ?
 								right[key as keyof typeof right]
-							:	MISSING_VALUE,
+							:	SIGIL,
 						),
 					),
 				)(unique(append(getKeys(right))(ownKeysLeft))),
