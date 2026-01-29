@@ -1,3 +1,4 @@
+import { SIGIL } from "@coven/constants";
 import {
 	getIterator,
 	iteratorFunctionToIterableIterator,
@@ -6,7 +7,6 @@ import {
 import { compare } from "./compare.ts";
 import type { CurriedComparison } from "./CurriedComparison.ts";
 import type { Difference } from "./Difference.ts";
-import { MISSING_VALUE } from "./MISSING_VALUE.ts";
 import { pathPrepend } from "./pathPrepend.ts";
 
 /**
@@ -55,8 +55,8 @@ export const compareIterables =
 						rightIterator.next()
 			) {
 				yield* map(pathPrepend(index))(
-					compare(leftDone ? MISSING_VALUE : leftValue)(
-						rightDone ? MISSING_VALUE : rightValue,
+					compare(leftDone ? SIGIL : leftValue)(
+						rightDone ? SIGIL : rightValue,
 					),
 				);
 			}

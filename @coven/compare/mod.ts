@@ -14,7 +14,6 @@ export type { FlatDifference } from "./FlatDifference.ts";
 export type { FlatPath } from "./FlatPath.ts";
 export { flatPathMap } from "./flatPathMap.ts";
 export { getKeys } from "./getKeys.ts";
-export { MISSING_VALUE } from "./MISSING_VALUE.ts";
 export { pathPrepend } from "./pathPrepend.ts";
 export { setPath } from "./setPath.ts";
 export { UPDATE_KIND } from "./UPDATE_KIND.ts";
