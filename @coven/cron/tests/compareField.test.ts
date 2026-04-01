@@ -1,5 +1,5 @@
-import { compareField } from "@coven/cron";
 import { assert, assertFalse } from "@std/assert";
+import { compareField } from "../compareField.ts";
 
 Deno.test("Two equal values returns true", () => assert(compareField(13, 13)));
 

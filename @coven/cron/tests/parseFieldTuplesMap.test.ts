@@ -1,6 +1,6 @@
-import { parseFieldTuplesMap } from "@coven/cron";
 import { iterableToArray } from "@coven/iterables";
 import { assertEquals } from "@std/assert";
+import { parseFieldTuplesMap } from "../parseFieldTuplesMap.ts";
 
 Deno.test("Tuple of minute and * returns parsed tuple", () =>
 	assertEquals(iterableToArray(parseFieldTuplesMap([["minute", "*"]])), [

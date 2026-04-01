@@ -1,7 +1,7 @@
 import { EMPTY_ARRAY } from "@coven/constants";
-import { nextISODates } from "@coven/cron";
 import { iterableToArray, take } from "@coven/iterables";
 import { assertEquals } from "@std/assert";
+import { nextISODates } from "../nextISODates.ts";
 
 const testDate = nextISODates("1992-01-01T00:00:00.000Z");
 

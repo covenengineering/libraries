@@ -1,6 +1,6 @@
-import { parseNumberMap } from "@coven/cron";
 import { iterableToArray } from "@coven/iterables";
 import { assertEquals } from "@std/assert";
+import { parseNumberMap } from "../parseNumberMap.ts";
 
 Deno.test("Number 10 and a 13 returns parsed values", () =>
 	assertEquals(iterableToArray(parseNumberMap(["10", "13"])), [10, 13]),

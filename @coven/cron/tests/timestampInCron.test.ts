@@ -1,5 +1,5 @@
-import { timestampInCron } from "@coven/cron";
 import { assert, assertFalse } from "@std/assert";
+import { timestampInCron } from "../timestampInCron.ts";
 
 const dateInCronTest = timestampInCron({
 	dayOfMonth: 5,

@@ -1,5 +1,5 @@
-import { isValidExpression } from "@coven/cron";
 import { assert, assertFalse } from "@std/assert";
+import { isValidExpression } from "../isValidExpression.ts";
 
 Deno.test("String that is a * returns false", () =>
 	assertFalse(isValidExpression("*")),

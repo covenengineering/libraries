@@ -1,5 +1,5 @@
-import { stringifyField } from "@coven/cron";
 import { assertStrictEquals } from "@std/assert";
+import { stringifyField } from "../stringifyField.ts";
 
 Deno.test("Array of numbers returns stringified list", () =>
 	assertStrictEquals(stringifyField([10, 13]), "10,13"),

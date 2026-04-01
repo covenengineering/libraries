@@ -1,5 +1,5 @@
-import { isAllToken } from "@coven/cron";
 import { assert, assertFalse } from "@std/assert";
+import { isAllToken } from "../isAllToken.ts";
 
 Deno.test("String that is a * returns true", () => assert(isAllToken("*")));
 

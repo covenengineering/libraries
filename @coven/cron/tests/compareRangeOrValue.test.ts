@@ -1,5 +1,5 @@
-import { compareRangeOrValue } from "@coven/cron";
 import { assert, assertFalse } from "@std/assert";
+import { compareRangeOrValue } from "../compareRangeOrValue.ts";
 
 Deno.test("Two equal values returns true", () =>
 	assert(compareRangeOrValue(13)(13)),

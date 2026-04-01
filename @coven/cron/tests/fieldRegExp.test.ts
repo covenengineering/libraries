@@ -1,5 +1,5 @@
-import { fieldRegExp } from "@coven/cron";
 import { assertStrictEquals } from "@std/assert";
+import { fieldRegExp } from "../fieldRegExp.ts";
 
 Deno.test(
 	"Test named expression with the value 13 returns a regular expression's string for a cron field",

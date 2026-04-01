@@ -1,5 +1,5 @@
-import { isNumberString } from "@coven/cron";
 import { assert, assertFalse } from "@std/assert";
+import { isNumberString } from "../isNumberString.ts";
 
 Deno.test("String that is a * returns false", () =>
 	assertFalse(isNumberString("*")),

@@ -1,5 +1,5 @@
-import { parseNumber } from "@coven/cron";
 import { assertStrictEquals } from "@std/assert";
+import { parseNumber } from "../parseNumber.ts";
 
 Deno.test("Number 10 and a 13 returns parsed values", () =>
 	assertStrictEquals(parseNumber("13"), 13),
