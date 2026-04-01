@@ -1,5 +1,5 @@
-import { disjunction } from "@coven/expression";
 import { assertStrictEquals } from "@std/assert";
+import { disjunction } from "../disjunction.ts";
 
 Deno.test(
 	"Number 13 return the same number because no other values where provided",

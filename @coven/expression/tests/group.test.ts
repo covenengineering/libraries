@@ -1,5 +1,5 @@
-import { group } from "@coven/expression";
 import { assertStrictEquals } from "@std/assert";
+import { group } from "../group.ts";
 
 Deno.test("Number 13 adds a non-capturing group around it", () =>
 	assertStrictEquals(group(13), "(?:13)"),

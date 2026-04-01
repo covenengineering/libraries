@@ -1,5 +1,5 @@
-import { hexadecimal } from "@coven/expression";
 import { assertStrictEquals } from "@std/assert";
+import { hexadecimal } from "../hexadecimal.ts";
 
 Deno.test(
 	"Number 13 in hexadecimal adds an x escape sequence to the left",

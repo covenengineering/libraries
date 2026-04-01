@@ -1,5 +1,5 @@
-import { complementClass } from "@coven/expression";
 import { assertStrictEquals } from "@std/assert";
+import { complementClass } from "../complementClass.ts";
 
 Deno.test("Number 13 is wrapped it with a negated set", () =>
 	assertStrictEquals(complementClass(13), "[^13]"),

@@ -1,5 +1,7 @@
-import { build, disjunction, group } from "@coven/expression";
 import { assertEquals } from "@std/assert";
+import { build } from "../build.ts";
+import { disjunction } from "../disjunction.ts";
+import { group } from "../group.ts";
 
 const regExp = /(?:13|coven)/u;
 const createdRegExp = build()(group(disjunction(13, "coven")));

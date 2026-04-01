@@ -1,5 +1,5 @@
-import { captureNamed } from "@coven/expression";
 import { assertStrictEquals } from "@std/assert";
+import { captureNamed } from "../captureNamed.ts";
 
 Deno.test(
 	'Group named "test" and a number 13 adds an escape sequence to the left',
