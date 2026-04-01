@@ -1,4 +1,5 @@
 import type { EntryOf } from "@coven/types";
+import { stringify } from "@coven/utils";
 import type { MemoizableRecord } from "./MemoizableRecord.ts";
 
 /**
@@ -7,4 +8,4 @@ import type { MemoizableRecord } from "./MemoizableRecord.ts";
 export const entriesSorter = <Record extends MemoizableRecord>(
 	[left]: EntryOf<Record>,
 	[right]: EntryOf<Record>,
-): number => left.toString().localeCompare(right.toString());
+): number => stringify(left).localeCompare(stringify(right));
