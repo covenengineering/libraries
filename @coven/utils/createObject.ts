@@ -10,7 +10,7 @@
  * @returns Clean object (with `null` prototype).
  */
 export const createObject = <
-	Object extends object = Readonly<Record<PropertyKey, never>>,
+	const Object extends object = Readonly<Record<PropertyKey, never>>,
 >(
 	source?: Object,
 ): Object => {
