@@ -21,6 +21,8 @@ libraries:
 - 🖇️ [`@coven/pair`](https://coven.to/pair) — Paired hook pattern helper.
 - 💫 [`@coven/parsers`](https://coven.to/parsers) — Parsing utilities.
 - 🕵️‍♀️ [`@coven/predicates`](https://coven.to/predicates) — Predicate utilities.
+- 🧩 [`@coven/template`](https://coven.to/template) — Tagged template literals
+  simplified.
 - 🌈 [`@coven/terminal`](https://coven.to/terminal) — Terminal ANSI colors
   utilities.
 - 🏷️ [`@coven/types`](https://coven.to/types) — Collection of TypeScript types.
