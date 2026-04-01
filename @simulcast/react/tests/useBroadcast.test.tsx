@@ -1,9 +1,9 @@
 import { broadcast, type EventRegistry } from "@simulcast/core";
-import { useBroadcast } from "@simulcast/react";
 import { assertStrictEquals } from "@std/assert";
 import { cleanup, render, screen } from "@testing-library/react";
 import { userEvent } from "@testing-library/user-event";
 import { type ComponentProps, type MouseEvent, useState } from "react";
+import { useBroadcast } from "../useBroadcast.ts";
 
 const CountComponent = (properties: ComponentProps<"button">) => {
 	const [count, setCount] = useState(0);
