@@ -1,8 +1,10 @@
 import { EMPTY_ARRAY } from "@coven/constants";
 import { forEach } from "@coven/iterables";
 import { applyTo, createObject } from "@coven/utils";
-import { type EventHandler, type EventRegistry, on } from "@simulcast/core";
 import { assert, assertStrictEquals } from "@std/assert";
+import type { EventHandler } from "../EventHandler.ts";
+import type { EventRegistry } from "../EventRegistry.ts";
+import { on } from "../on.ts";
 
 const TEST_EVENT = "test";
 

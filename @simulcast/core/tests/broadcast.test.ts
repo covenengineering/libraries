@@ -1,5 +1,5 @@
-import { broadcast } from "@simulcast/core";
 import { assert, assertStrictEquals } from "@std/assert";
+import { broadcast } from "../broadcast.ts";
 
 const { emitTest, onTest, on, emit } = broadcast<{ test: never }>();
 
