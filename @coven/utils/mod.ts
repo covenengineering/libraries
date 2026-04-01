@@ -11,6 +11,7 @@ export { LCG_MULTIPLIER } from "./LCG_MULTIPLIER.ts";
 export { mutate } from "./mutate.ts";
 export { seededRandom } from "./seededRandom.ts";
 export { set } from "./set.ts";
+export { stringify } from "./stringify.ts";
 export { stringToUint8Array } from "./stringToUint8Array.ts";
 export { tap } from "./tap.ts";
 export { thunk } from "./thunk.ts";
