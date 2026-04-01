@@ -1,8 +1,8 @@
-import type { MemoizedItem } from "./MemoizedItem.ts";
+import type { Memoizable } from "./Memoizable.ts";
 
 /**
- * Tuple the `memo` function can memoize.
+ * Arrays that can be memoized.
  *
- * @see {@linkcode MemoizedItem}
+ * @see {@linkcode Memoizable}
  */
-export type MemoizableTuple = readonly MemoizedItem[];
+export type MemoizableTuple = readonly Memoizable[];

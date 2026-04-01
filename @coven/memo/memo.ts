@@ -1,105 +1,57 @@
-import { EMPTY_ARRAY, EMPTY_OBJECT } from "@coven/constants";
-import { MEMO_ROOT } from "./MEMO_ROOT.ts";
-import type { MemoCache } from "./MemoCache.ts";
-import type { Memoizable } from "./Memoizable.ts";
-import type { MemoizableRecord } from "./MemoizableRecord.ts";
-import { memoizableRecordToMemoizableTuple } from "./memoizableRecordToMemoizableTuple.ts";
+import { EMPTY_ARRAY, EMPTY_OBJECT, SIGIL } from "@coven/constants";
+import { entriesToObject, iterableToArray } from "@coven/iterables";
+import { isArray } from "@coven/predicates";
+import type { EntryOf, MapValue } from "@coven/types";
+import type { Cache } from "./Cache.ts";
+import { mapMemo } from "./mapMemo.ts";
+import { memoEntries } from "./memoEntries.ts";
+import type { MemoizableObject } from "./MemoizableObject.ts";
 import type { MemoizableTuple } from "./MemoizableTuple.ts";
 import type { Memoized } from "./Memoized.ts";
-import { memoizedCacheReducer } from "./memoizedCacheReducer.ts";
-import type { MemoizedItem } from "./MemoizedItem.ts";
-import type { MemoizedRecordCache } from "./MemoizedRecordCache.ts";
-import type { MemoizedTupleCache } from "./MemoizedTupleCache.ts";
+import type { RecordCache } from "./RecordCache.ts";
+import type { TupleCache } from "./TupleCache.ts";
+import { updateCache } from "./updateCache.ts";
 
 /**
  * Private cache of tuples.
  */
-const memoizedTupleCache: MemoizedTupleCache = new Map();
+const tupleCache: TupleCache = new Map();
 
 /**
  * Private cache of records.
  */
-const memoizedRecordCache: MemoizedRecordCache = new Map();
+const recordCache: RecordCache = new Map();
 
 /**
- * Function that memoizes tuples, records and function arguments to stable
- * output values.
+ * Memoizes a value.
+ *
+ * @example
+ * ```typescript
+ * memo(["✨", "🔮", "💀"]) === memo(["✨", "🔮", "💀"]); // true
+ * ```
+ * @template Value Value to be memoized.
+ * @param value Value to memoize.
+ * @returns Memoized read-only record or tuple.
  */
-export const memo: {
-	/**
-	 * Memoize a record or tuple and makes it read-only.
-	 *
-	 * @example
-	 * ```typescript
-	 * memo(["✨", "🔮", "💀"]) === memo(["✨", "🔮", "💀"]); // true
-	 * ```
-	 * @param memoizable Value to memoize.
-	 * @returns Memoized read-ony record or tuple.
-	 */
-	<const MemoizableValue extends Memoizable>(
-		memoizable: MemoizableValue
-			& (MemoizableValue extends ReadonlyArray<unknown> ? MemoizableTuple
-			:	MemoizableRecord),
-	): Memoized<MemoizableValue>;
-	/**
-	 * Memoize function return values. Given the same arguments, the same value
-	 * is returned without re-running the memoized function.
-	 *
-	 * @example
-	 * ```typescript
-	 * const expensiveOperation = (value: number) => value * 2;
-	 * const memoizedOperation = memo(expensiveOperation);
-	 *
-	 * memoizedOperation(2); // 4
-	 * memoizedOperation(2); // 4 (cached)
-	 * ```
-	 * @param memoizable Function to memoize.
-	 * @returns Curried function with `unary` in context.
-	 */
-	<Function extends (...parameters: ReadonlyArray<never>) => unknown>(
-		memoizable: Function,
-	): Function;
-} = (
-	value: ((...parameters: ReadonlyArray<never>) => unknown) | Memoizable,
-): unknown => {
-	if (typeof value === "function") {
-		const memoizedOutputCache = new Map();
+export const memo = <const Value extends MemoizableObject>(
+	value: Value,
+): Memoized<Value> => {
+	const isTuple = isArray<MemoizableTuple>(value);
+	const normalized = isTuple ? value : memoEntries(value);
 
-		return (...parameters: ReadonlyArray<MemoizedItem>) => {
-			const tupleParameters = memo(parameters);
-
-			return (
-				memoizedOutputCache.has(tupleParameters) ? memoizedOutputCache
-				:	memoizedOutputCache.set(
-						tupleParameters,
-						value(
-							...(tupleParameters as unknown as ReadonlyArray<never>),
-						),
-					)).get(tupleParameters);
-		};
-	} else {
-		// Array.isArray type isn't great, so this is an inline patch
-		const isArray = (
-			Array.isArray as (value: unknown) => value is MemoizableTuple
-		)(value);
-		const normalizedValue =
-			isArray ? value : memoizableRecordToMemoizableTuple(value);
-
-		return (
-			normalizedValue.length > 0 ?
-				memoizedCacheReducer(
-					normalizedValue.reduce(
-						memoizedCacheReducer as (
-							cache: MemoCache,
-							item: MemoizedItem,
-						) => MemoCache,
-						isArray ? memoizedTupleCache : memoizedRecordCache,
-					),
-					MEMO_ROOT,
-					value,
-				)
-			: isArray ? EMPTY_ARRAY
-			: EMPTY_OBJECT
-		);
-	}
+	return normalized.length > 0 ?
+			(updateCache(isTuple ? tupleCache : recordCache)(
+				normalized,
+			).getOrInsertComputed(
+				SIGIL,
+				() =>
+					Object.freeze(
+						isTuple ?
+							iterableToArray(mapMemo(normalized))
+						:	entriesToObject(
+								normalized as ReadonlyArray<EntryOf<object>>,
+							),
+					) as MapValue<Cache>,
+			) as Memoized<Value>)
+		:	((isTuple ? EMPTY_ARRAY : EMPTY_OBJECT) as Memoized<Value>);
 };
