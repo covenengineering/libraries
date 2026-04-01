@@ -1,5 +1,5 @@
-import { captureType } from "@coven/expression";
 import { assertStrictEquals } from "@std/assert";
+import { captureType } from "../captureType.ts";
 
 Deno.test(
 	"{TEST} string and a number 13 adds capture type group {TEST} around 13",

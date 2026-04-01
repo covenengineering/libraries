@@ -1,5 +1,7 @@
-import { buildUnicode, disjunction, group } from "@coven/expression";
 import { assertEquals } from "@std/assert";
+import { buildUnicode } from "../buildUnicode.ts";
+import { disjunction } from "../disjunction.ts";
+import { group } from "../group.ts";
 
 const regExp = /(?:13|coven)/u;
 const createdRegExp = buildUnicode(group(disjunction(13, "coven")));

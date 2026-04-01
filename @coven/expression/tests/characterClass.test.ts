@@ -1,5 +1,5 @@
-import { characterClass } from "@coven/expression";
 import { assertStrictEquals } from "@std/assert";
+import { characterClass } from "../characterClass.ts";
 
 Deno.test("Number 13 adds a [] around it", () =>
 	assertStrictEquals(characterClass(13), "[13]"),

@@ -1,5 +1,5 @@
-import { lookbehind } from "@coven/expression";
 import { assertStrictEquals } from "@std/assert";
+import { lookbehind } from "../lookbehind.ts";
 
 Deno.test("Number 13 add capture previous group around it", () =>
 	assertStrictEquals(lookbehind(13), "(?<=13)"),

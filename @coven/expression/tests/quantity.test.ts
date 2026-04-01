@@ -1,5 +1,5 @@
-import { quantity } from "@coven/expression";
 import { assertStrictEquals } from "@std/assert";
+import { quantity } from "../quantity.ts";
 
 Deno.test(
 	'Number 13 and a "test" string adds {} and the provided quantity',

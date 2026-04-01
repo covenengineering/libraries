@@ -1,5 +1,5 @@
-import { modifier } from "@coven/expression";
 import { assertStrictEquals } from "@std/assert";
+import { modifier } from "../modifier.ts";
 
 Deno.test('Modifier "ims" applied to number 13', () =>
 	assertStrictEquals(modifier("ims")(13), "(?ims:13)"),
