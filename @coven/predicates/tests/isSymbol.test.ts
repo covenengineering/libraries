@@ -2,7 +2,7 @@ import { EMPTY_ARRAY, EMPTY_OBJECT } from "@coven/constants";
 import { assert, assertFalse } from "@std/assert";
 import { isSymbol } from "../isSymbol.ts";
 
-Deno.test("Regular expressions", () =>
+Deno.test("Symbols", () =>
 	assert(
 		isSymbol(Symbol("description"))
 			&& isSymbol(Symbol())
