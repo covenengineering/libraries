@@ -39,7 +39,7 @@ jobs:
                   coverage.lcov
 
             - name: Publish Coverage
-              uses: codecov/codecov-action@v5
+              uses: codecov/codecov-action@v6
               with:
                   token: ${{ secrets.CODECOV_TOKEN }}
     publish:
