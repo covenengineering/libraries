@@ -1,5 +1,6 @@
-import { memo } from "@coven/memo";
+import { memoFunction } from "@coven/memo";
 import { has, isNumber, isObject } from "@coven/predicates";
+import type { Field } from "./Field.ts";
 import type { RangeField } from "./RangeField.ts";
 
 const hasFrom = has("from");
@@ -10,13 +11,16 @@ const hasTo = has("to");
  *
  * @see {@linkcode RangeField}
  */
-export const isRangeField: (value: unknown) => value is RangeField<number> =
-	memo(
-		(value: unknown): value is RangeField<number> =>
-			isObject(value)
-			&& hasFrom(value)
-			&& hasTo(value)
-			&& isNumber(value.from)
-			&& isNumber(value.to)
-			&& value.from < value.to,
-	);
+export const isRangeField: <Predicated extends number>(
+	value: Field<Predicated>,
+) => value is RangeField<Predicated> = memoFunction(
+	<Predicated extends number>(
+		value: Field<Predicated>,
+	): value is RangeField<Predicated> =>
+		isObject(value)
+		&& hasFrom(value)
+		&& hasTo(value)
+		&& isNumber(value.from)
+		&& isNumber(value.to)
+		&& value.from < value.to,
+);

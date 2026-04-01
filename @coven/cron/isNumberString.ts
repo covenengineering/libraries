@@ -1,4 +1,4 @@
-import { memo } from "@coven/memo";
+import { memoFunction } from "@coven/memo";
 import { parseDecimal } from "@coven/parsers";
 import { isNumber } from "@coven/predicates";
 
@@ -7,7 +7,7 @@ import { isNumber } from "@coven/predicates";
  */
 export const isNumberString: <Value extends number>(
 	input: string,
-) => input is `${Value}` = memo(
+) => input is `${Value}` = memoFunction(
 	<Value extends number>(input: string): input is `${Value}` =>
 		isNumber(parseDecimal(input)),
 );

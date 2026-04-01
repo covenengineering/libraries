@@ -1,6 +1,6 @@
 import { buildUnicode, DIGIT, escape, join, quantity } from "@coven/expression";
 import { EMPTY_ITERABLE_ITERATOR, filter, map, range } from "@coven/iterables";
-import { memo } from "@coven/memo";
+import { memoFunction } from "@coven/memo";
 import { isString, isUndefined } from "@coven/predicates";
 import type { ISODate, Maybe } from "@coven/types";
 import type { CronObject } from "./CronObject.ts";
@@ -33,12 +33,12 @@ const filterIsISODate = filter(
 export const nextISODates: (
 	isoDate: ISODate,
 ) => (cron: CronString | Partial<CronObject>) => IterableIterator<ISODate> =
-	memo((isoDate) => {
+	memoFunction((isoDate) => {
 		const initialTimestamp = new Date(
 			isoDate.replace(buildUnicode(dateReplace), "00.000"),
 		).getTime();
 
-		return memo((cron) => {
+		return memoFunction((cron) => {
 			const cronObject = parse(
 				isString(cron) ? cron : (stringify(cron) ?? ("" as CronString)),
 			);

@@ -1,4 +1,4 @@
-import { memo } from "@coven/memo";
+import { memoFunction } from "@coven/memo";
 import type { AllToken } from "./AllToken.ts";
 import type { Field } from "./Field.ts";
 import { compareRangeOrValue } from "./compareRangeOrValue.ts";
@@ -25,8 +25,9 @@ import { isListField } from "./isListField.ts";
 export const compareField: (
 	value: number,
 	field: Exclude<Field<number>, AllToken>,
-) => boolean = memo((value: number, field: Exclude<Field<number>, AllToken>) =>
-	isListField(field) ?
-		field.some(compareRangeOrValue(value))
-	:	compareRangeOrValue(value)(field),
+) => boolean = memoFunction(
+	(value: number, field: Exclude<Field<number>, AllToken>) =>
+		isListField(field) ?
+			field.some(compareRangeOrValue(value))
+		:	compareRangeOrValue(value)(field),
 );

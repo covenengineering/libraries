@@ -1,5 +1,5 @@
 import { every } from "@coven/iterables";
-import { memo } from "@coven/memo";
+import { memoFunction } from "@coven/memo";
 import { isArray, isNumber } from "@coven/predicates";
 import type { Field } from "./Field.ts";
 import { isRangeField } from "./isRangeField.ts";
@@ -18,7 +18,7 @@ const everyIsNumberOrRangeField = every<
  * @see {@linkcode isRangeField}
  */
 export const isListField: (value: Field<number>) => value is ListField<number> =
-	memo(
+	memoFunction(
 		(value: Field<number>) =>
 			isArray(value) && everyIsNumberOrRangeField(value),
 	);

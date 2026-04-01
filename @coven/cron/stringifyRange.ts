@@ -1,4 +1,4 @@
-import { memo } from "@coven/memo";
+import { memoFunction } from "@coven/memo";
 import type { Maybe } from "@coven/types";
 import type { Field } from "./Field.ts";
 import type { RangeString } from "./RangeString.ts";
@@ -19,7 +19,7 @@ import { RANGE_EXPRESSION_SEPARATOR_TOKEN } from "./tokens.ts";
  */
 export const stringifyRange: <Predicated extends number>(
 	field: Readonly<Field<Predicated>>,
-) => Maybe<RangeString> = memo(
+) => Maybe<RangeString> = memoFunction(
 	<Predicated extends number>(field: Readonly<Field<Predicated>>) =>
 		(isRangeField(field) ?
 			`${field.from}${RANGE_EXPRESSION_SEPARATOR_TOKEN}${field.to}`

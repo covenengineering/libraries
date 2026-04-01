@@ -1,5 +1,5 @@
 import { captureNamed, disjunction, escape } from "@coven/expression";
-import { memo } from "@coven/memo";
+import { memoFunction } from "@coven/memo";
 import { ALL_TOKEN } from "./tokens.ts";
 import { valueRangeOrListRegExp } from "./valueRangeOrListRegExp.ts";
 
@@ -18,7 +18,7 @@ export const fieldRegExp: <Name extends string, Value extends string>(
 	name: Name,
 	value: Value,
 ) => `(?<${Name}>\\*|(?:${Value}(?:-${Value})?|(?:(?:${Value}(?:-${Value})?,)+${Value}(?:-${Value})?)))` =
-	memo(
+	memoFunction(
 		<Name extends string, Value extends string>(name: Name, value: Value) =>
 			captureNamed(name)(
 				disjunction(escape(ALL_TOKEN), valueRangeOrListRegExp(value)),

@@ -1,5 +1,5 @@
 import { disjunction, exists, group } from "@coven/expression";
-import { memo } from "@coven/memo";
+import { memoFunction } from "@coven/memo";
 import { LIST_EXPRESSION_SEPARATOR_TOKEN } from "./tokens.ts";
 
 /**
@@ -14,7 +14,7 @@ import { LIST_EXPRESSION_SEPARATOR_TOKEN } from "./tokens.ts";
  */
 export const valueOrListRegExp: <Value extends number | string>(
 	value: Value,
-) => `(?:${Value}|(?:(?:${Value},)+${Value}))` = memo(
+) => `(?:${Value}|(?:(?:${Value},)+${Value}))` = memoFunction(
 	<Value extends number | string>(value: Value) =>
 		group(
 			disjunction(

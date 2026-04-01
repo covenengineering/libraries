@@ -1,4 +1,4 @@
-import { memo } from "@coven/memo";
+import { memoFunction } from "@coven/memo";
 import { parseDecimal } from "@coven/parsers";
 import type { Maybe } from "@coven/types";
 import { parseNumberTest } from "./parseNumberTest.ts";
@@ -18,7 +18,7 @@ import { parseNumberTest } from "./parseNumberTest.ts";
  * @param value String that might be a list.
  * @returns Parsed list of `undefined` if it isn't a list string.
  */
-export const parseNumber: (value: string) => Maybe<number> = memo(
+export const parseNumber: (value: string) => Maybe<number> = memoFunction(
 	(value: string) =>
 		(parseNumberTest(value) ?
 			parseDecimal(value)

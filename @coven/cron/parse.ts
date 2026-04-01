@@ -1,7 +1,7 @@
 import { EMPTY_OBJECT } from "@coven/constants";
 import { build } from "@coven/expression";
 import { entriesToObject, length, objectToEntries } from "@coven/iterables";
-import { memo } from "@coven/memo";
+import { memoFunction } from "@coven/memo";
 import type { KeyOf, Maybe, ReadonlyRecord } from "@coven/types";
 import type { CronObject } from "./CronObject.ts";
 import type { CronString } from "./CronString.ts";
@@ -29,8 +29,8 @@ const buildIU = build("iu");
  * @returns Object representing that expression or `undefined` if expression is
  * invalid.
  */
-export const parse: (expression: CronString) => Maybe<CronObject> = memo(
-	(expression: CronString) => {
+export const parse: (expression: CronString) => Maybe<CronObject> =
+	memoFunction((expression: CronString) => {
 		const entries = parseFieldTuplesMap(
 			objectToEntries(
 				(buildIU(cronRegExp).exec(normalizeAliases(expression))?.groups
@@ -45,5 +45,4 @@ export const parse: (expression: CronString) => Maybe<CronObject> = memo(
 			length(entries) === 0 ? undefined : (
 				entriesToObject(entries)
 			)) as Maybe<CronObject>;
-	},
-);
+	});

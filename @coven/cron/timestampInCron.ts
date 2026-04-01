@@ -1,4 +1,4 @@
-import { memo } from "@coven/memo";
+import { memoFunction } from "@coven/memo";
 import type { ISODate, Maybe } from "@coven/types";
 import type { CronObject } from "./CronObject.ts";
 import { compareField } from "./compareField.ts";
@@ -12,7 +12,7 @@ import { isAllToken } from "./isAllToken.ts";
  */
 export const timestampInCron: (
 	cron: CronObject,
-) => (timestamp: number) => Maybe<ISODate> = memo(
+) => (timestamp: number) => Maybe<ISODate> = memoFunction(
 	(cron: CronObject): ((timestamp: number) => Maybe<ISODate>) => {
 		const minuteIsAll = isAllToken(cron.minute);
 		const hourIsAll = isAllToken(cron.hour);

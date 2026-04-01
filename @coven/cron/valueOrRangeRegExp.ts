@@ -1,5 +1,5 @@
 import { group, join, optional } from "@coven/expression";
-import { memo } from "@coven/memo";
+import { memoFunction } from "@coven/memo";
 import { RANGE_EXPRESSION_SEPARATOR_TOKEN } from "./tokens.ts";
 
 /**
@@ -14,7 +14,7 @@ import { RANGE_EXPRESSION_SEPARATOR_TOKEN } from "./tokens.ts";
  */
 export const valueOrRangeRegExp: <Value extends number | string>(
 	value: Value,
-) => `${Value}(?:-${Value})?` = memo(
+) => `${Value}(?:-${Value})?` = memoFunction(
 	<Value extends number | string>(value: Value) =>
 		join(value, optional(group(RANGE_EXPRESSION_SEPARATOR_TOKEN, value))),
 );

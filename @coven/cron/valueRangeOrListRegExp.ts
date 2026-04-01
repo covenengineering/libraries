@@ -1,4 +1,4 @@
-import { memo } from "@coven/memo";
+import { memoFunction } from "@coven/memo";
 import { valueOrListRegExp } from "./valueOrListRegExp.ts";
 import { valueOrRangeRegExp } from "./valueOrRangeRegExp.ts";
 
@@ -15,6 +15,6 @@ import { valueOrRangeRegExp } from "./valueOrRangeRegExp.ts";
 export const valueRangeOrListRegExp: <Value extends number | string>(
 	value: Value,
 ) => `(?:${Value}(?:-${Value})?|(?:(?:${Value}(?:-${Value})?,)+${Value}(?:-${Value})?))` =
-	memo(<Value extends number | string>(value: Value) =>
+	memoFunction(<Value extends number | string>(value: Value) =>
 		valueOrListRegExp(valueOrRangeRegExp(value)),
 	);
