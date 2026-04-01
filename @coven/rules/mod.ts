@@ -34,4 +34,4 @@ export default {
 		"no-try": noTry,
 		"no-while": noWhile,
 	},
-} satisfies Deno.lint.Plugin;
+} as Deno.lint.Plugin;
