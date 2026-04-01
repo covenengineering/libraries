@@ -1,5 +1,5 @@
-import { multiply } from "@coven/math";
 import { assertStrictEquals } from "@std/assert";
+import { multiply } from "../multiply.ts";
 
 const multiplyPositive = multiply(2);
 const multiplyNegative = multiply(-2);

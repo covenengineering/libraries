@@ -1,5 +1,6 @@
-import { precise, preciseAdd } from "@coven/math";
 import { assertStrictEquals } from "@std/assert";
+import { precise } from "../precise.ts";
+import { preciseAdd } from "../preciseAdd.ts";
 
 const preciseAddPositive = preciseAdd(2n);
 const preciseAddNegative = preciseAdd(-2n);

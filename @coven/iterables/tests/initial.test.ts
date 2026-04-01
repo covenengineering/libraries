@@ -1,6 +1,9 @@
 import { EMPTY_ARRAY } from "@coven/constants";
-import { drop, initial, iterableToArray, range } from "@coven/iterables";
 import { assertEquals } from "@std/assert";
+import { drop } from "../drop.ts";
+import { initial } from "../initial.ts";
+import { iterableToArray } from "../iterableToArray.ts";
+import { range } from "../range.ts";
 
 const array = [0, 1, 2];
 

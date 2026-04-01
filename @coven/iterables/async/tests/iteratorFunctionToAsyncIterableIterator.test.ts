@@ -1,8 +1,6 @@
-import {
-	iterableToArray,
-	iteratorFunctionToAsyncIterableIterator,
-} from "@coven/iterables/async";
 import { assertEquals, assertRejects } from "@std/assert";
+import { iterableToArray } from "../iterableToArray.ts";
+import { iteratorFunctionToAsyncIterableIterator } from "../iteratorFunctionToAsyncIterableIterator.ts";
 
 const numbers = [0, 1, 2, 3];
 const iterableIteratorNumbers = iteratorFunctionToAsyncIterableIterator(

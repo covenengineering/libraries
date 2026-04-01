@@ -1,5 +1,5 @@
-import { test } from "@coven/predicates";
 import { assert, assertFalse } from "@std/assert";
+import { test } from "../test.ts";
 
 const testNumbersString = test(new RegExp(String.raw`\d+`, "u"));
 const testNumbersRegExp = test(/\d+/u);

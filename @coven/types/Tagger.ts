@@ -1,3 +1,4 @@
+import type { Multary } from "./Multary.ts";
 import type { ReadonlyTemplateStringsArray } from "./ReadonlyTemplateStringsArray.ts";
 
 /**
@@ -16,7 +17,10 @@ import type { ReadonlyTemplateStringsArray } from "./ReadonlyTemplateStringsArra
 export type Tagger<
 	Output = string,
 	Expressions extends ReadonlyArray<unknown> = ReadonlyArray<unknown>,
-> = (
-	templateStrings: ReadonlyTemplateStringsArray,
-	...expressions: Expressions
-) => Output;
+> = Multary<
+	[
+		templateStrings: ReadonlyTemplateStringsArray,
+		...expressions: Expressions,
+	],
+	Output
+>;

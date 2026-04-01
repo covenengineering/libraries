@@ -8,9 +8,9 @@ import { isSymbol } from "./isSymbol.ts";
  *
  * @example
  * ```typescript
- * isPropertyKey("Lou"); // true
+ * isPropertyKey("Witch"); // true
  * isPropertyKey(1); // true
- * isPropertyKey(Symbol("Lou")); // true
+ * isPropertyKey(Symbol("Witch")); // true
  * isPropertyKey({}); // false
  * ```
  * @param input Value to check.

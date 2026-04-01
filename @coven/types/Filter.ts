@@ -9,9 +9,9 @@ import type { Unary } from "./Unary.ts";
  * const isEven = (input => input % 2 === 0) satisfies Filter<[input: number]>;
  * ```
  * @see {@linkcode Unary}
- * @template Argument Tuple with name of the input value of the filter function.
+ * @template Parameter Tuple with name of the input value of the filter function.
  */
-export type Filter<Argument extends Readonly<[unknown]>> = Unary<
-	Argument,
+export type Filter<Parameter extends Readonly<[unknown]>> = Unary<
+	Parameter,
 	boolean
 >;

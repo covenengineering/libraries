@@ -1,6 +1,6 @@
 import { EMPTY_ARRAY, EMPTY_OBJECT } from "@coven/constants";
-import { isSymbol } from "@coven/predicates";
 import { assert, assertFalse } from "@std/assert";
+import { isSymbol } from "../isSymbol.ts";
 
 Deno.test("Regular expressions", () =>
 	assert(

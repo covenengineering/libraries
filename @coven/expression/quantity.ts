@@ -1,4 +1,4 @@
-import { memo } from "@coven/memo";
+import { memoFunction } from "@coven/memo";
 import type { Stringable, StringJoin } from "@coven/types";
 import { join } from "./join.ts";
 import type { StringQuantity } from "./StringQuantity.ts";
@@ -21,11 +21,11 @@ export const quantity: <const Quantities extends StringQuantity | number>(
 	quantities: Quantities,
 ) => <const Items extends ReadonlyArray<Stringable>>(
 	...items: Items
-) => `${StringJoin<Items>}{${Quantities}}` = memo(
+) => `${StringJoin<Items>}{${Quantities}}` = memoFunction(
 	<const Quantities extends StringQuantity | number>(
 		quantities: Quantities,
 	) =>
-		memo(
+		memoFunction(
 			<const Items extends ReadonlyArray<Stringable>>(...items: Items) =>
 				join(
 					...items,

@@ -1,3 +1,4 @@
+import type { NormalizeEntryKey } from "@coven/types";
 import type { ArrayLikeIndex } from "./ArrayLikeIndex.ts";
 import type { ReadonlyArrayLike } from "./ReadonlyArrayLike.ts";
 
@@ -16,6 +17,6 @@ import type { ReadonlyArrayLike } from "./ReadonlyArrayLike.ts";
  * @see {@linkcode ReadonlyArrayLike}
  * @template Object Object type to get the key from.
  */
-export type KeyOf<Object extends object> = `${Object extends ReadonlyArrayLike ?
-	ArrayLikeIndex<Object>
-:	Exclude<keyof Object, symbol>}`;
+export type KeyOf<Object extends object> =
+	Object extends ReadonlyArrayLike ? `${ArrayLikeIndex<Object>}`
+	:	NormalizeEntryKey<keyof Object>;

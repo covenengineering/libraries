@@ -1,4 +1,4 @@
-import type { Entry, ReadonlyRecord } from "@coven/types";
+import type { EntryOf, KeyOf } from "@coven/types";
 import { iteratorFunctionToIterableIterator } from "./iteratorFunctionToIterableIterator.ts";
 
 /**
@@ -14,14 +14,17 @@ import { iteratorFunctionToIterableIterator } from "./iteratorFunctionToIterable
  * @param input Object to get entries from.
  * @returns Iterable with entries of the given object (including symbols).
  */
-export const objectToEntries = <Key extends PropertyKey, Value>(
-	input: ReadonlyRecord<Key, Value>,
-): IterableIterator<Entry<Key extends number ? `${Key}` : Key, Value>> =>
-	iteratorFunctionToIterableIterator(function* (): Generator<
-		Entry<Key extends number ? `${Key}` : Key, Value>
-	> {
-		yield* Iterator.from(Reflect.ownKeys(input)).map((key) => [
-			key as Key extends number ? `${Key}` : Key,
-			input[key as keyof ReadonlyRecord<Key, Value>],
-		]);
+export const objectToEntries = <
+	const Input extends Record<PropertyKey, unknown>,
+>(
+	input: Input,
+): IterableIterator<EntryOf<Input>> =>
+	iteratorFunctionToIterableIterator(function* (): Generator<EntryOf<Input>> {
+		yield* Iterator.from(Reflect.ownKeys(input)).map(
+			(key) =>
+				[
+					key as KeyOf<Input>,
+					input[key as KeyOf<Input>],
+				] as EntryOf<Input>,
+		);
 	});

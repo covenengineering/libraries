@@ -1,5 +1,5 @@
-import { parseFloatingPoint } from "@coven/parsers";
 import { assertEquals } from "@std/assert";
+import { parseFloatingPoint } from "../parseFloatingPoint.ts";
 
 Deno.test("Parsing valid float point string returns parsed value", () =>
 	assertEquals(parseFloatingPoint("101"), 101),

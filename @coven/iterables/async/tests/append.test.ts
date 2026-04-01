@@ -1,5 +1,7 @@
-import { append, iterableToArray, toIterable } from "@coven/iterables/async";
 import { assertEquals } from "@std/assert";
+import { append } from "../append.ts";
+import { iterableToArray } from "../iterableToArray.ts";
+import { toIterable } from "../toIterable.ts";
 
 const numbersArray = [13, 42] as const;
 const stringsArray = ["✨", "🎃"] as const;

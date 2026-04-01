@@ -1,5 +1,5 @@
-import { preciseToNumber } from "@coven/math";
 import { assertStrictEquals } from "@std/assert";
+import { preciseToNumber } from "../preciseToNumber.ts";
 
 Deno.test(
 	"Tuple of a positive integer without zeroes on the right returns a number",

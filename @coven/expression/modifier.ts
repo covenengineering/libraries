@@ -1,4 +1,4 @@
-import { memo } from "@coven/memo";
+import { memoFunction } from "@coven/memo";
 import type { Stringable, StringJoin } from "@coven/types";
 import { captureType } from "./captureType.ts";
 import type { ModifierFlags } from "./ModifierFlags.ts";
@@ -30,6 +30,6 @@ export const modifier: <
  * @returns Modifier with given `flags` and `pattern`.
  */ <const Pattern extends ReadonlyArray<Stringable>>(
 	...pattern: Pattern
-) => `(?${Flags}:${StringJoin<Pattern>})` = memo((flags) =>
+) => `(?${Flags}:${StringJoin<Pattern>})` = memoFunction((flags) =>
 	captureType(`${flags}:`),
 );

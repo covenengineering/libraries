@@ -1,6 +1,6 @@
 import { EMPTY_OBJECT } from "@coven/constants";
-import { set } from "@coven/utils";
 import { assertEquals } from "@std/assert";
+import { set } from "../set.ts";
 
 const SET_TRUE = true;
 const setMagic = set("✨")(SET_TRUE);

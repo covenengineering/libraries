@@ -1,6 +1,6 @@
 import { EMPTY_ARRAY, EMPTY_OBJECT } from "@coven/constants";
-import { isAwaitableIterable } from "@coven/predicates";
 import { assert, assertFalse } from "@std/assert";
+import { isAwaitableIterable } from "../isAwaitableIterable.ts";
 
 Deno.test("Awaitable iterables", () =>
 	assert(

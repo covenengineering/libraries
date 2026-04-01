@@ -1,6 +1,7 @@
-import { range } from "@coven/iterables";
-import { iterableToArray, map } from "@coven/iterables/async";
 import { assertEquals } from "@std/assert";
+import { range } from "../../range.ts";
+import { iterableToArray } from "../iterableToArray.ts";
+import { map } from "../map.ts";
 
 const mapDouble = map((value: number) => value * 2);
 const arrayDouble = mapDouble([0, 1, 2, 3]);

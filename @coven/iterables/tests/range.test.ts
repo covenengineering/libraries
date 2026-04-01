@@ -1,5 +1,6 @@
-import { iterableToArray, range } from "@coven/iterables";
 import { assertEquals } from "@std/assert";
+import { iterableToArray } from "../iterableToArray.ts";
+import { range } from "../range.ts";
 
 const range1 = range(1);
 const rangeFrom5 = range1(5);

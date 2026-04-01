@@ -1,6 +1,6 @@
-import { is } from "@coven/predicates";
 import { createObject } from "@coven/utils";
 import { assert, assertFalse } from "@std/assert";
+import { is } from "../is.ts";
 
 const magic = "✨";
 const magicCopy = magic;

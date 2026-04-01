@@ -1,6 +1,6 @@
 import { EMPTY_ARRAY, EMPTY_OBJECT } from "@coven/constants";
-import { parseJSON } from "@coven/parsers";
 import { assertEquals } from "@std/assert";
+import { parseJSON } from "../parseJSON.ts";
 
 Deno.test(
 	"JSON with a malicious __proto__ returns object without __proto__",

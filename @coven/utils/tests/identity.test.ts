@@ -1,5 +1,5 @@
-import { identity } from "@coven/utils";
 import { assertStrictEquals } from "@std/assert";
+import { identity } from "../identity.ts";
 
 const anObject = { lucky: 13 };
 

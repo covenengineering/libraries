@@ -1,5 +1,6 @@
-import { forEach, range } from "@coven/iterables";
 import { assertEquals } from "@std/assert";
+import { forEach } from "../forEach.ts";
+import { range } from "../range.ts";
 
 const forEachTest = <Item>(iterable: Iterable<Item>) => {
 	const output: Array<Item> = [];

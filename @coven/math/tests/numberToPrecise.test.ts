@@ -1,5 +1,5 @@
-import { numberToPrecise } from "@coven/math";
 import { assertEquals } from "@std/assert";
+import { numberToPrecise } from "../numberToPrecise.ts";
 
 Deno.test(
 	"Positive integer without zeroes on the right returns a that number in a single",

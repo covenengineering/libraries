@@ -1,5 +1,5 @@
-import { divide } from "@coven/math";
 import { assertStrictEquals } from "@std/assert";
+import { divide } from "../divide.ts";
 
 const dividePositive = divide(2);
 const divideNegative = divide(-2);

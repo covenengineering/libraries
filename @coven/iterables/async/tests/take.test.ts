@@ -1,7 +1,8 @@
 import { EMPTY_ARRAY } from "@coven/constants";
-import { repeat } from "@coven/iterables";
-import { iterableToArray, take } from "@coven/iterables/async";
 import { assertEquals } from "@std/assert";
+import { repeat } from "../../repeat.ts";
+import { iterableToArray } from "../iterableToArray.ts";
+import { take } from "../take.ts";
 
 const take2 = take(2);
 const takeNone = take(0);

@@ -1,5 +1,5 @@
-import { subtract } from "@coven/math";
 import { assertStrictEquals } from "@std/assert";
+import { subtract } from "../subtract.ts";
 
 const subtractPositive = subtract(2);
 const subtractNegative = subtract(-2);

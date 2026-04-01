@@ -1,6 +1,6 @@
 import { EMPTY_ARRAY, EMPTY_OBJECT } from "@coven/constants";
-import { isIterable } from "@coven/predicates";
 import { assert, assertFalse } from "@std/assert";
+import { isIterable } from "../isIterable.ts";
 
 Deno.test("Iterables", () =>
 	assert(

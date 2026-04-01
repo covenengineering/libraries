@@ -1,5 +1,5 @@
-import { reduce } from "@coven/iterables/async";
 import { assertEquals } from "@std/assert";
+import { reduce } from "../reduce.ts";
 
 const add = (augend: number) => (addend: number) => addend + augend;
 const sum = reduce(add);

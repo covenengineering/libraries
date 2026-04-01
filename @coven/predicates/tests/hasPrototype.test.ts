@@ -1,5 +1,5 @@
-import { hasPrototype } from "@coven/predicates";
 import { assert, assertFalse } from "@std/assert";
+import { hasPrototype } from "../hasPrototype.ts";
 
 Deno.test("Array instance doesn't have prototype", () =>
 	assertFalse(hasPrototype([])),

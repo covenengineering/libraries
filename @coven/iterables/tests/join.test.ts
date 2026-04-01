@@ -1,6 +1,6 @@
 import { EMPTY_ARRAY } from "@coven/constants";
-import { join } from "@coven/iterables";
 import { assertEquals } from "@std/assert";
+import { join } from "../join.ts";
 
 const spaceJoin = join(" ");
 const array = [0, 1, 2, 3];

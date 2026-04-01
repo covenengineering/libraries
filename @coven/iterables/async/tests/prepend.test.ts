@@ -1,5 +1,6 @@
-import { iterableToArray, prepend } from "@coven/iterables/async";
 import { assertEquals } from "@std/assert";
+import { iterableToArray } from "../iterableToArray.ts";
+import { prepend } from "../prepend.ts";
 
 const prependNumbers = prepend([0, 1, 2, 3, 4]);
 

@@ -1,4 +1,4 @@
-import { memo } from "@coven/memo";
+import { memoFunction } from "@coven/memo";
 import type { MaybeInfinity } from "./MaybeInfinity.ts";
 import type { Precise } from "./PreciseTuple.ts";
 import { bigIntMin } from "./bigIntMin.ts";
@@ -25,9 +25,9 @@ import { preciseToNumber } from "./preciseToNumber.ts";
 export const preciseAdd: (
 	augendBase: MaybeInfinity,
 	augendExponent?: bigint,
-) => (addendBase: MaybeInfinity, addendExponent?: bigint) => Precise = memo(
-	(augendBase, augendExponent) =>
-		memo((addendBase, addendExponent) => {
+) => (addendBase: MaybeInfinity, addendExponent?: bigint) => Precise =
+	memoFunction((augendBase, augendExponent) =>
+		memoFunction((addendBase, addendExponent) => {
 			const commonExponent = bigIntMin(
 				addendExponent ?? 0n,
 				augendExponent ?? 0n,
@@ -47,4 +47,4 @@ export const preciseAdd: (
 				commonExponent,
 			);
 		}),
-);
+	);

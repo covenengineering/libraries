@@ -1,5 +1,6 @@
-import { includes, toIterable } from "@coven/iterables/async";
 import { assert, assertFalse } from "@std/assert";
+import { includes } from "../includes.ts";
+import { toIterable } from "../toIterable.ts";
 
 const includesFoo = includes("foo");
 

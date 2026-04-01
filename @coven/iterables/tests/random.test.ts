@@ -1,5 +1,7 @@
-import { iterableToArray, random, take } from "@coven/iterables";
 import { assertEquals } from "@std/assert";
+import { iterableToArray } from "../iterableToArray.ts";
+import { random } from "../random.ts";
+import { take } from "../take.ts";
 
 const seededRandom = random("test")(0)(10);
 const seededRandomInverse = random("test")(10)(0);

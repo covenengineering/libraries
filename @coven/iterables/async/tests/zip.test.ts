@@ -1,6 +1,8 @@
 import { EMPTY_ARRAY } from "@coven/constants";
-import { iterableToArray, toIterable, zip } from "@coven/iterables/async";
 import { assertEquals } from "@std/assert";
+import { iterableToArray } from "../iterableToArray.ts";
+import { toIterable } from "../toIterable.ts";
+import { zip } from "../zip.ts";
 
 const zipFooBar = zip(toIterable(["foo", "bar"]));
 

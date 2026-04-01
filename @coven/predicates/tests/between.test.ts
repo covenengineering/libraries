@@ -1,5 +1,5 @@
-import { between } from "@coven/predicates";
 import { assert, assertFalse } from "@std/assert";
+import { between } from "../between.ts";
 
 const between13 = between(13);
 const betweenMagic = between("✨");

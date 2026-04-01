@@ -1,4 +1,3 @@
-import { attempt } from "@coven/parsers";
 import type { Filter } from "@coven/types";
 
 /**
@@ -15,13 +14,16 @@ import type { Filter } from "@coven/types";
  * @param regularExpression Instance of `RegExp` or a string.
  * @returns `true` if the string matches the regular expression, `false` otherwise.
  */
-export const test = ({
-	flags,
-	source,
-}: Pick<Readonly<RegExp>, "flags" | "source">): Filter<[text: string]> => {
-	const attemptTest = attempt((text: string) =>
-		new RegExp(source, flags).test(text),
-	);
-
-	return (text) => attemptTest(text) ?? false;
-};
+export const test =
+	({
+		flags,
+		source,
+	}: Pick<Readonly<RegExp>, "flags" | "source">): Filter<[text: string]> =>
+	(text) => {
+		// deno-lint-ignore coven/no-try
+		try {
+			return new RegExp(source, flags).test(text);
+		} catch {
+			return false;
+		}
+	};

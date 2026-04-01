@@ -1,4 +1,4 @@
-import { memo } from "@coven/memo";
+import { memoFunction } from "@coven/memo";
 import type { Stringable, StringJoin } from "@coven/types";
 
 /**
@@ -13,7 +13,7 @@ import type { Stringable, StringJoin } from "@coven/types";
  */
 export const join: <const Items extends ReadonlyArray<Stringable>>(
 	...items: Items
-) => StringJoin<Items> = memo(
+) => StringJoin<Items> = memoFunction(
 	<const Items extends ReadonlyArray<Stringable>>(...items: Items) =>
 		items.join("") as StringJoin<Items>,
 );

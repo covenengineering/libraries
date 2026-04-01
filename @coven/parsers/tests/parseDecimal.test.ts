@@ -1,5 +1,5 @@
-import { parseDecimal } from "@coven/parsers";
 import { assertEquals } from "@std/assert";
+import { parseDecimal } from "../parseDecimal.ts";
 
 Deno.test("Parsing valid decimal string returns parsed value", () =>
 	assertEquals(parseDecimal("101"), 101),

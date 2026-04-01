@@ -1,6 +1,6 @@
-import { find } from "@coven/iterables";
 import { isString } from "@coven/predicates";
 import { assertEquals } from "@std/assert";
+import { find } from "../find.ts";
 
 const findString = find<number | string>(isString);
 

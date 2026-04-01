@@ -1,7 +1,7 @@
 import type { Nullary } from "./Nullary.ts";
 
 /**
- * Asynchronous {@linkcode Nullary}, a function that takes no arguments and
+ * Asynchronous {@linkcode Nullary}, a function that takes no parameters and
  * returns a `Promise`.
  *
  * @example

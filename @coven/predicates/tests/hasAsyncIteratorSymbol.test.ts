@@ -1,6 +1,6 @@
 import { EMPTY_ARRAY, EMPTY_OBJECT } from "@coven/constants";
-import { hasAsyncIteratorSymbol } from "@coven/predicates";
 import { assert, assertFalse } from "@std/assert";
+import { hasAsyncIteratorSymbol } from "../hasAsyncIteratorSymbol.ts";
 
 const objectWithAsyncIteratorSymbol = { [Symbol.asyncIterator]: () => void 0 };
 

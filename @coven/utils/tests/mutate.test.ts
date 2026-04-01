@@ -1,6 +1,7 @@
 import { EMPTY_OBJECT } from "@coven/constants";
-import { createObject, mutate } from "@coven/utils";
 import { assertEquals, assertThrows } from "@std/assert";
+import { createObject } from "../createObject.ts";
+import { mutate } from "../mutate.ts";
 
 const mutateMagic = mutate({ "✨": "🎃" });
 const emptyObject = createObject<Record<string, string>>();

@@ -1,11 +1,9 @@
 import { EMPTY_ARRAY } from "@coven/constants";
-import { range } from "@coven/iterables";
-import {
-	intersperse,
-	iterableToArray,
-	toIterable,
-} from "@coven/iterables/async";
 import { assertEquals } from "@std/assert";
+import { range } from "../../range.ts";
+import { intersperse } from "../intersperse.ts";
+import { iterableToArray } from "../iterableToArray.ts";
+import { toIterable } from "../toIterable.ts";
 
 const commaIntersperse = intersperse(",");
 

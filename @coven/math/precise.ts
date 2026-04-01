@@ -8,7 +8,7 @@ import {
 	START,
 	WILDCARD,
 } from "@coven/expression";
-import { memo } from "@coven/memo";
+import { memo, memoFunction } from "@coven/memo";
 import { isBigInt } from "@coven/predicates";
 import type { MaybeInfinity } from "./MaybeInfinity.ts";
 import type { Precise } from "./PreciseTuple.ts";
@@ -37,20 +37,25 @@ const rightSideZeroes = buildUnicode(
 export const precise: {
 	(base: bigint, exponent?: bigint): Precise;
 	(base: number): Precise;
-} = memo((base: MaybeInfinity, exponent = 0n): Precise => {
-	if (isBigInt(base)) {
-		const { normalizedBase, zeroes } = rightSideZeroes.exec(`${base}`)
-			?.groups as Readonly<{
-			normalizedBase: `${bigint}`;
-			zeroes: `${bigint}`;
-		}>;
-		const normalizedExponent = BigInt(zeroes.length) + (exponent as bigint);
+} = memoFunction<(base: MaybeInfinity, exponent?: bigint) => Precise>(
+	(base, exponent = 0n) => {
+		if (isBigInt(base)) {
+			const { normalizedBase, zeroes } = rightSideZeroes.exec(`${base}`)
+				?.groups as Readonly<{
+				normalizedBase: `${bigint}`;
+				zeroes: `${bigint}`;
+			}>;
+			const normalizedExponent =
+				BigInt(zeroes.length) + (exponent as bigint);
 
-		return memo([
-			BigInt(normalizedBase),
-			...(normalizedExponent === 0n ? EMPTY_ARRAY : [normalizedExponent]),
-		]) as Precise;
-	} else {
-		return memo([base]) as Precise;
-	}
-});
+			return memo([
+				BigInt(normalizedBase),
+				...(normalizedExponent === 0n ? EMPTY_ARRAY : (
+					[normalizedExponent]
+				)),
+			]) as Precise;
+		} else {
+			return memo([base]) as Precise;
+		}
+	},
+);

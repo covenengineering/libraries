@@ -1,6 +1,6 @@
-import { every } from "@coven/iterables";
 import { isNumber } from "@coven/predicates";
 import { assert, assertFalse } from "@std/assert";
+import { every } from "../every.ts";
 
 const everyNumbers = every(isNumber);
 const numbersArray = [0, 1, 2, 3];

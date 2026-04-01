@@ -1,9 +1,9 @@
-import { tap } from "@coven/utils";
 import { assertEquals } from "@std/assert";
+import { tap } from "../tap.ts";
 
 let tapped = false;
-const tappedTest = tap((argument: boolean) => (tapped = argument))(
-	(_argument: boolean) => "✨",
+const tappedTest = tap((parameter: boolean) => (tapped = parameter))(
+	(_parameter: boolean) => "✨",
 );
 const EXPECTED = true;
 

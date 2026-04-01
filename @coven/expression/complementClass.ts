@@ -1,4 +1,4 @@
-import { memo } from "@coven/memo";
+import { memoFunction } from "@coven/memo";
 import type { Stringable, StringJoin } from "@coven/types";
 import { START } from "./boundaryAssertionts.ts";
 import { characterClass } from "./characterClass.ts";
@@ -19,7 +19,7 @@ import { characterClass } from "./characterClass.ts";
  */
 export const complementClass: <const Tokens extends ReadonlyArray<Stringable>>(
 	...tokens: Tokens
-) => `[${StringJoin<["^", ...Tokens]>}]` = memo(
+) => `[${StringJoin<["^", ...Tokens]>}]` = memoFunction(
 	<const Tokens extends ReadonlyArray<Stringable>>(...tokens: Tokens) =>
 		characterClass(START, ...tokens) as `[${StringJoin<["^", ...Tokens]>}]`,
 );

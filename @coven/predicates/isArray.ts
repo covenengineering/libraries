@@ -8,6 +8,8 @@
  * ```
  * @returns `true` if the given value is an array, `false` otherwise.
  */
-export const isArray = Array.isArray as <Item>(
+export const isArray = Array.isArray as <
+	Array extends ReadonlyArray<unknown> = ReadonlyArray<unknown>,
+>(
 	input: unknown,
-) => input is ReadonlyArray<Item>;
+) => input is Array;

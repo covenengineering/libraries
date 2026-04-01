@@ -1,5 +1,5 @@
-import { applyTo } from "@coven/utils";
 import { assertStrictEquals } from "@std/assert";
+import { applyTo } from "../applyTo.ts";
 
 const double = (value: number) => value * 2;
 const applyTo21 = applyTo(21);

@@ -1,5 +1,5 @@
-import { thunk } from "@coven/utils";
 import { assertEquals } from "@std/assert";
+import { thunk } from "../thunk.ts";
 
 const double = (value: number) => value * 2;
 const thunkDouble = thunk(double);

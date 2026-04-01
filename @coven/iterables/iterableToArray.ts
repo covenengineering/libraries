@@ -8,6 +8,6 @@
  * @param iterable Iterable to be turned into an array.
  * @returns Array made of iterable items.
  */
-export const iterableToArray = Array.from as <Item>(
+export const iterableToArray = <Item>(
 	iterable: Iterable<Item>,
-) => ReadonlyArray<Item>;
+): ReadonlyArray<Item> => Object.freeze(Array.from(iterable));

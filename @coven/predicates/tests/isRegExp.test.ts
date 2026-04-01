@@ -1,6 +1,6 @@
 import { EMPTY_ARRAY, EMPTY_OBJECT } from "@coven/constants";
-import { isRegExp } from "@coven/predicates";
 import { assert, assertFalse } from "@std/assert";
+import { isRegExp } from "../isRegExp.ts";
 
 Deno.test("Regular expressions", () =>
 	assert(isRegExp(/expression/u) && isRegExp(new RegExp("expression", "u"))),

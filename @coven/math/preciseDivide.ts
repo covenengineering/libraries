@@ -1,4 +1,4 @@
-import { memo } from "@coven/memo";
+import { memoFunction } from "@coven/memo";
 import { always } from "@coven/utils";
 import type { MaybeInfinity } from "./MaybeInfinity.ts";
 import type { Precise } from "./PreciseTuple.ts";
@@ -27,8 +27,8 @@ import { preciseToNumber } from "./preciseToNumber.ts";
 export const preciseDivide: (
 	divisorBase: MaybeInfinity,
 	divisorExponent?: bigint,
-) => (dividendBase: MaybeInfinity, dividendExponent?: bigint) => Precise = memo(
-	(divisorBase, divisorExponent) =>
+) => (dividendBase: MaybeInfinity, dividendExponent?: bigint) => Precise =
+	memoFunction((divisorBase, divisorExponent) =>
 		divisorBase === 0n ?
 			always(precise(Infinity))
 		:	preciseMultiply(
@@ -37,4 +37,4 @@ export const preciseDivide: (
 						/ preciseToNumber(divisorBase, 0n),
 				),
 			),
-);
+	);

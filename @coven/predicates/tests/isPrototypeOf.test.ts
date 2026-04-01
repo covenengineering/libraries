@@ -1,6 +1,6 @@
 import { EMPTY_ARRAY, EMPTY_OBJECT } from "@coven/constants";
-import { isPrototypeOf } from "@coven/predicates";
 import { assert, assertFalse } from "@std/assert";
+import { isPrototypeOf } from "../isPrototypeOf.ts";
 
 const isPrototypeOfObject = isPrototypeOf(Object);
 

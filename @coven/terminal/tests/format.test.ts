@@ -1,5 +1,5 @@
-import { format } from "@coven/terminal";
 import { assertEquals } from "@std/assert";
+import { format } from "../format.ts";
 
 Deno.test("Format works on string", () =>
 	assertEquals(

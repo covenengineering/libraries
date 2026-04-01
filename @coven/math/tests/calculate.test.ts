@@ -1,5 +1,5 @@
-import { calculate } from "@coven/math";
 import { assertStrictEquals } from "@std/assert";
+import { calculate } from "../calculate.ts";
 
 Deno.test("Simple addition returns correct value", () =>
 	assertStrictEquals(calculate(0.1).plus(0.2).total, 0.3),

@@ -1,5 +1,5 @@
-import { add } from "@coven/math";
 import { assertStrictEquals } from "@std/assert";
+import { add } from "../add.ts";
 
 const addPositive = add(2);
 const addNegative = add(-2);

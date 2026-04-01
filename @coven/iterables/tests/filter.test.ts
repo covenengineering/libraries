@@ -1,6 +1,7 @@
 import { EMPTY_ARRAY } from "@coven/constants";
-import { filter, iterableToArray } from "@coven/iterables";
 import { assertEquals } from "@std/assert";
+import { filter } from "../filter.ts";
+import { iterableToArray } from "../iterableToArray.ts";
 
 const array = [0, 1, 2, 3];
 const nothing = (_: unknown) => false;

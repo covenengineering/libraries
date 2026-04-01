@@ -1,4 +1,4 @@
-import { memo } from "@coven/memo";
+import { memoFunction } from "@coven/memo";
 import type { HexadecimalDigit } from "./HexadecimalDigit.ts";
 import { escape } from "./escape.ts";
 
@@ -16,6 +16,6 @@ export const hexadecimal: <
 	const HexadecimalValue extends `${HexadecimalDigit}${HexadecimalDigit}`,
 >(
 	hexadecimalValue: HexadecimalValue,
-) => `\\x${HexadecimalValue}` = memo((hexadecimalValue) =>
+) => `\\x${HexadecimalValue}` = memoFunction((hexadecimalValue) =>
 	escape(`x${hexadecimalValue}`),
 );

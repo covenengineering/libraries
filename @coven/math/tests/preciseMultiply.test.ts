@@ -1,5 +1,6 @@
-import { precise, preciseMultiply } from "@coven/math";
 import { assertStrictEquals } from "@std/assert";
+import { precise } from "../precise.ts";
+import { preciseMultiply } from "../preciseMultiply.ts";
 
 const preciseMultiplyPositive = preciseMultiply(2n);
 const preciseMultiplyNegative = preciseMultiply(-2n);

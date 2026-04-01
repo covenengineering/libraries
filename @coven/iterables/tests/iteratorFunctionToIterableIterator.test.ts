@@ -1,5 +1,5 @@
-import { iteratorFunctionToIterableIterator } from "@coven/iterables";
 import { assertEquals } from "@std/assert";
+import { iteratorFunctionToIterableIterator } from "../iteratorFunctionToIterableIterator.ts";
 
 const numbers = [0, 1, 2, 3];
 const iterableIteratorNumbers = iteratorFunctionToIterableIterator(() =>

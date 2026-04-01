@@ -1,5 +1,6 @@
-import { iterableToArray, repeat } from "@coven/iterables";
 import { assertEquals } from "@std/assert";
+import { iterableToArray } from "../iterableToArray.ts";
+import { repeat } from "../repeat.ts";
 
 const repeat3Times = repeat(3);
 

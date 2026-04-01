@@ -1,6 +1,6 @@
 import { EMPTY_ARRAY, EMPTY_OBJECT } from "@coven/constants";
-import { isTruthy } from "@coven/predicates";
 import { assert, assertFalse } from "@std/assert";
+import { isTruthy } from "../isTruthy.ts";
 
 Deno.test("Truthy", () =>
 	assert(
