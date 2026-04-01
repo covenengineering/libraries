@@ -1,6 +1,6 @@
 import { EMPTY_ARRAY, EMPTY_OBJECT } from "@coven/constants";
-import { has } from "@coven/predicates";
 import { assert, assertFalse } from "@std/assert";
+import { has } from "../has.ts";
 
 const magic = "✨";
 const magicSymbol = Symbol(magic);

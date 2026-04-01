@@ -1,4 +1,4 @@
-import { memo } from "@coven/memo";
+import { memoFunction } from "@coven/memo";
 import type {
 	Fallback,
 	ReadonlyTemplateStringsArray,
@@ -23,7 +23,7 @@ export const normalizeString: <
 >(
 	input: Input,
 	...expressions: ReadonlyArray<Stringable>
-) => Fallback<ReadonlyTemplateStringsArray, Input, string> = memo(
+) => Fallback<ReadonlyTemplateStringsArray, Input, string> = memoFunction(
 	<Input extends ReadonlyTemplateStringsArray | string>(
 		input: Input,
 		...expressions: ReadonlyArray<Stringable>

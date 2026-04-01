@@ -1,26 +1,10 @@
-import type { Stringable, Unary } from "@coven/types";
-import { fnv1aReducer, FNV_OFFSET_32 } from "./fnv1aReducer.ts";
-import { memo } from "@coven/memo";
-
-/**
- * Unsigned 32-bit integer.
- */
-export const UINT32 = 2 ** 32;
-
-/**
- * LCG multiplier value.
- */
-export const LCG_MULTIPLIER = 1_664_525;
-
-/**
- * LCG increment value.
- */
-export const LCG_INCREMENT = 1_013_904_223;
-
-/**
- * Text encoder do be used by {@linkcode seededRandom}.
- */
-const textEncoder = new TextEncoder();
+import type { Stringable } from "@coven/types";
+import { fnv1aReducer } from "./fnv1aReducer.ts";
+import { FNV_OFFSET_32 } from "./FNV_OFFSET_32.ts";
+import { LCG_INCREMENT } from "./LCG_INCREMENT.ts";
+import { LCG_MULTIPLIER } from "./LCG_MULTIPLIER.ts";
+import { stringToUint8Array } from "./stringToUint8Array.ts";
+import { UINT32 } from "./UINT32.ts";
 
 /**
  * Generates a deterministic pseudo-random number from `0` to `1` from a `seed`.
@@ -48,11 +32,9 @@ const textEncoder = new TextEncoder();
  * @param seed String seed used to generate the pseudo-random number.
  * @returns A floating-point number between 0 (inclusive) and 1 (exclusive).
  */
-export const seededRandom: Unary<[seed: Stringable], number> = memo(
-	(seed) =>
-		((textEncoder.encode(`${seed}`).reduce(fnv1aReducer, FNV_OFFSET_32)
-			* LCG_MULTIPLIER
-			+ LCG_INCREMENT)
-			>>> 0)
-		/ UINT32,
-);
+export const seededRandom = (seed: Stringable): number =>
+	((stringToUint8Array(`${seed}`).reduce(fnv1aReducer, FNV_OFFSET_32)
+		* LCG_MULTIPLIER
+		+ LCG_INCREMENT)
+		>>> 0)
+	/ UINT32;

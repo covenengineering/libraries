@@ -1,5 +1,5 @@
-import { attempt } from "@coven/parsers";
 import { assertEquals } from "@std/assert";
+import { attempt } from "../attempt.ts";
 
 const THROWS = true;
 const DOES_NOT_THROW = false;

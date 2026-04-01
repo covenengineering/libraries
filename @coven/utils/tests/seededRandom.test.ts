@@ -1,5 +1,5 @@
-import { seededRandom } from "@coven/utils";
 import { assertEquals } from "@std/assert";
+import { seededRandom } from "../seededRandom.ts";
 
 Deno.test(
 	'1 cryptoNumber call with a "test" seed returns the same result',

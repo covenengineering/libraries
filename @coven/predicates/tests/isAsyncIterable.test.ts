@@ -1,6 +1,6 @@
 import { EMPTY_ARRAY, EMPTY_OBJECT } from "@coven/constants";
-import { isAsyncIterable } from "@coven/predicates";
 import { assert, assertFalse } from "@std/assert";
+import { isAsyncIterable } from "../isAsyncIterable.ts";
 
 Deno.test("AsyncGenerator", () =>
 	assert(isAsyncIterable((async function* (): AsyncGenerator {})())),

@@ -1,5 +1,5 @@
-import { normalizeString } from "@coven/terminal";
 import { assertEquals } from "@std/assert";
+import { normalizeString } from "../normalizeString.ts";
 
 Deno.test("Normalize string works on a plain string", () =>
 	assertEquals(normalizeString("✨"), "✨"),

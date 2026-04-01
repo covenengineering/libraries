@@ -1,6 +1,7 @@
-import { memo } from "@coven/memo";
 import type { TypeOfDictionary, TypeOfValue } from "@coven/types";
+import { is } from "./is.ts";
 import type { IsTypeFunction } from "./IsTypeFunction.ts";
+import { typeOf } from "./typeOf.ts";
 
 /**
  * Takes a `type` string and checks if given `input` is of that `typeof`.
@@ -22,9 +23,9 @@ import type { IsTypeFunction } from "./IsTypeFunction.ts";
  */
 export const isType: <Type extends TypeOfValue>(
 	type: Type,
-) => IsTypeFunction<Type> = memo(
+) => IsTypeFunction<Type> =
 	<Type extends TypeOfValue>(type: Type): IsTypeFunction<Type> =>
-		(input): input is TypeOfDictionary[Type] =>
-			// deno-lint-ignore coven/no-null
-			(input === null ? `${input}` : typeof input) === type,
-);
+	<IsType extends TypeOfDictionary[Type] = TypeOfDictionary[Type]>(
+		input: unknown,
+	): input is IsType =>
+		is(typeOf(input))(type);

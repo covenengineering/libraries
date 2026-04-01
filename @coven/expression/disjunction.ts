@@ -1,4 +1,4 @@
-import { memo } from "@coven/memo";
+import { memoFunction } from "@coven/memo";
 import type { Stringable, StringJoin } from "@coven/types";
 
 /**
@@ -16,7 +16,7 @@ export const disjunction: <
 	const Alternatives extends ReadonlyArray<Stringable>,
 >(
 	...alternatives: Alternatives
-) => StringJoin<Alternatives, "|"> = memo(
+) => StringJoin<Alternatives, "|"> = memoFunction(
 	<const Alternatives extends ReadonlyArray<Stringable>>(
 		...alternatives: Alternatives
 	) => alternatives.join("|") as StringJoin<Alternatives, "|">,

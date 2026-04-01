@@ -1,6 +1,6 @@
 import { EMPTY_ARRAY, EMPTY_OBJECT } from "@coven/constants";
-import { isUndefined } from "@coven/predicates";
 import { assert, assertFalse } from "@std/assert";
+import { isUndefined } from "../isUndefined.ts";
 
 Deno.test("Undefined", () => assert(isUndefined(undefined)));
 

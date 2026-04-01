@@ -1,4 +1,4 @@
-import { memo } from "@coven/memo";
+import { memoFunction } from "@coven/memo";
 import { isBigInt } from "@coven/predicates";
 import type { MaybeInfinity } from "./MaybeInfinity.ts";
 import type { Precise } from "./PreciseTuple.ts";
@@ -25,8 +25,8 @@ export const preciseMultiply: (
 ) => (
 	multiplicandBase: MaybeInfinity,
 	multiplicandExponent?: bigint,
-) => Precise = memo((multiplierBase, multiplierExponent) =>
-	memo((multiplicandBase, multiplicandExponent) =>
+) => Precise = memoFunction((multiplierBase, multiplierExponent) =>
+	memoFunction((multiplicandBase, multiplicandExponent) =>
 		isBigInt(multiplicandBase) && isBigInt(multiplierBase) ?
 			precise(
 				multiplicandBase * multiplierBase,

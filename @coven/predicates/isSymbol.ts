@@ -6,9 +6,9 @@ import type { IsTypeFunction } from "./IsTypeFunction.ts";
  *
  * @example
  * ```typescript
- * isSymbol(Symbol("Lou")); // true
+ * isSymbol(Symbol("Witch")); // true
  * isSymbol(Symbol.iterator); // true
- * isSymbol("Lou"); // false
+ * isSymbol("Witch"); // false
  * ```
  * @param input Value to check.
  * @returns Returns `true` if value is a `symbol`, `false` otherwise.

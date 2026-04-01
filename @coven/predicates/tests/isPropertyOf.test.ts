@@ -1,7 +1,7 @@
 import { EMPTY_OBJECT } from "@coven/constants";
-import { isPropertyOf } from "@coven/predicates";
 import type { ReadonlyRecord } from "@coven/types";
 import { assert, assertFalse } from "@std/assert";
+import { isPropertyOf } from "../isPropertyOf.ts";
 
 const symbol = Symbol("symbol");
 const string = "string";

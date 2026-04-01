@@ -1,6 +1,8 @@
 import { EMPTY_ARRAY } from "@coven/constants";
-import { filter, iterableToArray, toIterable } from "@coven/iterables/async";
 import { assertEquals } from "@std/assert";
+import { filter } from "../filter.ts";
+import { iterableToArray } from "../iterableToArray.ts";
+import { toIterable } from "../toIterable.ts";
 
 const array = toIterable([0, 1, 2, 3]);
 const nothing = (_: unknown) => false;

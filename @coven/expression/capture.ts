@@ -1,4 +1,4 @@
-import { memo } from "@coven/memo";
+import { memoFunction } from "@coven/memo";
 import type { Stringable, StringJoin } from "@coven/types";
 import { join } from "./join.ts";
 
@@ -22,7 +22,7 @@ import { join } from "./join.ts";
  */
 export const capture: <const Pattern extends ReadonlyArray<Stringable>>(
 	...pattern: Pattern
-) => `(${StringJoin<Pattern>})` = memo(
+) => `(${StringJoin<Pattern>})` = memoFunction(
 	<const Pattern extends ReadonlyArray<Stringable>>(...pattern: Pattern) =>
 		`(${join(...pattern)})` as `(${StringJoin<Pattern>})`,
 );

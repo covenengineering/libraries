@@ -1,5 +1,5 @@
-import { parseOctal } from "@coven/parsers";
 import { assertEquals } from "@std/assert";
+import { parseOctal } from "../parseOctal.ts";
 
 Deno.test("Parsing valid octal string returns parsed value", () =>
 	assertEquals(parseOctal("101"), 0o101),

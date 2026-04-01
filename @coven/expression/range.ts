@@ -1,4 +1,4 @@
-import { memo } from "@coven/memo";
+import { memoFunction } from "@coven/memo";
 import type { Stringable } from "@coven/types";
 
 /**
@@ -18,6 +18,7 @@ export const range: <From extends Stringable>(
 ) => /**
  * @param to Final value of the range (inclusive).
  * @returns Range from `from` to `to`.
- */ <To extends Stringable>(to: To) => `${From}-${To}` = memo((from) =>
-	memo((to) => `${from}-${to}`),
+ */ <To extends Stringable>(to: To) => `${From}-${To}` = memoFunction(
+	<From extends Stringable>(from: From) =>
+		memoFunction(<To extends Stringable>(to: To) => `${from}-${to}`),
 );

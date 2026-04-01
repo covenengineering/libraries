@@ -1,5 +1,5 @@
-import { createObject } from "@coven/utils";
 import { assertEquals } from "@std/assert";
+import { createObject } from "../createObject.ts";
 
 const object = { "✨": "✨" } as const;
 

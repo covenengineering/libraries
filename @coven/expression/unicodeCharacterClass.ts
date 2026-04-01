@@ -1,4 +1,3 @@
-import { memo } from "@coven/memo";
 import type { Stringable } from "@coven/types";
 import { escape } from "./escape.ts";
 
@@ -20,6 +19,6 @@ import { escape } from "./escape.ts";
  * @param category Unicode category.
  * @returns Unicode character class escape.
  */
-export const unicodeCharacterClass: <const Category extends Stringable>(
+export const unicodeCharacterClass = <const Category extends Stringable>(
 	category: Category,
-) => `\\p{${Category}}` = memo((category) => escape(`p{${category}}`));
+): `\\p{${Category}}` => escape(`p{${category}}`);

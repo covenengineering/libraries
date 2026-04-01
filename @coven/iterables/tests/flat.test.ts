@@ -1,5 +1,6 @@
-import { flat, iterableToArray } from "@coven/iterables";
 import { assertEquals } from "@std/assert";
+import { flat } from "../flat.ts";
+import { iterableToArray } from "../iterableToArray.ts";
 
 const array = [0, 1, 2, 3];
 const arrayOfArrays = [

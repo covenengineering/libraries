@@ -1,6 +1,7 @@
 import { EMPTY_ARRAY } from "@coven/constants";
-import { iterableToArray, unique } from "@coven/iterables";
 import { assertEquals } from "@std/assert";
+import { iterableToArray } from "../iterableToArray.ts";
+import { unique } from "../unique.ts";
 
 const array = [0, 1, 2, 3, 4];
 

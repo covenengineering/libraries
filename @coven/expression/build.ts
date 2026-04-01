@@ -1,4 +1,4 @@
-import { memo } from "@coven/memo";
+import { memoFunction } from "@coven/memo";
 import type {
 	RegularExpressionFlags,
 	Replace,
@@ -27,11 +27,11 @@ export const build: <Flags extends RegularExpressionFlags = "u">(
 ) => <const Atoms extends ReadonlyArray<Stringable>>(
 	...atoms: Atoms
 ) => Replace<RegExp, Readonly<{ flags: Flags; source: StringJoin<Atoms> }>> =
-	memo(
+	memoFunction(
 		<Flags extends RegularExpressionFlags = "u">(
 			flags: Flags | "u" = "u",
 		) =>
-			memo(
+			memoFunction(
 				<const Atoms extends ReadonlyArray<Stringable>>(
 					...atoms: Atoms
 				) =>

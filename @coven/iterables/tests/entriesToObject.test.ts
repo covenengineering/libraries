@@ -1,5 +1,5 @@
-import { entriesToObject } from "@coven/iterables";
 import { assertEquals } from "@std/assert";
+import { entriesToObject } from "../entriesToObject.ts";
 
 const stringKey = "key";
 const numberKey = 1;

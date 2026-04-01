@@ -13,14 +13,14 @@ import type { Just, Maybe } from "@coven/types";
  * const safeWillFail = attempt(willFail);
  * safeWillFail(); // undefined
  * ```
- * @template Arguments Type of the arguments of the function to be wrapped.
+ * @template Parameters Type of the parameters of the function to be wrapped.
  * @param wrappedFunction Function to be wrapped.
  * @returns Function wrapped in `try`/`catch`.
  */
 export const attempt =
-	<Arguments extends ReadonlyArray<unknown>, Output>(
-		wrappedFunction: (...wrappedArguments: Arguments) => Output,
-	): ((...parameters: Arguments) => Maybe<Output>) =>
+	<Parameters extends ReadonlyArray<unknown>, Output>(
+		wrappedFunction: (...parameters: Parameters) => Output,
+	): ((...parameters: Parameters) => Maybe<Output>) =>
 	(...parameters) => {
 		// deno-lint-ignore coven/no-try
 		try {

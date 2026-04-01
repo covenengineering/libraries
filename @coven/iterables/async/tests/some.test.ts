@@ -1,6 +1,7 @@
-import { some, toIterable } from "@coven/iterables/async";
 import { isNumber } from "@coven/predicates";
 import { assert, assertFalse } from "@std/assert";
+import { some } from "../some.ts";
+import { toIterable } from "../toIterable.ts";
 
 const someNumber = some(isNumber);
 

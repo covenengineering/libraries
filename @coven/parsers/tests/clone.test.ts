@@ -1,7 +1,7 @@
 import { EMPTY_ARRAY, EMPTY_OBJECT } from "@coven/constants";
-import { clone } from "@coven/parsers";
 import type { StructuredData } from "@coven/types";
 import { assertEquals } from "@std/assert";
+import { clone } from "../clone.ts";
 
 Deno.test("Cloning empty object returns copy of object", () =>
 	assertEquals(clone(EMPTY_OBJECT), EMPTY_OBJECT),

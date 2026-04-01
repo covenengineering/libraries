@@ -1,6 +1,6 @@
 import { EMPTY_ARRAY, EMPTY_OBJECT } from "@coven/constants";
-import { isBoolean } from "@coven/predicates";
 import { assert, assertFalse } from "@std/assert";
+import { isBoolean } from "../isBoolean.ts";
 
 Deno.test("Booleans", () =>
 	// deno-lint-ignore no-boolean-literal-for-arguments

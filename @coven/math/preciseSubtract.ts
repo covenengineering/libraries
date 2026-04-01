@@ -1,4 +1,4 @@
-import { memo } from "@coven/memo";
+import { memoFunction } from "@coven/memo";
 import type { MaybeInfinity } from "./MaybeInfinity.ts";
 import type { Precise } from "./PreciseTuple.ts";
 import { preciseAdd } from "./preciseAdd.ts";
@@ -21,7 +21,7 @@ import { preciseAdd } from "./preciseAdd.ts";
 export const preciseSubtract: (
 	subtrahendBase: MaybeInfinity,
 	subtrahendExponent?: bigint,
-) => (minuendBase: MaybeInfinity, minuendExponent?: bigint) => Precise = memo(
-	(subtrahendBase, subtrahendExponent) =>
+) => (minuendBase: MaybeInfinity, minuendExponent?: bigint) => Precise =
+	memoFunction((subtrahendBase, subtrahendExponent) =>
 		preciseAdd(-subtrahendBase, subtrahendExponent ?? 0n),
-);
+	);

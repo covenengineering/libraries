@@ -1,5 +1,5 @@
-import { parseInteger } from "@coven/parsers";
 import { assertEquals } from "@std/assert";
+import { parseInteger } from "../parseInteger.ts";
 
 const parseDecimal = parseInteger(10);
 

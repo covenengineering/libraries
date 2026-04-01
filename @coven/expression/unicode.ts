@@ -1,4 +1,3 @@
-import { memo } from "@coven/memo";
 import type { Stringable } from "@coven/types";
 import { escape } from "./escape.ts";
 
@@ -17,8 +16,6 @@ import { escape } from "./escape.ts";
  * @param hexadecimalValue Hex value (between 1 and 6 digits).
  * @returns Unicode character escape.
  */
-export const unicode: <const HexadecimalValue extends Stringable>(
+export const unicode = <const HexadecimalValue extends Stringable>(
 	hexadecimalValue: HexadecimalValue,
-) => `\\u{${HexadecimalValue}}` = memo((hexadecimalValue) =>
-	escape(`u{${hexadecimalValue}}`),
-);
+): `\\u{${HexadecimalValue}}` => escape(`u{${hexadecimalValue}}`);

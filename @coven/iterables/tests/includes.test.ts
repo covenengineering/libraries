@@ -1,5 +1,5 @@
-import { includes } from "@coven/iterables";
 import { assert, assertFalse } from "@std/assert";
+import { includes } from "../includes.ts";
 
 const includesFoo = includes("foo");
 

@@ -1,4 +1,4 @@
-import { memo } from "@coven/memo";
+import { memoFunction } from "@coven/memo";
 import type { UppercaseLetters } from "./UppercaseLetters.ts";
 import { escape } from "./escape.ts";
 
@@ -18,4 +18,4 @@ import { escape } from "./escape.ts";
  */
 export const controlCharacter: <const Character extends UppercaseLetters>(
 	character: Character,
-) => `\\c${Character}` = memo((character) => escape(`c${character}`));
+) => `\\c${Character}` = memoFunction((character) => escape(`c${character}`));

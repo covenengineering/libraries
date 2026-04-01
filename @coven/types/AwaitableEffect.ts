@@ -1,4 +1,5 @@
 import type { Awaitable } from "./Awaitable.ts";
+import type { Multary } from "./Multary.ts";
 
 /**
  * Awaitable effect function.
@@ -12,8 +13,8 @@ import type { Awaitable } from "./Awaitable.ts";
  * ```
  * @see {@linkcode https://coven.to/mdn/Promise Promise}
  * @see {@linkcode Awaitable}
- * @template Arguments Tuple of arguments.
+ * @template Parameters Tuple of parameters.
  */
-export type AwaitableEffect<Arguments extends ReadonlyArray<unknown>> =
-	Arguments extends Readonly<[]> ? () => Awaitable<void>
-	:	(..._: Arguments) => Awaitable<void>;
+export type AwaitableEffect<
+	Parameters extends ReadonlyArray<unknown> = Readonly<[]>,
+> = Multary<Parameters, Awaitable<void>>;

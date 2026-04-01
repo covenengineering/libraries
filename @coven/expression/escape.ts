@@ -1,4 +1,4 @@
-import { memo } from "@coven/memo";
+import { memoFunction } from "@coven/memo";
 import type { Stringable } from "@coven/types";
 
 /**
@@ -13,4 +13,4 @@ import type { Stringable } from "@coven/types";
  */
 export const escape: <const Escaped extends Stringable>(
 	escaped: Escaped,
-) => `\\${Escaped}` = memo((escaped) => `\\${escaped}`);
+) => `\\${Escaped}` = memoFunction((escaped) => `\\${escaped}`);

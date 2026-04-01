@@ -1,5 +1,5 @@
-import { parseHexadecimal } from "@coven/parsers";
 import { assertEquals } from "@std/assert";
+import { parseHexadecimal } from "../parseHexadecimal.ts";
 
 Deno.test("Parsing valid hexadecimal string returns parsed value", () =>
 	assertEquals(parseHexadecimal("101"), 0x1_01),

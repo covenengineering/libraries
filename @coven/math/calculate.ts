@@ -1,4 +1,4 @@
-import { memo } from "@coven/memo";
+import { memoFunction } from "@coven/memo";
 import { add } from "./add.ts";
 import type { Calculation } from "./Calculation.ts";
 import { divide } from "./divide.ts";
@@ -22,7 +22,7 @@ import { subtract } from "./subtract.ts";
  */
 export const calculate: <const Value extends number = number>(
 	value: Value,
-) => Calculation<Value> = memo((value) => ({
+) => Calculation<Value> = memoFunction((value) => ({
 	/**
 	 * Divide previous `value` in calculation by the given `divisor`.
 	 *

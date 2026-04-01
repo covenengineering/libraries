@@ -1,4 +1,4 @@
-import { memo } from "@coven/memo";
+import { memoFunction } from "@coven/memo";
 import { precise } from "./precise.ts";
 import type { Precise } from "./PreciseTuple.ts";
 
@@ -15,7 +15,7 @@ import type { Precise } from "./PreciseTuple.ts";
  * @param number Number to convert.
  * @returns A {@linkcode Precise} representation of the given `number`.
  */
-export const numberToPrecise: (number: number) => Precise = memo(
+export const numberToPrecise: (number: number) => Precise = memoFunction(
 	(number: number) => {
 		if (Number.isFinite(number) && !Number.isInteger(number)) {
 			const [base = "0", exponent = "0"] = `${number}`.split("e");

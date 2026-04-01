@@ -1,6 +1,6 @@
 import { EMPTY_OBJECT } from "@coven/constants";
-import { get } from "@coven/utils";
 import { assertStrictEquals } from "@std/assert";
+import { get } from "../get.ts";
 
 const getMagic = get("✨");
 

@@ -1,5 +1,5 @@
 /**
- * Nullary function, meaning a function that takes no arguments, ideal for
+ * Nullary function, meaning a function that takes no parameters, ideal for
  * thunks.
  *
  * @example

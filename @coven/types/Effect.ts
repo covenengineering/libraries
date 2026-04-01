@@ -1,4 +1,4 @@
-import type { Nullary } from "./Nullary.ts";
+import type { Multary } from "./Multary.ts";
 
 /**
  * Type to represent a function which returns `void`, meaning is not doing a
@@ -8,7 +8,7 @@ import type { Nullary } from "./Nullary.ts";
  * ```typescript
  * const effect = (input => console.log(input)) satisfies Effect<[input: number]>;
  * ```
- * @template Arguments Tuple of arguments.
+ * @template Parameters Tuple of parameters.
  */
-export type Effect<Arguments extends ReadonlyArray<unknown> = Readonly<[]>> =
-	Arguments extends Readonly<[]> ? Nullary<void> : (..._: Arguments) => void;
+export type Effect<Parameters extends ReadonlyArray<unknown> = Readonly<[]>> =
+	Multary<Parameters, void>;

@@ -1,6 +1,8 @@
 import { EMPTY_ARRAY } from "@coven/constants";
-import { drop, iterableToArray, toIterable } from "@coven/iterables/async";
 import { assertEquals } from "@std/assert";
+import { drop } from "../drop.ts";
+import { iterableToArray } from "../iterableToArray.ts";
+import { toIterable } from "../toIterable.ts";
 
 const drop2 = drop(2);
 const dropNone = drop(0);

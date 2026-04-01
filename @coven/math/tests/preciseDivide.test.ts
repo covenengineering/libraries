@@ -1,5 +1,6 @@
-import { precise, preciseDivide } from "@coven/math";
 import { assertStrictEquals } from "@std/assert";
+import { precise } from "../precise.ts";
+import { preciseDivide } from "../preciseDivide.ts";
 
 const preciseDividePositive = preciseDivide(2n);
 const preciseDivideNegative = preciseDivide(-2n);

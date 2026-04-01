@@ -1,14 +1,14 @@
 /**
- * Type to represend a class, useful when taking a class as an argument.
+ * Type to represend a class, useful when taking a class as a parameter.
  *
  * @example
  * ```typescript
- * const example = (AClass: Class) => new AClass("test");
+ * const example = (AClass: Class<[test: string]>) => new AClass("test");
  * ```
- * @template Arguments Arguments of the class constructor.
+ * @template Parameters Parameters of the class constructor.
  * @template Instance Instance of the class.
  */
 export type Class<
-	Arguments extends ReadonlyArray<unknown> = ReadonlyArray<unknown>,
+	Parameters extends ReadonlyArray<unknown> = ReadonlyArray<never>,
 	Instance = unknown,
-> = new (...constructorArguments: Arguments) => Instance;
+> = new (...parameters: Parameters) => Instance;

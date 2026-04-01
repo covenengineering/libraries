@@ -1,4 +1,4 @@
-import { memo } from "@coven/memo";
+import { memoFunction } from "@coven/memo";
 import type { Stringable } from "@coven/types";
 import { escape } from "./escape.ts";
 
@@ -22,4 +22,4 @@ import { escape } from "./escape.ts";
  */
 export const nonUnicodeCharacterClass: <const Category extends Stringable>(
 	category: Category,
-) => `\\P{${Category}}` = memo((category) => escape(`P{${category}}`));
+) => `\\P{${Category}}` = memoFunction((category) => escape(`P{${category}}`));

@@ -1,6 +1,6 @@
 import { EMPTY_ARRAY, EMPTY_OBJECT } from "@coven/constants";
-import { isBigInt } from "@coven/predicates";
 import { assert, assertFalse } from "@std/assert";
+import { isBigInt } from "../isBigInt.ts";
 
 Deno.test("BigInts", () =>
 	assert(isBigInt(BigInt(13)) && isBigInt(BigInt("13")) && isBigInt(13n)),

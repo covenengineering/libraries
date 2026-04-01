@@ -1,7 +1,8 @@
 import { EMPTY_ARRAY } from "@coven/constants";
-import { repeat } from "@coven/iterables";
-import { iterableToArray, zipIndex } from "@coven/iterables/async";
 import { assertEquals } from "@std/assert";
+import { repeat } from "../../repeat.ts";
+import { iterableToArray } from "../iterableToArray.ts";
+import { zipIndex } from "../zipIndex.ts";
 
 Deno.test(
 	"Array with two strings returns Iterable of tuples with indexes and strings",

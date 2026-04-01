@@ -1,4 +1,4 @@
-import { memo } from "@coven/memo";
+import { memoFunction } from "@coven/memo";
 import type { Stringable } from "@coven/types";
 import { escape } from "./escape.ts";
 
@@ -21,4 +21,4 @@ import { escape } from "./escape.ts";
  */
 export const namedBackreference: <const Name extends Stringable>(
 	name: Name,
-) => `\\k<${Name}>` = memo((name) => escape(`k<${name}>`));
+) => `\\k<${Name}>` = memoFunction((name) => escape(`k<${name}>`));

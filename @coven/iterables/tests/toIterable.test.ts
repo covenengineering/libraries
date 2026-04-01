@@ -1,5 +1,6 @@
-import { iterableToArray, toIterable } from "@coven/iterables";
 import { assertEquals } from "@std/assert";
+import { iterableToArray } from "../iterableToArray.ts";
+import { toIterable } from "../toIterable.ts";
 
 Deno.test("an array returns iterable of array", () =>
 	assertEquals(iterableToArray(toIterable([0, 1, 2, 3, 4])), [0, 1, 2, 3, 4]),

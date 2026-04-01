@@ -1,12 +1,16 @@
-import { iterableToArray, range } from "@coven/iterables";
 import { assertEquals } from "@std/assert";
+import { iterableToArray } from "../iterableToArray.ts";
+import { range } from "../range.ts";
 
 Deno.test("a string returns an array with every letter of that string", () =>
-	assertEquals(iterableToArray("Lou"), [..."Lou"]),
+	assertEquals(iterableToArray("Witch"), [..."Witch"]),
 );
 
 Deno.test("an array returns that same array", () =>
-	assertEquals(iterableToArray(["🟢", "🟩"]), ["🟢", "🟩"]),
+	assertEquals(iterableToArray(["Coven", "Engineering"]), [
+		"Coven",
+		"Engineering",
+	]),
 );
 
 Deno.test("a generator returns an array with generated values", () =>

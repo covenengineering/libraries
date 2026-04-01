@@ -1,6 +1,7 @@
 import { EMPTY_ARRAY } from "@coven/constants";
-import { iterableToArray, take } from "@coven/iterables";
 import { assertEquals } from "@std/assert";
+import { iterableToArray } from "../iterableToArray.ts";
+import { take } from "../take.ts";
 
 const infiniteIterable = function* <Item>(item: Item): Iterable<Item> {
 	for (;;) {

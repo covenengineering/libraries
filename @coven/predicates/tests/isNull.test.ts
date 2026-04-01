@@ -1,6 +1,6 @@
 import { EMPTY_ARRAY, EMPTY_OBJECT } from "@coven/constants";
-import { isNull } from "@coven/predicates";
 import { assert, assertFalse } from "@std/assert";
+import { isNull } from "../isNull.ts";
 
 // deno-lint-ignore coven/no-null
 Deno.test("Null", () => assert(isNull(null)));

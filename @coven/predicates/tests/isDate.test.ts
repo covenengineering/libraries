@@ -1,6 +1,6 @@
 import { EMPTY_ARRAY, EMPTY_OBJECT } from "@coven/constants";
-import { isDate } from "@coven/predicates";
 import { assert, assertFalse } from "@std/assert";
+import { isDate } from "../isDate.ts";
 
 Deno.test("Date", () => assert(isDate(new Date())));
 

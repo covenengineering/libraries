@@ -1,4 +1,4 @@
-import { memo } from "@coven/memo";
+import { memoFunction } from "@coven/memo";
 import type { Stringable, StringJoin } from "@coven/types";
 import { join } from "./join.ts";
 
@@ -18,7 +18,7 @@ import { join } from "./join.ts";
  */
 export const characterClass: <const Tokens extends ReadonlyArray<Stringable>>(
 	...tokens: Tokens
-) => `[${StringJoin<Tokens>}]` = memo(
+) => `[${StringJoin<Tokens>}]` = memoFunction(
 	<const Tokens extends ReadonlyArray<Stringable>>(...tokens: Tokens) =>
 		`[${join(...tokens)}]` as `[${StringJoin<Tokens>}]`,
 );

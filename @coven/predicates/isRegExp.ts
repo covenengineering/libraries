@@ -8,7 +8,7 @@ import type { IsInstanceOfFunction } from "./IsInstanceOfFunction.ts";
  * ```typescript
  * isRegExp(new RegExp("-")); // true
  * isRegExp(/-/); // true
- * isRegExp("Lou"); // false
+ * isRegExp("Witch"); // false
  * ```
  * @returns `true` if the given value is an instance of `RegExp`, `false` otherwise.
  */

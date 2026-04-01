@@ -10,9 +10,9 @@ import { format } from "./format.ts";
  *
  * @example
  * ```typescript
- * white("Lou"); // "\u001B[37mLou\u001B[39m"
+ * white("Witch"); // "\u001B[37mWitch\u001B[39m"
  * // It can also be used as a tag function for tagged templates:
- * white`Lou`; // "\u001B[37mLou\u001B[39m"
+ * white`Witch`; // "\u001B[37mWitch\u001B[39m"
  * ```
  * @see {@linkcode format}
  * @see {@linkcode Foreground}

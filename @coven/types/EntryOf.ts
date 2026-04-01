@@ -1,5 +1,5 @@
+import type { NormalizeEntryKey } from "@coven/types";
 import type { Entry } from "./Entry.ts";
-import type { KeyOf } from "./KeyOf.ts";
 import type { ReadonlyArrayLike } from "./ReadonlyArrayLike.ts";
 
 /**
@@ -14,7 +14,6 @@ import type { ReadonlyArrayLike } from "./ReadonlyArrayLike.ts";
  * const entries = Object.entries(object)[0] as EntryOf<typeof object>;
  * ```
  * @see {@linkcode Entry}
- * @see {@linkcode KeyOf}
  * @see {@linkcode ReadonlyArrayLike}
  * @template Object Object to get the entry from.
  */
@@ -22,10 +21,8 @@ export type EntryOf<Object extends object> = Readonly<{
 	/**
 	 * @see {@linkcode EntryOf} property that shouldn't be referenced directly
 	 */
-	[Property in KeyOf<Object>]: Entry<
-		Property,
-		Property extends keyof Object ? Object[Property]
-		: Object extends ReadonlyArrayLike ? Object[number]
-		: never
+	[Property in keyof Object]: Entry<
+		NormalizeEntryKey<Property>,
+		Object extends ReadonlyArrayLike ? Object[number] : Object[Property]
 	>;
-}>[KeyOf<Object>];
+}>[keyof Object];

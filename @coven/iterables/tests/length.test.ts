@@ -1,6 +1,7 @@
 import { EMPTY_ARRAY } from "@coven/constants";
-import { length, range } from "@coven/iterables";
 import { assertStrictEquals } from "@std/assert";
+import { length } from "../length.ts";
+import { range } from "../range.ts";
 
 const array = [0, 1, 2];
 

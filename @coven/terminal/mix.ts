@@ -3,7 +3,7 @@ import type { Formatter } from "./Formatter.ts";
 /**
  * Formatter composer wrapper.
  *
- * Given formatters as arguments, it will return a new formatter that
+ * Given formatters as parameters, it will return a new formatter that
  * will apply all of them to the input string.
  *
  * @example

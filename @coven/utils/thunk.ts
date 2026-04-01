@@ -1,4 +1,3 @@
-import { memo } from "@coven/memo";
 import type { Nullary, Unary } from "@coven/types";
 
 /**
@@ -19,4 +18,5 @@ export const thunk =
 		unary: Unary<[input: Input], Output>,
 	): Unary<[input: Input], Nullary<Output>> =>
 	(input) =>
-		memo(() => unary(input));
+	() =>
+		unary(input);

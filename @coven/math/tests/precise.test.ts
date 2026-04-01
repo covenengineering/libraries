@@ -1,6 +1,6 @@
-import { precise } from "@coven/math";
 import { memo } from "@coven/memo";
 import { assertStrictEquals } from "@std/assert";
+import { precise } from "../precise.ts";
 
 Deno.test("Infinity returns Infinity", () =>
 	assertStrictEquals(precise(Infinity), memo([Infinity])),

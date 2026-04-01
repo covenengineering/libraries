@@ -1,4 +1,3 @@
-import { memo } from "@coven/memo";
 import type { Precise } from "./PreciseTuple.ts";
 import { numberToPrecise } from "./numberToPrecise.ts";
 import { preciseToNumber } from "./preciseToNumber.ts";
@@ -20,17 +19,17 @@ import { preciseToNumber } from "./preciseToNumber.ts";
  * @param preciseOperation {@linkcode Precise} operation function.
  * @returns Number to number operation generated from `preciseOperation`.
  */
-export const pipe = <
-	PreciseOperation extends (
-		...right: Precise
-	) => (...left: Precise) => Precise,
->(
-	preciseOperation: PreciseOperation,
-): ((right: number) => (left: number) => number) =>
-	memo((right) => {
+export const pipe =
+	<
+		PreciseOperation extends (
+			...right: Precise
+		) => (...left: Precise) => Precise,
+	>(
+		preciseOperation: PreciseOperation,
+	): ((right: number) => (left: number) => number) =>
+	(right) => {
 		const rightOperation = preciseOperation(...numberToPrecise(right));
 
-		return memo((left) =>
-			preciseToNumber(...rightOperation(...numberToPrecise(left))),
-		);
-	});
+		return (left) =>
+			preciseToNumber(...rightOperation(...numberToPrecise(left)));
+	};

@@ -1,5 +1,5 @@
-import { parseBinary } from "@coven/parsers";
 import { assertEquals } from "@std/assert";
+import { parseBinary } from "../parseBinary.ts";
 
 Deno.test("Parsing valid binary string returns parsed value", () =>
 	assertEquals(parseBinary("101"), 0b101),

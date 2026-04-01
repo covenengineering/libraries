@@ -1,7 +1,8 @@
 import { EMPTY_ARRAY } from "@coven/constants";
-import { range } from "@coven/iterables";
-import { length, toIterable } from "@coven/iterables/async";
 import { assertEquals } from "@std/assert";
+import { range } from "../../range.ts";
+import { length } from "../length.ts";
+import { toIterable } from "../toIterable.ts";
 
 Deno.test("Array returns length", async () =>
 	assertEquals(await length([0, 1, 2]), 3),

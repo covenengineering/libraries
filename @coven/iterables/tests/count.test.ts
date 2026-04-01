@@ -1,6 +1,6 @@
 import { EMPTY_ARRAY } from "@coven/constants";
-import { count } from "@coven/iterables";
 import { assertEquals } from "@std/assert";
+import { count } from "../count.ts";
 
 const countEvens = count((number: number) => number % 2 === 0);
 const countAll = count((_) => true);
