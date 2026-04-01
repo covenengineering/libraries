@@ -1,10 +1,8 @@
-import type { MemoizableKey } from "./MemoizableKey.ts";
-import type { MemoizedItem } from "./MemoizedItem.ts";
+import type { Memoizable } from "./Memoizable.ts";
 
 /**
- * Record the `memo` function can memoize.
+ * Record that can be memoized.
  *
- * @see {@linkcode MemoizableKey}
- * @see {@linkcode MemoizedItem}
+ * @see {@linkcode Memoizable}
  */
-export type MemoizableRecord = Readonly<{ [key: MemoizableKey]: MemoizedItem }>;
+export type MemoizableRecord = Readonly<{ [key: PropertyKey]: Memoizable }>;

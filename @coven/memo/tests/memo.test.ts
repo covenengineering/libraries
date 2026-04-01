@@ -1,5 +1,4 @@
 import { EMPTY_ARRAY, EMPTY_OBJECT } from "@coven/constants";
-import { memo } from "@coven/memo";
 import type { ReadonlyRecord } from "@coven/types";
 import {
 	assertEquals,
@@ -7,6 +6,7 @@ import {
 	assertStrictEquals,
 	assertThrows,
 } from "@std/assert";
+import { memo } from "../memo.ts";
 
 Deno.test("Tuples with same values are equal", () =>
 	assertStrictEquals(memo(["✨", "🔮"]), memo(["✨", "🔮"])),
@@ -31,14 +31,27 @@ Deno.test("Tuple preserves items", () =>
 );
 
 Deno.test("Tuple with nested record works", () =>
-	assertStrictEquals(
-		memo([memo({ foo: "🔮" })]),
-		memo([memo({ foo: "🔮" })]),
-	),
+	assertStrictEquals(memo([{ foo: "🔮" }]), memo([{ foo: "🔮" }])),
 );
 
 Deno.test("Records with same values are equal", () =>
 	assertStrictEquals(memo({ foo: "🔮" }), memo({ foo: "🔮" })),
+);
+
+const TEST_SYMBOL = Symbol("Test");
+
+Deno.test("Records with symbols and numbers work", () =>
+	assertStrictEquals(
+		memo({ [TEST_SYMBOL]: "💀", [0]: "🔮", "1": "✨" }),
+		memo({ [TEST_SYMBOL]: "💀", [0]: "🔮", "1": "✨" }),
+	),
+);
+
+Deno.test("Records with misused symbols (inline) fail", () =>
+	assertNotStrictEquals(
+		memo({ [Symbol("Test")]: "💀", [0]: "🔮", "1": "✨" }),
+		memo({ [Symbol("Test")]: "💀", [0]: "🔮", "1": "✨" }),
+	),
 );
 
 Deno.test("Records with similar values are different", () =>
@@ -64,8 +77,8 @@ Deno.test("Record preserves shape", () =>
 
 Deno.test("Record with nested tuple works", () =>
 	assertStrictEquals(
-		memo({ foo: memo(["🔮", "💀"]) }),
-		memo({ foo: memo(["🔮", "💀"]) }),
+		memo({ foo: ["🔮", "💀"] }),
+		memo({ foo: ["🔮", "💀"] }),
 	),
 );
 
@@ -78,8 +91,11 @@ Deno.test("Empty record is the same as EMPTY_OBJECT", () =>
 );
 
 Deno.test("Record doesn't have a prototype", () =>
-	// deno-lint-ignore coven/no-null
-	assertStrictEquals(Object.getPrototypeOf(memo({ foo: "🔮" })), null),
+	assertStrictEquals(
+		Object.getPrototypeOf(memo({ foo: "🔮" })),
+		// deno-lint-ignore coven/no-null
+		null,
+	),
 );
 
 Deno.test(
@@ -91,24 +107,4 @@ Deno.test(
 			// @ts-expect-error Types get mad about mutations
 			output.foo = "changed";
 		}),
-);
-
-let times = 0;
-const double = (value: number) => ((times += 1), value * 2);
-const memoizedDouble = memo(double);
-
-Deno.test(
-	"Memoized double function and several operations duplicated values runs once per value",
-	() =>
-		assertStrictEquals(
-			([2, 2, 2, 3, 3, 3, 2, 2, 2].map((number) =>
-				memoizedDouble(number),
-			),
-			times),
-			2,
-		),
-);
-
-Deno.test("Memoized function returns expected value", () =>
-	assertStrictEquals(memoizedDouble(2), 4),
 );

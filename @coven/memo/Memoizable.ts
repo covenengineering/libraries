@@ -1,10 +1,9 @@
-import type { MemoizableRecord } from "./MemoizableRecord.ts";
-import type { MemoizableTuple } from "./MemoizableTuple.ts";
+import type { Primitive } from "@coven/types";
+import type { MemoizableObject } from "./MemoizableObject.ts";
 
 /**
- * Values the `memo` function can memoize.
+ * Memoizable values (union of primitives and {@linkcode MemoizableObject}).
  *
- * @see {@linkcode MemoizableRecord}
- * @see {@linkcode MemoizableTuple}
+ * @see {@linkcode MemoizableObject}
  */
-export type Memoizable = MemoizableRecord | MemoizableTuple;
+export type Memoizable = MemoizableObject | Primitive;
