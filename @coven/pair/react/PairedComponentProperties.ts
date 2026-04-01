@@ -13,7 +13,7 @@ export type PairedComponentProperties<
 	Hook extends (...attributes: never) => unknown,
 > = Readonly<{
 	/**
-	 * Children has to be a function, and the argument is the paired hook.
+	 * Children has to be a function, and the parameter is the paired hook.
 	 */
 	children: PairedRenderFunction<Hook>;
 }>;
