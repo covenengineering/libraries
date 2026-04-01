@@ -1,5 +1,5 @@
-import { isListField } from "@coven/cron";
 import { assert, assertFalse } from "@std/assert";
+import { isListField } from "../isListField.ts";
 
 Deno.test("String that is a * returns false", () =>
 	assertFalse(isListField("*")),

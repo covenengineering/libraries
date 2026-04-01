@@ -1,5 +1,5 @@
-import { normalizeAliases } from "@coven/cron";
 import { assertStrictEquals } from "@std/assert";
+import { normalizeAliases } from "../normalizeAliases.ts";
 
 Deno.test("Valid expression with no aliases returns same expression", () =>
 	assertStrictEquals(normalizeAliases("* * * * *"), "* * * * *"),

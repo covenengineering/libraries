@@ -1,6 +1,6 @@
 import { EMPTY_OBJECT } from "@coven/constants";
-import { stringify } from "@coven/cron";
 import { assertStrictEquals } from "@std/assert";
+import { stringify } from "../stringify.ts";
 
 Deno.test(
 	"* token for all fields returns object with all properties set to *",

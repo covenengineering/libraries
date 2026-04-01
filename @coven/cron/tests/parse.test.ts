@@ -1,8 +1,8 @@
 // This file is huge, but is because we have to cover quite a lot
 // deno-lint-ignore coven/max-lines
-import type { CronString } from "@coven/cron";
-import { parse } from "@coven/cron";
 import { assertEquals, assertStrictEquals } from "@std/assert";
+import type { CronString } from "../CronString.ts";
+import { parse } from "../parse.ts";
 
 /**
  * Possible invalid values for february.

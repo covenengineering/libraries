@@ -1,5 +1,5 @@
-import { stringifyRange } from "@coven/cron";
 import { assertStrictEquals } from "@std/assert";
+import { stringifyRange } from "../stringifyRange.ts";
 
 Deno.test("Range returns stringified range", () =>
 	assertStrictEquals(stringifyRange({ from: 10, to: 13 }), "10-13"),

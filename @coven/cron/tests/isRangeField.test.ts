@@ -1,5 +1,5 @@
-import { isRangeField } from "@coven/cron";
 import { assert, assertFalse } from "@std/assert";
+import { isRangeField } from "../isRangeField.ts";
 
 Deno.test("String that is a * returns false", () =>
 	assertFalse(isRangeField("*")),

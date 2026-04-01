@@ -1,5 +1,5 @@
-import { rangeStringTest } from "@coven/cron";
 import { assert, assertFalse } from "@std/assert";
+import { rangeStringTest } from "../rangeStringTest.ts";
 
 Deno.test("Range string returns true", () => assert(rangeStringTest("10-13")));
 

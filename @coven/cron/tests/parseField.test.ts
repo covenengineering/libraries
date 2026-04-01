@@ -1,5 +1,5 @@
-import { parseField } from "@coven/cron";
 import { assertEquals, assertStrictEquals } from "@std/assert";
+import { parseField } from "../parseField.ts";
 
 Deno.test("* gets *", () => assertStrictEquals(parseField("*"), "*"));
 

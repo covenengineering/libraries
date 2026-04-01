@@ -1,5 +1,5 @@
-import { nextISODate } from "@coven/cron";
 import { assertEquals } from "@std/assert";
+import { nextISODate } from "../nextISODate.ts";
 
 const testDate = nextISODate("1992-01-01T00:00:00.000Z");
 
