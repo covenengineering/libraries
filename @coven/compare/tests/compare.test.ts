@@ -189,66 +189,24 @@ Deno.test(
 
 Deno.test(
 	"Comparing a real array and a fake array yields `DeleteDifference`s",
-	() =>
-		assertEquals(
-			flat(
-				compare(["coven"])(
-					createObject({
-						0: "coven",
-						constructor: Array,
-						length: 1,
-					}),
-				),
-			),
-			(
-				[
-					"at",
-					"concat",
-					"copyWithin",
-					"fill",
-					"find",
-					"findIndex",
-					"findLast",
-					"findLastIndex",
-					"lastIndexOf",
-					"pop",
-					"push",
-					"reverse",
-					"shift",
-					"unshift",
-					"slice",
-					"sort",
-					"splice",
-					"includes",
-					"indexOf",
-					"join",
-					"keys",
-					"entries",
-					"values",
-					"forEach",
-					"filter",
-					"flat",
-					"flatMap",
-					"map",
-					"every",
-					"some",
-					"reduce",
-					"reduceRight",
-					"toReversed",
-					"toSorted",
-					"toSpliced",
-					"with",
-					"toLocaleString",
-					"toString",
-					Symbol.iterator,
-					Symbol.unscopables,
-				] as const
-			).map((key) => ({
-				kind: DELETE_KIND,
-				left: Array.prototype[key],
-				path: [key],
-			})) as ReturnType<typeof flat>,
-		),
+	() => {
+		const fakeArray = createObject({
+			0: "coven",
+			constructor: Array,
+			length: 1,
+		});
+
+		return assertEquals(
+			flat(compare(["coven"])(fakeArray)),
+			Reflect.ownKeys(Array.prototype)
+				.filter((key) => !Reflect.ownKeys(fakeArray).includes(key))
+				.map((key) => ({
+					kind: DELETE_KIND,
+					left: Array.prototype[key as keyof typeof Array.prototype],
+					path: [key],
+				})) as ReturnType<typeof flat>,
+		);
+	},
 );
 
 Deno.test("Comparing 0 with -0 should yield `UpdateDifference`", () =>
