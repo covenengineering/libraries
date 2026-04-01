@@ -33,9 +33,9 @@
 		"exclude": ["**/logo.svg"]
 	},
 	"imports": {
-		"@std/assert": "jsr:@std/assert@^1.0.16",
-		"happy-dom": "npm:happy-dom@^20.0.11",
-		"prettier": "npm:prettier@^3.7.4"
+		"@std/assert": "jsr:@std/assert@^1.0.19",
+		"happy-dom": "npm:happy-dom@^20.8.9",
+		"prettier": "npm:prettier@^3.8.1"
 	},
 	"lint": {
 		"plugins": ["jsr:@coven/rules"],
@@ -106,6 +106,7 @@
 		"./@coven/parsers",
 		"./@coven/predicates",
 		"./@coven/rules",
+		"./@coven/template",
 		"./@coven/terminal",
 		"./@coven/types",
 		"./@coven/utils",
