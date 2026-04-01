@@ -12,7 +12,9 @@ import { FNV_PRIME_32 } from "./FNV_PRIME_32.ts";
  *
  * @example
  * ```typescript
- * const bytes = new TextEncoder().encode("hello");
+ * import { FNV_OFFSET_32, stringToUint8Array } from "@coven/utils";
+ *
+ * const bytes = stringToUint8Array("hello");
  * const hash = bytes.reduce(fnv1aReducer, FNV_OFFSET_32); // deterministic 32-bit integer
  * ```
  * @see {@linkcode https://en.wikipedia.org/wiki/Fowler–Noll–Vo_hash_function#FNV-1a_hash FNV-1a hash}
