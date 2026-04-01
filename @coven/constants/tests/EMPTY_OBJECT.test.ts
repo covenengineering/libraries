@@ -1,5 +1,5 @@
-import { EMPTY_OBJECT } from "@coven/constants";
 import { assertThrows } from "@std/assert";
+import { EMPTY_OBJECT } from "../EMPTY_OBJECT.ts";
 
 Deno.test(
 	"Trying direct mutations should throw",
