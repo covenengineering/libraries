@@ -7,25 +7,25 @@
 				"deno",
 				"!typescript-language-server",
 				"!vtsls",
-				"!eslint",
-			],
+				"!eslint"
+			]
 		},
 		"TSX": {
 			"language_servers": [
 				"deno",
 				"!typescript-language-server",
 				"!vtsls",
-				"!eslint",
-			],
+				"!eslint"
+			]
 		},
 		"TypeScript": {
 			"language_servers": [
 				"deno",
 				"!typescript-language-server",
 				"!vtsls",
-				"!eslint",
-			],
-		},
+				"!eslint"
+			]
+		}
 	},
-	"lsp": { "deno": { "settings": { "deno": { "enable": true } } } },
+	"lsp": { "deno": { "settings": { "deno": { "enable": true } } } }
 }
