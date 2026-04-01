@@ -1,6 +1,6 @@
 import { EMPTY_ARRAY, EMPTY_OBJECT } from "@coven/constants";
-import { emit } from "@simulcast/core";
 import { assert, assertStrictEquals } from "@std/assert";
+import { emit } from "../emit.ts";
 
 const TEST_EVENT = "test";
 
