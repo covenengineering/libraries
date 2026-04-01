@@ -1,5 +1,7 @@
-import { DELETE_KIND, flat, pathPrepend } from "@coven/compare";
 import { assertEquals } from "@std/assert";
+import { DELETE_KIND } from "../DELETE_KIND.ts";
+import { flat } from "../flat.ts";
+import { pathPrepend } from "../pathPrepend.ts";
 
 const prepend13 = pathPrepend(13);
 

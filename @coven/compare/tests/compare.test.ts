@@ -1,14 +1,12 @@
-import {
-	compare,
-	CREATE_KIND,
-	DELETE_KIND,
-	flat,
-	UPDATE_KIND,
-} from "@coven/compare";
 import { EMPTY_ARRAY, EMPTY_OBJECT } from "@coven/constants";
 import { EMPTY_ITERABLE_ITERATOR } from "@coven/iterables";
 import { createObject } from "@coven/utils";
 import { assertEquals } from "@std/assert";
+import { compare } from "../compare.ts";
+import { CREATE_KIND } from "../CREATE_KIND.ts";
+import { DELETE_KIND } from "../DELETE_KIND.ts";
+import { flat } from "../flat.ts";
+import { UPDATE_KIND } from "../UPDATE_KIND.ts";
 
 const property1 = "property1";
 const property2 = "property2";
