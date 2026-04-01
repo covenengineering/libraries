@@ -14,8 +14,8 @@ export type BroadcastObject<Events extends EventTypeDictionary> = Readonly<
 		 * Emit events for the current broadcast registry.
 		 *
 		 * @param event Event to be emitted.
-		 * @returns Curried emitter function that might or might not take an
-		 * argument.
+		 * @returns Curried emitter function that might or might not take a
+		 * parameter.
 		 */
 		emit: BroadcastEmit<Events>;
 
@@ -23,8 +23,8 @@ export type BroadcastObject<Events extends EventTypeDictionary> = Readonly<
 		 * Listen for events of the current broadcast registry.
 		 *
 		 * @param event Event to be listened.
-		 * @returns Curried handler function that might or might not receive an
-		 * argument. This function returns the `off` function to stop listening.
+		 * @returns Curried handler function that might or might not receive a
+		 * parameter. This function returns the `off` function to stop listening.
 		 */
 		on: BroadcastOn<Events>;
 
