@@ -1,4 +1,4 @@
-import { memo } from "@coven/memo";
+import { memoFunction } from "@coven/memo";
 import type { ValueOrRangeField } from "./ValueOrRangeField.ts";
 import { isRangeField } from "./isRangeField.ts";
 
@@ -17,9 +17,9 @@ import { isRangeField } from "./isRangeField.ts";
  */
 export const compareRangeOrValue: (
 	value: number,
-) => (valueOrRange: ValueOrRangeField<number>) => boolean = memo(
+) => (valueOrRange: ValueOrRangeField<number>) => boolean = memoFunction(
 	(value: number): ((valueOrRange: ValueOrRangeField<number>) => boolean) =>
-		memo((valueOrRange) =>
+		memoFunction((valueOrRange) =>
 			isRangeField(valueOrRange) ?
 				value >= valueOrRange.from && value <= valueOrRange.to
 			:	value === valueOrRange,

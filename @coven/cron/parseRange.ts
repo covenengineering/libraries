@@ -1,5 +1,5 @@
 import { entriesToObject } from "@coven/iterables";
-import { memo } from "@coven/memo";
+import { memoFunction } from "@coven/memo";
 import type { Maybe } from "@coven/types";
 import type { RangeField } from "./RangeField.ts";
 import { isRangeString } from "./isRangeString.ts";
@@ -25,7 +25,7 @@ import { zipRangeNames } from "./zipRangeNames.ts";
  */
 export const parseRange: <Predicated extends number>(
 	value: string,
-) => Maybe<Predicated | RangeField<Predicated>> = memo(
+) => Maybe<Predicated | RangeField<Predicated>> = memoFunction(
 	<Predicated extends number>(value: string) => {
 		const maybeRange =
 			isRangeString(value) ?

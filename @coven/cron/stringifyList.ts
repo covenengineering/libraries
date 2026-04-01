@@ -1,4 +1,4 @@
-import { memo } from "@coven/memo";
+import { memoFunction } from "@coven/memo";
 import type { Maybe } from "@coven/types";
 import type { Field } from "./Field.ts";
 import type { ListString } from "./ListString.ts";
@@ -21,7 +21,7 @@ import { LIST_EXPRESSION_SEPARATOR_TOKEN } from "./tokens.ts";
  */
 export const stringifyList: (
 	field: Readonly<Field<number>>,
-) => Maybe<ListString> = memo(
+) => Maybe<ListString> = memoFunction(
 	(field: Readonly<Field<number>>) =>
 		(isListField(field) ?
 			field

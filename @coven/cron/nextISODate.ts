@@ -1,5 +1,5 @@
 import { head } from "@coven/iterables";
-import { memo } from "@coven/memo";
+import { memoFunction } from "@coven/memo";
 import type { ISODate, Maybe } from "@coven/types";
 import type { CronObject } from "./CronObject.ts";
 import type { CronString } from "./CronString.ts";
@@ -17,10 +17,10 @@ import { nextISODates } from "./nextISODates.ts";
  */
 export const nextISODate: (
 	isoDate: ISODate,
-) => (cron: CronString | Partial<CronObject>) => Maybe<ISODate> = memo(
+) => (cron: CronString | Partial<CronObject>) => Maybe<ISODate> = memoFunction(
 	(isoDate) => {
 		const nextDatesFor = nextISODates(isoDate);
 
-		return memo((cron) => head(nextDatesFor(cron)));
+		return memoFunction((cron) => head(nextDatesFor(cron)));
 	},
 );
