@@ -6,11 +6,11 @@
 	},
 	"exports": "./mod.ts",
 	"imports": {
-		"@testing-library/react": "npm:@testing-library/react@^16.3.1",
+		"@testing-library/react": "npm:@testing-library/react@^16.3.2",
 		"@testing-library/user-event": "npm:@testing-library/user-event@^14.6.1",
-		"@types/react": "npm:@types/react@^19.2.7",
-		"react": "npm:react@^19.2.3"
+		"@types/react": "npm:@types/react@^19.2.14",
+		"react": "npm:react@^19.2.4"
 	},
 	"name": "@simulcast/react",
-	"version": "0.8.5"
+	"version": "0.9.0"
 }
