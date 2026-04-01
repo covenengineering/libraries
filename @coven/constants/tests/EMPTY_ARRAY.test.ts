@@ -1,5 +1,5 @@
-import { EMPTY_ARRAY } from "@coven/constants";
 import { assertThrows } from "@std/assert";
+import { EMPTY_ARRAY } from "../EMPTY_ARRAY.ts";
 
 Deno.test(
 	"`Array#pop` should throw",
