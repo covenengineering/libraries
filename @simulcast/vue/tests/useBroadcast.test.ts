@@ -1,8 +1,8 @@
 import { broadcast, type EventRegistry } from "@simulcast/core";
-import { useBroadcast } from "@simulcast/vue";
 import { assertStrictEquals } from "@std/assert";
 import { mount } from "@vue/test-utils";
 import { defineComponent, type Ref, ref } from "vue";
+import { useBroadcast } from "../useBroadcast.ts";
 
 // Vue has a leaky setTimeout, this gets rid of it:
 Object.assign(globalThis, {
