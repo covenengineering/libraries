@@ -1,12 +1,9 @@
-import { SIGIL } from "@coven/constants";
 import { EMPTY_ITERABLE_ITERATOR, toIterable } from "@coven/iterables";
-import { is } from "@coven/predicates";
+import { is, isSigil } from "@coven/predicates";
 import { CREATE_KIND } from "./CREATE_KIND.ts";
 import type { CurriedComparison } from "./CurriedComparison.ts";
 import { DELETE_KIND } from "./DELETE_KIND.ts";
 import { UPDATE_KIND } from "./UPDATE_KIND.ts";
-
-const isSigil = is(SIGIL);
 
 /**
  * Yields a `Difference` object out of a `left` and a `right` value.
