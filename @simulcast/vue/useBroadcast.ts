@@ -45,8 +45,8 @@ const broadcastMemo = new Map<
  */
 export const useBroadcast = <Events extends EventTypeDictionary>(
 	registry: EventRegistry<Events>,
-): UseBroadcastObject<Events> => {
-	if (!broadcastMemo.has(registry)) {
+): UseBroadcastObject<Events> =>
+	broadcastMemo.getOrInsertComputed(registry, () => {
 		const broadcastObject = broadcast<Events>(registry);
 		const { on } = broadcastObject;
 
@@ -56,16 +56,10 @@ export const useBroadcast = <Events extends EventTypeDictionary>(
 		const setOnHook = setOn(useBroadcastOn)(broadcastObject);
 		const commitHook = mutate(setOnHook);
 
-		broadcastMemo.set(
-			registry,
-			new Proxy(
-				commitHook(broadcastObject),
-				useBroadcastProxyHandler as unknown as ProxyHandler<
-					UseBroadcastObject<Events>
-				>,
-			) as UseBroadcastObject<EventTypeDictionary>,
-		);
-	}
-
-	return broadcastMemo.get(registry) as UseBroadcastObject<Events>;
-};
+		return new Proxy(
+			commitHook(broadcastObject),
+			useBroadcastProxyHandler as unknown as ProxyHandler<
+				UseBroadcastObject<Events>
+			>,
+		) as UseBroadcastObject<EventTypeDictionary>;
+	}) as UseBroadcastObject<Events>;
