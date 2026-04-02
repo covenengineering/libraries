@@ -12,5 +12,5 @@
 		"react": "npm:react@^19.2.4"
 	},
 	"name": "@simulcast/react",
-	"version": "0.9.0"
+	"version": "0.9.1"
 }
