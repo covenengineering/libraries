@@ -1,8 +1,7 @@
 import { map } from "@coven/iterables";
-import { isSigil, typeOf } from "@coven/predicates";
+import { isFunction, isSigil, typeOf } from "@coven/predicates";
 import type { Entry, TypeOfDictionary, TypeOfValue } from "@coven/types";
 import { stringify } from "@coven/utils";
-import { isFunction } from "../predicates/isFunction.ts";
 import type { TemplateHandlers } from "./TemplateHandlers.ts";
 
 /**
