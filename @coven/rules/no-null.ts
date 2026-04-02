@@ -13,6 +13,9 @@ const isObjectCreate = (
 	&& node.callee.property.type === "Identifier"
 	&& node.callee.property.name === "create";
 
+/**
+ * Rule to avoid `null`.
+ */
 export const noNull: Deno.lint.Rule = no(
 	"Literal",
 	"Avoid using `null`. Use `undefined` instead.",
