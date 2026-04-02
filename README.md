@@ -21,6 +21,7 @@ libraries:
 - 🖇️ [`@coven/pair`](https://coven.to/pair) — Paired hook pattern helper.
 - 💫 [`@coven/parsers`](https://coven.to/parsers) — Parsing utilities.
 - 🕵️‍♀️ [`@coven/predicates`](https://coven.to/predicates) — Predicate utilities.
+- 🚨 [`@coven/rules`](https://coven.to/rules) — Linting rules.
 - 🧩 [`@coven/template`](https://coven.to/template) — Tagged template literals
   simplified.
 - 🌈 [`@coven/terminal`](https://coven.to/terminal) — Terminal ANSI colors
