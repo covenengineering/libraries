@@ -14,6 +14,9 @@ import { noThrow } from "./no-throw.ts";
 import { noTry } from "./no-try.ts";
 import { noWhile } from "./no-while.ts";
 
+/**
+ * Coven Engineering lint rules.
+ */
 // deno-lint-ignore coven/no-default-export
 export default {
 	name: "coven",
