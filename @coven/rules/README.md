@@ -6,8 +6,28 @@
 🚨 Linting rules.
 
 This library has a collection of linting rules used in Coven Engineering
-libraries in Deno environments.
+libraries in Deno environments. In theory it should be also compatible with
+ESLint.
+
+## Full list of rules
+
+- `coven/max-lines`: Allow a max of `300` lines per file.
+- `coven/no-break`: Dissallow `break` statements.
+- `coven/no-class`: Dissallow classes.
+- `coven/no-continue`: Dissallow `continue` statements.
+- `coven/no-default-export`: Dissallow `export default` (use named instead).
+- `coven/no-do-while`: Dissallow `do..while` loops.
+- `coven/no-enum`: Dissallow `enum`.
+- `coven/no-for-in`: Dissallow `for..in` loops.
+- `coven/no-function`: Dissallow `function` (use `const` instead).
+- `coven/no-null`: Dissallow `null` (use `undefined` instead).
+- `coven/no-switch`: Dissallow `switch`.
+- `coven/no-this`: Dissallow `this`.
+- `coven/no-throw`: Dissallow `throw` statements.
+- `coven/no-try`: Dissallow `try` blocks.
+- `coven/no-while`: Dissallow `while` loops.
 
 ## Other links
 
 - [Coverage](https://app.codecov.io/github/covenengineering/libraries).
+- [Deno Lint](https://docs.deno.com/runtime/reference/cli/lint/).
