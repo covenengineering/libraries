@@ -27,6 +27,17 @@ ESLint.
 - `coven/no-try`: Dissallow `try` blocks.
 - `coven/no-while`: Dissallow `while` loops.
 
+## Example
+
+To use this from deno, update `deno.json`'s `lint` property and add the
+following:
+
+```json
+{
+	"plugins": ["jsr:@coven/rules"]
+}
+```
+
 ## Other links
 
 - [Coverage](https://app.codecov.io/github/covenengineering/libraries).
