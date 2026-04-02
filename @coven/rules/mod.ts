@@ -20,20 +20,20 @@ import { noWhile } from "./no-while.ts";
  *
  * Full list of rules:
  * - `max-lines`: Allow a max of `300` lines per file.
- * - `no-break`: Dissallow `break` statements.
- * - `no-class`: Dissallow classes.
- * - `no-continue`: Dissallow `continue` statements.
- * - `no-default-export`: Dissallow `export default` (use named instead).
- * - `no-do-while`: Dissallow `do..while` loops.
- * - `no-enum`: Dissallow `enum`.
- * - `no-for-in`: Dissallow `for..in` loops.
- * - `no-function`: Dissallow `function` (use `const` instead).
- * - `no-null`: Dissallow `null` (use `undefined` instead).
- * - `no-switch`: Dissallow `switch`.
- * - `no-this`: Dissallow `this`.
- * - `no-throw`: Dissallow `throw` statements.
- * - `no-try`: Dissallow `try` blocks.
- * - `no-while`: Dissallow `while` loops.
+ * - `no-break`: Disallow `break` statements.
+ * - `no-class`: Disallow classes.
+ * - `no-continue`: Disallow `continue` statements.
+ * - `no-default-export`: Disallow `export default` (use named instead).
+ * - `no-do-while`: Disallow `do..while` loops.
+ * - `no-enum`: Disallow `enum`.
+ * - `no-for-in`: Disallow `for..in` loops.
+ * - `no-function`: Disallow `function` (use `const` instead).
+ * - `no-null`: Disallow `null` (use `undefined` instead).
+ * - `no-switch`: Disallow `switch`.
+ * - `no-this`: Disallow `this`.
+ * - `no-throw`: Disallow `throw` statements.
+ * - `no-try`: Disallow `try` blocks.
+ * - `no-while`: Disallow `while` loops.
  *
  * @example
  * ```json
