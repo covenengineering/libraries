@@ -1,4 +1,4 @@
 /**
  * Initial 32-bit FNV offset.
  */
-export const FNV_OFFSET_32 = 0x811c9dc5;
+export const FNV_OFFSET_32 = 0x81_1c_9d_c5;
