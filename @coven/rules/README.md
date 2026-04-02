@@ -12,20 +12,20 @@ ESLint.
 ## Full list of rules
 
 - `coven/max-lines`: Allow a max of `300` lines per file.
-- `coven/no-break`: Dissallow `break` statements.
-- `coven/no-class`: Dissallow classes.
-- `coven/no-continue`: Dissallow `continue` statements.
-- `coven/no-default-export`: Dissallow `export default` (use named instead).
-- `coven/no-do-while`: Dissallow `do..while` loops.
-- `coven/no-enum`: Dissallow `enum`.
-- `coven/no-for-in`: Dissallow `for..in` loops.
-- `coven/no-function`: Dissallow `function` (use `const` instead).
-- `coven/no-null`: Dissallow `null` (use `undefined` instead).
-- `coven/no-switch`: Dissallow `switch`.
-- `coven/no-this`: Dissallow `this`.
-- `coven/no-throw`: Dissallow `throw` statements.
-- `coven/no-try`: Dissallow `try` blocks.
-- `coven/no-while`: Dissallow `while` loops.
+- `coven/no-break`: Disallow `break` statements.
+- `coven/no-class`: Disallow classes.
+- `coven/no-continue`: Disallow `continue` statements.
+- `coven/no-default-export`: Disallow `export default` (use named instead).
+- `coven/no-do-while`: Disallow `do..while` loops.
+- `coven/no-enum`: Disallow `enum`.
+- `coven/no-for-in`: Disallow `for..in` loops.
+- `coven/no-function`: Disallow `function` (use `const` instead).
+- `coven/no-null`: Disallow `null` (use `undefined` instead).
+- `coven/no-switch`: Disallow `switch`.
+- `coven/no-this`: Disallow `this`.
+- `coven/no-throw`: Disallow `throw` statements.
+- `coven/no-try`: Disallow `try` blocks.
+- `coven/no-while`: Disallow `while` loops.
 
 ## Example
 
