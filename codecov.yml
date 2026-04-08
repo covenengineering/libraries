@@ -1,0 +1,81 @@
+component_management:
+    individual_components:
+        - component_id: "coven__compare"
+          name: "Coven Engineering Compare"
+          paths:
+              - "@coven/compare/"
+        - component_id: "coven__constants"
+          name: "Coven Engineering Constants"
+          paths:
+              - "@coven/constants/"
+        - component_id: "coven__cron"
+          name: "Coven Engineering Cron"
+          paths:
+              - "@coven/cron/"
+        - component_id: "coven__expression"
+          name: "Coven Engineering Expression"
+          paths:
+              - "@coven/expression/"
+        - component_id: "coven__iterables"
+          name: "Coven Engineering Iterables"
+          paths:
+              - "@coven/iterables/"
+        - component_id: "coven__math"
+          name: "Coven Engineering Math"
+          paths:
+              - "@coven/math/"
+        - component_id: "coven__memo"
+          name: "Coven Engineering Memo"
+          paths:
+              - "@coven/memo/"
+        - component_id: "coven__pair"
+          name: "Coven Engineering Pair"
+          paths:
+              - "@coven/pair/"
+        - component_id: "coven__parsers"
+          name: "Coven Engineering Parsers"
+          paths:
+              - "@coven/parsers/"
+        - component_id: "coven__predicates"
+          name: "Coven Engineering Predicates"
+          paths:
+              - "@coven/predicates/"
+        - component_id: "coven__rules"
+          name: "Coven Engineering Rules"
+          paths:
+              - "@coven/rules/"
+        - component_id: "coven__template"
+          name: "Coven Engineering Template"
+          paths:
+              - "@coven/template/"
+        - component_id: "coven__terminal"
+          name: "Coven Engineering Terminal"
+          paths:
+              - "@coven/terminal/"
+        - component_id: "coven__types"
+          name: "Coven Engineering Types"
+          paths:
+              - "@coven/types/"
+        - component_id: "coven__utils"
+          name: "Coven Engineering Utils"
+          paths:
+              - "@coven/utils/"
+        - component_id: "simulcast__core"
+          name: "Simulcast Core"
+          paths:
+              - "@simulcast/core/"
+        - component_id: "simulcast__preact"
+          name: "Simulcast Preact"
+          paths:
+              - "@simulcast/preact/"
+        - component_id: "simulcast__react"
+          name: "Simulcast React"
+          paths:
+              - "@simulcast/react/"
+        - component_id: "simulcast__vue"
+          name: "Simulcast Vue"
+          paths:
+              - "@coven/vue/"
+
+comment:
+    layout: "header, diff, flags, components"
