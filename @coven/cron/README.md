@@ -1,7 +1,8 @@
-<img alt="Coven Engineering Cron logo" src="https://raw.githubusercontent.com/covenengineering/libraries/main/@coven/cron/logo.svg" height="108" />
+![Coven Engineering Cron](./logo.svg)
 
 [![JSR](https://jsr.io/badges/@coven/cron)](https://coven.to/cron)
 [![JSR Score](https://jsr.io/badges/@coven/cron/score)](https://coven.to/cron/score)
+[![Coverage Status](https://img.shields.io/codecov/c/github/covenengineering/libraries?logo=Codecov&logoColor=%23fff&label=Codecov&labelColor=%23F01F7A&color=%23083344)](https://app.codecov.io/github/covenengineering/libraries?branch=main)
 
 ⏳ Fantastic cron parser and constructor.
 
@@ -22,7 +23,9 @@ JavaScript runtimes.
 Only known limitation is it only accepts valid standard unix cron expressions,
 so cron quartz is not supported.
 
-## Parsing
+## Examples
+
+### Parsing
 
 To parse we use the `parse` util:
 
@@ -44,7 +47,7 @@ Which returns:
 });
 ```
 
-## Stringifying
+### Stringifying
 
 To stringify we use the `stringify` util:
 
@@ -88,7 +91,7 @@ import { parse } from "@coven/cron";
 parse("* * 31 2 *"); // undefined because 31 of February is invalid
 ```
 
-## Getting the next matching date
+### Getting the next matching date
 
 We can get the next matching date for a cron expression like this:
 

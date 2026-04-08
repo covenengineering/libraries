@@ -1,7 +1,8 @@
-../<img alt="Coven Engineering Iterables logo" src="https://raw.githubusercontent.com/covenengineering/libraries/main/@coven/iterables/logo.svg" height="108" />
+![Coven Engineering Iterables](./logo.svg)
 
 [![JSR](https://jsr.io/badges/@coven/iterables)](https://coven.to/iterables)
 [![JSR Score](https://jsr.io/badges/@coven/iterables/score)](https://coven.to/iterables/score)
+[![Coverage Status](https://img.shields.io/codecov/c/github/covenengineering/libraries?logo=Codecov&logoColor=%23fff&label=Codecov&labelColor=%23F01F7A&color=%23083344)](https://app.codecov.io/github/covenengineering/libraries?branch=main)
 
 ♻️ `Iterable` and `AsyncIterable` utilities. iterables, which results in
 duplicated code.
@@ -9,20 +10,13 @@ duplicated code.
 `@coven/iterables` provides 2 modules, the default for synchronous iterables and
 then `@coven/iterables/async` for asynchronous iterables. All functions are
 curried to reduce code duplication, and they work with all iterables (generator
-functions, arrays, strings, Sets, Maps, etc.). // With iterables functions
+functions, arrays, strings, Sets, Maps, etc.).
 
-import { forEach, map } from "@coven/iterables";
+Like all [Coven Engineering](https://coven.engineering) libraries, it has 100%
+test coverage and it's built in top of modern tech compatible with all
+JavaScript runtimes.
 
-// [1, 2, 3, 4] |> map(double) |> map(next) |> forEach(console.log);
-
-````typescript
-import { map } from "@coven/iterables";
-
-const double = (multiplier: number) => multiplier * 2;.ts
-
-One of the places curried functions shine the most is with iterables. More often
-than not, mapping, filtering and so on is applied to multiple different
-
+## Examples
 
 One of the key differences between this library and other similar collection
 handling libraries like say lodash, is the heavy use of iterators. At first
@@ -47,27 +41,18 @@ const next = (value: number) => value + 1;
 // 5. Logs 7
 // 6. Logs 9
 
+// With iterables functions
 
+import { forEach, map } from "@coven/iterables";
+
+// [1, 2, 3, 4] |> map(double) |> map(next) |> forEach(console.log);
 forEach(console.log)(map(next)(map(double)([1, 2, 3, 4])));
 // 1. 2 → 3 → Logs 3
 // 2. 4 → 5 → Logs 5
 // 3. 6 → 7 → Logs 7
 // 4. 8 → 9 → Logs 9
-````
-
-Like all [Coven Engineering](https://coven.engineering) libraries, it has 100%
-test coverage and it's built in top of modern tech compatible with all
-JavaScript runtimes.
-
-## Example
-
-const doubles = map(double);
-
-doubles([13, 42]); // Yields [26, 84]
-
 ```
 
 ## Other links
 
 - [Coverage](https://app.codecov.io/github/covenengineering/libraries).
-```

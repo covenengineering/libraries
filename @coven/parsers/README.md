@@ -1,7 +1,8 @@
-<img alt="Coven Engineering Parsers logo" src="https://raw.githubusercontent.com/covenengineering/libraries/main/@coven/parsers/logo.svg" height="108" />
+![Coven Engineering Parsers](./logo.svg)
 
 [![JSR](https://jsr.io/badges/@coven/parsers)](https://coven.to/parsers)
 [![JSR Score](https://jsr.io/badges/@coven/parsers/score)](https://coven.to/parsers/score)
+[![Coverage Status](https://img.shields.io/codecov/c/github/covenengineering/libraries?logo=Codecov&logoColor=%23fff&label=Codecov&labelColor=%23F01F7A&color=%23083344)](https://app.codecov.io/github/covenengineering/libraries?branch=main)
 
 💫 Parsing utilities.
 

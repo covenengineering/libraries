@@ -1,5 +1,6 @@
 <!-- deno-coverage-ignore-file -->
-<img alt="Coven Engineering Pair logo" src="https://raw.githubusercontent.com/covenengineering/libraries/main/@coven/pair/logo.svg" height="108" />
+
+![Coven Engineering Pair](./logo.svg)
 
 [![JSR](https://jsr.io/badges/@coven/pair)](https://coven.to/pair)
 [![JSR Score](https://jsr.io/badges/@coven/pair/score)](https://coven.to/pair/score)
@@ -9,6 +10,7 @@ helper. It only makes pairing simpler and provides a little bit better DX
 (integration with React Devtools by setting a `displayName` automatically),
 while also having 100% coverage like with all
 [Coven Engineering](https://coven.engineering) libraries.
+[![Coverage Status](https://img.shields.io/codecov/c/github/covenengineering/libraries?logo=Codecov&logoColor=%23fff&label=Codecov&labelColor=%23F01F7A&color=%23083344)](https://app.codecov.io/github/covenengineering/libraries?branch=main)
 
 Currently supported frameworks:
 

@@ -1,25 +1,25 @@
-<img alt="Coven Engineering Constants logo" src="https://raw.githubusercontent.com/covenengineering/libraries/main/@coven/constants/logo.svg" height="108" />
+![Coven Engineering Constants](./logo.svg)
 
 [![JSR](https://jsr.io/badges/@coven/constants)](https://coven.to/constants)
 [![JSR Score](https://jsr.io/badges/@coven/constants/score)](https://coven.to/constants/score)
+[![Coverage Status](https://img.shields.io/codecov/c/github/covenengineering/libraries?logo=Codecov&logoColor=%23fff&label=Codecov&labelColor=%23F01F7A&color=%23083344)](https://app.codecov.io/github/covenengineering/libraries?branch=main)
 
 🧱 Common constants.
 
-Is pretty common to start folding/reducing with an empty object or array. This
-library simply contains those common values as immutable structures to avoid
-accidental mutations.
+This library provides constants commonly used for initial and default values as
+immutable structures to avoid accidental mutations.
 
 Like all [Coven Engineering](https://coven.engineering) libraries, it has 100%
 test coverage and it's built in top of modern tech compatible with all
 JavaScript runtimes. The tests for this library only make sure trying to do
 mutations throws.
 
-## Constants
+## Exported constants
 
 - `EMPTY_ARRAY`: Empty read-only array.
 - `EMPTY_OBJECT`: Empty read-only `null` prototype object.
 - `SIGIL`: Internal value to be used as bottom value (like `null` and
-  `undefined`) when native bottom values have to be used.
+  `undefined`) when native bottom values have to be used for something else.
 
 ## Example
 

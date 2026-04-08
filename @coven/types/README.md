@@ -1,4 +1,4 @@
-<img alt="Coven Engineering Types logo" src="https://raw.githubusercontent.com/covenengineering/libraries/main/@coven/types/logo.svg" height="108" />
+![Coven Engineering Types](./logo.svg)
 
 [![JSR](https://jsr.io/badges/@coven/types)](https://coven.to/types)
 [![JSR Score](https://jsr.io/badges/@coven/types/score)](https://coven.to/types/score)

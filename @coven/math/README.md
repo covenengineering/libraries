@@ -1,7 +1,8 @@
-<img alt="Coven Engineering Math logo" src="https://raw.githubusercontent.com/covenengineering/libraries/main/@coven/math/logo.svg" height="108" />
+![Coven Engineering Math](./logo.svg)
 
 [![JSR](https://jsr.io/badges/@coven/math)](https://coven.to/math)
 [![JSR Score](https://jsr.io/badges/@coven/math/score)](https://coven.to/math/score)
+[![Coverage Status](https://img.shields.io/codecov/c/github/covenengineering/libraries?logo=Codecov&logoColor=%23fff&label=Codecov&labelColor=%23F01F7A&color=%23083344)](https://app.codecov.io/github/covenengineering/libraries?branch=main)
 
 🧮 Precise math utilities.
 

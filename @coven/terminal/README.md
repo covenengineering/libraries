@@ -1,7 +1,8 @@
-<img alt="Coven Engineering Terminal logo" src="https://raw.githubusercontent.com/covenengineering/libraries/main/@coven/terminal/logo.svg" height="108" />
+![Coven Engineering Terminal](./logo.svg)
 
 [![JSR](https://jsr.io/badges/@coven/terminal)](https://coven.to/terminal)
 [![JSR Score](https://jsr.io/badges/@coven/terminal/score)](https://coven.to/terminal/score)
+[![Coverage Status](https://img.shields.io/codecov/c/github/covenengineering/libraries?logo=Codecov&logoColor=%23fff&label=Codecov&labelColor=%23F01F7A&color=%23083344)](https://app.codecov.io/github/covenengineering/libraries?branch=main)
 
 🌈 Terminal ANSI colors utilities.
 
