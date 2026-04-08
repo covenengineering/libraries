@@ -1,7 +1,8 @@
-<img alt="Coven Engineering Compare logo" src="https://raw.githubusercontent.com/covenengineering/libraries/main/@coven/compare/logo.svg" height="108" />
+![Coven Engineering Compare](./logo.svg)
 
 [![JSR](https://jsr.io/badges/@coven/compare)](https://coven.to/compare)
 [![JSR Score](https://jsr.io/badges/@coven/compare/score)](https://coven.to/compare/score)
+[![Coverage Status](https://img.shields.io/codecov/c/github/covenengineering/libraries?logo=Codecov&logoColor=%23fff&label=Codecov&labelColor=%23F01F7A&color=%23083344)](https://app.codecov.io/github/covenengineering/libraries?branch=main)
 
 ⚖️ Minimalist diffing.
 
@@ -10,11 +11,23 @@ first and then a `right` or "new" value, finally returning an iterator with all
 the differences between said values. The yielded differences are represented by
 3 kinds:
 
-- **Create:** Missing `left` and existing `right`.
-- **Update:** Different `left` and `right` values.
-- **Delete:** Existing `left` and missing `right`.
+- **Create:** When `left` value is missing but we have a new `right` value.
+- **Update:** When `left` and `right` values are different.
+- **Delete:** When `left` value exists and `right` value is missing.
 
-## Plain update
+Like all [Coven Engineering](https://coven.engineering) libraries, it has 100%
+test coverage and it's built in top of modern tech compatible with all
+JavaScript runtimes.
+
+## Examples
+
+> [!NOTE]
+>
+> In all examples the `path` property is represented as an array, but `path` is
+> an `IterableIterator` like the output of `compare` is. The included `flat`
+> function can be used to flatten all `IterableIterator`s to arrays.
+
+### Plain update
 
 If we compare the string 2 different strings, we do it like this:
 
@@ -35,7 +48,7 @@ And we only get a single yielded "update", that looks like this:
 });
 ```
 
-## Object update
+### Object update
 
 If we compare two objects like this:
 
@@ -56,7 +69,7 @@ The yielded update will have values yielded from its `path`:
 });
 ```
 
-## Object delete
+### Object delete
 
 Let's say we update that same object to an empty one:
 
@@ -76,7 +89,7 @@ Yields this:
 });
 ```
 
-## Object create
+### Object create
 
 Let's say we update that same object from an empty one:
 
@@ -96,7 +109,7 @@ Yields this:
 });
 ```
 
-## Multiple differences
+### Multiple differences
 
 Now let's see what's yielded if we compare two objects with the 3 type of
 differences:
@@ -120,16 +133,6 @@ That yields all 3 kind of differences:
 ({ kind: "UPDATE", left: "old", right: "new", path: ["updated"] });
 ({ kind: "CREATE", right: "new", path: ["created"] });
 ```
-
-> [!NOTE]
->
-> In all examples the `path` property is represented as an array, but `path` is
-> an `IterableIterator` like the output of `compare` is. The included `flat`
-> function can be used to flatten all `IterableIterator`s to arrays.
-
-Like all [Coven Engineering](https://coven.engineering) libraries, it has 100%
-test coverage and it's built in top of modern tech compatible with all
-JavaScript runtimes.
 
 ## Other links
 

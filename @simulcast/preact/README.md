@@ -2,6 +2,7 @@
 
 [![JSR](https://jsr.io/badges/@simulcast/preact)](https://simulcast.coven.to/preact)
 [![JSR Score](https://jsr.io/badges/@simulcast/preact/score)](https://simulcast.coven.to/preact/score)
+[![Coverage Status](https://img.shields.io/codecov/c/github/covenengineering/libraries?logo=Codecov&logoColor=%23fff&label=Codecov&labelColor=%23F01F7A&color=%23083344)](https://app.codecov.io/github/covenengineering/libraries?branch=main)
 
 📡 [Preact](https://preactjs.com/) hook for
 [`@simulcast/core`](https://simulcast.coven.to/core).

@@ -1,7 +1,8 @@
-<img alt="Coven Engineering Utils logo" src="https://raw.githubusercontent.com/covenengineering/libraries/main/@coven/utils/logo.svg" height="108" />
+![Coven Engineering Utils](./logo.svg)
 
 [![JSR](https://jsr.io/badges/@coven/utils)](https://coven.to/utils)
 [![JSR Score](https://jsr.io/badges/@coven/utils/score)](https://coven.to/utils/score)
+[![Coverage Status](https://img.shields.io/codecov/c/github/covenengineering/libraries?logo=Codecov&logoColor=%23fff&label=Codecov&labelColor=%23F01F7A&color=%23083344)](https://app.codecov.io/github/covenengineering/libraries?branch=main)
 
 🛠️ General utilities.
 

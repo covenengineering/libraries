@@ -1,7 +1,8 @@
-<img alt="Coven Engineering Memo logo" src="https://raw.githubusercontent.com/covenengineering/libraries/main/@coven/memo/logo.svg" height="108" />
+![Coven Engineering Memo](./logo.svg)
 
 [![JSR](https://jsr.io/badges/@coven/memo)](https://coven.to/memo)
 [![JSR Score](https://jsr.io/badges/@coven/memo/score)](https://coven.to/memo/score)
+[![Coverage Status](https://img.shields.io/codecov/c/github/covenengineering/libraries?logo=Codecov&logoColor=%23fff&label=Codecov&labelColor=%23F01F7A&color=%23083344)](https://app.codecov.io/github/covenengineering/libraries?branch=main)
 
 💾 Memoization utilities.
 
