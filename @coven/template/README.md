@@ -1,4 +1,4 @@
-![Coven Engineering Template](./logo.svg)
+![Coven Engineering Template](https://raw.githubusercontent.com/covenengineering/libraries/main/@coven/template/logo.svg)
 
 [![JSR](https://jsr.io/badges/@coven/template)](https://coven.to/template)
 [![JSR Score](https://jsr.io/badges/@coven/template/score)](https://coven.to/template/score)

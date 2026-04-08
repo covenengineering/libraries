@@ -1,4 +1,4 @@
-![Coven Engineering Constants](./logo.svg)
+![Coven Engineering Constants](https://raw.githubusercontent.com/covenengineering/libraries/main/@coven/constants/logo.svg)
 
 [![JSR](https://jsr.io/badges/@coven/constants)](https://coven.to/constants)
 [![JSR Score](https://jsr.io/badges/@coven/constants/score)](https://coven.to/constants/score)

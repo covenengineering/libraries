@@ -1,4 +1,4 @@
-![Coven Engineering Cron](./logo.svg)
+![Coven Engineering Cron](https://raw.githubusercontent.com/covenengineering/libraries/main/@coven/cron/logo.svg)
 
 [![JSR](https://jsr.io/badges/@coven/cron)](https://coven.to/cron)
 [![JSR Score](https://jsr.io/badges/@coven/cron/score)](https://coven.to/cron/score)

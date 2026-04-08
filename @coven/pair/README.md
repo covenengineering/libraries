@@ -1,6 +1,6 @@
 <!-- deno-coverage-ignore-file -->
 
-![Coven Engineering Pair](./logo.svg)
+![Coven Engineering Pair](https://raw.githubusercontent.com/covenengineering/libraries/main/@coven/pair/logo.svg)
 
 [![JSR](https://jsr.io/badges/@coven/pair)](https://coven.to/pair)
 [![JSR Score](https://jsr.io/badges/@coven/pair/score)](https://coven.to/pair/score)

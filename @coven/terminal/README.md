@@ -1,4 +1,4 @@
-![Coven Engineering Terminal](./logo.svg)
+![Coven Engineering Terminal](https://raw.githubusercontent.com/covenengineering/libraries/main/@coven/terminal/logo.svg)
 
 [![JSR](https://jsr.io/badges/@coven/terminal)](https://coven.to/terminal)
 [![JSR Score](https://jsr.io/badges/@coven/terminal/score)](https://coven.to/terminal/score)

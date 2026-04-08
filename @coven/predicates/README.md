@@ -1,4 +1,4 @@
-![Coven Engineering Predicates](./logo.svg)
+![Coven Engineering Predicates](https://raw.githubusercontent.com/covenengineering/libraries/main/@coven/predicates/logo.svg)
 
 [![JSR](https://jsr.io/badges/@coven/predicates)](https://coven.to/predicates)
 [![JSR Score](https://jsr.io/badges/@coven/predicates/score)](https://coven.to/predicates/score)

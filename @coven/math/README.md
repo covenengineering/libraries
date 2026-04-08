@@ -1,4 +1,4 @@
-![Coven Engineering Math](./logo.svg)
+![Coven Engineering Math](https://raw.githubusercontent.com/covenengineering/libraries/main/@coven/math/logo.svg)
 
 [![JSR](https://jsr.io/badges/@coven/math)](https://coven.to/math)
 [![JSR Score](https://jsr.io/badges/@coven/math/score)](https://coven.to/math/score)

@@ -1,4 +1,4 @@
-![Coven Engineering Utils](./logo.svg)
+![Coven Engineering Utils](https://raw.githubusercontent.com/covenengineering/libraries/main/@coven/utils/logo.svg)
 
 [![JSR](https://jsr.io/badges/@coven/utils)](https://coven.to/utils)
 [![JSR Score](https://jsr.io/badges/@coven/utils/score)](https://coven.to/utils/score)
