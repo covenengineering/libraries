@@ -37,3 +37,7 @@ Monorepo of [Coven Engineering](https://coven.engineering) libraries:
       `@simulcast/core`.
     - 📡 [`@simulcast/vue`](https://simulcast.coven.to/vue) — Vue composable for
       `@simulcast/core`.
+
+## Coverage Grid
+
+<img alt="Coverage Grid" src="https://codecov.io/github/covenengineering/libraries/graphs/tree.svg?token=K8USV498P9" width="100%" />
