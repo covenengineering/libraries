@@ -2,7 +2,7 @@
 
 [![JSR](https://jsr.io/badges/@coven/utils)](https://coven.to/utils)
 [![JSR Score](https://jsr.io/badges/@coven/utils/score)](https://coven.to/utils/score)
-[![Coverage Status](https://img.shields.io/codecov/c/github/covenengineering/libraries?logo=Codecov&logoColor=%23fff&label=Codecov&labelColor=%23F01F7A&color=%23083344)](https://app.codecov.io/github/covenengineering/libraries?components[0]=Coven%20Engineering%20Utils)
+[![Coverage Status](https://img.shields.io/codecov/c/github/covenengineering/libraries?color=%23083344&component=coven__utils&label=Codecov&labelColor=%23F01F7A&logo=Codecov&logoColor=%23fff)](https://app.codecov.io/github/covenengineering/libraries?components[0]=Coven%20Engineering%20Utils)
 
 🛠️ General utilities.
 

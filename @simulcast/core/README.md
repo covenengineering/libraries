@@ -2,7 +2,7 @@
 
 [![JSR](https://jsr.io/badges/@simulcast/core)](https://simulcast.coven.to/core)
 [![JSR Score](https://jsr.io/badges/@simulcast/core/score)](https://simulcast.coven.to/core/score)
-[![Coverage Status](https://img.shields.io/codecov/c/github/covenengineering/libraries?logo=Codecov&logoColor=%23fff&label=Codecov&labelColor=%23F01F7A&color=%23083344)](https://app.codecov.io/github/covenengineering/libraries?components[0]=Simulcast%20Core)
+[![Coverage Status](https://img.shields.io/codecov/c/github/covenengineering/libraries?color=%23083344&component=simulcast__core&label=Codecov&labelColor=%23F01F7A&logo=Codecov&logoColor=%23fff)](https://app.codecov.io/github/covenengineering/libraries?components[0]=Simulcast%20Core)
 
 📡 Cross-framework communication.
 
