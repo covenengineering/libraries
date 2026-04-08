@@ -2,5 +2,5 @@
 	"$schema": "https://raw.githubusercontent.com/denoland/deno/main/cli/schemas/config-file.v1.json",
 	"exports": "./mod.ts",
 	"name": "@coven/memo",
-	"version": "0.9.1"
+	"version": "0.9.2"
 }

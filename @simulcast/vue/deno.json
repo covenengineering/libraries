@@ -6,5 +6,5 @@
 		"vue": "npm:vue@^3.5.31"
 	},
 	"name": "@simulcast/vue",
-	"version": "0.9.1"
+	"version": "0.9.2"
 }
