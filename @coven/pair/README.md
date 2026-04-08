@@ -10,7 +10,7 @@ helper. It only makes pairing simpler and provides a little bit better DX
 (integration with React Devtools by setting a `displayName` automatically),
 while also having 100% coverage like with all
 [Coven Engineering](https://coven.engineering) libraries.
-[![Coverage Status](https://img.shields.io/codecov/c/github/covenengineering/libraries?logo=Codecov&logoColor=%23fff&label=Codecov&labelColor=%23F01F7A&color=%23083344)](https://app.codecov.io/github/covenengineering/libraries?branch=main)
+[![Coverage Status](https://img.shields.io/codecov/c/github/covenengineering/libraries?logo=Codecov&logoColor=%23fff&label=Codecov&labelColor=%23F01F7A&color=%23083344)](https://app.codecov.io/github/covenengineering/libraries?components[0]=Coven%20Engineering%20Pair)
 
 Currently supported frameworks:
 
