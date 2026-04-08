@@ -1,4 +1,4 @@
-![Coven Engineering Memo](./logo.svg)
+![Coven Engineering Memo](https://raw.githubusercontent.com/covenengineering/libraries/main/@coven/memo/logo.svg)
 
 [![JSR](https://jsr.io/badges/@coven/memo)](https://coven.to/memo)
 [![JSR Score](https://jsr.io/badges/@coven/memo/score)](https://coven.to/memo/score)

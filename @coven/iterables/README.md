@@ -1,4 +1,4 @@
-![Coven Engineering Iterables](./logo.svg)
+![Coven Engineering Iterables](https://raw.githubusercontent.com/covenengineering/libraries/main/@coven/iterables/logo.svg)
 
 [![JSR](https://jsr.io/badges/@coven/iterables)](https://coven.to/iterables)
 [![JSR Score](https://jsr.io/badges/@coven/iterables/score)](https://coven.to/iterables/score)

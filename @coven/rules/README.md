@@ -1,4 +1,4 @@
-![Coven Engineering Rules](./logo.svg)
+![Coven Engineering Rules](https://raw.githubusercontent.com/covenengineering/libraries/main/@coven/rules/logo.svg)
 
 [![JSR](https://jsr.io/badges/@coven/rules)](https://coven.to/rules)
 [![JSR Score](https://jsr.io/badges/@coven/rules/score)](https://coven.to/rules/score)

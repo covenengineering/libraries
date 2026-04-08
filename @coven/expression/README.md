@@ -1,4 +1,4 @@
-![Coven Engineering Expression](./logo.svg)
+![Coven Engineering Expression](https://raw.githubusercontent.com/covenengineering/libraries/main/@coven/expression/logo.svg)
 
 [![JSR](https://jsr.io/badges/@coven/expression)](https://coven.to/expression)
 [![JSR Score](https://jsr.io/badges/@coven/expression/score)](https://coven.to/expression/score)

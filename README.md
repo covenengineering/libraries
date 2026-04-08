@@ -1,4 +1,4 @@
-![Coven Engineering](./logo.svg)
+![Coven Engineering](/logo.svg)
 
 [![Coverage Status](https://img.shields.io/codecov/c/github/covenengineering/libraries?logo=Codecov&logoColor=%23fff&label=Codecov&labelColor=%23F01F7A&color=%23083344)](https://app.codecov.io/github/covenengineering/libraries)
 [![GitHub Issues or Pull Requests](https://img.shields.io/github/issues/covenengineering/libraries?logo=GitHub&label=Issues&labelColor=%23000&color=%23083344)](https://github.com/covenengineering/libraries/issues/)

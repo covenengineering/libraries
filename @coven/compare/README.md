@@ -1,4 +1,4 @@
-![Coven Engineering Compare](./logo.svg)
+![Coven Engineering Compare](https://raw.githubusercontent.com/covenengineering/libraries/main/@coven/compare/logo.svg)
 
 [![JSR](https://jsr.io/badges/@coven/compare)](https://coven.to/compare)
 [![JSR Score](https://jsr.io/badges/@coven/compare/score)](https://coven.to/compare/score)

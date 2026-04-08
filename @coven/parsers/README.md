@@ -1,4 +1,4 @@
-![Coven Engineering Parsers](./logo.svg)
+![Coven Engineering Parsers](https://raw.githubusercontent.com/covenengineering/libraries/main/@coven/parsers/logo.svg)
 
 [![JSR](https://jsr.io/badges/@coven/parsers)](https://coven.to/parsers)
 [![JSR Score](https://jsr.io/badges/@coven/parsers/score)](https://coven.to/parsers/score)
