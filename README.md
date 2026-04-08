@@ -1,11 +1,10 @@
-<img src="./logo.svg" height="96" />
+![Coven Engineering](./logo.svg)
 
-[![Coverage Status](https://img.shields.io/codecov/c/github/covenengineering/libraries?style=for-the-badge&logo=Codecov&label=Coverage&labelColor=%23354a57&color=%23c87)](https://app.codecov.io/github/covenengineering/libraries?branch=main)
-[![GitHub Issues or Pull Requests](https://img.shields.io/github/issues/covenengineering/libraries?style=for-the-badge&logo=GitHub&label=Open%20Issues&labelColor=%23000&color=%23c87)](https://github.com/covenengineering/libraries/issues/)
-[![GitHub repository size](https://img.shields.io/github/repo-size/covenengineering/libraries?style=for-the-badge&logo=GitHub&label=Repository%20Size&labelColor=%23000&color=%23c87)](https://github.com/covenengineering/libraries/)
+[![Coverage Status](https://img.shields.io/codecov/c/github/covenengineering/libraries?logo=Codecov&logoColor=%23fff&label=Codecov&labelColor=%23F01F7A&color=%23083344)](https://app.codecov.io/github/covenengineering/libraries?branch=main)
+[![GitHub Issues or Pull Requests](https://img.shields.io/github/issues/covenengineering/libraries?logo=GitHub&label=Issues&labelColor=%23000&color=%23083344)](https://github.com/covenengineering/libraries/issues/)
+[![GitHub repository size](https://img.shields.io/github/repo-size/covenengineering/libraries?logo=GitHub&label=Size&labelColor=%23000&color=%23083344)](https://github.com/covenengineering/libraries/)
 
-Monorepo of all the [Coven Engineering](https://coven.engineering) JSR
-libraries:
+Monorepo of [Coven Engineering](https://coven.engineering) libraries:
 
 - ⚖️ [`@coven/compare`](https://coven.to/compare) — Minimalist diffing.
 - 🧱 [`@coven/constants`](https://coven.to/constants) — Common constants.
