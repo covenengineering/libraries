@@ -2,7 +2,7 @@
 
 [![JSR](https://jsr.io/badges/@coven/cron)](https://coven.to/cron)
 [![JSR Score](https://jsr.io/badges/@coven/cron/score)](https://coven.to/cron/score)
-[![Coverage Status](https://img.shields.io/codecov/c/github/covenengineering/libraries?logo=Codecov&logoColor=%23fff&label=Codecov&labelColor=%23F01F7A&color=%23083344)](https://app.codecov.io/github/covenengineering/libraries?components[0]=Coven%20Engineering%20Cron)
+[![Coverage Status](https://img.shields.io/codecov/c/github/covenengineering/libraries?color=%23083344&component=coven__cron&label=Codecov&labelColor=%23F01F7A&logo=Codecov&logoColor=%23fff)](https://app.codecov.io/github/covenengineering/libraries?components[0]=Coven%20Engineering%20Cron)
 
 ⏳ Fantastic cron parser and constructor.
 
