@@ -9,7 +9,7 @@
 		"@testing-library/react": "npm:@testing-library/react@^16.3.2",
 		"@testing-library/user-event": "npm:@testing-library/user-event@^14.6.1",
 		"@types/react": "npm:@types/react@^19.2.14",
-		"react": "npm:react@^19.2.4"
+		"react": "npm:react@^19.2.5"
 	},
 	"name": "@simulcast/react",
 	"version": "0.9.4"
