@@ -1,5 +1,5 @@
 import { iterableToArray, unique } from "@coven/iterables";
-import { memoFunction } from "@coven/memo";
+import { memo, memoFunction } from "@coven/memo";
 import type { Maybe } from "@coven/types";
 import type { ListField } from "./ListField.ts";
 import { isListString } from "./isListString.ts";
@@ -23,9 +23,13 @@ export const parseList: <Predicated extends number>(
 ) => Maybe<ListField<Predicated>> = memoFunction(
 	<Predicated extends number>(value: string) =>
 		(isListString(value) ?
-			iterableToArray(
-				unique(
-					parseListMap(value.split(LIST_EXPRESSION_SEPARATOR_TOKEN)),
+			memo(
+				iterableToArray(
+					unique(
+						parseListMap(
+							value.split(LIST_EXPRESSION_SEPARATOR_TOKEN),
+						),
+					),
 				),
 			)
 		:	undefined) as Maybe<ListField<Predicated>>,
