@@ -1,5 +1,10 @@
-import { pipe } from "./pipe.ts";
+import { memoFunction } from "@coven/memo";
+import { isUndefined } from "@coven/predicates";
+import type { Unary } from "@coven/types";
+import { always } from "@coven/utils";
+import { numberToPrecise } from "./numberToPrecise.ts";
 import { preciseSubtract } from "./preciseSubtract.ts";
+import { preciseToNumber } from "./preciseToNumber.ts";
 
 /**
  * Curried subtract operation using {@linkcode pipe} with {@linkcode preciseSubtract}.
@@ -15,5 +20,26 @@ import { preciseSubtract } from "./preciseSubtract.ts";
  * @param subtrahend Subtrahend value to be used in the subtraction.
  * @returns Curried function with `subtrahend` in context.
  */
-export const subtract: (subtrahend: number) => (minuend: number) => number =
-	pipe(preciseSubtract);
+export const subtract: Unary<
+	[subtrahend: number],
+	Unary<[minuend: number], number>
+> = memoFunction((subtrahend) => {
+	const preciseSubtrahend = numberToPrecise(subtrahend);
+	const preciseAddAugend =
+		isUndefined(preciseSubtrahend) ? undefined : (
+			preciseSubtract(...preciseSubtrahend)
+		);
+
+	return isUndefined(preciseSubtrahend) ?
+			always(subtrahend)
+		:	memoFunction((minuend) => {
+				const preciseMinuend = numberToPrecise(minuend);
+
+				return (
+						isUndefined(preciseMinuend)
+							|| isUndefined(preciseAddAugend)
+					) ?
+						minuend
+					:	preciseToNumber(...preciseAddAugend(...preciseMinuend));
+			});
+});

@@ -31,6 +31,7 @@ JavaScript runtimes.
 import { calculate } from "@coven/math";
 
 calculate(0.1).plus(0.2).total; // 0.3 🤯
+calculate(1e20).plus(0.1).minus(1e20).total; // 0.1 🤯
 ```
 
 ## Other links

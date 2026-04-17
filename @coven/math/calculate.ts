@@ -1,9 +1,14 @@
-import { memoFunction } from "@coven/memo";
-import { add } from "./add.ts";
+import { isUndefined } from "@coven/predicates";
+import type { Maybe } from "@coven/types";
 import type { Calculation } from "./Calculation.ts";
-import { divide } from "./divide.ts";
-import { multiply } from "./multiply.ts";
-import { subtract } from "./subtract.ts";
+import { numberToPrecise } from "./numberToPrecise.ts";
+import { preciseAdd } from "./preciseAdd.ts";
+import { preciseDivide } from "./preciseDivide.ts";
+import type { PreciseFunction } from "./PreciseFunction.ts";
+import { preciseMultiply } from "./preciseMultiply.ts";
+import { preciseSubtract } from "./preciseSubtract.ts";
+import { preciseToNumber } from "./preciseToNumber.ts";
+import type { Precise } from "./PreciseTuple.ts";
 
 /**
  * A chainable set of operations.
@@ -13,50 +18,44 @@ import { subtract } from "./subtract.ts";
  * calculate(0.1).plus(0.2).total; // 0.3
  * calculate(0.7).plus(0.3).dividedBy(4).times(2).minus(0.2).total; // 0.3
  * ```
- * @see {@linkcode add}
- * @see {@linkcode divide}
- * @see {@linkcode multiply}
- * @see {@linkcode subtract}
+ * @see {@linkcode preciseAdd}
+ * @see {@linkcode preciseDivide}
+ * @see {@linkcode preciseMultiply}
+ * @see {@linkcode preciseSubtract}
  * @param value Value to run operations on.
  * @returns An object with `divideBy`, `minus`, `plus` and `times` methods and a `value` property.
  */
-export const calculate: <const Value extends number = number>(
-	value: Value,
-) => Calculation<Value> = memoFunction((value) => ({
-	/**
-	 * Divide previous `value` in calculation by the given `divisor`.
-	 *
-	 * @param divisor Value to divide by.
-	 * @returns Calculation (use `toValue()` to get the final value).
-	 */
-	dividedBy: (divisor: number) => calculate(divide(divisor)(value)),
+export const calculate = (value: number): Calculation => {
+	let precise = numberToPrecise(value);
 
-	/**
-	 * Subtracts given `subtrahend` to the current `value` in the calculation.
-	 *
-	 * @param subtrahend Value to subtract.
-	 * @returns Calculation (use `toValue()` to get the final value).
-	 */
-	minus: (subtrahend: number) => calculate(subtract(subtrahend)(value)),
+	const calculationMethod =
+		<Output extends Precise | Maybe<Precise>>(
+			preciseFunction: PreciseFunction<Output>,
+		) =>
+		(right: number): Calculation => {
+			if (!isUndefined(precise)) {
+				const preciseRight = numberToPrecise(right);
 
-	/**
-	 * Adds given `addend` to the current `value` in the calculation.
-	 *
-	 * @param subtrahend Value to add.
-	 * @returns Calculation (use `toValue()` to get the final value).
-	 */
-	plus: (augend: number) => calculate(add(augend)(value)),
+				if (!isUndefined(preciseRight)) {
+					precise = preciseFunction(...preciseRight)(...precise);
+				}
+			}
 
-	/**
-	 * Multiplies previous `value` in calculation times the given `multiplier`.
-	 *
-	 * @param divisor Value to multiply by.
-	 * @returns Calculation (use `toValue()` to get the final value).
-	 */
-	times: (multiplier: number) => calculate(multiply(multiplier)(value)),
+			return calculation;
+		};
 
-	/**
-	 * Current value of the calculation.
-	 */
-	total: value,
-}));
+	const calculation = Object.freeze({
+		dividedBy: calculationMethod(preciseDivide),
+		minus: calculationMethod(preciseSubtract),
+		plus: calculationMethod(preciseAdd),
+		precise,
+		times: calculationMethod(preciseMultiply),
+		get total() {
+			return isUndefined(precise) ? undefined : (
+					preciseToNumber(...precise)
+				);
+		},
+	});
+
+	return calculation;
+};

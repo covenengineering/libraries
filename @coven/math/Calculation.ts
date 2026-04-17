@@ -1,8 +1,11 @@
+import { Maybe } from "@coven/types";
+import { Precise } from "./PreciseTuple.ts";
+
 /**
  * Object returned by the `calculate` function, which recursively returns itself
  * from all its methods. To get the value the dev has to run `toValue()`.
  */
-export type Calculation<Value extends number = number> = Readonly<{
+export type Calculation = Readonly<{
 	/**
 	 * Divide previous `value` in calculation by the given `divisor`.
 	 *
@@ -28,6 +31,11 @@ export type Calculation<Value extends number = number> = Readonly<{
 	plus: (addend: number) => Calculation;
 
 	/**
+	 * Current {@linkcode Precise} value.
+	 */
+	precise: Maybe<Precise>;
+
+	/**
 	 * Multiplies previous `value` in calculation times the given `multiplier`.
 	 *
 	 * @param divisor Value to multiply by.
@@ -36,7 +44,7 @@ export type Calculation<Value extends number = number> = Readonly<{
 	times: (multiplier: number) => Calculation;
 
 	/**
-	 * Current value of the calculation.
+	 * Current `number` value.
 	 */
-	total: Value;
+	total: Maybe<number>;
 }>;

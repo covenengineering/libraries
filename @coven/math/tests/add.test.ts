@@ -53,3 +53,15 @@ Deno.test("5 + 0.00001 = 5.00001", () =>
 Deno.test("0.00001 + 5 = 5.00001", () =>
 	assertStrictEquals(add(5)(0.000_01), 5.000_01),
 );
+
+Deno.test("Infinity + 13 = Infinity", () =>
+	assertStrictEquals(add(13)(Infinity), Infinity),
+);
+
+Deno.test("13 + Infinity = Infinity", () =>
+	assertStrictEquals(add(Infinity)(13), Infinity),
+);
+
+Deno.test("NaN + 13 = NaN", () => assertStrictEquals(add(NaN)(13), NaN));
+
+Deno.test("13 + NaN = NaN", () => assertStrictEquals(add(13)(NaN), NaN));

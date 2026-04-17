@@ -1,24 +1,6 @@
-import { EMPTY_ARRAY } from "@coven/constants";
-import {
-	allow,
-	buildUnicode,
-	captureNamed,
-	complementClass,
-	END,
-	START,
-	WILDCARD,
-} from "@coven/expression";
 import { memo, memoFunction } from "@coven/memo";
-import { isBigInt } from "@coven/predicates";
-import type { MaybeInfinity } from "./MaybeInfinity.ts";
 import type { Precise } from "./PreciseTuple.ts";
-
-const rightSideZeroes = buildUnicode(
-	START,
-	captureNamed("normalizedBase")(allow(WILDCARD), complementClass(0)),
-	captureNamed("zeroes")(allow(0)),
-	END,
-);
+import { getBaseAndZeroes } from "./getBaseAndZeroes.ts";
 
 /**
  * Takes a `base` and `exponent` and normalizes it returning a {@linkcode Precise}.
@@ -35,27 +17,12 @@ const rightSideZeroes = buildUnicode(
  * @returns A normalized {@linkcode Precise} value.
  */
 export const precise: {
-	(base: bigint, exponent?: bigint): Precise;
-	(base: number): Precise;
-} = memoFunction<(base: MaybeInfinity, exponent?: bigint) => Precise>(
-	(base, exponent = 0n) => {
-		if (isBigInt(base)) {
-			const { normalizedBase, zeroes } = rightSideZeroes.exec(`${base}`)
-				?.groups as Readonly<{
-				normalizedBase: `${bigint}`;
-				zeroes: `${bigint}`;
-			}>;
-			const normalizedExponent =
-				BigInt(zeroes.length) + (exponent as bigint);
+	(base: bigint, exponent: bigint): Precise;
+} = memoFunction<(base: bigint, exponent: bigint) => Precise>(
+	(base, exponent) => {
+		const { normalizedBase = "0", zeroes = "" } = getBaseAndZeroes(base);
+		const normalizedExponent = BigInt(zeroes.length) + exponent;
 
-			return memo([
-				BigInt(normalizedBase),
-				...(normalizedExponent === 0n ? EMPTY_ARRAY : (
-					[normalizedExponent]
-				)),
-			]) as Precise;
-		} else {
-			return memo([base]) as Precise;
-		}
+		return memo([BigInt(normalizedBase), normalizedExponent]);
 	},
 );

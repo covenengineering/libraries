@@ -1,11 +1,11 @@
 import { memoFunction } from "@coven/memo";
+import type { Maybe } from "@coven/types";
 import { always } from "@coven/utils";
-import type { MaybeInfinity } from "./MaybeInfinity.ts";
-import type { Precise } from "./PreciseTuple.ts";
-import { numberToPrecise } from "./numberToPrecise.ts";
 import { precise } from "./precise.ts";
-import { preciseMultiply } from "./preciseMultiply.ts";
-import { preciseToNumber } from "./preciseToNumber.ts";
+import type { PreciseFunction } from "./PreciseFunction.ts";
+import type { Precise } from "./PreciseTuple.ts";
+
+const alwaysUndefined = always(undefined);
 
 /**
  * Curried divide operation using the internal {@linkcode Precise} type.
@@ -16,25 +16,32 @@ import { preciseToNumber } from "./preciseToNumber.ts";
  *
  * half(1n); // [5n, -1n]
  * ```
- * @see {@linkcode numberToPrecise}
  * @see {@linkcode Precise}
- * @see {@linkcode preciseMultiply}
- * @see {@linkcode preciseToNumber}
+ * @see {@linkcode PreciseFunction}
  * @param divisorBase Divisor base to use in the division.
  * @param divisorExponent Divisor exponent to use in the division.
  * @returns Curried function with `divisorBase` and `divisorExponent` in context.
  */
-export const preciseDivide: (
-	divisorBase: MaybeInfinity,
-	divisorExponent?: bigint,
-) => (dividendBase: MaybeInfinity, dividendExponent?: bigint) => Precise =
-	memoFunction((divisorBase, divisorExponent) =>
-		divisorBase === 0n ?
-			always(precise(Infinity))
-		:	preciseMultiply(
-				...numberToPrecise(
-					preciseToNumber(1n, -(divisorExponent ?? 0n))
-						/ preciseToNumber(divisorBase, 0n),
-				),
-			),
-	);
+export const preciseDivide: PreciseFunction<Maybe<Precise>> = memoFunction(
+	(divisorBase, divisorExponent) =>
+		divisorBase === 0n ? alwaysUndefined : (
+			memoFunction((dividendBase, dividendExponent) => {
+				let exponent = 0n;
+				let base = dividendBase / divisorBase;
+
+				for (
+					let dividend = dividendBase;
+					base * divisorBase !== dividend;
+				) {
+					exponent += 1n;
+					dividend = dividendBase * 10n ** exponent;
+					base = dividend / divisorBase;
+				}
+
+				return precise(
+					base,
+					dividendExponent - exponent - divisorExponent,
+				);
+			})
+		),
+);

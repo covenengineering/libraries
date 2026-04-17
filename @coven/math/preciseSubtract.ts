@@ -1,27 +1,23 @@
 import { memoFunction } from "@coven/memo";
-import type { MaybeInfinity } from "./MaybeInfinity.ts";
-import type { Precise } from "./PreciseTuple.ts";
 import { preciseAdd } from "./preciseAdd.ts";
+import type { PreciseFunction } from "./PreciseFunction.ts";
 
 /**
- * Curried subtract operation using the internal {@linkcode Precise} type.
+ * Curried subtract operation using the internal `Precise` type.
  *
  * @example
  * ```typescript
- * const previous = preciseSubtract(1n);
+ * const previous = preciseSubtract(1n, 0n);
  *
- * previous(14n); // [13n]
+ * previous(14n); // [13n, 0n]
  * ```
- * @see {@linkcode Precise}
+ * @see {@linkcode PreciseFunction}
  * @see {@linkcode preciseAdd}
  * @param subtrahendBase Subtrahend base to use in the subtraction.
  * @param subtrahendExponent Subtrahend exponent to use in the subtraction.
  * @returns Curried function with `subtrahendBase` and `subtrahendExponent` in context.
  */
-export const preciseSubtract: (
-	subtrahendBase: MaybeInfinity,
-	subtrahendExponent?: bigint,
-) => (minuendBase: MaybeInfinity, minuendExponent?: bigint) => Precise =
-	memoFunction((subtrahendBase, subtrahendExponent) =>
-		preciseAdd(-subtrahendBase, subtrahendExponent ?? 0n),
-	);
+export const preciseSubtract: PreciseFunction = memoFunction(
+	(subtrahendBase, subtrahendExponent) =>
+		preciseAdd(-subtrahendBase, subtrahendExponent),
+);
