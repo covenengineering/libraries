@@ -1,3 +1,4 @@
+import type { Numeric } from "@coven/types";
 import { iteratorFunctionToIterableIterator } from "./iteratorFunctionToIterableIterator.ts";
 
 /**
@@ -13,7 +14,7 @@ import { iteratorFunctionToIterableIterator } from "./iteratorFunctionToIterable
  * @returns Curried function with `item` in context.
  */
 export const repeat =
-	(times: number): (<const Item>(item: Item) => IterableIterator<Item>) =>
+	(times: Numeric): (<const Item>(item: Item) => IterableIterator<Item>) =>
 	<const Item>(item: Item) =>
 		iteratorFunctionToIterableIterator(function* (): Generator<Item> {
 			if (times === Infinity) {
