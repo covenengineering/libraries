@@ -20,6 +20,7 @@ export type { EntryKey } from "./EntryKey.ts";
 export type { EntryOf } from "./EntryOf.ts";
 export type { EntryValue } from "./EntryValue.ts";
 export type { Enumerate } from "./Enumerate.ts";
+export type { ExpectedStringables } from "./ExpectedStringables.ts";
 export type { Fallback } from "./Fallback.ts";
 export type { Falsy } from "./Falsy.ts";
 export type { Filter } from "./Filter.ts";
