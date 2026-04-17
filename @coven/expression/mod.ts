@@ -33,6 +33,7 @@ export { controlCharacter } from "./controlCharacter.ts";
 export { disjunction } from "./disjunction.ts";
 export { escape } from "./escape.ts";
 export { exists } from "./exists.ts";
+export { getGroups } from "./getGroups.ts";
 export { group } from "./group.ts";
 export { hexadecimal } from "./hexadecimal.ts";
 export type { HexadecimalDigit } from "./HexadecimalDigit.ts";
