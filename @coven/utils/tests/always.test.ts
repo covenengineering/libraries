@@ -1,8 +1,8 @@
-import { assertEquals } from "@std/assert";
+import { assertEquals, assertStrictEquals } from "@std/assert";
 import { always } from "../always.ts";
 
 Deno.test("When passing a string, that string is returned when calling", () =>
-	assertEquals(always("✨")(), "✨"),
+	assertStrictEquals(always("✨")(), "✨"),
 );
 
 Deno.test(

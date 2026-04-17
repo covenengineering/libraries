@@ -1,10 +1,10 @@
-import { assertEquals } from "@std/assert";
+import { assertStrictEquals } from "@std/assert";
 import { exists } from "../exists.ts";
 
 Deno.test("Number 13 adds a + to the right", () =>
-	assertEquals(exists(13), "13+"),
+	assertStrictEquals(exists(13), "13+"),
 );
 
 Deno.test("Number 1 and number 3 adds a + to the right", () =>
-	assertEquals(exists(1, 3), "13+"),
+	assertStrictEquals(exists(1, 3), "13+"),
 );

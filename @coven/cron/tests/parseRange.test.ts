@@ -1,8 +1,9 @@
-import { assertEquals, assertStrictEquals } from "@std/assert";
+import { memo } from "@coven/memo";
+import { assertStrictEquals } from "@std/assert";
 import { parseRange } from "../parseRange.ts";
 
 Deno.test("Number 1 and a 13 returns parsed values", () =>
-	assertEquals(parseRange("1-13"), { from: 1, to: 13 }),
+	assertStrictEquals(parseRange("1-13"), memo({ from: 1, to: 13 })),
 );
 
 Deno.test("Number 13 and a 13 returns normalized 13", () =>

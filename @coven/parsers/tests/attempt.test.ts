@@ -1,4 +1,4 @@
-import { assertEquals } from "@std/assert";
+import { assertStrictEquals } from "@std/assert";
 import { attempt } from "../attempt.ts";
 
 const THROWS = true;
@@ -16,9 +16,9 @@ const throwingFunction = (shouldThrow: boolean) => {
 const safeFunction = attempt(throwingFunction);
 
 Deno.test("Returns expected value when function doesn't throw", () =>
-	assertEquals(safeFunction(DOES_NOT_THROW), "success"),
+	assertStrictEquals(safeFunction(DOES_NOT_THROW), "success"),
 );
 
 Deno.test("Returns undefined when function throw", () =>
-	assertEquals(safeFunction(THROWS), undefined),
+	assertStrictEquals(safeFunction(THROWS), undefined),
 );

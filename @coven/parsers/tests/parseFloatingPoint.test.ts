@@ -1,14 +1,14 @@
-import { assertEquals } from "@std/assert";
+import { assertStrictEquals } from "@std/assert";
 import { parseFloatingPoint } from "../parseFloatingPoint.ts";
 
 Deno.test("Parsing valid float point string returns parsed value", () =>
-	assertEquals(parseFloatingPoint("101"), 101),
+	assertStrictEquals(parseFloatingPoint("101"), 101),
 );
 
 Deno.test("Parsing float point string with a dot returns parsed value", () =>
-	assertEquals(parseFloatingPoint("101.5"), 101.5),
+	assertStrictEquals(parseFloatingPoint("101.5"), 101.5),
 );
 
 Deno.test("Parsing invalid string returns undefined", () =>
-	assertEquals(parseFloatingPoint("invalid"), undefined),
+	assertStrictEquals(parseFloatingPoint("invalid"), undefined),
 );
