@@ -2,7 +2,7 @@ import { EMPTY_OBJECT } from "@coven/constants";
 import { createObject, get, mutate, set } from "@coven/utils";
 import type { BroadcastObject } from "./BroadcastObject.ts";
 import type { EventTypeDictionary } from "./EventTypeDictionary.ts";
-import { eventRegExp } from "./eventRegExp.ts";
+import { getEventTypeAndName } from "./getEventTypeAndName.ts";
 
 /**
  * Proxy handler that enables the aliasing of `on("event")` as `onEvent`.
@@ -15,8 +15,9 @@ export const broadcastProxyHandler: Readonly<{
 }> = createObject({
 	get: (broadcast, property) => {
 		const { name, type } =
-			(!(property in broadcast) && eventRegExp.exec(property)?.groups)
-			|| EMPTY_OBJECT;
+			property in broadcast ? EMPTY_OBJECT : (
+				getEventTypeAndName(property)
+			);
 
 		if (name && type) {
 			const setProperty = set(property);
