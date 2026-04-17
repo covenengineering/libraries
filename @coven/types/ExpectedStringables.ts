@@ -10,11 +10,11 @@ import type { Stringable } from "./Stringable.ts";
  * ```
  * @template Stringables Expected {@linkcode Stringable}s.
  */
-export type ExpectedStringables<Stringables extends readonly Stringable[]> =
+export type ExpectedStringables<Stringables extends ReadonlyArray<Stringable>> =
 	Stringables extends (
-		[
+		readonly [
 			infer Head extends Stringable,
-			...infer Tail extends readonly Stringable[],
+			...infer Tail extends ReadonlyArray<Stringable>,
 		]
 	) ?
 		`${string}${Head}${ExpectedStringables<Tail>}`
