@@ -2,7 +2,7 @@ import { EMPTY_OBJECT } from "@coven/constants";
 
 import { createObject, mutate, set } from "@coven/utils";
 import type { EventHandler, EventTypeDictionary } from "@simulcast/core";
-import { onRegExp } from "@simulcast/preact";
+import { getEventName } from "@simulcast/preact";
 import type { UseBroadcastObject } from "./UseBroadcastObject.ts";
 
 /**
@@ -16,8 +16,7 @@ export const useBroadcastProxyHandler: Readonly<{
 }> = createObject({
 	get: (broadcast, property) => {
 		const { name } =
-			(!(property in broadcast) && onRegExp.exec(property)?.groups)
-			|| EMPTY_OBJECT;
+			property in broadcast ? EMPTY_OBJECT : getEventName(property);
 
 		if (name) {
 			const setProperty = set(property);

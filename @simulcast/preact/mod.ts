@@ -1,4 +1,4 @@
-export { onRegExp } from "./onRegExp.ts";
+export { getEventName } from "./getEventName.ts";
 export { useBroadcast } from "./useBroadcast.ts";
 export type { UseBroadcastObject } from "./UseBroadcastObject.ts";
 export type { UseBroadcastOn } from "./UseBroadcastOn.ts";
