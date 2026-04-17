@@ -7,7 +7,7 @@ import { getBaseAndZeroes } from "./getBaseAndZeroes.ts";
  *
  * @example
  * ```typescript
- * precise(13n); // [13n]
+ * precise(13n, 0n); // [13n]
  * precise(13n, -1n); // [13n, -1n]
  * precise(1300n, 0n); // [13n, 2n]
  * ```
