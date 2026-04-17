@@ -1,3 +1,6 @@
+import { memoFunction } from "@coven/memo";
+import type { PreciseToTypeFunction } from "./PreciseToTypeFunction.ts";
+
 /**
  * Turns a `Precise` into a `number`.
  *
@@ -8,7 +11,9 @@
  * @param precise `Precise` to convert.
  * @returns Number represented by the passed `Precise` value.
  */
-export const preciseToNumber = (
-	base: bigint | typeof Infinity,
-	exponent?: bigint,
-): number => parseFloat(`${base}e${exponent ?? 0n}`);
+export const preciseToNumber: PreciseToTypeFunction<number> = memoFunction(
+	(base, exponent) =>
+		exponent === 0n ? Number(base)
+		: exponent > 0n ? Number(base) * 10 ** Number(exponent)
+		: Number(base) / 10 ** Number(-exponent),
+);

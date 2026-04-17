@@ -73,3 +73,15 @@ Deno.test("Infinity * Infinity = Infinity", () =>
 Deno.test("13 * Infinity = Infinity", () =>
 	assertStrictEquals(multiply(Infinity)(13), Infinity),
 );
+
+Deno.test("Infinity * 13 = Infinity", () =>
+	assertStrictEquals(multiply(13)(Infinity), Infinity),
+);
+
+Deno.test("13 * Infinity = Infinity", () =>
+	assertStrictEquals(multiply(Infinity)(13), Infinity),
+);
+
+Deno.test("NaN * 13 = NaN", () => assertStrictEquals(multiply(NaN)(13), NaN));
+
+Deno.test("13 * NaN = NaN", () => assertStrictEquals(multiply(13)(NaN), NaN));

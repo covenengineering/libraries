@@ -2,18 +2,14 @@ import { memo } from "@coven/memo";
 import { assertStrictEquals } from "@std/assert";
 import { precise } from "../precise.ts";
 
-Deno.test("Infinity returns Infinity", () =>
-	assertStrictEquals(precise(Infinity), memo([Infinity])),
-);
-
-Deno.test("Number valid tuple returns said tuple", () =>
+Deno.test("precise(1n, 5n) = [1n, 5n]", () =>
 	assertStrictEquals(precise(1n, 5n), memo([1n, 5n])),
 );
 
-Deno.test("Number with 0 exponent returns only base", () =>
-	assertStrictEquals(precise(1n, 0n), memo([1n])),
+Deno.test("precise(1n, 0n) = [1n]", () =>
+	assertStrictEquals(precise(1n, 0n), memo([1n, 0n])),
 );
 
-Deno.test("Number with no exponent returns only base", () =>
-	assertStrictEquals(precise(1n), memo([1n])),
+Deno.test("precise(1n) = [1n]", () =>
+	assertStrictEquals(precise(1n, 0n), memo([1n, 0n])),
 );

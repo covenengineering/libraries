@@ -2,17 +2,17 @@ import { assertStrictEquals } from "@std/assert";
 import { precise } from "../precise.ts";
 import { preciseAdd } from "../preciseAdd.ts";
 
-const preciseAddPositive = preciseAdd(2n);
-const preciseAddNegative = preciseAdd(-2n);
+const preciseAddPositive = preciseAdd(2n, 0n);
+const preciseAddNegative = preciseAdd(-2n, 0n);
 const preciseAddFloat = preciseAdd(2n, -1n);
 const preciseAddNegativeFloat = preciseAdd(-2n, -1n);
 
 Deno.test("1 + 2 = 3", () =>
-	assertStrictEquals(preciseAddPositive(1n), precise(3n)),
+	assertStrictEquals(preciseAddPositive(1n, 0n), precise(3n, 0n)),
 );
 
 Deno.test("-1 + 2 = 1", () =>
-	assertStrictEquals(preciseAddPositive(-1n), precise(1n)),
+	assertStrictEquals(preciseAddPositive(-1n, 0n), precise(1n, 0n)),
 );
 
 Deno.test("0.1 + 2 = 2.1", () =>
@@ -24,11 +24,11 @@ Deno.test("-0.1 + 2 = 1.9", () =>
 );
 
 Deno.test("1 + -2 = -1", () =>
-	assertStrictEquals(preciseAddNegative(1n), precise(-1n)),
+	assertStrictEquals(preciseAddNegative(1n, 0n), precise(-1n, 0n)),
 );
 
 Deno.test("-1 + -2 = -3", () =>
-	assertStrictEquals(preciseAddNegative(-1n), precise(-3n)),
+	assertStrictEquals(preciseAddNegative(-1n, 0n), precise(-3n, 0n)),
 );
 
 Deno.test("0.1 + -2 = -1.9", () =>
@@ -40,11 +40,11 @@ Deno.test("-0.1 + -2 = -2.1", () =>
 );
 
 Deno.test("1 + 0.2 = 1.2", () =>
-	assertStrictEquals(preciseAddFloat(1n), precise(12n, -1n)),
+	assertStrictEquals(preciseAddFloat(1n, 0n), precise(12n, -1n)),
 );
 
 Deno.test("-1 + 0.2 = -0.8", () =>
-	assertStrictEquals(preciseAddFloat(-1n), precise(-8n, -1n)),
+	assertStrictEquals(preciseAddFloat(-1n, 0n), precise(-8n, -1n)),
 );
 
 Deno.test("0.1 + 0.2 = 0.3", () =>
@@ -56,11 +56,11 @@ Deno.test("-0.1 + 0.2 = 0.1", () =>
 );
 
 Deno.test("1 + -0.2 = 0.8", () =>
-	assertStrictEquals(preciseAddNegativeFloat(1n), precise(8n, -1n)),
+	assertStrictEquals(preciseAddNegativeFloat(1n, 0n), precise(8n, -1n)),
 );
 
 Deno.test("-1 + -0.2 = -1.2", () =>
-	assertStrictEquals(preciseAddNegativeFloat(-1n), precise(-12n, -1n)),
+	assertStrictEquals(preciseAddNegativeFloat(-1n, 0n), precise(-12n, -1n)),
 );
 
 Deno.test("0.1 + -0.2 = -0.1", () =>
@@ -72,13 +72,20 @@ Deno.test("-0.1 + -0.2 = -0.3", () =>
 );
 
 Deno.test("5 + 0.00001 = 5.00001", () =>
-	assertStrictEquals(preciseAdd(1n, -5n)(5n), precise(500_001n, -5n)),
+	assertStrictEquals(preciseAdd(1n, -5n)(5n, 0n), precise(500_001n, -5n)),
 );
 
 Deno.test("0.00001 + 5 = 5.00001", () =>
-	assertStrictEquals(preciseAdd(5n)(1n, -5n), precise(500_001n, -5n)),
+	assertStrictEquals(preciseAdd(5n, 0n)(1n, -5n), precise(500_001n, -5n)),
+);
+
+Deno.test("1e16 + 0.1 = 100000000000000001e-1", () =>
+	assertStrictEquals(
+		preciseAdd(1n, 16n)(1n, -1n),
+		precise(100000000000000001n, -1n),
+	),
 );
 
 Deno.test("Same Precise returned with same values", () =>
-	assertStrictEquals(preciseAdd(2n)(3n), preciseAdd(2n)(3n)),
+	assertStrictEquals(preciseAdd(2n, 0n)(3n, 0n), preciseAdd(2n, 0n)(3n, 0n)),
 );
