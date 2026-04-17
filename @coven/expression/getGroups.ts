@@ -39,7 +39,7 @@ export type WrapGroupKeys<GroupKeys extends ReadonlyArray<Stringable>> =
  * @returns Escaped value.
  */
 export const getGroups =
-	<GroupKeys extends readonly Stringable[]>({
+	<GroupKeys extends ReadonlyArray<Stringable>>({
 		flags,
 		source,
 	}: {
