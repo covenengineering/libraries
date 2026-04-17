@@ -1,6 +1,6 @@
 import { build, getGroups } from "@coven/expression";
 import { entriesToObject, length, objectToEntries } from "@coven/iterables";
-import { memoFunction } from "@coven/memo";
+import { memo, memoFunction } from "@coven/memo";
 import type { KeyOf, Maybe, ReadonlyRecord } from "@coven/types";
 import type { CronObject } from "./CronObject.ts";
 import type { CronString } from "./CronString.ts";
@@ -43,6 +43,6 @@ export const parse: (expression: CronString) => Maybe<CronObject> =
 
 		return (
 			length(entries) === 0 ? undefined : (
-				entriesToObject(entries)
+				memo(entriesToObject(entries))
 			)) as Maybe<CronObject>;
 	});
