@@ -5,6 +5,8 @@ const dividePositive = divide(2);
 const divideNegative = divide(-2);
 const divideFloat = divide(0.2);
 const divideNegativeFloat = divide(-0.2);
+const divideInfinity = divide(Infinity);
+const divideNaN = divide(NaN);
 
 Deno.test("1 / 2 = 0.5", () => assertStrictEquals(dividePositive(1), 0.5));
 
@@ -64,14 +66,26 @@ Deno.test("0.00001 / 5 = 0.000002", () =>
 	assertStrictEquals(divide(5)(0.000_01), 0.000_002),
 );
 
-Deno.test("Infinity / 13 = Infinity", () =>
-	assertStrictEquals(divide(13)(Infinity), Infinity),
+Deno.test("Infinity / 2 = Infinity", () =>
+	assertStrictEquals(dividePositive(Infinity), Infinity),
 );
 
-Deno.test("13 / Infinity = Infinity", () =>
-	assertStrictEquals(divide(Infinity)(13), 0),
+Deno.test("NaN / 2 = NaN", () => assertStrictEquals(dividePositive(NaN), NaN));
+
+Deno.test("Infinity / Infinity = NaN", () =>
+	assertStrictEquals(divideInfinity(Infinity), NaN),
 );
 
-Deno.test("NaN / 13 = NaN", () => assertStrictEquals(divide(NaN)(13), NaN));
+Deno.test("2 / Infinity = 0", () => assertStrictEquals(divideInfinity(2), 0));
 
-Deno.test("13 / NaN = NaN", () => assertStrictEquals(divide(13)(NaN), NaN));
+Deno.test("NaN / Infinity = NaN", () =>
+	assertStrictEquals(divideInfinity(NaN), NaN),
+);
+
+Deno.test("NaN / NaN = NaN", () => assertStrictEquals(divideNaN(NaN), NaN));
+
+Deno.test("2 / NaN = NaN", () => assertStrictEquals(divideNaN(2), NaN));
+
+Deno.test("Infinity / NaN = NaN", () =>
+	assertStrictEquals(divideNaN(Infinity), NaN),
+);

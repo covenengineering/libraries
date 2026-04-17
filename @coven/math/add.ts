@@ -1,10 +1,6 @@
-import { memoFunction } from "@coven/memo";
-import { isUndefined } from "@coven/predicates";
-import type { Unary } from "@coven/types";
-import { always } from "@coven/utils";
-import { numberToPrecise } from "./numberToPrecise.ts";
+import { fallbackAdd } from "./fallbackAdd.ts";
+import { numberFunction, type NumberFunction } from "./numberFunction.ts";
 import { preciseAdd } from "./preciseAdd.ts";
-import { preciseToNumber } from "./preciseToNumber.ts";
 
 /**
  * Curried add operation using {@linkcode preciseAdd}.
@@ -20,24 +16,4 @@ import { preciseToNumber } from "./preciseToNumber.ts";
  * @param augend Augend value to be on the right side.
  * @returns Curried function with `augend` in context.
  */
-export const add: Unary<
-	[augend: number],
-	Unary<[addend: number], number>
-> = memoFunction((augend) => {
-	const preciseAugend = numberToPrecise(augend);
-	const preciseAddAugend =
-		isUndefined(preciseAugend) ? undefined : preciseAdd(...preciseAugend);
-
-	return isUndefined(preciseAugend) ?
-			always(augend)
-		:	memoFunction((addend) => {
-				const preciseAddend = numberToPrecise(addend);
-
-				return (
-						isUndefined(preciseAddend)
-							|| isUndefined(preciseAddAugend)
-					) ?
-						addend
-					:	preciseToNumber(...preciseAddAugend(...preciseAddend));
-			});
-});
+export const add: NumberFunction = numberFunction(preciseAdd, fallbackAdd);

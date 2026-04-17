@@ -38,3 +38,35 @@ Deno.test("((2 + 2) / 2 * 2) - 2 = 2", () =>
 		2,
 	),
 );
+
+Deno.test("Infinity + 2 = Infinity", () =>
+	assertStrictEquals(calculate(Infinity).plus(2).total, Infinity),
+);
+
+Deno.test("NaN + 2 = NaN", () =>
+	assertStrictEquals(calculate(NaN).plus(2).total, NaN),
+);
+
+Deno.test("Infinity + Infinity = Infinity", () =>
+	assertStrictEquals(calculate(Infinity).plus(Infinity).total, Infinity),
+);
+
+Deno.test("2 + Infinity = Infinity", () =>
+	assertStrictEquals(calculate(2).plus(Infinity).total, Infinity),
+);
+
+Deno.test("NaN + Infinity = NaN", () =>
+	assertStrictEquals(calculate(NaN).plus(Infinity).total, NaN),
+);
+
+Deno.test("NaN + NaN = NaN", () =>
+	assertStrictEquals(calculate(NaN).plus(NaN).total, NaN),
+);
+
+Deno.test("2 + NaN = NaN", () =>
+	assertStrictEquals(calculate(2).plus(NaN).total, NaN),
+);
+
+Deno.test("Infinity + NaN = NaN", () =>
+	assertStrictEquals(calculate(Infinity).plus(NaN).total, NaN),
+);

@@ -5,6 +5,8 @@ const addPositive = add(2);
 const addNegative = add(-2);
 const addFloat = add(0.2);
 const addNegativeFloat = add(-0.2);
+const addInfinity = add(Infinity);
+const addNaN = add(NaN);
 
 Deno.test("1 + 2 = 3", () => assertStrictEquals(addPositive(1), 3));
 
@@ -54,14 +56,28 @@ Deno.test("0.00001 + 5 = 5.00001", () =>
 	assertStrictEquals(add(5)(0.000_01), 5.000_01),
 );
 
-Deno.test("Infinity + 13 = Infinity", () =>
-	assertStrictEquals(add(13)(Infinity), Infinity),
+Deno.test("Infinity + 2 = Infinity", () =>
+	assertStrictEquals(addPositive(Infinity), Infinity),
 );
 
-Deno.test("13 + Infinity = Infinity", () =>
-	assertStrictEquals(add(Infinity)(13), Infinity),
+Deno.test("NaN + 2 = NaN", () => assertStrictEquals(addPositive(NaN), NaN));
+
+Deno.test("Infinity + Infinity = Infinity", () =>
+	assertStrictEquals(addInfinity(Infinity), Infinity),
 );
 
-Deno.test("NaN + 13 = NaN", () => assertStrictEquals(add(NaN)(13), NaN));
+Deno.test("2 + Infinity = Infinity", () =>
+	assertStrictEquals(addInfinity(2), Infinity),
+);
 
-Deno.test("13 + NaN = NaN", () => assertStrictEquals(add(13)(NaN), NaN));
+Deno.test("NaN + Infinity = NaN", () =>
+	assertStrictEquals(addInfinity(NaN), NaN),
+);
+
+Deno.test("NaN + NaN = NaN", () => assertStrictEquals(addNaN(NaN), NaN));
+
+Deno.test("2 + NaN = NaN", () => assertStrictEquals(addNaN(2), NaN));
+
+Deno.test("Infinity + NaN = NaN", () =>
+	assertStrictEquals(addNaN(Infinity), NaN),
+);

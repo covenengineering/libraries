@@ -1,5 +1,4 @@
-import type { Maybe } from "@coven/types";
-import type { Precise } from "./PreciseTuple.ts";
+import type { Precise } from "./precise.ts";
 
 /**
  * Object returned by the `calculate` function, which recursively returns itself
@@ -31,9 +30,9 @@ export type Calculation = Readonly<{
 	plus: (addend: number) => Calculation;
 
 	/**
-	 * Current {@linkcode Precise} value.
+	 * Current {@linkcode Precise} value (can be `NaN` or `Infinity`).
 	 */
-	precise: Maybe<Precise>;
+	precise: Precise | number;
 
 	/**
 	 * Multiplies previous `value` in calculation times the given `multiplier`.
@@ -46,5 +45,5 @@ export type Calculation = Readonly<{
 	/**
 	 * Current `number` value.
 	 */
-	total: Maybe<number>;
+	total: number;
 }>;

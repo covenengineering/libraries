@@ -5,6 +5,8 @@ const multiplyPositive = multiply(2);
 const multiplyNegative = multiply(-2);
 const multiplyFloat = multiply(0.2);
 const multiplyNegativeFloat = multiply(-0.2);
+const multiplyInfinity = multiply(Infinity);
+const multiplyNaN = multiply(NaN);
 
 Deno.test("1 * 2 = 2", () => assertStrictEquals(multiplyPositive(1), 2));
 
@@ -74,14 +76,30 @@ Deno.test("13 * Infinity = Infinity", () =>
 	assertStrictEquals(multiply(Infinity)(13), Infinity),
 );
 
-Deno.test("Infinity * 13 = Infinity", () =>
-	assertStrictEquals(multiply(13)(Infinity), Infinity),
+Deno.test("Infinity * 2 = Infinity", () =>
+	assertStrictEquals(multiplyPositive(Infinity), Infinity),
 );
 
-Deno.test("13 * Infinity = Infinity", () =>
-	assertStrictEquals(multiply(Infinity)(13), Infinity),
+Deno.test("NaN * 2 = NaN", () =>
+	assertStrictEquals(multiplyPositive(NaN), NaN),
 );
 
-Deno.test("NaN * 13 = NaN", () => assertStrictEquals(multiply(NaN)(13), NaN));
+Deno.test("Infinity * Infinity = Infinity", () =>
+	assertStrictEquals(multiplyInfinity(Infinity), Infinity),
+);
 
-Deno.test("13 * NaN = NaN", () => assertStrictEquals(multiply(13)(NaN), NaN));
+Deno.test("2 * Infinity = Infinity", () =>
+	assertStrictEquals(multiplyInfinity(2), Infinity),
+);
+
+Deno.test("NaN * Infinity = NaN", () =>
+	assertStrictEquals(multiplyInfinity(NaN), NaN),
+);
+
+Deno.test("NaN * NaN = NaN", () => assertStrictEquals(multiplyNaN(NaN), NaN));
+
+Deno.test("2 * NaN = NaN", () => assertStrictEquals(multiplyNaN(2), NaN));
+
+Deno.test("Infinity * NaN = NaN", () =>
+	assertStrictEquals(multiplyNaN(Infinity), NaN),
+);

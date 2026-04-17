@@ -1,14 +1,18 @@
-import { isUndefined } from "@coven/predicates";
-import type { Maybe } from "@coven/types";
 import type { Calculation } from "./Calculation.ts";
+import { fallbackAdd } from "./fallbackAdd.ts";
+import { fallbackDivide } from "./fallbackDivide.ts";
+import { fallbackMultiply } from "./fallbackMultiply.ts";
+import { fallbackSubtract } from "./fallbackSubtract.ts";
+import { isPrecise } from "./isPrecise.ts";
+import type { NumberFunction } from "./numberFunction.ts";
 import { numberToPrecise } from "./numberToPrecise.ts";
+import type { Precise } from "./precise.ts";
 import { preciseAdd } from "./preciseAdd.ts";
 import { preciseDivide } from "./preciseDivide.ts";
 import type { PreciseFunction } from "./PreciseFunction.ts";
 import { preciseMultiply } from "./preciseMultiply.ts";
 import { preciseSubtract } from "./preciseSubtract.ts";
 import { preciseToNumber } from "./preciseToNumber.ts";
-import type { Precise } from "./PreciseTuple.ts";
 
 /**
  * A chainable set of operations.
@@ -26,34 +30,34 @@ import type { Precise } from "./PreciseTuple.ts";
  * @returns An object with `divideBy`, `minus`, `plus` and `times` methods and a `value` property.
  */
 export const calculate = (value: number): Calculation => {
-	let precise = numberToPrecise(value);
+	let left = numberToPrecise(value);
 
-	const calculationMethod =
-		<Output extends Precise | Maybe<Precise>>(
-			preciseFunction: PreciseFunction<Output>,
+	const method =
+		<Output extends Precise | number>(
+			precise: PreciseFunction<Output>,
+			fallback: NumberFunction,
 		) =>
 		(right: number): Calculation => {
-			if (!isUndefined(precise)) {
-				const preciseRight = numberToPrecise(right);
+			const preciseRight = numberToPrecise(right);
 
-				if (!isUndefined(preciseRight)) {
-					precise = preciseFunction(...preciseRight)(...precise);
-				}
-			}
+			left =
+				isPrecise(left) && isPrecise(preciseRight) ?
+					precise(...preciseRight)(...left)
+				:	fallback(right)(
+						isPrecise(left) ? preciseToNumber(...left) : left,
+					);
 
 			return calculation;
 		};
 
 	const calculation = Object.freeze({
-		dividedBy: calculationMethod(preciseDivide),
-		minus: calculationMethod(preciseSubtract),
-		plus: calculationMethod(preciseAdd),
-		precise,
-		times: calculationMethod(preciseMultiply),
+		dividedBy: method(preciseDivide, fallbackDivide),
+		minus: method(preciseSubtract, fallbackSubtract),
+		plus: method(preciseAdd, fallbackAdd),
+		precise: left,
+		times: method(preciseMultiply, fallbackMultiply),
 		get total() {
-			return isUndefined(precise) ? undefined : (
-					preciseToNumber(...precise)
-				);
+			return isPrecise(left) ? preciseToNumber(...left) : left;
 		},
 	});
 

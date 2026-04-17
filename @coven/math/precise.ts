@@ -1,6 +1,10 @@
 import { memo, memoFunction } from "@coven/memo";
-import type { Precise } from "./PreciseTuple.ts";
 import { getBaseAndZeroes } from "./getBaseAndZeroes.ts";
+
+/**
+ * Type to precisely represent a number as a tuple `[base, exponent]`.
+ */
+export type Precise = Readonly<[base: bigint, exponent: bigint]>;
 
 /**
  * Takes a `base` and `exponent` and normalizes it returning a {@linkcode Precise}.

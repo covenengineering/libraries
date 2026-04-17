@@ -27,7 +27,7 @@ import type { Stringable } from "@coven/types";
 export const getNumberParts: (
 	stringable: Stringable,
 ) => Partial<Readonly<Record<"integral" | "fractional" | "exponent", string>>> =
-	getGroups<["integral", "fractional", "exponent"]>(
+	getGroups<readonly ["integral", "fractional", "exponent"]>(
 		buildUnicode(
 			START,
 			group(
