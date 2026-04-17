@@ -79,8 +79,8 @@ Deno.test("0.00001 / 5 = 0.000002", () =>
 	assertStrictEquals(preciseDivide(5n, 0n)(1n, -5n), precise(2n, -6n)),
 );
 
-Deno.test("1 / 0 = undefined", () =>
-	assertStrictEquals(preciseDivide(0n, 0n)(1n, 0n), undefined),
+Deno.test("1 / 0 = Infinity", () =>
+	assertStrictEquals(preciseDivide(0n, 0n)(1n, 0n), Infinity),
 );
 
 Deno.test("Same Precise returned with same values", () =>

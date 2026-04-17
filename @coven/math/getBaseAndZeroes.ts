@@ -25,7 +25,7 @@ import type { Stringable } from "@coven/types";
 export const getBaseAndZeroes: (
 	stringable: Stringable,
 ) => Partial<Readonly<Record<"normalizedBase" | "zeroes", string>>> = getGroups<
-	["normalizedBase", "zeroes"]
+	readonly ["normalizedBase", "zeroes"]
 >(
 	buildUnicode(
 		START,
