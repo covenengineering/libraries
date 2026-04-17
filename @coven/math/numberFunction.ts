@@ -1,7 +1,6 @@
 import { memoFunction } from "@coven/memo";
 import { isFunction } from "@coven/predicates";
 import type { Unary } from "@coven/types";
-import { always } from "@coven/utils";
 import { isPrecise } from "./isPrecise.ts";
 import { numberToPrecise } from "./numberToPrecise.ts";
 import type { Precise } from "./precise.ts";
@@ -35,7 +34,7 @@ export type NumberFunction = Unary<
  */
 export const numberFunction = (
 	preciseFunction: PreciseFunction<Precise | number>,
-	fallback: NumberFunction = always,
+	fallback: NumberFunction,
 ): NumberFunction =>
 	memoFunction((right) => {
 		const preciseRight = numberToPrecise(right);
