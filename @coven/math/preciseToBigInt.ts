@@ -8,7 +8,6 @@ import type { PreciseToTypeFunction } from "./PreciseToTypeFunction.ts";
  *
  * ```typescript
  * preciseToBigInt(13n, 5n); // 1300000n
- * preciseToBigInt(13n); // 13n
  * preciseToBigInt(13n, 0n); // 13n
  * preciseToBigInt(13n, -5n); // 13n
  * ```

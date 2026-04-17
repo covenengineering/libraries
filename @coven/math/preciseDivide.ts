@@ -12,9 +12,9 @@ const alwaysUndefined = always(undefined);
  *
  * @example
  * ```typescript
- * const half = preciseDivide(2n);
+ * const half = preciseDivide(2n, 0n);
  *
- * half(1n); // [5n, -1n]
+ * half(1n, 0n); // [5n, -1n]
  * ```
  * @see {@linkcode Precise}
  * @see {@linkcode PreciseFunction}

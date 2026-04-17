@@ -10,6 +10,7 @@ import {
 	optional,
 	START,
 } from "@coven/expression";
+import type { Stringable } from "@coven/types";
 
 /**
  * Get number parts {integral, fractional and exponent}.
@@ -23,18 +24,27 @@ import {
  * getNumberParts("-13"); // { integral: -13, fractional: undefined, exponent: undefined }
  * ```
  */
-export const getNumberParts = getGroups<["integral", "fractional", "exponent"]>(
-	buildUnicode(
-		START,
-		group(
-			captureNamed("integral")(optional("-"), exists(DIGIT)),
-			optional(
-				group(escape("."), captureNamed("fractional")(exists(DIGIT))),
+export const getNumberParts: (
+	stringable: Stringable,
+) => Partial<Readonly<Record<"integral" | "fractional" | "exponent", string>>> =
+	getGroups<["integral", "fractional", "exponent"]>(
+		buildUnicode(
+			START,
+			group(
+				captureNamed("integral")(optional("-"), exists(DIGIT)),
+				optional(
+					group(
+						escape("."),
+						captureNamed("fractional")(exists(DIGIT)),
+					),
+				),
 			),
+			optional(
+				group(
+					"e",
+					captureNamed("exponent")(optional("-"), exists(DIGIT)),
+				),
+			),
+			END,
 		),
-		optional(
-			group("e", captureNamed("exponent")(optional("-"), exists(DIGIT))),
-		),
-		END,
-	),
-);
+	);

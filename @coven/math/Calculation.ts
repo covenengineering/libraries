@@ -1,5 +1,5 @@
-import { Maybe } from "@coven/types";
-import { Precise } from "./PreciseTuple.ts";
+import type { Maybe } from "@coven/types";
+import type { Precise } from "./PreciseTuple.ts";
 
 /**
  * Object returned by the `calculate` function, which recursively returns itself

@@ -9,7 +9,7 @@ import type { PreciseFunction } from "./PreciseFunction.ts";
  * ```typescript
  * const previous = preciseSubtract(1n, 0n);
  *
- * previous(14n); // [13n, 0n]
+ * previous(14n, 0n); // [13n, 0n]
  * ```
  * @see {@linkcode PreciseFunction}
  * @see {@linkcode preciseAdd}

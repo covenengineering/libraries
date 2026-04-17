@@ -11,6 +11,7 @@ import {
 	START,
 	WILDCARD,
 } from "@coven/expression";
+import type { Stringable } from "@coven/types";
 
 /**
  * Get right side zeroes (to be added to the exponent).
@@ -21,7 +22,11 @@ import {
  * getBaseAndZeroes(1n); // { normalizedBase: "1", zeroes: undefined }
  * ```
  */
-export const getBaseAndZeroes = getGroups<["normalizedBase", "zeroes"]>(
+export const getBaseAndZeroes: (
+	stringable: Stringable,
+) => Partial<Readonly<Record<"normalizedBase" | "zeroes", string>>> = getGroups<
+	["normalizedBase", "zeroes"]
+>(
 	buildUnicode(
 		START,
 		captureNamed("normalizedBase")(
