@@ -31,9 +31,10 @@ export const memoFunction = <const Cacheable extends Multary>(
 			...(parameters as ReadonlyArray<never>),
 		) as ReturnType<Cacheable>;
 
-	return ((...parameters: MemoizableTuple) =>
+	return Object.freeze((...parameters: MemoizableTuple) =>
 		memoizedOutputCache.getOrInsertComputed(
 			memo(parameters),
 			cacheReturnValue,
-		)) as unknown as Cacheable;
+		),
+	) as unknown as Cacheable;
 };
