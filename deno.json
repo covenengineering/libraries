@@ -72,9 +72,12 @@
 	},
 	"nodeModulesDir": "auto",
 	"tasks": {
+		"ci": {
+			"command": "deno clean && deno install && deno lint && deno task lint-docs && deno publish --dry-run && deno task format-check && deno task test-coverage",
+			"description": "Run all commands that run on CI"
+		},
 		"format": {
-			"TMPDIR=. deno run --allow-env=TMPDIR --allow-read=. --allow-sys=cpus --allow-write=. --ignore-env --log-level=warn --no-prompt prettier --write './**/*.{json,md,ts,tsx}'": "",
-			"command": "TMPDIR=. deno run --allow-env=TMPDIR --allow-read=. --allow-sys=cpus --allow-write=. --ignore-env --no-prompt prettier --log-level=warn --write './**/*.{json,md,ts,tsx}'",
+			"command": "TMPDIR=. deno run --allow-env=TMPDIR --allow-read=. --allow-sys=cpus --allow-write=. --ignore-env --log-level=warn --no-prompt prettier --write './**/*.{json,md,ts,tsx}'",
 			"description": "Format code using Prettier"
 		},
 		"format-check": {
