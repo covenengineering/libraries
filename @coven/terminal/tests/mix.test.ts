@@ -1,4 +1,4 @@
-import { assertEquals } from "@std/assert";
+import { assertStrictEquals } from "@std/assert";
 import { format } from "../format.ts";
 import { mix } from "../mix.ts";
 
@@ -7,14 +7,14 @@ const second = format(42, 42);
 const mixed = mix(first, second);
 
 Deno.test("Mix works", () =>
-	assertEquals(
+	assertStrictEquals(
 		mixed("Coven Engineering"),
 		second(first("Coven Engineering")),
 	),
 );
 
 Deno.test("Mix works as a template string tag function", () =>
-	assertEquals(
+	assertStrictEquals(
 		mixed`Coven Engineering ${13}`,
 		second`${first`Coven Engineering ${13}`}`,
 	),

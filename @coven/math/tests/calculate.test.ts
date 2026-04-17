@@ -70,3 +70,99 @@ Deno.test("2 + NaN = NaN", () =>
 Deno.test("Infinity + NaN = NaN", () =>
 	assertStrictEquals(calculate(Infinity).plus(NaN).total, NaN),
 );
+
+Deno.test("Infinity - 2 = Infinity", () =>
+	assertStrictEquals(calculate(Infinity).minus(2).total, Infinity),
+);
+
+Deno.test("NaN - 2 = NaN", () =>
+	assertStrictEquals(calculate(NaN).minus(2).total, NaN),
+);
+
+Deno.test("Infinity - Infinity = NaN", () =>
+	assertStrictEquals(calculate(Infinity).minus(Infinity).total, NaN),
+);
+
+Deno.test("2 - Infinity = -Infinity", () =>
+	assertStrictEquals(calculate(2).minus(Infinity).total, -Infinity),
+);
+
+Deno.test("NaN - Infinity = NaN", () =>
+	assertStrictEquals(calculate(NaN).minus(Infinity).total, NaN),
+);
+
+Deno.test("NaN - NaN = NaN", () =>
+	assertStrictEquals(calculate(NaN).minus(NaN).total, NaN),
+);
+
+Deno.test("2 - NaN = NaN", () =>
+	assertStrictEquals(calculate(2).minus(NaN).total, NaN),
+);
+
+Deno.test("Infinity - NaN = NaN", () =>
+	assertStrictEquals(calculate(Infinity).minus(NaN).total, NaN),
+);
+
+Deno.test("Infinity * 2 = Infinity", () =>
+	assertStrictEquals(calculate(Infinity).times(2).total, Infinity),
+);
+
+Deno.test("NaN * 2 = NaN", () =>
+	assertStrictEquals(calculate(NaN).times(2).total, NaN),
+);
+
+Deno.test("Infinity * Infinity = Infinity", () =>
+	assertStrictEquals(calculate(Infinity).times(Infinity).total, Infinity),
+);
+
+Deno.test("2 * Infinity = Infinity", () =>
+	assertStrictEquals(calculate(2).times(Infinity).total, Infinity),
+);
+
+Deno.test("NaN * Infinity = NaN", () =>
+	assertStrictEquals(calculate(NaN).times(Infinity).total, NaN),
+);
+
+Deno.test("NaN * NaN = NaN", () =>
+	assertStrictEquals(calculate(NaN).times(NaN).total, NaN),
+);
+
+Deno.test("2 * NaN = NaN", () =>
+	assertStrictEquals(calculate(2).times(NaN).total, NaN),
+);
+
+Deno.test("Infinity * NaN = NaN", () =>
+	assertStrictEquals(calculate(Infinity).times(NaN).total, NaN),
+);
+
+Deno.test("Infinity / 2 = Infinity", () =>
+	assertStrictEquals(calculate(Infinity).dividedBy(2).total, Infinity),
+);
+
+Deno.test("NaN / 2 = NaN", () =>
+	assertStrictEquals(calculate(NaN).dividedBy(2).total, NaN),
+);
+
+Deno.test("Infinity / Infinity = NaN", () =>
+	assertStrictEquals(calculate(Infinity).dividedBy(Infinity).total, NaN),
+);
+
+Deno.test("2 / Infinity = 0", () =>
+	assertStrictEquals(calculate(2).dividedBy(Infinity).total, 0),
+);
+
+Deno.test("NaN / Infinity = NaN", () =>
+	assertStrictEquals(calculate(NaN).dividedBy(Infinity).total, NaN),
+);
+
+Deno.test("NaN / NaN = NaN", () =>
+	assertStrictEquals(calculate(NaN).dividedBy(NaN).total, NaN),
+);
+
+Deno.test("2 / NaN = NaN", () =>
+	assertStrictEquals(calculate(2).dividedBy(NaN).total, NaN),
+);
+
+Deno.test("Infinity / NaN = NaN", () =>
+	assertStrictEquals(calculate(Infinity).dividedBy(NaN).total, NaN),
+);

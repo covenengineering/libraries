@@ -1,4 +1,4 @@
-import { assertEquals } from "@std/assert";
+import { assertStrictEquals } from "@std/assert";
 import { reduce } from "../reduce.ts";
 
 const add = (augend: number) => (addend: number) => addend + augend;
@@ -7,5 +7,5 @@ const sumFrom0 = sum(0);
 
 Deno.test(
 	"an array of numbers and a sum reducer returns the total sum",
-	async () => assertEquals(await sumFrom0([1, 2, 3]), 6),
+	async () => assertStrictEquals(await sumFrom0([1, 2, 3]), 6),
 );

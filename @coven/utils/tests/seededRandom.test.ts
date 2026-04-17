@@ -1,9 +1,9 @@
-import { assertEquals } from "@std/assert";
+import { assertEquals, assertStrictEquals } from "@std/assert";
 import { seededRandom } from "../seededRandom.ts";
 
 Deno.test(
 	'1 cryptoNumber call with a "test" seed returns the same result',
-	() => assertEquals(seededRandom("test"), 0.069_744_775_770_232_08),
+	() => assertStrictEquals(seededRandom("test"), 0.069_744_775_770_232_08),
 );
 
 Deno.test(
