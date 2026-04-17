@@ -9,6 +9,7 @@ import {
 	START,
 	WORD,
 } from "@coven/expression";
+import type { Stringable } from "@coven/types";
 
 /**
  * Get event name out of string (or undefined otherwise).
@@ -19,7 +20,9 @@ import {
  * getEventName("offExample"); // { name: undefined }
  * ```
  */
-export const getEventName = getGroups<readonly ["name"]>(
+export const getEventName: (
+	stringable: Stringable,
+) => Partial<Readonly<Record<"name", string>>> = getGroups<readonly ["name"]>(
 	buildUnicode(
 		START,
 		"on",

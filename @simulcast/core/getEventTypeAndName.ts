@@ -10,7 +10,7 @@ import {
 	START,
 	WORD,
 } from "@coven/expression";
-import { Stringable } from "@coven/types";
+import type { Stringable } from "@coven/types";
 
 /**
  * Get `on` and `emit` type from event aliases and name..
