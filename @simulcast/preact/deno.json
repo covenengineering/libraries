@@ -11,5 +11,5 @@
 		"preact": "npm:preact@^10.29.1"
 	},
 	"name": "@simulcast/preact",
-	"version": "0.9.4"
+	"version": "0.9.5"
 }
