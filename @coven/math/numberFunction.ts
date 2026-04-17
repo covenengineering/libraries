@@ -1,7 +1,7 @@
 import { memoFunction } from "@coven/memo";
 import { isFunction } from "@coven/predicates";
 import type { Unary } from "@coven/types";
-import { always } from "../utils/always.ts";
+import { always } from "@coven/utils";
 import { isPrecise } from "./isPrecise.ts";
 import { numberToPrecise } from "./numberToPrecise.ts";
 import type { Precise } from "./precise.ts";

@@ -27,6 +27,9 @@ jobs:
             - name: Lint docs
               run: deno task lint-docs
 
+            - name: Check publish
+              run: deno publish --dry-run
+
             - name: Format
               run: deno task format-check
 
