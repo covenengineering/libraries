@@ -13,5 +13,5 @@
 		"react-dom": "npm:react-dom@^19.2.5"
 	},
 	"name": "@coven/pair",
-	"version": "0.9.5"
+	"version": "0.9.6"
 }
