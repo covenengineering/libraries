@@ -7,7 +7,13 @@ import type { PreciseFunction } from "./PreciseFunction.ts";
 const alwaysInfinity = always(Infinity);
 
 /**
+ * @internal We have to define a max so we avoid looping forever.
+ */
+const MAX_DECIMAL_PLACES = 256n;
+
+/**
  * Curried divide operation using the internal {@linkcode Precise} type.
+ * Precision for float values has a maximum of 256.
  *
  * @example
  * ```typescript
@@ -25,22 +31,27 @@ export const preciseDivide: PreciseFunction<Precise | number> = memoFunction(
 	(divisorBase, divisorExponent) =>
 		divisorBase === 0n ? alwaysInfinity : (
 			memoFunction((dividendBase, dividendExponent) => {
-				let exponent = 0n;
-				let base = dividendBase / divisorBase;
+				if (dividendBase === 0n) {
+					return precise(0n, 0n);
+				} else {
+					let exponent = 0n;
+					let base = dividendBase / divisorBase;
 
-				for (
-					let dividend = dividendBase;
-					base * divisorBase !== dividend;
-				) {
-					exponent += 1n;
-					dividend = dividendBase * 10n ** exponent;
-					base = dividend / divisorBase;
+					for (
+						let dividend = dividendBase;
+						exponent < MAX_DECIMAL_PLACES
+						&& base * divisorBase !== dividend;
+					) {
+						exponent += 1n;
+						dividend = dividendBase * 10n ** exponent;
+						base = dividend / divisorBase;
+					}
+
+					return precise(
+						base,
+						dividendExponent - exponent - divisorExponent,
+					);
 				}
-
-				return precise(
-					base,
-					dividendExponent - exponent - divisorExponent,
-				);
 			})
 		),
 );

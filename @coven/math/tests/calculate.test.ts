@@ -166,3 +166,7 @@ Deno.test("2 / NaN = NaN", () =>
 Deno.test("Infinity / NaN = NaN", () =>
 	assertStrictEquals(calculate(Infinity).dividedBy(NaN).total, NaN),
 );
+
+Deno.test("1 / 3 * 3 = 1", () =>
+	assertStrictEquals(calculate(1).dividedBy(3).times(3).total, 1),
+);
