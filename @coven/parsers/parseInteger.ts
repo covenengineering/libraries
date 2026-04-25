@@ -31,6 +31,6 @@ export const parseInteger: (radix: Radix) => NumberParser = memoFunction(
 		 * @param string String to parse.
 		 * @returns Parsed `number` or `undefined` if it fails.
 		 */
-		(string) =>
-			undefineNaN(parseInt(string, radix as number)),
+		(stringable) =>
+			undefineNaN(parseInt(`${stringable}`, radix as number)),
 );
