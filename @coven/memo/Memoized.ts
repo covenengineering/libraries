@@ -25,7 +25,7 @@ export type Memoized<Type extends Memoizable> =
 		Type[number] extends Memoizable ?
 			"0" extends keyof Type ?
 				Type["length"] extends 1 ? readonly [Memoized<Type[0]>]
-				: Type extends [infer First, ...infer Rest] ?
+				: Type extends readonly [infer First, ...infer Rest] ?
 					First extends Memoizable ?
 						Rest extends MemoizableTuple ?
 							readonly [Memoized<First>, ...Memoized<Rest>]
