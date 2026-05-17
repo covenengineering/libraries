@@ -18,6 +18,7 @@ export { isValidExpression } from "./isValidExpression.ts";
 export type { ListExpressionSeparatorToken } from "./ListExpressionSeparatorToken.ts";
 export type { ListField } from "./ListField.ts";
 export type { ListString } from "./ListString.ts";
+export { minutes } from "./minutes.ts";
 export type { MonthValue } from "./MonthValue.ts";
 export { nextISODate } from "./nextISODate.ts";
 export { nextISODates } from "./nextISODates.ts";

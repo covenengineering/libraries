@@ -1,10 +1,11 @@
 import { buildUnicode, DIGIT, escape, join, quantity } from "@coven/expression";
-import { EMPTY_ITERABLE_ITERATOR, filter, map, range } from "@coven/iterables";
+import { EMPTY_ITERABLE_ITERATOR, filter, map } from "@coven/iterables";
 import { memoFunction } from "@coven/memo";
 import { isString, isUndefined } from "@coven/predicates";
 import type { ISODate, Maybe, Unary } from "@coven/types";
 import type { CronObject } from "./CronObject.ts";
 import type { CronString } from "./CronString.ts";
+import { minutes } from "./minutes.ts";
 import { parse } from "./parse.ts";
 import { stringify } from "./stringify.ts";
 import { timestampInCron } from "./timestampInCron.ts";
@@ -15,8 +16,6 @@ const dateReplace = join(
 	quantity(3)(DIGIT),
 	"Z",
 );
-
-const minutesRange = range(1)(1)(Infinity);
 
 const filterIsISODate = filter(
 	isString as (value: Maybe<ISODate>) => value is ISODate,
@@ -39,8 +38,10 @@ export const nextISODates: Unary<
 	[isoDate: ISODate],
 	Unary<[cron: CronString | Partial<CronObject>], IterableIterator<ISODate>>
 > = memoFunction((isoDate) => {
-	const plainDateTime = Temporal.PlainDateTime.from(
-		isoDate.replace(buildUnicode(dateReplace), "00.000"),
+	const minutesIterableIterator = minutes(
+		Temporal.PlainDateTime.from(
+			isoDate.replace(buildUnicode(dateReplace), "00.000"),
+		),
 	);
 
 	return memoFunction((cron) => {
@@ -48,15 +49,10 @@ export const nextISODates: Unary<
 			isString(cron) ? cron : (stringify(cron) ?? ("" as CronString)),
 		);
 
-		if (isUndefined(cronObject)) {
-			return EMPTY_ITERABLE_ITERATOR;
-		} else {
-			const validDate = timestampInCron(cronObject);
-			const mapValidDate = map((minutes: number) =>
-				validDate(plainDateTime.add({ minutes })),
-			);
-
-			return filterIsISODate(mapValidDate(minutesRange));
-		}
+		return isUndefined(cronObject) ?
+				EMPTY_ITERABLE_ITERATOR
+			:	filterIsISODate(
+					map(timestampInCron(cronObject))(minutesIterableIterator),
+				);
 	});
 });
