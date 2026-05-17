@@ -1,26 +1,22 @@
+import type { Numeric } from "@coven/types";
+import { createObject } from "@coven/utils";
 import type { Calculation } from "./Calculation.ts";
-import { fallbackAdd } from "./fallbackAdd.ts";
-import { fallbackDivide } from "./fallbackDivide.ts";
-import { fallbackMultiply } from "./fallbackMultiply.ts";
-import { fallbackSubtract } from "./fallbackSubtract.ts";
-import { isPrecise } from "./isPrecise.ts";
-import type { NumberFunction } from "./numberFunction.ts";
-import { numberToPrecise } from "./numberToPrecise.ts";
-import type { Precise } from "./precise.ts";
+import { numericToPrecise } from "./numericToPrecise.ts";
 import { preciseAdd } from "./preciseAdd.ts";
 import { preciseDivide } from "./preciseDivide.ts";
 import type { PreciseFunction } from "./PreciseFunction.ts";
 import { preciseMultiply } from "./preciseMultiply.ts";
 import { preciseSubtract } from "./preciseSubtract.ts";
 import { preciseToNumber } from "./preciseToNumber.ts";
+import { preciseToString } from "./preciseToString.ts";
 
 /**
  * A chainable set of operations.
  *
  * @example
  * ```typescript
- * calculate(0.1).plus(0.2).total; // 0.3
- * calculate(0.7).plus(0.3).dividedBy(4).times(2).minus(0.2).total; // 0.3
+ * calculate(0.1).plus(0.2).valueOf(); // 0.3
+ * calculate(0.7).plus(0.3).over(4).times(2).minus(0.2).valueOf(); // 0.3
  * ```
  * @see {@linkcode preciseAdd}
  * @see {@linkcode preciseDivide}
@@ -29,37 +25,31 @@ import { preciseToNumber } from "./preciseToNumber.ts";
  * @param value Value to run operations on.
  * @returns An object with `divideBy`, `minus`, `plus` and `times` methods and a `value` property.
  */
-export const calculate = (value: number): Calculation => {
-	let left = numberToPrecise(value);
+export const calculate = (value: Numeric): Calculation => {
+	/** @internal Current value (always holds a {@linkcode Precise}). */
+	let left = numericToPrecise(value);
 
-	const method =
-		<Output extends Precise | number>(
-			precise: PreciseFunction<Output>,
-			fallback: NumberFunction,
-		) =>
-		(right: number): Calculation => {
-			const preciseRight = numberToPrecise(right);
+	/** Curried function to generate the methods for each precise function */
+	const method = (preciseFunction: PreciseFunction) =>
+		({
+			get:
+				() =>
+				(right: Numeric): Calculation => (
+					(left = preciseFunction(numericToPrecise(right))(left)),
+					calculation
+				),
+		}) as const satisfies PropertyDescriptor;
 
-			left =
-				isPrecise(left) && isPrecise(preciseRight) ?
-					precise(...preciseRight)(...left)
-				:	fallback(right)(
-						isPrecise(left) ? preciseToNumber(...left) : left,
-					);
-
-			return calculation;
-		};
-
-	const calculation = Object.freeze({
-		dividedBy: method(preciseDivide, fallbackDivide),
-		minus: method(preciseSubtract, fallbackSubtract),
-		plus: method(preciseAdd, fallbackAdd),
-		precise: left,
-		times: method(preciseMultiply, fallbackMultiply),
-		get total() {
-			return isPrecise(left) ? preciseToNumber(...left) : left;
-		},
-	});
+	/** Output object (read only and as lazy as possible) */
+	const calculation = Object.defineProperties(createObject(), {
+		minus: method(preciseSubtract),
+		over: method(preciseDivide),
+		plus: method(preciseAdd),
+		raw: { get: () => left },
+		times: method(preciseMultiply),
+		toString: { value: () => preciseToString(left) },
+		valueOf: { value: () => preciseToNumber(left) },
+	}) as Calculation;
 
 	return calculation;
 };

@@ -66,8 +66,8 @@ Deno.test("0.00001 / 5 = 0.000002", () =>
 	assertStrictEquals(divide(5)(0.000_01), 0.000_002),
 );
 
-Deno.test("Infinity / 2 = Infinity", () =>
-	assertStrictEquals(dividePositive(Infinity), Infinity),
+Deno.test("Infinity / 2 = NaN", () =>
+	assertStrictEquals(dividePositive(Infinity), NaN),
 );
 
 Deno.test("NaN / 2 = NaN", () => assertStrictEquals(dividePositive(NaN), NaN));
@@ -76,7 +76,9 @@ Deno.test("Infinity / Infinity = NaN", () =>
 	assertStrictEquals(divideInfinity(Infinity), NaN),
 );
 
-Deno.test("2 / Infinity = 0", () => assertStrictEquals(divideInfinity(2), 0));
+Deno.test("2 / Infinity = NaN", () =>
+	assertStrictEquals(divideInfinity(2), NaN),
+);
 
 Deno.test("NaN / Infinity = NaN", () =>
 	assertStrictEquals(divideInfinity(NaN), NaN),

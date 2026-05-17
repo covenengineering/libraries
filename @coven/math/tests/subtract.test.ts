@@ -70,8 +70,8 @@ Deno.test("0.00001 - 5 = -4.99999", () =>
 
 Deno.test("1 - 1 = 0", () => assertStrictEquals(subtract(1)(1), 0));
 
-Deno.test("Infinity - 2 = Infinity", () =>
-	assertStrictEquals(subtractPositive(Infinity), Infinity),
+Deno.test("Infinity - 2 = NaN", () =>
+	assertStrictEquals(subtractPositive(Infinity), NaN),
 );
 
 Deno.test("NaN - 2 = NaN", () =>
@@ -82,8 +82,8 @@ Deno.test("Infinity - Infinity = NaN", () =>
 	assertStrictEquals(subtractInfinity(Infinity), NaN),
 );
 
-Deno.test("2 - Infinity = -Infinity", () =>
-	assertStrictEquals(subtractInfinity(2), -Infinity),
+Deno.test("2 - Infinity = NaN", () =>
+	assertStrictEquals(subtractInfinity(2), NaN),
 );
 
 Deno.test("NaN - Infinity = NaN", () =>

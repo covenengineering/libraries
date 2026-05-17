@@ -68,28 +68,28 @@ Deno.test("0.00001 * 5 = 0.00005", () =>
 	assertStrictEquals(multiply(5)(0.000_01), 0.000_05),
 );
 
-Deno.test("Infinity * Infinity = Infinity", () =>
-	assertStrictEquals(multiply(Infinity)(Infinity), Infinity),
+Deno.test("Infinity * Infinity = NaN", () =>
+	assertStrictEquals(multiply(Infinity)(Infinity), NaN),
 );
 
-Deno.test("13 * Infinity = Infinity", () =>
-	assertStrictEquals(multiply(Infinity)(13), Infinity),
+Deno.test("13 * Infinity = NaN", () =>
+	assertStrictEquals(multiply(Infinity)(13), NaN),
 );
 
-Deno.test("Infinity * 2 = Infinity", () =>
-	assertStrictEquals(multiplyPositive(Infinity), Infinity),
+Deno.test("Infinity * 2 = NaN", () =>
+	assertStrictEquals(multiplyPositive(Infinity), NaN),
 );
 
 Deno.test("NaN * 2 = NaN", () =>
 	assertStrictEquals(multiplyPositive(NaN), NaN),
 );
 
-Deno.test("Infinity * Infinity = Infinity", () =>
-	assertStrictEquals(multiplyInfinity(Infinity), Infinity),
+Deno.test("Infinity * Infinity = NaN", () =>
+	assertStrictEquals(multiplyInfinity(Infinity), NaN),
 );
 
-Deno.test("2 * Infinity = Infinity", () =>
-	assertStrictEquals(multiplyInfinity(2), Infinity),
+Deno.test("2 * Infinity = NaN", () =>
+	assertStrictEquals(multiplyInfinity(2), NaN),
 );
 
 Deno.test("NaN * Infinity = NaN", () =>

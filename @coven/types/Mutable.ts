@@ -3,9 +3,9 @@
  *
  * @example
  * ```typescript
- * Mutable<{ readonly coven: "engineering" }>; // { coven: "engineering" }
- * Mutable<ReadonlyArray<number>>; // Array<number>
- * Mutable<readonly [coven: "engineering"]>; // [coven: "engineering"]
+ * type Example1 = Mutable<{ readonly coven: "engineering" }>; // { coven: "engineering" }
+ * type Example2 = Mutable<ReadonlyArray<number>>; // Array<number>
+ * type Example3 = Mutable<readonly [coven: "engineering"]>; // [coven: "engineering"]
  * ```
  * @template ObjectOrArray Object or array to make mutable.
  */

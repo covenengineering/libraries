@@ -1,131 +1,173 @@
 import { assertStrictEquals } from "@std/assert";
+import { EXPONENT_MIN } from "../EXPONENT_MIN.ts";
 import { precise } from "../precise.ts";
+import { PRECISE_NAN } from "../PRECISE_NAN.ts";
+import { PRECISE_ONE } from "../PRECISE_ONE.ts";
+import { PRECISE_ZERO } from "../PRECISE_ZERO.ts";
 import { preciseDivide } from "../preciseDivide.ts";
 
-const preciseDividePositive = preciseDivide(2n, 0n);
-const preciseDivideNegative = preciseDivide(-2n, 0n);
-const preciseDivideFloat = preciseDivide(2n, -1n);
-const preciseDivideNegativeFloat = preciseDivide(-2n, -1n);
+const preciseDividePositive = preciseDivide(precise(2n, 0n));
+const preciseDivideNegative = preciseDivide(precise(-2n, 0n));
+const preciseDivideFloat = preciseDivide(precise(2n, -1n));
+const preciseDivideNegativeFloat = preciseDivide(precise(-2n, -1n));
 
 Deno.test("1 / 2 = 0.5", () =>
-	assertStrictEquals(preciseDividePositive(1n, 0n), precise(5n, -1n)),
+	assertStrictEquals(preciseDividePositive(PRECISE_ONE), precise(5n, -1n)),
 );
 
 Deno.test("-1 / 2 = -0.5", () =>
-	assertStrictEquals(preciseDividePositive(-1n, 0n), precise(-5n, -1n)),
+	assertStrictEquals(
+		preciseDividePositive(precise(-1n, 0n)),
+		precise(-5n, -1n),
+	),
 );
 
 Deno.test("0.1 / 2 = 0.05", () =>
-	assertStrictEquals(preciseDividePositive(1n, -1n), precise(5n, -2n)),
+	assertStrictEquals(
+		preciseDividePositive(precise(1n, -1n)),
+		precise(5n, -2n),
+	),
 );
 
 Deno.test("-0.1 / 2 = 0.05", () =>
-	assertStrictEquals(preciseDividePositive(-1n, -1n), precise(-5n, -2n)),
+	assertStrictEquals(
+		preciseDividePositive(precise(-1n, -1n)),
+		precise(-5n, -2n),
+	),
 );
 
 Deno.test("1 / -2 = -0.5", () =>
-	assertStrictEquals(preciseDivideNegative(1n, 1n), precise(-5n, 0n)),
+	assertStrictEquals(
+		preciseDivideNegative(precise(1n, 1n)),
+		precise(-5n, 0n),
+	),
 );
 
 Deno.test("-1 / -2 = 0.5", () =>
-	assertStrictEquals(preciseDivideNegative(-1n, 0n), precise(5n, -1n)),
+	assertStrictEquals(
+		preciseDivideNegative(precise(-1n, 0n)),
+		precise(5n, -1n),
+	),
 );
 
 Deno.test("0.1 / -2 = 0.05", () =>
-	assertStrictEquals(preciseDivideNegative(1n, -1n), precise(-5n, -2n)),
+	assertStrictEquals(
+		preciseDivideNegative(precise(1n, -1n)),
+		precise(-5n, -2n),
+	),
 );
 
 Deno.test("-0.1 / -2 = 0.05", () =>
-	assertStrictEquals(preciseDivideNegative(-1n, -1n), precise(5n, -2n)),
+	assertStrictEquals(
+		preciseDivideNegative(precise(-1n, -1n)),
+		precise(5n, -2n),
+	),
 );
 
 Deno.test("1 / 0.2 = 5", () =>
-	assertStrictEquals(preciseDivideFloat(1n, 0n), precise(5n, 0n)),
+	assertStrictEquals(preciseDivideFloat(PRECISE_ONE), precise(5n, 0n)),
 );
 
 Deno.test("-1 / 0.2 = -5", () =>
-	assertStrictEquals(preciseDivideFloat(-1n, 0n), precise(-5n, 0n)),
+	assertStrictEquals(preciseDivideFloat(precise(-1n, 0n)), precise(-5n, 0n)),
 );
 
 Deno.test("0.1 / 0.2 = 0.5", () =>
-	assertStrictEquals(preciseDivideFloat(1n, -1n), precise(5n, -1n)),
+	assertStrictEquals(preciseDivideFloat(precise(1n, -1n)), precise(5n, -1n)),
 );
 
 Deno.test("-0.1 / 0.2 = -0.5", () =>
-	assertStrictEquals(preciseDivideFloat(-1n, -1n), precise(-5n, -1n)),
+	assertStrictEquals(
+		preciseDivideFloat(precise(-1n, -1n)),
+		precise(-5n, -1n),
+	),
 );
 
 Deno.test("1 / -0.2 = -5", () =>
-	assertStrictEquals(preciseDivideNegativeFloat(1n, 0n), precise(-5n, 0n)),
+	assertStrictEquals(
+		preciseDivideNegativeFloat(PRECISE_ONE),
+		precise(-5n, 0n),
+	),
 );
 
 Deno.test("-1 / -0.2 = 5", () =>
-	assertStrictEquals(preciseDivideNegativeFloat(-1n, 0n), precise(5n, 0n)),
+	assertStrictEquals(
+		preciseDivideNegativeFloat(precise(-1n, 0n)),
+		precise(5n, 0n),
+	),
 );
 
 Deno.test("0.1 / -0.2 = -0.5", () =>
-	assertStrictEquals(preciseDivideNegativeFloat(1n, -1n), precise(-5n, -1n)),
+	assertStrictEquals(
+		preciseDivideNegativeFloat(precise(1n, -1n)),
+		precise(-5n, -1n),
+	),
 );
 
 Deno.test("-0.1 / -0.2 = 0.5", () =>
-	assertStrictEquals(preciseDivideNegativeFloat(-1n, -1n), precise(5n, -1n)),
+	assertStrictEquals(
+		preciseDivideNegativeFloat(precise(-1n, -1n)),
+		precise(5n, -1n),
+	),
 );
 
 Deno.test("5 / 0.00001 = 500000", () =>
-	assertStrictEquals(preciseDivide(1n, -5n)(5n, 0n), precise(5n, 5n)),
+	assertStrictEquals(
+		preciseDivide(precise(1n, -5n))(precise(5n, 0n)),
+		precise(5n, 5n),
+	),
 );
 
 Deno.test("0.00001 / 5 = 0.000002", () =>
-	assertStrictEquals(preciseDivide(5n, 0n)(1n, -5n), precise(2n, -6n)),
+	assertStrictEquals(
+		preciseDivide(precise(5n, 0n))(precise(1n, -5n)),
+		precise(2n, -6n),
+	),
 );
 
 Deno.test("1 / 0 = Infinity", () =>
-	assertStrictEquals(preciseDivide(0n, 0n)(1n, 0n), Infinity),
+	assertStrictEquals(preciseDivide(PRECISE_ZERO)(PRECISE_ONE), PRECISE_NAN),
 );
 
 Deno.test("0 / 2 = 0", () =>
-	assertStrictEquals(preciseDivide(2n, 0n)(0n, 0n), precise(0n, 0n)),
-);
-
-Deno.test(
-	"1 / 3 = 0.3333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333",
-	() =>
-		assertStrictEquals(
-			preciseDivide(3n, 0n)(1n, 0n),
-			precise(
-				3333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333n,
-				-256n,
-			),
-		),
-);
-
-Deno.test(
-	"22 / 7 = 3.1428571428571428571428571428571428571428571428571428571428571428571428571428571428571428571428571428571428571428571428571428571428571428571428571428571428571428571428571428571428571428571428571428571428571428571428571428571428571428571428571428571428571428",
-	() =>
-		assertStrictEquals(
-			preciseDivide(7n, 0n)(22n, 0n),
-			precise(
-				31428571428571428571428571428571428571428571428571428571428571428571428571428571428571428571428571428571428571428571428571428571428571428571428571428571428571428571428571428571428571428571428571428571428571428571428571428571428571428571428571428571428571428n,
-				-256n,
-			),
-		),
-);
-
-Deno.test(
-	"103993 / 33102 = 3.1415926530119026040722614947737296840070086399613316415926530119026040722614947737296840070086399613316415926530119026040722614947737296840070086399613316415926530119026040722614947737296840070086399613316415926530119026040722614947737296840070086399613316",
-	() =>
-		assertStrictEquals(
-			preciseDivide(33102n, 0n)(103993n, 0n),
-			precise(
-				31415926530119026040722614947737296840070086399613316415926530119026040722614947737296840070086399613316415926530119026040722614947737296840070086399613316415926530119026040722614947737296840070086399613316415926530119026040722614947737296840070086399613316n,
-				-256n,
-			),
-		),
-);
-
-Deno.test("Same Precise returned with same values", () =>
 	assertStrictEquals(
-		preciseDivide(2n, 0n)(3n, 0n),
-		preciseDivide(2n, 0n)(3n, 0n),
+		preciseDivide(precise(2n, 0n))(PRECISE_ZERO),
+		PRECISE_ZERO,
 	),
+);
+
+Deno.test(
+	"1 / 3 = 0.33333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333334",
+	() =>
+		assertStrictEquals(
+			preciseDivide(precise(3n, 0n))(PRECISE_ONE),
+			precise(
+				33333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333334n,
+				EXPONENT_MIN,
+			),
+		),
+);
+
+Deno.test(
+	"22 / 7 = 3.14285714285714285714285714285714285714285714285714285714285714285714285714285714285714285714285714285714285714285714285714285714285714285714285714285714285714285714285714285714285714285714285714285714285714285714285714285714285714285714285714285714285715",
+	() =>
+		assertStrictEquals(
+			preciseDivide(precise(7n, 0n))(precise(22n, 0n)),
+			precise(
+				314285714285714285714285714285714285714285714285714285714285714285714285714285714285714285714285714285714285714285714285714285714285714285714285714285714285714285714285714285714285714285714285714285714285714285714285714285714285714285714285714285714285715n,
+				EXPONENT_MIN,
+			),
+		),
+);
+
+Deno.test(
+	"103993 / 33102 = 3.14159265301190260407226149477372968400700863996133164159265301190260407226149477372968400700863996133164159265301190260407226149477372968400700863996133164159265301190260407226149477372968400700863996133164159265301190260407226149477372968400700863996134",
+	() =>
+		assertStrictEquals(
+			preciseDivide(precise(33102n, 0n))(precise(103993n, 0n)),
+			precise(
+				314159265301190260407226149477372968400700863996133164159265301190260407226149477372968400700863996133164159265301190260407226149477372968400700863996133164159265301190260407226149477372968400700863996133164159265301190260407226149477372968400700863996134n,
+				EXPONENT_MIN,
+			),
+		),
 );

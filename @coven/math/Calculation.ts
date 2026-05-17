@@ -1,49 +1,69 @@
+import type { Nullary, Numeric, Unary } from "@coven/types";
+import type { PreciseString } from "./PreciseString.ts";
 import type { Precise } from "./precise.ts";
 
 /**
  * Object returned by the `calculate` function, which recursively returns itself
- * from all its methods. To get the value the dev has to run `toValue()`.
+ * from all its methods. To access the current value the following properties
+ * can be used:
+ *
+ * - `raw`: Current {@linkcode Precise} value of {@linkcode Calculation}.
+ * - `toString()`: Current `string` representation of {@linkcode Precise} value of
+ * {@linkcode Calculation}. JavaScript will use this method automatically when
+ * concatenating with a string.
+ * - `valueOf()`: Current `number` representation of {@linkcode Precise} value of
+ * {@linkcode Calculation}. JavaScrip will use this method automatically when
+ * doing operation with primitive values.
  */
 export type Calculation = Readonly<{
 	/**
-	 * Divide previous `value` in calculation by the given `divisor`.
-	 *
-	 * @param divisor Value to divide by.
-	 * @returns Calculation (use `toValue()` to get the final value).
-	 */
-	dividedBy: (divisor: number) => Calculation;
-
-	/**
-	 * Subtracts given `subtrahend` to the current `value` in the calculation.
+	 * Subtracts given `subtrahend` to the current value in the
+	 * {@linkcode Calculation}.
 	 *
 	 * @param subtrahend Value to subtract.
-	 * @returns Calculation (use `toValue()` to get the final value).
+	 * @returns Calculation object.
 	 */
-	minus: (subtrahend: number) => Calculation;
+	minus: Unary<[subtrahend: Numeric], Calculation>;
 
 	/**
-	 * Adds given `addend` to the current `value` in the calculation.
+	 * Divide previous value in {@linkcode Calculation} by the given `divisor`.
+	 *
+	 * @param divisor Value to divide by.
+	 * @returns Calculation object.
+	 */
+	over: Unary<[divisor: Numeric], Calculation>;
+
+	/**
+	 * Adds given `addend` to the current value in the {@linkcode Calculation}.
 	 *
 	 * @param subtrahend Value to add.
-	 * @returns Calculation (use `toValue()` to get the final value).
+	 * @returns Calculation object.
 	 */
-	plus: (addend: number) => Calculation;
+	plus: Unary<[addend: Numeric], Calculation>;
 
 	/**
-	 * Current {@linkcode Precise} value (can be `NaN` or `Infinity`).
+	 * Current {@linkcode Precise} value.
 	 */
-	precise: Precise | number;
+	raw: Precise;
 
 	/**
-	 * Multiplies previous `value` in calculation times the given `multiplier`.
+	 * `string` representation of the current {@linkcode Precise}
+	 * {@linkcode Calculation} value.
+	 */
+	toString: Nullary<PreciseString>;
+
+	/**
+	 * Multiplies previous value in {@linkcode Calculation} times the given
+	 * `multiplier`.
 	 *
 	 * @param divisor Value to multiply by.
-	 * @returns Calculation (use `toValue()` to get the final value).
+	 * @returns Calculation object.
 	 */
-	times: (multiplier: number) => Calculation;
+	times: Unary<[multiplier: Numeric], Calculation>;
 
 	/**
-	 * Current `number` value.
+	 * `number` representation of the current {@linkcode Precise}
+	 * {@linkcode Calculation} value.
 	 */
-	total: number;
+	valueOf: Nullary<number>;
 }>;

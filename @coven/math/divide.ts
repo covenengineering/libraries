@@ -1,5 +1,4 @@
-import { fallbackDivide } from "./fallbackDivide.ts";
-import { numberFunction, type NumberFunction } from "./numberFunction.ts";
+import { numericFunction, type NumericFunction } from "./numericFunction.ts";
 import { preciseDivide } from "./preciseDivide.ts";
 
 /**
@@ -12,10 +11,8 @@ import { preciseDivide } from "./preciseDivide.ts";
  * half(1); // 0.5
  * ```
  * @see {@linkcode preciseDivide}
+ * @see {@linkcode NumericFunction}
  * @param divisor Divisor to be used in the division.
  * @returns Curried function with `divisor` in context.
  */
-export const divide: NumberFunction = numberFunction(
-	preciseDivide,
-	fallbackDivide,
-);
+export const divide: NumericFunction = numericFunction(preciseDivide);

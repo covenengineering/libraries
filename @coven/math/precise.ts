@@ -1,32 +1,46 @@
-import { memo, memoFunction } from "@coven/memo";
-import { getBaseAndZeroes } from "./getBaseAndZeroes.ts";
+import { memoFunction } from "@coven/memo";
+import type { Branded, Multary } from "@coven/types";
+import { EXPONENT_MASK } from "./EXPONENT_MASK.ts";
+import { EXPONENT_MAX } from "./EXPONENT_MAX.ts";
+import { EXPONENT_MIN } from "./EXPONENT_MIN.ts";
+import { EXPONENT_SIZE } from "./EXPONENT_SIZE.ts";
+import { powerOf10 } from "./powerOf10.ts";
+import { PRECISE_NAN } from "./PRECISE_NAN.ts";
+import { PRECISE_ZERO } from "./PRECISE_ZERO.ts";
 
 /**
- * Type to precisely represent a number as a tuple `[base, exponent]`.
- */
-export type Precise = Readonly<[base: bigint, exponent: bigint]>;
-
-/**
- * Takes a `base` and `exponent` and normalizes it returning a {@linkcode Precise}.
+ * `Precise` is a `bigint` representation of a number stored as an N bits
+ * _coefficient_ and an 8 bit _exponent_:
  *
- * @example
- * ```typescript
- * precise(13n, 0n); // [13n]
- * precise(13n, -1n); // [13n, -1n]
- * precise(1300n, 0n); // [13n, 2n]
  * ```
- * @see {@linkcode Precise}
- * @param base Base of the {@linkcode Precise}.
- * @param exponent Exponent of the {@linkcode Precise}.
- * @returns A normalized {@linkcode Precise} value.
+ * N                      8 7                   0
+ * [ coefficient (N bits) ] [ exponent (8 bits) ]
+ * ```
+ * The _exponent_ is in the range `-255` thru `0`. Numbers may not use an
+ * _exponent_ of `-255`. The value of a number is obtained from this formula:
+ *
+ * ```
+ * value = coefficient * 10 ** exponent
+ * ```
  */
-export const precise: {
-	(base: bigint, exponent: bigint): Precise;
-} = memoFunction<(base: bigint, exponent: bigint) => Precise>(
-	(base, exponent) => {
-		const { normalizedBase = "0", zeroes = "" } = getBaseAndZeroes(base);
-		const normalizedExponent = BigInt(zeroes.length) + exponent;
+export type Precise = Branded<"Precise", bigint>;
 
-		return memo([BigInt(normalizedBase), normalizedExponent]);
-	},
+/**
+ * Utility to create a {@linkcode Precise} from a `coefficient` and `exponent`.
+ *
+ * @param coefficient Coefficient part of the number.
+ * @param exponent Exponent part of the number.
+ * @returns `Precise` value.
+ */
+export const precise: Multary<
+	[coefficient: bigint, exponent: bigint],
+	Precise
+> = memoFunction(
+	(coefficient, exponent) =>
+		(exponent < EXPONENT_MIN ? PRECISE_NAN
+		: coefficient === 0n ? PRECISE_ZERO
+		: exponent > EXPONENT_MAX ?
+			(coefficient * powerOf10(exponent)) << EXPONENT_SIZE
+		:	(coefficient << EXPONENT_SIZE)
+			| (exponent & EXPONENT_MASK)) as Precise,
 );

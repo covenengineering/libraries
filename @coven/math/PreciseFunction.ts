@@ -1,10 +1,11 @@
-import type { Multary } from "@coven/types";
-import type { PreciseToTypeFunction } from "./PreciseToTypeFunction.ts";
+import type { Unary } from "@coven/types";
 import type { Precise } from "./precise.ts";
 
 /**
- * Type to represent the curried functions for operations with
- * {@linkcode Precise} values.
+ * Type to represent the curried functions for arithmetic with {@linkcode Precise}
+ * values.
  */
-export type PreciseFunction<Output extends Precise | number = Precise> =
-	Multary<Precise, PreciseToTypeFunction<Output>>;
+export type PreciseFunction = Unary<
+	[right: Precise],
+	Unary<[left: Precise], Precise>
+>;
