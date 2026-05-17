@@ -1,5 +1,5 @@
 import { map } from "@coven/iterables";
-import type { Maybe } from "@coven/types";
+import type { Maybe, Unary } from "@coven/types";
 import type { AllToken } from "./AllToken.ts";
 import type { CronObject } from "./CronObject.ts";
 import type { ListField } from "./ListField.ts";
@@ -19,20 +19,18 @@ import type { RangeField } from "./RangeField.ts";
  * ```
  * @see {@linkcode parseField}
  */
-export const parseFieldTuplesMap: (
-	fieldTuples: Iterable<Readonly<[name: keyof CronObject, field: string]>>,
-) => IterableIterator<
-	Readonly<
-		[
-			name: keyof CronObject,
-			parsedField:
-				| AllToken
-				| Maybe<number>
-				| RangeField<number>
-				| ListField<number>,
-		]
+export const parseFieldTuplesMap: Unary<
+	[fieldTuples: Iterable<Readonly<[name: keyof CronObject, field: string]>>],
+	IterableIterator<
+		Readonly<
+			[
+				name: keyof CronObject,
+				parsedField:
+					| AllToken
+					| Maybe<number>
+					| RangeField<number>
+					| ListField<number>,
+			]
+		>
 	>
-> = map(
-	([name, field]: Readonly<[name: keyof CronObject, field: string]>) =>
-		[name, parseField(field)] as const,
-);
+> = map(([name, field]) => [name, parseField(field)]);

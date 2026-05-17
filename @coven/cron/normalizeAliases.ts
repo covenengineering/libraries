@@ -1,6 +1,6 @@
 import { build, disjunction } from "@coven/expression";
 import { memoFunction } from "@coven/memo";
-import type { KeyOf } from "@coven/types";
+import type { KeyOf, Unary } from "@coven/types";
 import type { FieldString } from "./FieldString.ts";
 import { normalizeMap } from "./normalizeMap.ts";
 
@@ -16,9 +16,9 @@ const buildGIU = build("giu");
  * @param expression String expression.
  * @returns Normalized expression
  */
-export const normalizeAliases: (expression: string) => FieldString =
+export const normalizeAliases: Unary<[expression: string], FieldString> =
 	memoFunction(
-		(expression: string) =>
+		(expression) =>
 			expression.replaceAll(
 				buildGIU(
 					disjunction(

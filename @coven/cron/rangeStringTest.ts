@@ -1,11 +1,12 @@
 import { buildUnicode, DIGIT, END, quantity, START } from "@coven/expression";
 import { test } from "@coven/predicates";
+import type { Filter } from "@coven/types";
 import { RANGE_EXPRESSION_SEPARATOR_TOKEN } from "./tokens.ts";
 
 /**
  * Regular expression to test if given string is a range.
  */
-export const rangeStringTest: (text: string) => boolean = test(
+export const rangeStringTest: Filter<[text: string]> = test(
 	buildUnicode(
 		START,
 		quantity("1,2")(DIGIT),

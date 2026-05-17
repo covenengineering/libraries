@@ -1,5 +1,5 @@
 import { map } from "@coven/iterables";
-import type { Maybe } from "@coven/types";
+import type { Maybe, Unary } from "@coven/types";
 import { parseNumber } from "./parseNumber.ts";
 
 /**
@@ -14,6 +14,7 @@ import { parseNumber } from "./parseNumber.ts";
  * ```
  * @see {@linkcode parseNumber}
  */
-export const parseNumberMap: (
-	iterable: Iterable<string>,
-) => IterableIterator<Maybe<number>> = map(parseNumber);
+export const parseNumberMap: Unary<
+	[iterable: Iterable<string>],
+	IterableIterator<Maybe<number>>
+> = map(parseNumber);

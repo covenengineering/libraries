@@ -1,8 +1,11 @@
 import { memoFunction } from "@coven/memo";
-import type { ISODate, Maybe } from "@coven/types";
+import type { ISODate, Maybe, Unary } from "@coven/types";
 import type { CronObject } from "./CronObject.ts";
 import { compareField } from "./compareField.ts";
-import { isAllToken } from "./isAllToken.ts";
+
+const instantStringOptions = {
+	smallestUnit: "millisecond",
+} as const satisfies Temporal.InstantToStringOptions;
 
 /**
  * Check if given cron expression object includes given timestamp.
@@ -10,34 +13,24 @@ import { isAllToken } from "./isAllToken.ts";
  * @param cron Cron object.
  * @returns Curried function with `cron` in context.
  */
-export const timestampInCron: (
-	cron: CronObject,
-) => (timestamp: number) => Maybe<ISODate> = memoFunction(
-	(cron: CronObject): ((timestamp: number) => Maybe<ISODate>) => {
-		const minuteIsAll = isAllToken(cron.minute);
-		const hourIsAll = isAllToken(cron.hour);
-		const dayOfMonthIsAll = isAllToken(cron.dayOfMonth);
-		const monthIsAll = isAllToken(cron.month);
-		const dayOfWeekIsAll = isAllToken(cron.dayOfWeek);
-		const date = new Date(0);
+export const timestampInCron: Unary<
+	[cron: CronObject],
+	Unary<[zoneDateTime: Temporal.PlainDateTime], Maybe<ISODate>>
+> = memoFunction((cron) => {
+	const compareMinute = compareField(cron.minute);
+	const compareHour = compareField(cron.hour);
+	const compareDayOfMonth = compareField(cron.dayOfMonth);
+	const compareMonth = compareField(cron.month);
+	const compareDayOfWeek = compareField(cron.dayOfWeek);
 
-		return (timestamp) => {
-			date.setTime(timestamp);
-
-			return (
-					(minuteIsAll
-						|| compareField(date.getUTCMinutes(), cron.minute))
-						&& (hourIsAll
-							|| compareField(date.getUTCHours(), cron.hour))
-						&& (dayOfMonthIsAll
-							|| compareField(date.getUTCDate(), cron.dayOfMonth))
-						&& (monthIsAll
-							|| compareField(date.getUTCMonth() + 1, cron.month))
-						&& (dayOfWeekIsAll
-							|| compareField(date.getUTCDay(), cron.dayOfWeek))
-				) ?
-					(date.toISOString() as ISODate)
-				:	undefined;
-		};
-	},
-);
+	return (plainDateTime) =>
+		(
+			compareMinute(plainDateTime.minute)
+			&& compareHour(plainDateTime.hour)
+			&& compareDayOfMonth(plainDateTime.day)
+			&& compareMonth(plainDateTime.month)
+			&& compareDayOfWeek(plainDateTime.dayOfWeek % 7)
+		) ?
+			(`${plainDateTime.toString(instantStringOptions)}Z` as ISODate)
+		:	undefined;
+});

@@ -18,9 +18,8 @@ export const fieldRegExp: <Name extends string, Value extends string>(
 	name: Name,
 	value: Value,
 ) => `(?<${Name}>\\*|(?:${Value}(?:-${Value})?|(?:(?:${Value}(?:-${Value})?,)+${Value}(?:-${Value})?)))` =
-	memoFunction(
-		<Name extends string, Value extends string>(name: Name, value: Value) =>
-			captureNamed(name)(
-				disjunction(escape(ALL_TOKEN), valueRangeOrListRegExp(value)),
-			),
+	memoFunction((name, value) =>
+		captureNamed(name)(
+			disjunction(escape(ALL_TOKEN), valueRangeOrListRegExp(value)),
+		),
 	);

@@ -1,6 +1,6 @@
 import { head } from "@coven/iterables";
 import { memoFunction } from "@coven/memo";
-import type { ISODate, Maybe } from "@coven/types";
+import type { ISODate, Maybe, Unary } from "@coven/types";
 import type { CronObject } from "./CronObject.ts";
 import type { CronString } from "./CronString.ts";
 import { nextISODates } from "./nextISODates.ts";
@@ -15,12 +15,11 @@ import { nextISODates } from "./nextISODates.ts";
  * @param date Base date to get the next date from.
  * @returns Curried function with date set.
  */
-export const nextISODate: (
-	isoDate: ISODate,
-) => (cron: CronString | Partial<CronObject>) => Maybe<ISODate> = memoFunction(
-	(isoDate) => {
-		const nextDatesFor = nextISODates(isoDate);
+export const nextISODate: Unary<
+	[isoDate: ISODate],
+	Unary<[cron: CronString | Partial<CronObject>], Maybe<ISODate>>
+> = memoFunction((isoDate) => {
+	const nextDatesFor = nextISODates(isoDate);
 
-		return memoFunction((cron) => head(nextDatesFor(cron)));
-	},
-);
+	return memoFunction((cron) => head(nextDatesFor(cron)));
+});

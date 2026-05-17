@@ -1,7 +1,7 @@
 import { build, getGroups } from "@coven/expression";
 import { entriesToObject, length, objectToEntries } from "@coven/iterables";
 import { memo, memoFunction } from "@coven/memo";
-import type { KeyOf, Maybe, ReadonlyRecord } from "@coven/types";
+import type { KeyOf, Maybe, ReadonlyRecord, Unary } from "@coven/types";
 import type { CronObject } from "./CronObject.ts";
 import type { CronString } from "./CronString.ts";
 import { cronRegExp } from "./cronRegExp.ts";
@@ -28,21 +28,20 @@ const buildIU = build("iu");
  * @returns Object representing that expression or `undefined` if expression is
  * invalid.
  */
-export const parse: (expression: CronString) => Maybe<CronObject> =
-	memoFunction((expression: CronString) => {
-		const entries = parseFieldTuplesMap(
-			objectToEntries(
-				getGroups<ReadonlyArray<KeyOf<CronObject>>>(
-					buildIU(cronRegExp),
-				)(normalizeAliases(expression)) as ReadonlyRecord<
-					KeyOf<CronObject>,
-					string
-				>,
-			),
-		);
+export const parse: Unary<
+	[expression: CronString],
+	Maybe<CronObject>
+> = memoFunction((expression) => {
+	const entries = parseFieldTuplesMap(
+		objectToEntries(
+			getGroups<ReadonlyArray<KeyOf<CronObject>>>(buildIU(cronRegExp))(
+				normalizeAliases(expression),
+			) as ReadonlyRecord<KeyOf<CronObject>, string>,
+		),
+	);
 
-		return (
-			length(entries) === 0 ? undefined : (
-				memo(entriesToObject(entries))
-			)) as Maybe<CronObject>;
-	});
+	return (
+		length(entries) === 0 ? undefined : (
+			memo(entriesToObject(entries))
+		)) as Maybe<CronObject>;
+});

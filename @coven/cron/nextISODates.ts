@@ -2,16 +2,21 @@ import { buildUnicode, DIGIT, escape, join, quantity } from "@coven/expression";
 import { EMPTY_ITERABLE_ITERATOR, filter, map, range } from "@coven/iterables";
 import { memoFunction } from "@coven/memo";
 import { isString, isUndefined } from "@coven/predicates";
-import type { ISODate, Maybe } from "@coven/types";
+import type { ISODate, Maybe, Unary } from "@coven/types";
 import type { CronObject } from "./CronObject.ts";
 import type { CronString } from "./CronString.ts";
 import { parse } from "./parse.ts";
 import { stringify } from "./stringify.ts";
 import { timestampInCron } from "./timestampInCron.ts";
 
-const dateReplace = join(quantity(2)(DIGIT), escape("."), quantity(3)(DIGIT));
+const dateReplace = join(
+	quantity(2)(DIGIT),
+	escape("."),
+	quantity(3)(DIGIT),
+	"Z",
+);
 
-const minuteRange = range(6e4)(6e4)(Infinity);
+const minutesRange = range(1)(1)(Infinity);
 
 const filterIsISODate = filter(
 	isString as (value: Maybe<ISODate>) => value is ISODate,
@@ -30,28 +35,28 @@ const filterIsISODate = filter(
  * @param date Base date to get the next date from.
  * @returns Curried function with date set.
  */
-export const nextISODates: (
-	isoDate: ISODate,
-) => (cron: CronString | Partial<CronObject>) => IterableIterator<ISODate> =
-	memoFunction((isoDate) => {
-		const initialTimestamp = new Date(
-			isoDate.replace(buildUnicode(dateReplace), "00.000"),
-		).getTime();
+export const nextISODates: Unary<
+	[isoDate: ISODate],
+	Unary<[cron: CronString | Partial<CronObject>], IterableIterator<ISODate>>
+> = memoFunction((isoDate) => {
+	const plainDateTime = Temporal.PlainDateTime.from(
+		isoDate.replace(buildUnicode(dateReplace), "00.000"),
+	);
 
-		return memoFunction((cron) => {
-			const cronObject = parse(
-				isString(cron) ? cron : (stringify(cron) ?? ("" as CronString)),
+	return memoFunction((cron) => {
+		const cronObject = parse(
+			isString(cron) ? cron : (stringify(cron) ?? ("" as CronString)),
+		);
+
+		if (isUndefined(cronObject)) {
+			return EMPTY_ITERABLE_ITERATOR;
+		} else {
+			const validDate = timestampInCron(cronObject);
+			const mapValidDate = map((minutes: number) =>
+				validDate(plainDateTime.add({ minutes })),
 			);
 
-			if (isUndefined(cronObject)) {
-				return EMPTY_ITERABLE_ITERATOR;
-			} else {
-				const validDate = timestampInCron(cronObject);
-				const mapValidDate = map((minute: number) =>
-					validDate(initialTimestamp + minute),
-				);
-
-				return filterIsISODate(mapValidDate(minuteRange));
-			}
-		});
+			return filterIsISODate(mapValidDate(minutesRange));
+		}
 	});
+});

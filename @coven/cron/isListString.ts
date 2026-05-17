@@ -1,4 +1,5 @@
 import { includes } from "@coven/iterables";
+import type { Predicate } from "@coven/types";
 import type { ListString } from "./ListString.ts";
 import { LIST_EXPRESSION_SEPARATOR_TOKEN } from "./tokens.ts";
 
@@ -8,6 +9,6 @@ import { LIST_EXPRESSION_SEPARATOR_TOKEN } from "./tokens.ts";
  * @see {@linkcode ListString}
  * @see {@linkcode LIST_EXPRESSION_SEPARATOR_TOKEN}
  */
-export const isListString = includes(LIST_EXPRESSION_SEPARATOR_TOKEN) as (
-	value: Iterable<unknown>,
-) => value is ListString;
+export const isListString = includes(
+	LIST_EXPRESSION_SEPARATOR_TOKEN,
+) as Predicate<Iterable<unknown>, ListString>;

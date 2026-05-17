@@ -14,15 +14,11 @@ import { LIST_EXPRESSION_SEPARATOR_TOKEN } from "./tokens.ts";
  */
 export const valueOrListRegExp: <Value extends number | string>(
 	value: Value,
-) => `(?:${Value}|(?:(?:${Value},)+${Value}))` = memoFunction(
-	<Value extends number | string>(value: Value) =>
-		group(
-			disjunction(
-				value,
-				group(
-					exists(group(value, LIST_EXPRESSION_SEPARATOR_TOKEN)),
-					value,
-				),
-			),
+) => `(?:${Value}|(?:(?:${Value},)+${Value}))` = memoFunction((value) =>
+	group(
+		disjunction(
+			value,
+			group(exists(group(value, LIST_EXPRESSION_SEPARATOR_TOKEN)), value),
 		),
+	),
 );

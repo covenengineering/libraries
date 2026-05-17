@@ -21,7 +21,7 @@ export const stringifyRange: <Predicated extends number>(
 	field: Readonly<Field<Predicated>>,
 ) => Maybe<RangeString> = memoFunction(
 	<Predicated extends number>(field: Readonly<Field<Predicated>>) =>
-		(isRangeField(field) ?
+		isRangeField(field) ?
 			`${field.from}${RANGE_EXPRESSION_SEPARATOR_TOKEN}${field.to}`
-		:	undefined) as Maybe<RangeString>,
+		:	undefined,
 );
