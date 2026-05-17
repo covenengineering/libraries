@@ -1,3 +1,5 @@
+import type { Unary } from "@coven/types";
+import type { Precise } from "./precise.ts";
 import { PRECISE_ONE } from "./PRECISE_ONE.ts";
 import { preciseSubtract } from "./preciseSubtract.ts";
 
@@ -14,4 +16,5 @@ import { preciseSubtract } from "./preciseSubtract.ts";
  * @see {@linkcode preciseSubtract}
  * @see {@linkcode PRECISE_ONE}
  */
-export const precisePrevious = preciseSubtract(PRECISE_ONE);
+export const precisePrevious: Unary<[left: Precise], Precise> =
+	preciseSubtract(PRECISE_ONE);

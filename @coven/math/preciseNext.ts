@@ -1,3 +1,5 @@
+import type { Unary } from "@coven/types";
+import type { Precise } from "./precise.ts";
 import { PRECISE_ONE } from "./PRECISE_ONE.ts";
 import { preciseAdd } from "./preciseAdd.ts";
 
@@ -14,4 +16,5 @@ import { preciseAdd } from "./preciseAdd.ts";
  * @see {@linkcode preciseAdd}
  * @see {@linkcode PRECISE_ONE}
  */
-export const preciseNext = preciseAdd(PRECISE_ONE);
+export const preciseNext: Unary<[left: Precise], Precise> =
+	preciseAdd(PRECISE_ONE);
