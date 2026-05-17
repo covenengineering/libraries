@@ -9,8 +9,8 @@
 		"@types/react-dom": "npm:@types/react-dom@^19.2.3",
 		"preact": "npm:preact@^10.29.1",
 		"preact-render-to-string": "npm:preact-render-to-string@^6.6.7",
-		"react": "npm:react@^19.2.5",
-		"react-dom": "npm:react-dom@^19.2.5"
+		"react": "npm:react@^19.2.6",
+		"react-dom": "npm:react-dom@^19.2.6"
 	},
 	"name": "@coven/pair",
 	"version": "0.9.6"
