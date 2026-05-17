@@ -1,5 +1,10 @@
 import { memoFunction } from "@coven/memo";
+import { alwaysPreciseNaN } from "./alwaysPreciseNaN.ts";
+import { getPreciseCoefficient } from "./getPreciseCoefficient.ts";
+import { getPreciseExponent } from "./getPreciseExponent.ts";
+import { isPreciseNaN } from "./isPreciseNaN.ts";
 import { precise } from "./precise.ts";
+import { PRECISE_NAN } from "./PRECISE_NAN.ts";
 import type { PreciseFunction } from "./PreciseFunction.ts";
 
 /**
@@ -7,22 +12,30 @@ import type { PreciseFunction } from "./PreciseFunction.ts";
  *
  * @example
  * ```typescript
- * const double = preciseMultiply(2n, 0n);
+ * import { precise } from "@coven/math";
  *
- * double(65n, -1n); // [13n, 0n]
+ * const double = preciseMultiply(precise(2n, 0n));
+ *
+ * double(precise(65n, -1n)); // precise(13n, 0n)
  * ```
- * @see {@linkcode precise}
  * @see {@linkcode PreciseFunction}
- * @param multiplierBase Multiplier base to use in the multiplication.
- * @param multiplierExponent Multiplier exponent to use in the multiplication.
- * @returns Curried function with `multiplierBase` and `multiplierExponent` in context.
+ * @param multiplier Multiplier to use in the multiplication.
+ * @returns Curried function with `multiplier` in context.
  */
-export const preciseMultiply: PreciseFunction = memoFunction(
-	(multiplierBase, multiplierExponent) =>
-		memoFunction((multiplicandBase, multiplicandExponent) =>
-			precise(
-				multiplicandBase * multiplierBase,
-				multiplicandExponent + multiplierExponent,
+export const preciseMultiply: PreciseFunction = memoFunction((multiplier) => {
+	if (isPreciseNaN(multiplier)) {
+		return alwaysPreciseNaN;
+	} else {
+		const multiplierCoefficient = getPreciseCoefficient(multiplier);
+		const multiplierExponent = getPreciseExponent(multiplier);
+
+		return memoFunction((multiplicand) =>
+			isPreciseNaN(multiplicand) ? PRECISE_NAN : (
+				precise(
+					getPreciseCoefficient(multiplicand) * multiplierCoefficient,
+					getPreciseExponent(multiplicand) + multiplierExponent,
+				)
 			),
-		),
-);
+		);
+	}
+});

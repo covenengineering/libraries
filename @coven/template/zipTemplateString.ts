@@ -15,5 +15,5 @@ export const zipTemplateString = <const Expression>(
 	templateStrings: ReadonlyTemplateStringsArray,
 	...expressions: ReadonlyArray<Expression>
 ): IterableIterator<
-	readonly [templateString: string, expressions: typeof SIGIL | Expression]
+	Readonly<[templateString: string, expressions: typeof SIGIL | Expression]>
 > => zip(templateStrings)(appendSigil(expressions));

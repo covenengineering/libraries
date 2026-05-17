@@ -1,5 +1,5 @@
 import { memoFunction } from "@coven/memo";
-import type { Stringable, StringJoin } from "@coven/types";
+import type { Numeric, Stringable, StringJoin } from "@coven/types";
 import { join } from "./join.ts";
 import type { StringQuantity } from "./StringQuantity.ts";
 
@@ -17,12 +17,12 @@ import type { StringQuantity } from "./StringQuantity.ts";
  * @param items Items to be quantified.
  * @returns Quantified items.
  */
-export const quantity: <const Quantities extends StringQuantity | number>(
+export const quantity: <const Quantities extends StringQuantity | Numeric>(
 	quantities: Quantities,
 ) => <const Items extends ReadonlyArray<Stringable>>(
 	...items: Items
 ) => `${StringJoin<Items>}{${Quantities}}` = memoFunction(
-	<const Quantities extends StringQuantity | number>(
+	<const Quantities extends StringQuantity | Numeric>(
 		quantities: Quantities,
 	) =>
 		memoFunction(

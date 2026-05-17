@@ -22,7 +22,7 @@ import type { Stringable } from "@coven/types";
  */
 export const getEventName: (
 	stringable: Stringable,
-) => Partial<Readonly<Record<"name", string>>> = getGroups<readonly ["name"]>(
+) => Partial<Readonly<Record<"name", string>>> = getGroups<Readonly<["name"]>>(
 	buildUnicode(
 		START,
 		"on",

@@ -10,6 +10,7 @@ import {
 	START,
 } from "@coven/expression";
 import { test } from "@coven/predicates";
+import type { Filter } from "@coven/types";
 import { paddedRegExp } from "./paddedRegExp.ts";
 
 /**
@@ -26,7 +27,7 @@ import { paddedRegExp } from "./paddedRegExp.ts";
  *
  * @see {@linkcode paddedRegExp}
  */
-export const parseNumberTest: (text: string) => boolean = test(
+export const parseNumberTest: Filter<[text: string]> = test(
 	buildUnicode(
 		START,
 		group(

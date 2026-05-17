@@ -55,6 +55,7 @@ export type { MinimumLengthNumberString } from "./MinimumLengthNumberString.ts";
 export type { Minutes } from "./Minutes.ts";
 export type { Month } from "./Month.ts";
 export type { Multary } from "./Multary.ts";
+export type { Mutable } from "./Mutable.ts";
 export type { NeverFallback } from "./NeverFallback.ts";
 export type { NormalizeEntryKey } from "./NormalizeEntryKey.ts";
 export type { Nullary } from "./Nullary.ts";

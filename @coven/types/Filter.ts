@@ -1,8 +1,8 @@
 import type { Unary } from "./Unary.ts";
 
 /**
- * {@linkcode Unary} function that returns a `boolean`, useful for cases where a
- * function needs to check if a certain condition holds for an input value.
+ * {@linkcode Unary} that returns a `boolean`, useful for cases where a function
+ * needs to check if a certain condition holds for an input value.
  *
  * @example
  * ```typescript

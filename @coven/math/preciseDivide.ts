@@ -1,57 +1,78 @@
 import { memoFunction } from "@coven/memo";
-import { always } from "@coven/utils";
-import type { Precise } from "./precise.ts";
+import { alwaysPreciseNaN } from "./alwaysPreciseNaN.ts";
+import { EXPONENT_MIN } from "./EXPONENT_MIN.ts";
+import { getPreciseCoefficient } from "./getPreciseCoefficient.ts";
+import { getPreciseExponent } from "./getPreciseExponent.ts";
+import { isPreciseNaN } from "./isPreciseNaN.ts";
+import { powerOf10 } from "./powerOf10.ts";
 import { precise } from "./precise.ts";
+import { PRECISE_NAN } from "./PRECISE_NAN.ts";
+import { PRECISE_ZERO } from "./PRECISE_ZERO.ts";
 import type { PreciseFunction } from "./PreciseFunction.ts";
 
-const alwaysInfinity = always(Infinity);
-
 /**
- * @internal We have to define a max so we avoid looping forever.
- */
-const MAX_DECIMAL_PLACES = 256n;
-
-/**
- * Curried divide operation using the internal {@linkcode Precise} type.
- * Precision for float values has a maximum of 256.
+ * Divides a `Precise` `dividend` by a `Precise` `divisor`.
  *
  * @example
  * ```typescript
- * const half = preciseDivide(2n, 0n);
+ * import { precise } from "@coven/math";
  *
- * half(1n, 0n); // [5n, -1n]
+ * const half = preciseDivide(precise(2n, 0n));
+ *
+ * half(precise(1n, 0n)); // precise(5n, -1n)
  * ```
- * @see {@linkcode Precise}
  * @see {@linkcode PreciseFunction}
- * @param divisorBase Divisor base to use in the division.
- * @param divisorExponent Divisor exponent to use in the division.
- * @returns Curried function with `divisorBase` and `divisorExponent` in context.
+ * @param divisor `Precise` Divisor.
+ * @returns Curried function with `divisor` in context.
  */
-export const preciseDivide: PreciseFunction<Precise | number> = memoFunction(
-	(divisorBase, divisorExponent) =>
-		divisorBase === 0n ? alwaysInfinity : (
-			memoFunction((dividendBase, dividendExponent) => {
-				if (dividendBase === 0n) {
-					return precise(0n, 0n);
+export const preciseDivide: PreciseFunction = memoFunction((divisor) => {
+	if (isPreciseNaN(divisor)) {
+		return alwaysPreciseNaN;
+	} else {
+		const divisorCoefficient = getPreciseCoefficient(divisor);
+
+		if (divisorCoefficient === 0n) {
+			return alwaysPreciseNaN;
+		} else {
+			const divisorExponent = getPreciseExponent(divisor);
+
+			return memoFunction((dividend) => {
+				if (isPreciseNaN(dividend)) {
+					return PRECISE_NAN;
 				} else {
-					let exponent = 0n;
-					let base = dividendBase / divisorBase;
+					const dividendCoefficient = getPreciseCoefficient(dividend);
 
-					for (
-						let dividend = dividendBase;
-						exponent < MAX_DECIMAL_PLACES
-						&& base * divisorBase !== dividend;
-					) {
-						exponent += 1n;
-						dividend = dividendBase * 10n ** exponent;
-						base = dividend / divisorBase;
+					if (dividendCoefficient === 0n) {
+						return PRECISE_ZERO;
+					} else {
+						let exponent = 0n;
+						let coefficient =
+							dividendCoefficient / divisorCoefficient;
+						let scaledDividend = dividendCoefficient;
+
+						for (
+							;
+							-exponent > EXPONENT_MIN
+							&& coefficient * divisorCoefficient
+								!== scaledDividend;
+						) {
+							scaledDividend =
+								dividendCoefficient * powerOf10(++exponent);
+							coefficient = scaledDividend / divisorCoefficient;
+						}
+
+						return precise(
+							// If we reached the exponent limit, we add one to
+							// the coefficient to compensate for the loss in
+							// precision
+							coefficient + (-exponent > EXPONENT_MIN ? 0n : 1n),
+							getPreciseExponent(dividend)
+								- exponent
+								- divisorExponent,
+						);
 					}
-
-					return precise(
-						base,
-						dividendExponent - exponent - divisorExponent,
-					);
 				}
-			})
-		),
-);
+			});
+		}
+	}
+});

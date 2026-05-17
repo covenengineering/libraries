@@ -1,5 +1,6 @@
 import { build } from "@coven/expression";
 import { test } from "@coven/predicates";
+import type { Predicate } from "@coven/types";
 import type { CronString } from "./CronString.ts";
 import { cronRegExp } from "./cronRegExp.ts";
 
@@ -8,6 +9,7 @@ import { cronRegExp } from "./cronRegExp.ts";
  *
  * @see {CronString}
  */
-export const isValidExpression = test(build("iu")(cronRegExp)) as (
-	string: string,
-) => string is CronString;
+export const isValidExpression = test(build("iu")(cronRegExp)) as Predicate<
+	string,
+	CronString
+>;

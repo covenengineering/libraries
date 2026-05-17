@@ -1,5 +1,5 @@
 import { map } from "@coven/iterables";
-import type { Maybe } from "@coven/types";
+import type { Maybe, Unary } from "@coven/types";
 import { parseNumber } from "./parseNumber.ts";
 import { parseRange } from "./parseRange.ts";
 import type { RangeField } from "./RangeField.ts";
@@ -15,8 +15,7 @@ import type { RangeField } from "./RangeField.ts";
  * @see {@linkcode parseNumber}
  * @see {@linkcode parseRange}
  */
-export const parseListMap: (
-	list: Iterable<string>,
-) => IterableIterator<RangeField<number> | Maybe<number>> = map(
-	(item: string) => parseRange(item) ?? parseNumber(item),
-);
+export const parseListMap: Unary<
+	[list: Iterable<string>],
+	IterableIterator<RangeField<number> | Maybe<number>>
+> = map((item) => parseRange(item) ?? parseNumber(item));

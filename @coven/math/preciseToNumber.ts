@@ -1,19 +1,12 @@
 import { memoFunction } from "@coven/memo";
-import type { PreciseToTypeFunction } from "./PreciseToTypeFunction.ts";
+import { isPreciseNaN } from "./isPreciseNaN.ts";
+import type { Precise } from "./precise.ts";
+import { preciseToString } from "./preciseToString.ts";
 
 /**
- * Turns a `Precise` into a `number`.
- *
- * @example
- * ```typescript
- * preciseToNumber(3n, -1n); // 0.3
- * ```
- * @param precise `Precise` to convert.
- * @returns Number represented by the passed `Precise` value.
+ * Convert a {@linkcode Precise} to a `number`.
  */
-export const preciseToNumber: PreciseToTypeFunction<number> = memoFunction(
-	(base, exponent) =>
-		exponent === 0n ? Number(base)
-		: exponent > 0n ? Number(base) * 10 ** Number(exponent)
-		: Number(base) / 10 ** Number(-exponent),
+export const preciseToNumber: (precise: Precise) => number = memoFunction(
+	(precise) =>
+		isPreciseNaN(precise) ? NaN : parseFloat(preciseToString(precise)),
 );

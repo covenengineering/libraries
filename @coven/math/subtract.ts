@@ -1,5 +1,4 @@
-import { fallbackSubtract } from "./fallbackSubtract.ts";
-import { numberFunction, type NumberFunction } from "./numberFunction.ts";
+import { numericFunction, type NumericFunction } from "./numericFunction.ts";
 import { preciseSubtract } from "./preciseSubtract.ts";
 
 /**
@@ -12,10 +11,8 @@ import { preciseSubtract } from "./preciseSubtract.ts";
  * previous(14); // 13
  * ```
  * @see {@linkcode preciseSubtract}
+ * @see {@linkcode NumericFunction}
  * @param subtrahend Subtrahend value to be used in the subtraction.
  * @returns Curried function with `subtrahend` in context.
  */
-export const subtract: NumberFunction = numberFunction(
-	preciseSubtract,
-	fallbackSubtract,
-);
+export const subtract: NumericFunction = numericFunction(preciseSubtract);

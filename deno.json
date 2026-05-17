@@ -77,7 +77,7 @@
 			"description": "Run all commands that run on CI"
 		},
 		"format": {
-			"command": "TMPDIR=. deno run --allow-env=TMPDIR --allow-read=. --allow-sys=cpus --allow-write=. --ignore-env --log-level=warn --no-prompt prettier --write './**/*.{json,md,ts,tsx}'",
+			"command": "TMPDIR=. deno run --allow-env=TMPDIR --allow-read=. --allow-sys=cpus --allow-write=. --ignore-env --no-prompt prettier --write './**/*.{json,md,ts,tsx}'",
 			"description": "Format code using Prettier"
 		},
 		"format-check": {
