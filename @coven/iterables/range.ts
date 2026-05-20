@@ -1,3 +1,4 @@
+import { isBigInt } from "@coven/predicates";
 import type { Numeric, Unary } from "@coven/types";
 import { iteratorFunctionToIterableIterator } from "./iteratorFunctionToIterableIterator.ts";
 
@@ -16,9 +17,9 @@ export const range =
 	<Step extends Numeric>(
 		step: Step,
 	): Unary<
-		[from: Step extends bigint ? bigint : number],
+		[from: Numeric],
 		Unary<
-			[to: Step extends bigint ? bigint : number],
+			[to: Numeric],
 			IterableIterator<Step extends bigint ? bigint : number>
 		>
 	> =>
@@ -27,15 +28,19 @@ export const range =
 		iteratorFunctionToIterableIterator(function* (): Generator<
 			Step extends bigint ? bigint : number
 		> {
+			// deno-lint-ignore prefer-const
+			let current = (
+				isBigInt(step) ?
+					BigInt(from)
+				:	Number(from)) as Step extends bigint ? bigint : number;
 			if (from === to) {
-				yield from;
+				yield current;
 			} else {
 				// deno-lint-ignore coven/no-for
 				for (
-					// deno-lint-ignore prefer-const
-					let current = from;
+					;
 					from < to ? current <= to : current >= to;
-					(current as number) += (from < to ? step : -step) as number
+					(current as bigint) += (from < to ? step : -step) as bigint
 				) {
 					yield current;
 				}

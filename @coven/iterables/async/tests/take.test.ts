@@ -4,8 +4,8 @@ import { repeat } from "../../repeat.ts";
 import { iterableToArray } from "../iterableToArray.ts";
 import { take } from "../take.ts";
 
-const take2 = take(2);
-const takeNone = take(0);
+const take2 = take(2n);
+const takeNone = take(0n);
 const takeAll = take(Infinity);
 const repeatZeroForever = repeat(Infinity)(0);
 

@@ -8,8 +8,8 @@ Deno.test(
 	"Array with two strings returns Iterable of tuples with indexes and strings",
 	async () =>
 		assertEquals(await iterableToArray(zipIndex(["foo", "bar"])), [
-			[0, "foo"],
-			[1, "bar"],
+			[0n, "foo"],
+			[1n, "bar"],
 		]),
 );
 
@@ -21,7 +21,7 @@ Deno.test(
 	"Iterable of strings returns Iterable of tuples with indexes and strings",
 	async () =>
 		assertEquals(await iterableToArray(zipIndex(repeat(2)("foo"))), [
-			[0, "foo"],
-			[1, "foo"],
+			[0n, "foo"],
+			[1n, "foo"],
 		]),
 );

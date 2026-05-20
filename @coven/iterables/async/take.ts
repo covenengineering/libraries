@@ -1,4 +1,4 @@
-import type { AwaitableIterable } from "@coven/types";
+import type { AwaitableIterable, Numeric } from "@coven/types";
 import { iteratorFunctionToAsyncIterableIterator } from "./iteratorFunctionToAsyncIterableIterator.ts";
 
 /**
@@ -14,7 +14,7 @@ import { iteratorFunctionToAsyncIterableIterator } from "./iteratorFunctionToAsy
  */
 export const take =
 	(
-		amount: number,
+		amount: Numeric,
 	): (<Item>(
 		iterable: AwaitableIterable<Item>,
 	) => Readonly<AsyncIterableIterator<Item>>) =>
@@ -23,7 +23,7 @@ export const take =
 			async function* (): AsyncGenerator<Item> {
 				let count = 0n;
 
-				if (amount > 0) {
+				if (amount > 0n) {
 					for await (const item of iterable) {
 						if (count < amount) {
 							yield item;

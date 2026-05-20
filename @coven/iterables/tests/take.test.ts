@@ -5,8 +5,8 @@ import { iterableToArray } from "../iterableToArray.ts";
 import { take } from "../take.ts";
 
 const infiniteIterable = <Item>(item: Item) => repeat(Infinity)(item);
-const take2 = take(2);
-const takeNone = take(0);
+const take2 = take(2n);
+const takeNone = take(0n);
 const takeAll = take(Infinity);
 
 Deno.test(
