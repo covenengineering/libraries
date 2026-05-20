@@ -1,5 +1,5 @@
+import { reduce } from "@coven/iterables";
 import type { Formatter } from "./Formatter.ts";
-
 /**
  * Formatter composer wrapper.
  *
@@ -31,7 +31,7 @@ export const mix =
 	 * @returns Formatted string.
 	 */
 	(input, ...expressions) =>
-		formatters.reduce(
-			(output, formatter) => formatter(output, ...expressions),
-			input,
-		) as string;
+		reduce(
+			(formatter: Formatter) => (output: typeof input) =>
+				formatter(output, ...expressions) as typeof input,
+		)(input)(formatters) as string;

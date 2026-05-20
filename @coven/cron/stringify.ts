@@ -1,12 +1,19 @@
-import { EMPTY_OBJECT } from "@coven/constants";
+import { join, map } from "@coven/iterables";
 import { memoFunction } from "@coven/memo";
-import type { Maybe, Unary } from "@coven/types";
+import type { Maybe, Unary, ValueOf } from "@coven/types";
 import type { CronObject } from "./CronObject.ts";
 import type { CronString } from "./CronString.ts";
 import { fieldNamesTuple } from "./fieldNamesTuple.ts";
 import { isValidExpression } from "./isValidExpression.ts";
 import { stringifyField } from "./stringifyField.ts";
 import { ALL_TOKEN } from "./tokens.ts";
+
+const spaceJoin = join(" ");
+
+const mapStringifyField = (cron?: Partial<CronObject>) =>
+	map((name: ValueOf<typeof fieldNamesTuple>) =>
+		stringifyField(cron?.[name] ?? ALL_TOKEN),
+	);
 
 /**
  * Takes a cron object and returns a sting expression.
@@ -32,10 +39,8 @@ import { ALL_TOKEN } from "./tokens.ts";
 export const stringify: Unary<
 	[cron: Maybe<Partial<CronObject>>],
 	Maybe<CronString>
-> = memoFunction((cron = EMPTY_OBJECT) => {
-	const expression = fieldNamesTuple
-		.map((name) => stringifyField(cron[name] ?? ALL_TOKEN))
-		.join(" ");
+> = memoFunction((cron) => {
+	const expression = spaceJoin(mapStringifyField(cron)(fieldNamesTuple));
 
 	return isValidExpression(expression) ? expression : undefined;
 });

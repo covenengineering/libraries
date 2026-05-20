@@ -31,6 +31,7 @@ export const preciseTruncate: Unary<[precise: Precise], Precise> = memoFunction(
 			} else {
 				let coefficient = getPreciseCoefficient(value);
 
+				// deno-lint-ignore coven/no-for
 				for (; exponent < 0n; ) {
 					coefficient /= 10n;
 					exponent += 1n;

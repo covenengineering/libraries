@@ -50,6 +50,7 @@ export const preciseDivide: PreciseFunction = memoFunction((divisor) => {
 							dividendCoefficient / divisorCoefficient;
 						let scaledDividend = dividendCoefficient;
 
+						// deno-lint-ignore coven/no-for
 						for (
 							;
 							-exponent > EXPONENT_MIN

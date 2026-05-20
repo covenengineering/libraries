@@ -33,6 +33,7 @@ export const random =
 			const min = from < to ? from : to;
 			const max = from > to ? from : to;
 
+			// deno-lint-ignore coven/no-for
 			for (;;) {
 				yield Math.min(
 					Math.max(

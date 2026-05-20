@@ -18,10 +18,12 @@ export const repeat =
 	<const Item>(item: Item) =>
 		iteratorFunctionToIterableIterator(function* (): Generator<Item> {
 			if (times === Infinity) {
+				// deno-lint-ignore coven/no-for
 				for (;;) {
 					yield item;
 				}
 			} else {
+				// deno-lint-ignore coven/no-for
 				for (let count = 0n; count < times; count += 1n) {
 					yield item;
 				}

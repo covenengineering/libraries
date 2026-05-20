@@ -1,6 +1,11 @@
-import { iteratorFunctionToIterableIterator } from "@coven/iterables";
+import {
+	iteratorFunctionToIterableIterator,
+	map,
+	repeat,
+} from "@coven/iterables";
 
 const minute = Temporal.Duration.from("PT1M");
+const repeatInfinitely = repeat(Infinity)(undefined);
 
 /**
  * Given a `Temporal.PlainDateTime` value, return an iterable iterator that
@@ -21,8 +26,8 @@ export const minutes = (
 		function* (): Generator<Temporal.PlainDateTime> {
 			let currentDateTime = plainDateTime;
 
-			for (;;) {
-				yield (currentDateTime = currentDateTime.add(minute));
-			}
+			yield* map(() => (currentDateTime = currentDateTime.add(minute)))(
+				repeatInfinitely,
+			);
 		},
 	);

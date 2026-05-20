@@ -5,4 +5,5 @@ import type { Memoizable } from "./Memoizable.ts";
  *
  * @see {@linkcode Memoizable}
  */
+// deno-lint-ignore coven/no-array-type
 export type MemoizableTuple = readonly Memoizable[];

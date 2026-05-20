@@ -31,6 +31,7 @@ export const preciseRound: Unary<[precise: Precise], Precise> = memoFunction(
 			} else {
 				let coefficient = getPreciseCoefficient(value);
 
+				// deno-lint-ignore coven/no-for
 				for (; exponent < 0n; ) {
 					const rem = coefficient % 10n;
 					coefficient /= 10n;

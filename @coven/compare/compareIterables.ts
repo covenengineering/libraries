@@ -41,6 +41,7 @@ export const compareIterables =
 			const leftIterator = getIterator(left);
 			const rightIterator = getIterator(right);
 
+			// deno-lint-ignore coven/no-for
 			for (
 				let index = 0,
 					{ done: leftDone = false, value: leftValue } =

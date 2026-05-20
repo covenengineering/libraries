@@ -33,7 +33,8 @@ export const find: {
 	async (iterable): Promise<Maybe<Item>> => {
 		for await (const item of iterable) {
 			if (predicate(item)) {
-				return item as Maybe<Item>;
+				// deno-lint-ignore coven/no-early-return
+				return item;
 			}
 		}
 

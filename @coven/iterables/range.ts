@@ -1,4 +1,4 @@
-import type { Unary } from "@coven/types";
+import type { Numeric, Unary } from "@coven/types";
 import { iteratorFunctionToIterableIterator } from "./iteratorFunctionToIterableIterator.ts";
 
 /**
@@ -13,19 +13,29 @@ import { iteratorFunctionToIterableIterator } from "./iteratorFunctionToIterable
  * @returns Curried function with `step` set in context.
  */
 export const range =
-	(
-		step: number,
-	): Unary<[from: number], Unary<[to: number], IterableIterator<number>>> =>
+	<Step extends Numeric>(
+		step: Step,
+	): Unary<
+		[from: Step extends bigint ? bigint : number],
+		Unary<
+			[to: Step extends bigint ? bigint : number],
+			IterableIterator<Step extends bigint ? bigint : number>
+		>
+	> =>
 	(from) =>
 	(to) =>
-		iteratorFunctionToIterableIterator(function* (): Generator<number> {
+		iteratorFunctionToIterableIterator(function* (): Generator<
+			Step extends bigint ? bigint : number
+		> {
 			if (from === to) {
 				yield from;
 			} else {
+				// deno-lint-ignore coven/no-for
 				for (
+					// deno-lint-ignore prefer-const
 					let current = from;
 					from < to ? current <= to : current >= to;
-					current += from < to ? step : -step
+					(current as number) += (from < to ? step : -step) as number
 				) {
 					yield current;
 				}
