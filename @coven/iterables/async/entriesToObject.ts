@@ -21,6 +21,7 @@ import { reduce } from "./reduce.ts";
  * 	["number", 1]
  * ]); // { foo: "bar", number: 1 }
  * ```
+ * @param iterable `AsyncIterable` of entries to turn into an object.
  * @returns Object constructed from entries.
  */
 export const entriesToObject = reduce(
