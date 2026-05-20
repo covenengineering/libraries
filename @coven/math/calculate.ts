@@ -1,5 +1,5 @@
 import { memoFunction } from "@coven/memo";
-import type { Numeric } from "@coven/types";
+import type { Numeric, Unary } from "@coven/types";
 import { createObject } from "@coven/utils";
 import type { Calculation } from "./Calculation.ts";
 import { numericToPrecise } from "./numericToPrecise.ts";
@@ -26,30 +26,34 @@ import { preciseToString } from "./preciseToString.ts";
  * @param value Value to run operations on.
  * @returns An object with chainable methods to update the current value.
  */
-export const calculate = memoFunction((value: Numeric): Calculation => {
-	const createCalculation = memoFunction((raw: Precise) =>
-		Object.freeze(
-			createObject({
-				minus: (right: Numeric) =>
-					createCalculation(
-						preciseSubtract(numericToPrecise(right))(raw),
-					),
-				over: (right: Numeric) =>
-					createCalculation(
-						preciseDivide(numericToPrecise(right))(raw),
-					),
-				plus: (right: Numeric) =>
-					createCalculation(preciseAdd(numericToPrecise(right))(raw)),
-				raw,
-				times: (right: Numeric) =>
-					createCalculation(
-						preciseMultiply(numericToPrecise(right))(raw),
-					),
-				toString: () => preciseToString(raw),
-				valueOf: () => preciseToNumber(raw),
-			}),
-		),
-	);
+export const calculate: Unary<[value: Numeric], Calculation> = memoFunction(
+	(value) => {
+		const createCalculation = memoFunction((raw: Precise) =>
+			Object.freeze(
+				createObject({
+					minus: (right: Numeric) =>
+						createCalculation(
+							preciseSubtract(numericToPrecise(right))(raw),
+						),
+					over: (right: Numeric) =>
+						createCalculation(
+							preciseDivide(numericToPrecise(right))(raw),
+						),
+					plus: (right: Numeric) =>
+						createCalculation(
+							preciseAdd(numericToPrecise(right))(raw),
+						),
+					raw,
+					times: (right: Numeric) =>
+						createCalculation(
+							preciseMultiply(numericToPrecise(right))(raw),
+						),
+					toString: () => preciseToString(raw),
+					valueOf: () => preciseToNumber(raw),
+				}),
+			),
+		);
 
-	return createCalculation(numericToPrecise(value));
-});
+		return createCalculation(numericToPrecise(value));
+	},
+);
