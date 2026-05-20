@@ -1,4 +1,4 @@
-import type { Numeric } from "@coven/types";
+import type { Filter, Numeric, Unary } from "@coven/types";
 
 /**
  * Checks if a `value` is between `start` and `end` (inclusive).
@@ -18,15 +18,20 @@ import type { Numeric } from "@coven/types";
 export const between =
 	<NumericOrString extends Numeric | string>(
 		start: NumericOrString,
-	): ((
-		end: NumericOrString extends string ? string
-		: NumericOrString extends number ? number
-		: bigint,
-	) => (
-		value: NumericOrString extends string ? string
-		: NumericOrString extends number ? number
-		: bigint,
-	) => boolean) =>
+	): Unary<
+		[
+			end: NumericOrString extends string ? string
+			: NumericOrString extends number ? number
+			: bigint,
+		],
+		Filter<
+			[
+				value: NumericOrString extends string ? string
+				: NumericOrString extends number ? number
+				: bigint,
+			]
+		>
+	> =>
 	(end) =>
 	(value) =>
 		((start as number) === (end as number)

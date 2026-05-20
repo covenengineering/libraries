@@ -1,4 +1,4 @@
-import type { ReadonlyRecord } from "@coven/types";
+import type { Filter, ReadonlyRecord } from "@coven/types";
 
 /**
  * Check if the given key is present in the given object (not inherited).
@@ -15,6 +15,6 @@ import type { ReadonlyRecord } from "@coven/types";
 export const isPropertyOf =
 	<Key extends PropertyKey>(
 		object: ReadonlyRecord<Key>,
-	): ((key: Key) => boolean) =>
+	): Filter<[key: Key]> =>
 	(key) =>
 		Object.hasOwn(object, key);
