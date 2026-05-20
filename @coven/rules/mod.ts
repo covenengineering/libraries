@@ -22,7 +22,7 @@ import { noWhile } from "./no-while.ts";
  *
  * Full list of rules:
  * - `max-lines`: Allow a max of `300` lines per file.
- * - `no-appay-type`: Disallow `Type[]` syntax.
+ * - `no-array-type`: Disallow `Type[]` syntax.
  * - `no-break`: Disallow `break` statements.
  * - `no-class`: Disallow classes.
  * - `no-continue`: Disallow `continue` statements.
