@@ -8,6 +8,7 @@ export { filter } from "./filter.ts";
 export { find } from "./find.ts";
 export { flat } from "./flat.ts";
 export { forEach } from "./forEach.ts";
+export { forever } from "./forever.ts";
 export { getIterator } from "./getIterator.ts";
 export { groupBy } from "./groupBy.ts";
 export { head } from "./head.ts";
