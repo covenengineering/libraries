@@ -3,7 +3,7 @@ import { iteratorFunctionToIterableIterator } from "./iteratorFunctionToIterable
 
 /**
  * Generator that runs forever yielding the return type of the `yielder`
- * function every loop.
+ * function every iteration.
  *
  * @example
  * ```typescript
