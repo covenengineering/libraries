@@ -1,4 +1,4 @@
-import { iteratorFunctionToIterableIterator } from "@coven/iterables";
+import { forever, iteratorFunctionToIterableIterator } from "@coven/iterables";
 
 const minute = Temporal.Duration.from("PT1M");
 
@@ -17,12 +17,8 @@ const minute = Temporal.Duration.from("PT1M");
 export const minutes = (
 	plainDateTime: Temporal.PlainDateTime,
 ): IterableIterator<Temporal.PlainDateTime> =>
-	iteratorFunctionToIterableIterator(
-		function* (): Generator<Temporal.PlainDateTime> {
-			let currentDateTime = plainDateTime;
+	iteratorFunctionToIterableIterator(() => {
+		let currentDateTime = plainDateTime;
 
-			for (;;) {
-				yield (currentDateTime = currentDateTime.add(minute));
-			}
-		},
-	);
+		return forever(() => (currentDateTime = currentDateTime.add(minute)));
+	});

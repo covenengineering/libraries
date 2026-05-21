@@ -1,11 +1,13 @@
 import { maxLines } from "./max-lines.ts";
+import { noArrayType } from "./no-array-type.ts";
 import { noBreak } from "./no-break.ts";
 import { noClass } from "./no-class.ts";
 import { noContinue } from "./no-continue.ts";
 import { noDefaultExport } from "./no-default-export.ts";
 import { noDoWhile } from "./no-do-while.ts";
+import { noEarlyReturn } from "./no-early-return.ts";
 import { noEnum } from "./no-enum.ts";
-import { noForIn } from "./no-for-in.ts";
+import { noFor } from "./no-for.ts";
 import { noFunction } from "./no-function.ts";
 import { noNull } from "./no-null.ts";
 import { noSwitch } from "./no-switch.ts";
@@ -20,13 +22,15 @@ import { noWhile } from "./no-while.ts";
  *
  * Full list of rules:
  * - `max-lines`: Allow a max of `300` lines per file.
+ * - `no-array-type`: Disallow `Type[]` syntax.
  * - `no-break`: Disallow `break` statements.
  * - `no-class`: Disallow classes.
  * - `no-continue`: Disallow `continue` statements.
  * - `no-default-export`: Disallow `export default` (use named instead).
  * - `no-do-while`: Disallow `do..while` loops.
+ * - `no-early-return`: Disallow early `return`s.
  * - `no-enum`: Disallow `enum`.
- * - `no-for-in`: Disallow `for..in` loops.
+ * - `no-for`: Disallow `for` loops.
  * - `no-function`: Disallow `function` (use `const` instead).
  * - `no-null`: Disallow `null` (use `undefined` instead).
  * - `no-switch`: Disallow `switch`.
@@ -47,13 +51,15 @@ export default {
 	name: "coven",
 	rules: {
 		"max-lines": maxLines,
+		"no-array-type": noArrayType,
 		"no-break": noBreak,
 		"no-class": noClass,
 		"no-continue": noContinue,
 		"no-default-export": noDefaultExport,
 		"no-do-while": noDoWhile,
+		"no-early-return": noEarlyReturn,
 		"no-enum": noEnum,
-		"no-for-in": noForIn,
+		"no-for": noFor,
 		"no-function": noFunction,
 		"no-null": noNull,
 		"no-switch": noSwitch,

@@ -5,17 +5,17 @@ import { length } from "../length.ts";
 import { toIterable } from "../toIterable.ts";
 
 Deno.test("Array returns length", async () =>
-	assertStrictEquals(await length([0, 1, 2]), 3),
+	assertStrictEquals(await length([0, 1, 2]), 3n),
 );
 
 Deno.test("Iterable returns length", async () =>
-	assertStrictEquals(await length(range(1)(0)(2)), 3),
+	assertStrictEquals(await length(range(1)(0)(2)), 3n),
 );
 
 Deno.test("Empty array returns 0", async () =>
-	assertStrictEquals(await length(EMPTY_ARRAY), 0),
+	assertStrictEquals(await length(EMPTY_ARRAY), 0n),
 );
 
 Deno.test("Empty iterable returns 0", async () =>
-	assertStrictEquals(await length(toIterable(EMPTY_ARRAY)), 0),
+	assertStrictEquals(await length(toIterable(EMPTY_ARRAY)), 0n),
 );

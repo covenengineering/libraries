@@ -5,16 +5,16 @@ import { range } from "../range.ts";
 
 const array = [0, 1, 2];
 
-Deno.test("Array returns length", () => assertStrictEquals(length(array), 3));
+Deno.test("Array returns length", () => assertStrictEquals(length(array), 3n));
 
 Deno.test("Iterable returns length", () =>
-	assertStrictEquals(length(range(1)(0)(2)), 3),
+	assertStrictEquals(length(range(1)(0)(2)), 3n),
 );
 
 Deno.test("Empty array returns 0", () =>
-	assertStrictEquals(length(EMPTY_ARRAY), 0),
+	assertStrictEquals(length(EMPTY_ARRAY), 0n),
 );
 
 Deno.test("Empty iterable returns 0", () =>
-	assertStrictEquals(length(Iterator.from(EMPTY_ARRAY)), 0),
+	assertStrictEquals(length(Iterator.from(EMPTY_ARRAY)), 0n),
 );

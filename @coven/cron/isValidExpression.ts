@@ -7,7 +7,7 @@ import { cronRegExp } from "./cronRegExp.ts";
 /**
  * Validates if a string is a cron expression.
  *
- * @see {CronString}
+ * @see {@linkcode CronString}
  */
 export const isValidExpression = test(build("iu")(cronRegExp)) as Predicate<
 	string,

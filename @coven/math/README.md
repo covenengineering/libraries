@@ -47,6 +47,18 @@ import { calculate } from "@coven/math";
 `${calculate(103_993).over(33_102)}`; // "3.14159265301190260407226149477372968400700863996133164159265301190260407226149477372968400700863996133164159265301190260407226149477372968400700863996133164159265301190260407226149477372968400700863996133164159265301190260407226149477372968400700863996134" 🤯
 ```
 
+Each `calculate` operation returns a new frozen object. This methods don't use
+`this` so they can be safely extracted:
+
+```typescript
+import { calculate } from "@coven/math";
+
+const { plus } = calculate(0.1);
++plus(0.2); // 0.3
++plus(0); // 0.1
++plus(1e20).minus(1e20); // 0.1
+```
+
 ## Other links
 
 - [Coverage](https://app.codecov.io/github/covenengineering/libraries).

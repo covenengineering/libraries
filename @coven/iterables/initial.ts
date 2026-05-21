@@ -24,6 +24,7 @@ export const initial = <IterableToGetInitial extends Iterable<unknown>>(
 	iteratorFunctionToIterableIterator(function* (): Generator {
 		const iterator = getIterator(iterable);
 
+		// deno-lint-ignore coven/no-for
 		for (let item = iterator.next(); !item.done; ) {
 			const value = item.value;
 

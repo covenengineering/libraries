@@ -41,7 +41,7 @@ export const parse: Unary<
 	);
 
 	return (
-		length(entries) === 0 ? undefined : (
+		length(entries) === 0n ? undefined : (
 			memo(entriesToObject(entries))
 		)) as Maybe<CronObject>;
 });

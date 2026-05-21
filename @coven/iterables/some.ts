@@ -1,4 +1,4 @@
-import type { AsyncFilter, Filter, Predicate, Single } from "@coven/types";
+import type { Filter, Predicate, Single } from "@coven/types";
 import { getIterator } from "./getIterator.ts";
 
 /**
@@ -24,7 +24,5 @@ export const some = (<Item, Predicated extends Item = never>(
 	<Item, Predicated extends Item>(
 		predicate: Predicate<Item, Predicated>,
 	): Predicate<Iterable<Item>, Iterable<Item & Predicated>>;
-	<Item>(
-		predicate: Filter<[item: Item]>,
-	): AsyncFilter<[iterable: Iterable<Item>]>;
+	<Item>(predicate: Filter<[item: Item]>): Filter<[iterable: Iterable<Item>]>;
 };

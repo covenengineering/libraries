@@ -1,6 +1,8 @@
 // This file is huge, but is because we have to cover quite a lot
 // deno-lint-ignore coven/max-lines
+import { forEach } from "@coven/iterables";
 import { memo } from "@coven/memo";
+import type { ValueOf } from "@coven/types";
 import { assertStrictEquals } from "@std/assert";
 import type { CronString } from "../CronString.ts";
 import { parse } from "../parse.ts";
@@ -300,16 +302,16 @@ Deno.test(
 		),
 );
 
-februaryBadDaysOfMonth.forEach((februaryBadDayOfMonth) =>
+forEach((februaryBadDayOfMonth: ValueOf<typeof februaryBadDaysOfMonth>) =>
 	Deno.test(`* * ${februaryBadDayOfMonth} 2 * returns undefined`, () =>
 		assertStrictEquals(
 			parse(`* * ${februaryBadDayOfMonth} 2 *`),
 			undefined,
 		),
 	),
-);
+)(februaryBadDaysOfMonth);
 
-februaryBadDaysOfMonth.forEach((februaryBadDayOfMonth) =>
+forEach((februaryBadDayOfMonth: ValueOf<typeof februaryBadDaysOfMonth>) =>
 	Deno.test(
 		`* * ${februaryBadDayOfMonth} 2,3 * returns valid date because 3 is included`,
 		() =>
@@ -328,9 +330,9 @@ februaryBadDaysOfMonth.forEach((februaryBadDayOfMonth) =>
 				} as const),
 			),
 	),
-);
+)(februaryBadDaysOfMonth);
 
-februaryBadDaysOfMonth.forEach((februaryBadDayOfMonth) =>
+forEach((februaryBadDayOfMonth: ValueOf<typeof februaryBadDaysOfMonth>) =>
 	Deno.test(
 		`* * ${februaryBadDayOfMonth} 2-4 * returns valid date because 3 is included`,
 		() =>
@@ -348,4 +350,4 @@ februaryBadDaysOfMonth.forEach((februaryBadDayOfMonth) =>
 				} as const),
 			),
 	),
-);
+)(februaryBadDaysOfMonth);

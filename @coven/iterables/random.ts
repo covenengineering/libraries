@@ -1,5 +1,6 @@
 import type { Stringable, Unary } from "@coven/types";
 import { seededRandom } from "@coven/utils";
+import { forever } from "./forever.ts";
 import { iteratorFunctionToIterableIterator } from "./iteratorFunctionToIterableIterator.ts";
 
 /**
@@ -28,13 +29,13 @@ export const random =
 	> =>
 	(from) =>
 	(to) =>
-		iteratorFunctionToIterableIterator(function* (): Generator<number> {
-			let state: string | number = `${seed}`;
+		iteratorFunctionToIterableIterator(() => {
+			let state: Stringable = seed;
 			const min = from < to ? from : to;
 			const max = from > to ? from : to;
 
-			for (;;) {
-				yield Math.min(
+			return forever(() =>
+				Math.min(
 					Math.max(
 						(state =
 							seededRandom(`${state}(${min}-${max})`)
@@ -43,6 +44,6 @@ export const random =
 						min,
 					),
 					max,
-				);
-			}
+				),
+			);
 		});

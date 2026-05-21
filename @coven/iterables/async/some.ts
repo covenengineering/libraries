@@ -33,6 +33,7 @@ export const some: {
 	async (iterable) => {
 		for await (const item of iterable) {
 			if (predicate(item)) {
+				// deno-lint-ignore coven/no-early-return
 				return true;
 			}
 		}

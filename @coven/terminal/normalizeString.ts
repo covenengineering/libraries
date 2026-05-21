@@ -1,9 +1,13 @@
+import { append, flat, join, zip } from "@coven/iterables";
 import { memoFunction } from "@coven/memo";
 import type {
 	Fallback,
 	ReadonlyTemplateStringsArray,
 	Stringable,
 } from "@coven/types";
+
+const appendEmpty = append([""]);
+const joinEmpty = join("");
 
 /**
  * Takes a string or a template string and returns a plain string.
@@ -29,10 +33,6 @@ export const normalizeString: <
 		...expressions: ReadonlyArray<Stringable>
 	): Fallback<ReadonlyTemplateStringsArray, Input, string> =>
 		(typeof input === "string" ? input : (
-			input.reduce(
-				(output, string, index) =>
-					`${output}${string}${expressions[index] ?? ""}`,
-				"",
-			)
+			joinEmpty(flat(zip(input)(appendEmpty(expressions))))
 		)) as Fallback<ReadonlyTemplateStringsArray, Input, string>,
 );

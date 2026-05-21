@@ -1,15 +1,12 @@
 import { EMPTY_ARRAY } from "@coven/constants";
+import { repeat } from "@coven/iterables";
 import { assertEquals } from "@std/assert";
 import { iterableToArray } from "../iterableToArray.ts";
 import { take } from "../take.ts";
 
-const infiniteIterable = function* <Item>(item: Item): Iterable<Item> {
-	for (;;) {
-		yield item;
-	}
-};
-const take2 = take(2);
-const takeNone = take(0);
+const infiniteIterable = <Item>(item: Item) => repeat(Infinity)(item);
+const take2 = take(2n);
+const takeNone = take(0n);
 const takeAll = take(Infinity);
 
 Deno.test(

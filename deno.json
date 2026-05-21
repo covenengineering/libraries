@@ -95,6 +95,10 @@
 		"test-coverage": {
 			"command": "deno test --ignore-env --coverage --doc --import=./setupTests.ts --parallel --quiet",
 			"description": "Run tests generating coverage (even for documentation)"
+		},
+		"version-bump": {
+			"command": "deno --allow-read=. --allow-write=. ./scripts/version-bump.ts",
+			"description": "Bump version of all packages"
 		}
 	},
 	"workspace": [

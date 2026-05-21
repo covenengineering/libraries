@@ -1,10 +1,11 @@
-import type { Numeric } from "@coven/types";
+import { memoFunction } from "@coven/memo";
+import type { Numeric, Unary } from "@coven/types";
 import { createObject } from "@coven/utils";
 import type { Calculation } from "./Calculation.ts";
 import { numericToPrecise } from "./numericToPrecise.ts";
+import type { Precise } from "./precise.ts";
 import { preciseAdd } from "./preciseAdd.ts";
 import { preciseDivide } from "./preciseDivide.ts";
-import type { PreciseFunction } from "./PreciseFunction.ts";
 import { preciseMultiply } from "./preciseMultiply.ts";
 import { preciseSubtract } from "./preciseSubtract.ts";
 import { preciseToNumber } from "./preciseToNumber.ts";
@@ -23,33 +24,36 @@ import { preciseToString } from "./preciseToString.ts";
  * @see {@linkcode preciseMultiply}
  * @see {@linkcode preciseSubtract}
  * @param value Value to run operations on.
- * @returns An object with `divideBy`, `minus`, `plus` and `times` methods and a `value` property.
+ * @returns An object with chainable methods to update the current value.
  */
-export const calculate = (value: Numeric): Calculation => {
-	/** @internal Current value (always holds a {@linkcode Precise}). */
-	let left = numericToPrecise(value);
+export const calculate: Unary<[value: Numeric], Calculation> = memoFunction(
+	(value) => {
+		const createCalculation = memoFunction((raw: Precise) =>
+			Object.freeze(
+				createObject({
+					minus: (right: Numeric) =>
+						createCalculation(
+							preciseSubtract(numericToPrecise(right))(raw),
+						),
+					over: (right: Numeric) =>
+						createCalculation(
+							preciseDivide(numericToPrecise(right))(raw),
+						),
+					plus: (right: Numeric) =>
+						createCalculation(
+							preciseAdd(numericToPrecise(right))(raw),
+						),
+					raw,
+					times: (right: Numeric) =>
+						createCalculation(
+							preciseMultiply(numericToPrecise(right))(raw),
+						),
+					toString: () => preciseToString(raw),
+					valueOf: () => preciseToNumber(raw),
+				}),
+			),
+		);
 
-	/** Curried function to generate the methods for each precise function */
-	const method = (preciseFunction: PreciseFunction) =>
-		({
-			get:
-				() =>
-				(right: Numeric): Calculation => (
-					(left = preciseFunction(numericToPrecise(right))(left)),
-					calculation
-				),
-		}) as const satisfies PropertyDescriptor;
-
-	/** Output object (read only and as lazy as possible) */
-	const calculation = Object.defineProperties(createObject(), {
-		minus: method(preciseSubtract),
-		over: method(preciseDivide),
-		plus: method(preciseAdd),
-		raw: { get: () => left },
-		times: method(preciseMultiply),
-		toString: { value: () => preciseToString(left) },
-		valueOf: { value: () => preciseToNumber(left) },
-	}) as Calculation;
-
-	return calculation;
-};
+		return createCalculation(numericToPrecise(value));
+	},
+);

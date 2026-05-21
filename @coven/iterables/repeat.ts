@@ -1,5 +1,7 @@
 import type { Numeric } from "@coven/types";
-import { iteratorFunctionToIterableIterator } from "./iteratorFunctionToIterableIterator.ts";
+import { always } from "@coven/utils";
+import { forever } from "./forever.ts";
+import { take } from "./take.ts";
 
 /**
  * Repeat given item the specified amount of times (can be `BigInt` or
@@ -16,14 +18,4 @@ import { iteratorFunctionToIterableIterator } from "./iteratorFunctionToIterable
 export const repeat =
 	(times: Numeric): (<const Item>(item: Item) => IterableIterator<Item>) =>
 	<const Item>(item: Item) =>
-		iteratorFunctionToIterableIterator(function* (): Generator<Item> {
-			if (times === Infinity) {
-				for (;;) {
-					yield item;
-				}
-			} else {
-				for (let count = 0n; count < times; count += 1n) {
-					yield item;
-				}
-			}
-		});
+		take(times)(forever(always(item)));

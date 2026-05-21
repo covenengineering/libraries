@@ -1,5 +1,10 @@
 import { EMPTY_ARRAY, EMPTY_OBJECT } from "@coven/constants";
-import { EMPTY_ITERABLE_ITERATOR } from "@coven/iterables";
+import {
+	EMPTY_ITERABLE_ITERATOR,
+	filter,
+	iterableToArray,
+	map,
+} from "@coven/iterables";
 import { createObject } from "@coven/utils";
 import { assertEquals } from "@std/assert";
 import { compare } from "../compare.ts";
@@ -195,16 +200,20 @@ Deno.test(
 			constructor: Array,
 			length: 1,
 		});
+		const keyFilter = filter(
+			(key: string | symbol) => !Reflect.ownKeys(fakeArray).includes(key),
+		);
+		const keyMap = map((key: string | symbol) => ({
+			kind: DELETE_KIND,
+			left: Array.prototype[key as keyof typeof Array.prototype],
+			path: [key],
+		}));
 
 		return assertEquals(
 			flat(compare(["coven"])(fakeArray)),
-			Reflect.ownKeys(Array.prototype)
-				.filter((key) => !Reflect.ownKeys(fakeArray).includes(key))
-				.map((key) => ({
-					kind: DELETE_KIND,
-					left: Array.prototype[key as keyof typeof Array.prototype],
-					path: [key],
-				})) as ReturnType<typeof flat>,
+			iterableToArray(
+				keyMap(keyFilter(Reflect.ownKeys(Array.prototype))),
+			) as ReturnType<typeof flat>,
 		);
 	},
 );

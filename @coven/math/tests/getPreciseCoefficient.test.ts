@@ -1,3 +1,4 @@
+import { forEach, range } from "@coven/iterables";
 import { assertStrictEquals } from "@std/assert";
 import { getPreciseCoefficient } from "../getPreciseCoefficient.ts";
 import { precise } from "../precise.ts";
@@ -14,9 +15,11 @@ Deno.test("Can get coefficient bondaries from a Precise", () => {
 	checkGetPreciseCoefficient(-1n);
 });
 
-Deno.test("Can get coefficient powers of 2 from a Precise", () => {
-	for (let index = 0n; index < 55n; index++) {
-		checkGetPreciseCoefficient(2n ** index);
-		checkGetPreciseCoefficient(-(2n ** index));
-	}
-});
+Deno.test("Can get coefficient powers of 2 from a Precise", () =>
+	forEach(
+		(index: bigint) => (
+			checkGetPreciseCoefficient(2n ** index),
+			checkGetPreciseCoefficient(-(2n ** index))
+		),
+	)(range(1n)(0n)(54n)),
+);

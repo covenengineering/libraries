@@ -1,3 +1,4 @@
+import { some } from "@coven/iterables";
 import { memoFunction } from "@coven/memo";
 import type { Filter, Unary } from "@coven/types";
 import { always } from "@coven/utils";
@@ -34,7 +35,7 @@ export const compareField: Unary<
 	isAllToken(field) ? alwaysTrue : (
 		memoFunction(
 			isListField(field) ?
-				(value) => field.some(compareRangeOrValue(value))
+				(value) => some(compareRangeOrValue(value))(field)
 			:	(value) => compareRangeOrValue(value)(field),
 		)
 	),

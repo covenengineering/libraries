@@ -1,4 +1,4 @@
-import { getIterator } from "./getIterator.ts";
+import type { Numeric } from "@coven/types";
 import { iteratorFunctionToIterableIterator } from "./iteratorFunctionToIterableIterator.ts";
 
 /**
@@ -14,9 +14,20 @@ import { iteratorFunctionToIterableIterator } from "./iteratorFunctionToIterable
  */
 export const take =
 	(
-		amount: number,
+		amount: Numeric,
 	): (<Item>(iterable: Iterable<Item>) => IterableIterator<Item>) =>
 	<Item>(iterable: Iterable<Item>) =>
-		iteratorFunctionToIterableIterator(() =>
-			getIterator(iterable).take(amount),
-		);
+		iteratorFunctionToIterableIterator(function* (): Generator<Item> {
+			let count = 0n;
+
+			if (amount > 0n) {
+				for (const item of iterable) {
+					if (count < amount) {
+						yield item;
+						count += 1n;
+					} else {
+						return;
+					}
+				}
+			}
+		});

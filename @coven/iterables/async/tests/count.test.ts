@@ -7,18 +7,18 @@ const countAll = count((_) => true);
 
 Deno.test(
 	"Array of mixed numbers and an even counter returns amount of even numbers in the array",
-	async () => assertStrictEquals(await countEvens([0, 1, 2, 3, 4]), 3),
+	async () => assertStrictEquals(await countEvens([0, 1, 2, 3, 4]), 3n),
 );
 
 Deno.test("Empty array and an even counter returns 0", async () =>
-	assertStrictEquals(await countEvens(EMPTY_ARRAY), 0),
+	assertStrictEquals(await countEvens(EMPTY_ARRAY), 0n),
 );
 
 Deno.test("Array of odd numbers and an even counter returns 0", async () =>
-	assertStrictEquals(await countEvens([1, 3, 5, 7]), 0),
+	assertStrictEquals(await countEvens([1, 3, 5, 7]), 0n),
 );
 
 Deno.test(
 	"Array of mixed numbers and a counter with no filter returns full length",
-	async () => assertStrictEquals(await countAll([0, 1, 2, 3, 4]), 5),
+	async () => assertStrictEquals(await countAll([0, 1, 2, 3, 4]), 5n),
 );
