@@ -1,13 +1,19 @@
 import { SIGIL } from "@coven/constants";
 import {
-	getIterator,
+	append,
+	forever,
 	iteratorFunctionToIterableIterator,
 	map,
+	zip,
+	zipIndex,
 } from "@coven/iterables";
+import { always } from "@coven/utils";
 import { compare } from "./compare.ts";
 import type { CurriedComparison } from "./CurriedComparison.ts";
 import type { Difference } from "./Difference.ts";
 import { pathPrepend } from "./pathPrepend.ts";
+
+const appendSigilForever = append(forever(always(SIGIL)));
 
 /**
  * Deep-compare iterables.
@@ -26,39 +32,29 @@ import { pathPrepend } from "./pathPrepend.ts";
  * @param left Original iterable.
  * @returns Curried generator with `left` in context.
  */
-export const compareIterables =
-	<LeftItem>(
-		left: Iterable<LeftItem>,
-	): CurriedComparison<Iterable<LeftItem>> =>
+export const compareIterables = <LeftItem>(
+	left: Iterable<LeftItem>,
+): CurriedComparison<Iterable<LeftItem>> => {
+	const zipExtendedLeft = zip(zipIndex(appendSigilForever(left)));
+
 	/**
 	 * Curried {@linkcode compareIterables} with `left` set in context.
 	 *
 	 * @param right New iterable.
 	 * @returns Generator with differences.
 	 */
-	(right) =>
+	return (right) =>
 		iteratorFunctionToIterableIterator(function* (): Generator<Difference> {
-			const leftIterator = getIterator(left);
-			const rightIterator = getIterator(right);
-
-			// deno-lint-ignore coven/no-for
-			for (
-				let index = 0,
-					{ done: leftDone = false, value: leftValue } =
-						leftIterator.next(),
-					{ done: rightDone = false, value: rightValue } =
-						rightIterator.next();
-				!(leftDone && rightDone);
-				index += 1,
-					{ done: leftDone = false, value: leftValue } =
-						leftIterator.next(),
-					{ done: rightDone = false, value: rightValue } =
-						rightIterator.next()
-			) {
-				yield* map(pathPrepend(index))(
-					compare(leftDone ? SIGIL : leftValue)(
-						rightDone ? SIGIL : rightValue,
-					),
-				);
+			for (const [[index, leftValue], rightValue] of zipExtendedLeft(
+				appendSigilForever(right),
+			)) {
+				if (leftValue !== SIGIL || rightValue !== SIGIL) {
+					yield* map(pathPrepend(index))(
+						compare(leftValue)(rightValue),
+					);
+				} else {
+					return;
+				}
 			}
 		});
+};
