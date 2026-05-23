@@ -1,19 +1,19 @@
 import { SIGIL } from "@coven/constants";
 import {
-	append,
-	forever,
+	getIterator,
 	iteratorFunctionToIterableIterator,
 	map,
-	zip,
-	zipIndex,
 } from "@coven/iterables";
-import { always } from "@coven/utils";
 import { compare } from "./compare.ts";
 import type { CurriedComparison } from "./CurriedComparison.ts";
 import type { Difference } from "./Difference.ts";
 import { pathPrepend } from "./pathPrepend.ts";
 
-const appendSigilForever = append(forever(always(SIGIL)));
+const nextValue = <Item>(iteratorObject: IteratorObject<Item>) => {
+	const result = iteratorObject.next();
+
+	return result.done ? SIGIL : result.value;
+};
 
 /**
  * Deep-compare iterables.
@@ -32,29 +32,31 @@ const appendSigilForever = append(forever(always(SIGIL)));
  * @param left Original iterable.
  * @returns Curried generator with `left` in context.
  */
-export const compareIterables = <LeftItem>(
-	left: Iterable<LeftItem>,
-): CurriedComparison<Iterable<LeftItem>> => {
-	const zipExtendedLeft = zip(zipIndex(appendSigilForever(left)));
-
+export const compareIterables =
+	<LeftItem>(
+		left: Iterable<LeftItem>,
+	): CurriedComparison<Iterable<LeftItem>> =>
 	/**
 	 * Curried {@linkcode compareIterables} with `left` set in context.
 	 *
 	 * @param right New iterable.
 	 * @returns Generator with differences.
 	 */
-	return (right) =>
+	(right) =>
 		iteratorFunctionToIterableIterator(function* (): Generator<Difference> {
-			for (const [[index, leftValue], rightValue] of zipExtendedLeft(
-				appendSigilForever(right),
-			)) {
-				if (leftValue !== SIGIL || rightValue !== SIGIL) {
-					yield* map(pathPrepend(index))(
-						compare(leftValue)(rightValue),
-					);
-				} else {
-					return;
-				}
+			const leftIterator = getIterator(left);
+			const rigthIterator = getIterator(right);
+
+			// deno-lint-ignore coven/no-for
+			for (
+				let index = 0,
+					leftValue = nextValue(leftIterator),
+					rightValue = nextValue(rigthIterator);
+				leftValue !== SIGIL || rightValue !== SIGIL;
+				index += 1,
+					leftValue = nextValue(leftIterator),
+					rightValue = nextValue(rigthIterator)
+			) {
+				yield* map(pathPrepend(index))(compare(leftValue)(rightValue));
 			}
 		});
-};
