@@ -1,11 +1,9 @@
-<img alt="Simulcast Preact logo" src="https://raw.githubusercontent.com/covenengineering/libraries/main/@simulcast/preact/logo.svg" height="108" />
+![Simulcast Preact][logo]
 
-[![JSR](https://jsr.io/badges/@simulcast/preact)](https://simulcast.coven.to/preact)
-[![JSR Score](https://jsr.io/badges/@simulcast/preact/score)](https://simulcast.coven.to/preact/score)
-[![Coverage Status](https://img.shields.io/codecov/c/github/covenengineering/libraries?color=%23083344&component=simulcast__preact&label=Codecov&labelColor=%23F01F7A&logo=Codecov&logoColor=%23fff)](https://app.codecov.io/github/covenengineering/libraries?components[0]=Simulcast%20Preact)
+[![JSR][jsr-version-badge]][jsr-link] [![JSR Score][jsr-score-badge]][jsr-score]
+[![Coverage Status][coverage-badge]][coverage]
 
-📡 [Preact](https://preactjs.com/) hook for
-[`@simulcast/core`](https://simulcast.coven.to/core).
+📡 [Preact][preact] hook for [`@simulcast/core`][simulcast-core].
 
 ## Example
 
@@ -31,6 +29,18 @@ const Component = () => {
 };
 ```
 
-## Other links
+<!-- Links -->
 
-- [Coverage](https://app.codecov.io/github/covenengineering/libraries).
+[coven-engineering]: https://coven.engineering
+[coverage]:
+	https://app.codecov.io/github/covenengineering/libraries%3Fcomponents%5B0%5D%3DSimulcast%20Preact
+[coverage-badge]:
+	https://img.shields.io/codecov/c/github/covenengineering/libraries?color=%23083344&component=simulcast__preact&label=Codecov&labelColor=%23F01F7A&logo=Codecov&logoColor=%23fff
+[jsr-link]: https://simulcast.coven.to/preact
+[jsr-score]: https://simulcast.coven.to/core/preact
+[jsr-score-badge]: https://jsr.io/badges/@simulcast/preact/score
+[jsr-version-badge]: https://jsr.io/badges/@simulcast/preact
+[logo]:
+	https://raw.githubusercontent.com/covenengineering/libraries/main/@simulcast/preact/logo.svg
+[preact]: https://preactjs.com/
+[simulcast-core]: https://simulcast.coven.to/core

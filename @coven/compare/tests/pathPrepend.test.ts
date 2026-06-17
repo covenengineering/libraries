@@ -22,19 +22,7 @@ Deno.test("Prepend key to existing path", () =>
 
 Deno.test("Prepend key to missing path yields prepended key", () =>
 	assertEquals(
-		flat([
-			prepend13({
-				kind: DELETE_KIND,
-				left: "✨",
-				path: [].values(),
-			}),
-		]),
-		[
-			{
-				kind: DELETE_KIND,
-				left: "✨",
-				path: [13],
-			},
-		],
+		flat([prepend13({ kind: DELETE_KIND, left: "✨", path: [].values() })]),
+		[{ kind: DELETE_KIND, left: "✨", path: [13] }],
 	),
 );

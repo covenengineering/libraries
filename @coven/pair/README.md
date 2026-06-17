@@ -1,16 +1,14 @@
 <!-- deno-coverage-ignore-file -->
 
-![Coven Engineering Pair](https://raw.githubusercontent.com/covenengineering/libraries/main/@coven/pair/logo.svg)
+![Coven Engineering Pair][logo]
 
-[![JSR](https://jsr.io/badges/@coven/pair)](https://coven.to/pair)
-[![JSR Score](https://jsr.io/badges/@coven/pair/score)](https://coven.to/pair/score)
-[![Coverage Status](https://img.shields.io/codecov/c/github/covenengineering/libraries?color=%23083344&component=coven__pair&label=Codecov&labelColor=%23F01F7A&logo=Codecov&logoColor=%23fff)](https://app.codecov.io/github/covenengineering/libraries?components[0]=Coven%20Engineering%20Pair)
+[![JSR][jsr-version-badge]][jsr-link] [![JSR Score][jsr-score-badge]][jsr-score]
+[![Coverage Status][coverage-badge]][coverage]
 
-🖇️ [Paired hook pattern](https://lou.cx/articles/the-paired-hook-pattern)
-helper. It only makes pairing simpler and provides a little bit better DX
-(integration with React Devtools by setting a `displayName` automatically),
-while also having 100% coverage like with all
-[Coven Engineering](https://coven.engineering) libraries.
+🖇️ [Paired hook pattern][the-paired-hook-pattern] helper. It only makes pairing
+simpler and provides a little bit better DX (integration with React Devtools by
+setting a `displayName` automatically), while also having 100% coverage like
+with all [Coven Engineering][coven-engineering] libraries.
 
 Currently supported frameworks:
 
@@ -87,6 +85,17 @@ const Component = ({ array = [] }) => (
 );
 ```
 
-## Other links
+<!-- Links -->
 
-- [Coverage](https://app.codecov.io/github/covenengineering/libraries).
+[coven-engineering]: https://coven.engineering
+[coverage]:
+	https://app.codecov.io/github/covenengineering/libraries%3Fcomponents%5B0%5D%3DCoven%2520Engineering%2520Pair
+[coverage-badge]:
+	https://img.shields.io/codecov/c/github/covenengineering/libraries?color=%23083344&component=coven__pair&label=Codecov&labelColor=%23F01F7A&logo=Codecov&logoColor=%23fff
+[jsr-link]: https://coven.to/pair
+[jsr-score]: https://coven.to/pair/score
+[jsr-score-badge]: https://jsr.io/badges/@coven/pair/score
+[jsr-version-badge]: https://jsr.io/badges/@coven/pair
+[logo]:
+	https://raw.githubusercontent.com/covenengineering/libraries/main/@coven/pair/logo.svg
+[the-paired-hook-pattern]: https://lou.cx/articles/the-paired-hook-pattern

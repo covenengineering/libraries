@@ -1,8 +1,7 @@
-![Coven Engineering Compare](https://raw.githubusercontent.com/covenengineering/libraries/main/@coven/compare/logo.svg)
+![Coven Engineering Compare][logo]
 
-[![JSR](https://jsr.io/badges/@coven/compare)](https://coven.to/compare)
-[![JSR Score](https://jsr.io/badges/@coven/compare/score)](https://coven.to/compare/score)
-[![Coverage Status](https://img.shields.io/codecov/c/github/covenengineering/libraries?color=%23083344&component=coven__compare&label=Codecov&labelColor=%23F01F7A&logo=Codecov&logoColor=%23fff)](https://app.codecov.io/github/covenengineering/libraries?components[0]=Coven%20Engineering%20Compare)
+[![JSR][jsr-version-badge]][jsr-link] [![JSR Score][jsr-score-badge]][jsr-score]
+[![Coverage Status][coverage-badge]][coverage]
 
 ⚖️ Minimalist diffing.
 
@@ -15,9 +14,9 @@ the differences between said values. The yielded differences are represented by
 - **Update:** When `left` and `right` values are different.
 - **Delete:** When `left` value exists and `right` value is missing.
 
-Like all [Coven Engineering](https://coven.engineering) libraries, it has 100%
-test coverage and it's built in top of modern tech compatible with all
-JavaScript runtimes.
+Like all [Coven Engineering][coven-engineering] libraries, it has 100% test
+coverage and it's built in top of modern tech compatible with all JavaScript
+runtimes.
 
 ## Examples
 
@@ -61,12 +60,7 @@ compare({ example: 13 })({ example: 42 });
 The yielded update will have values yielded from its `path`:
 
 ```typescript
-({
-	kind: "UPDATE",
-	left: 13,
-	right: 42,
-	path: ["example"],
-});
+({ kind: "UPDATE", left: 13, right: 42, path: ["example"] });
 ```
 
 ### Object delete
@@ -82,11 +76,7 @@ compare({ example: 13 })({});
 Yields this:
 
 ```typescript
-({
-	kind: "DELETE",
-	left: 13,
-	path: ["example"],
-});
+({ kind: "DELETE", left: 13, path: ["example"] });
 ```
 
 ### Object create
@@ -102,11 +92,7 @@ compare({})({ example: 42 });
 Yields this:
 
 ```typescript
-({
-	kind: "CREATE",
-	right: 42,
-	path: ["example"],
-});
+({ kind: "CREATE", right: 42, path: ["example"] });
 ```
 
 ### Multiple differences
@@ -117,10 +103,7 @@ differences:
 ```typescript
 import { compare } from "@coven/compare";
 
-compare({
-	original: "old",
-	updated: "old",
-})({
+compare({ original: "old", updated: "old" })({
 	created: "new",
 	updated: "new",
 });
@@ -134,6 +117,16 @@ That yields all 3 kind of differences:
 ({ kind: "CREATE", right: "new", path: ["created"] });
 ```
 
-## Other links
+<!-- Links -->
 
-- [Coverage](https://app.codecov.io/github/covenengineering/libraries).
+[coven-engineering]: https://coven.engineering
+[coverage]:
+	https://app.codecov.io/github/covenengineering/libraries%3Fcomponents%5B0%5D%3DCoven%2520Engineering%2520Compare
+[coverage-badge]:
+	https://img.shields.io/codecov/c/github/covenengineering/libraries?color=%23083344&component=coven__compare&label=Codecov&labelColor=%23F01F7A&logo=Codecov&logoColor=%23fff
+[jsr-link]: https://coven.to/compare
+[jsr-score]: https://coven.to/compare/score
+[jsr-score-badge]: https://jsr.io/badges/@coven/compare/score
+[jsr-version-badge]: https://jsr.io/badges/@coven/compare
+[logo]:
+	https://raw.githubusercontent.com/covenengineering/libraries/main/@coven/compare/logo.svg

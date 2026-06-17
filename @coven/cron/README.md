@@ -1,24 +1,23 @@
-![Coven Engineering Cron](https://raw.githubusercontent.com/covenengineering/libraries/main/@coven/cron/logo.svg)
+![Coven Engineering Cron][logo]
 
-[![JSR](https://jsr.io/badges/@coven/cron)](https://coven.to/cron)
-[![JSR Score](https://jsr.io/badges/@coven/cron/score)](https://coven.to/cron/score)
-[![Coverage Status](https://img.shields.io/codecov/c/github/covenengineering/libraries?color=%23083344&component=coven__cron&label=Codecov&labelColor=%23F01F7A&logo=Codecov&logoColor=%23fff)](https://app.codecov.io/github/covenengineering/libraries?components[0]=Coven%20Engineering%20Cron)
+[![JSR][jsr-version-badge]][jsr-link] [![JSR Score][jsr-score-badge]][jsr-score]
+[![Coverage Status][coverage-badge]][coverage]
 
 ⏳ Fantastic cron parser and constructor.
 
 This library is the fastest, smallest and safest cron expression parser out
 there. This is because it uses a regular expression (built with
-[`@coven/expression`](https://coven.to/expression)) to parse strings into a
-consumable object, and the parse back is done by really quick curried functions
-and generators.
+[`@coven/expression`][coven-expression]) to parse strings into a consumable
+object, and the parse back is done by really quick curried functions and
+generators.
 
 It also includes a `nextDate` util that given a `Date` and a valid cron
 expression, will return the next matching date. It does validations beforehand
 so no "Invalid Date" errors are returned.
 
-Like all [Coven Engineering](https://coven.engineering) libraries, it has 100%
-test coverage and it's built in top of modern tech compatible with all
-JavaScript runtimes.
+Like all [Coven Engineering][coven-engineering] libraries, it has 100% test
+coverage and it's built in top of modern tech compatible with all JavaScript
+runtimes.
 
 Only known limitation is it only accepts valid standard unix cron expressions,
 so cron quartz is not supported.
@@ -112,6 +111,17 @@ take(2)(nextISODates("1989-10-13T10:15:42.123Z")("* * * * *"));
 // ["1989-10-13T10:16:00.000Z", "1989-10-13T10:17:00.000Z"]
 ```
 
-## Other links
+<!-- Links -->
 
-- [Coverage](https://app.codecov.io/github/covenengineering/libraries).
+[coven-expression]: https://coven.to/expression
+[coven-engineering]: https://coven.engineering
+[coverage]:
+	https://app.codecov.io/github/covenengineering/libraries%3Fcomponents%5B0%5D%3DCoven%2520Engineering%2520Cron
+[coverage-badge]:
+	https://img.shields.io/codecov/c/github/covenengineering/libraries?color=%23083344&component=coven__cron&label=Codecov&labelColor=%23F01F7A&logo=Codecov&logoColor=%23fff
+[jsr-link]: https://coven.to/cron
+[jsr-score]: https://coven.to/cron/score
+[jsr-score-badge]: https://jsr.io/badges/@coven/cron/score
+[jsr-version-badge]: https://jsr.io/badges/@coven/cron
+[logo]:
+	https://raw.githubusercontent.com/covenengineering/libraries/main/@coven/cron/logo.svg

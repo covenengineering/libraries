@@ -26,12 +26,7 @@ Deno.test("Comparing same object yields nothing", () =>
 
 Deno.test("Comparing different string yields `UpdateDifference`", () =>
 	assertEquals(flat(compare("magic")("cat")), [
-		{
-			kind: UPDATE_KIND,
-			left: "magic",
-			path: [],
-			right: "cat",
-		},
+		{ kind: UPDATE_KIND, left: "magic", path: [], right: "cat" },
 	]),
 );
 
@@ -41,12 +36,7 @@ Deno.test("Comparing equal arrays yields nothing", () =>
 
 Deno.test("Comparing different arrays yields `UpdateDifference`", () =>
 	assertEquals(flat(compare(["magic"])(["cat"])), [
-		{
-			kind: UPDATE_KIND,
-			left: "magic",
-			path: [0],
-			right: "cat",
-		},
+		{ kind: UPDATE_KIND, left: "magic", path: [0], right: "cat" },
 	]),
 );
 
@@ -104,13 +94,7 @@ Deno.test("Comparing array with less items yields `DeleteDifference`", () =>
 				{ [property1]: "magic" },
 			]),
 		),
-		[
-			{
-				kind: DELETE_KIND,
-				left: { [property2]: "cat" },
-				path: [1],
-			},
-		],
+		[{ kind: DELETE_KIND, left: { [property2]: "cat" }, path: [1] }],
 	),
 );
 
@@ -220,12 +204,7 @@ Deno.test(
 
 Deno.test("Comparing 0 with -0 should yield `UpdateDifference`", () =>
 	assertEquals(flat(compare(-0)(0)), [
-		{
-			kind: UPDATE_KIND,
-			left: -0,
-			path: [],
-			right: 0,
-		},
+		{ kind: UPDATE_KIND, left: -0, path: [], right: 0 },
 	]),
 );
 

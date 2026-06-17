@@ -14,10 +14,9 @@ const createMap = () => new Map();
  */
 export const updateCache: <Item extends Memoizable>(
 	cache: Cache,
-) => (iterable: Iterable<Item>) => Cache = reduce(
-	(item) => (updateCache) =>
-		updateCache.getOrInsertComputed(
-			isObject(item) ? memo(item) : item,
-			createMap,
-		) as Cache,
-);
+) => (iterable: Iterable<Item>) => Cache = reduce((item) => {
+	const key = isObject(item) ? memo(item) : item;
+
+	return (updateCache) =>
+		updateCache.getOrInsertComputed(key, createMap) as Cache;
+});

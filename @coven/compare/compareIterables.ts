@@ -9,6 +9,12 @@ import type { CurriedComparison } from "./CurriedComparison.ts";
 import type { Difference } from "./Difference.ts";
 import { pathPrepend } from "./pathPrepend.ts";
 
+const nextValue = <Item>(iteratorObject: IteratorObject<Item>) => {
+	const result = iteratorObject.next();
+
+	return result.done ? SIGIL : result.value;
+};
+
 /**
  * Deep-compare iterables.
  *
@@ -39,26 +45,18 @@ export const compareIterables =
 	(right) =>
 		iteratorFunctionToIterableIterator(function* (): Generator<Difference> {
 			const leftIterator = getIterator(left);
-			const rightIterator = getIterator(right);
+			const rigthIterator = getIterator(right);
 
 			// deno-lint-ignore coven/no-for
 			for (
 				let index = 0,
-					{ done: leftDone = false, value: leftValue } =
-						leftIterator.next(),
-					{ done: rightDone = false, value: rightValue } =
-						rightIterator.next();
-				!(leftDone && rightDone);
+					leftValue = nextValue(leftIterator),
+					rightValue = nextValue(rigthIterator);
+				leftValue !== SIGIL || rightValue !== SIGIL;
 				index += 1,
-					{ done: leftDone = false, value: leftValue } =
-						leftIterator.next(),
-					{ done: rightDone = false, value: rightValue } =
-						rightIterator.next()
+					leftValue = nextValue(leftIterator),
+					rightValue = nextValue(rigthIterator)
 			) {
-				yield* map(pathPrepend(index))(
-					compare(leftDone ? SIGIL : leftValue)(
-						rightDone ? SIGIL : rightValue,
-					),
-				);
+				yield* map(pathPrepend(index))(compare(leftValue)(rightValue));
 			}
 		});

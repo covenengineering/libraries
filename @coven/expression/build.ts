@@ -37,10 +37,7 @@ export const build: <Flags extends RegularExpressionFlags = "u">(
 				) =>
 					new RegExp(join(...atoms), flags) as Replace<
 						RegExp,
-						Readonly<{
-							flags: Flags;
-							source: StringJoin<Atoms>;
-						}>
+						Readonly<{ flags: Flags; source: StringJoin<Atoms> }>
 					>,
 			),
 	);

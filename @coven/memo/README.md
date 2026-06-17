@@ -1,8 +1,7 @@
-![Coven Engineering Memo](https://raw.githubusercontent.com/covenengineering/libraries/main/@coven/memo/logo.svg)
+![Coven Engineering Memo][logo]
 
-[![JSR](https://jsr.io/badges/@coven/memo)](https://coven.to/memo)
-[![JSR Score](https://jsr.io/badges/@coven/memo/score)](https://coven.to/memo/score)
-[![Coverage Status](https://img.shields.io/codecov/c/github/covenengineering/libraries?color=%23083344&component=coven__memo&label=Codecov&labelColor=%23F01F7A&logo=Codecov&logoColor=%23fff)](https://app.codecov.io/github/covenengineering/libraries?components[0]=Coven%20Engineering%20Memo)
+[![JSR][jsr-version-badge]][jsr-link] [![JSR Score][jsr-score-badge]][jsr-score]
+[![Coverage Status][coverage-badge]][coverage]
 
 💾 Memoization utilities.
 
@@ -14,9 +13,9 @@ This library uses nested `Map`s to save a "tree" with references to all
 structures linked to its internal values. The nesting level is the index and the
 SIGIL symbol flags a value.
 
-Like all [Coven Engineering](https://coven.engineering) libraries, it has 100%
-test coverage and it's built in top of modern tech compatible with all
-JavaScript runtimes.
+Like all [Coven Engineering][coven-engineering] libraries, it has 100% test
+coverage and it's built in top of modern tech compatible with all JavaScript
+runtimes.
 
 ## Example
 
@@ -69,6 +68,16 @@ In the example we use it with a simple function that doesn't require
 memoization, but ideally `memoFunction` should be used with expensive functions
 or functions that return objects which identities we want to keep.
 
-## Other links
+<!-- Links -->
 
-- [Coverage](https://app.codecov.io/github/covenengineering/libraries).
+[coven-engineering]: https://coven.engineering
+[coverage]:
+	https://app.codecov.io/github/covenengineering/libraries%3Fcomponents%5B0%5D%3DCoven%2520Engineering%2520Memo
+[coverage-badge]:
+	https://img.shields.io/codecov/c/github/covenengineering/libraries?color=%23083344&component=coven__memo&label=Codecov&labelColor=%23F01F7A&logo=Codecov&logoColor=%23fff
+[jsr-link]: https://coven.to/memo
+[jsr-score]: https://coven.to/memo/score
+[jsr-score-badge]: https://jsr.io/badges/@coven/memo/score
+[jsr-version-badge]: https://jsr.io/badges/@coven/memo
+[logo]:
+	https://raw.githubusercontent.com/covenengineering/libraries/main/@coven/memo/logo.svg

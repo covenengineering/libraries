@@ -11,10 +11,7 @@ Deno.test(
 	async () =>
 		assertEquals(
 			await groupBy((groupName: string) => groupName)(stringArray),
-			{
-				[string1]: [string1, string1],
-				[string2]: [string2, string2],
-			},
+			{ [string1]: [string1, string1], [string2]: [string2, string2] },
 		),
 );
 
