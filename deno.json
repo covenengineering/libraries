@@ -34,8 +34,8 @@
 	},
 	"imports": {
 		"@std/assert": "jsr:@std/assert@^1.0.19",
-		"happy-dom": "npm:happy-dom@^20.9.0",
-		"prettier": "npm:prettier@^3.8.3"
+		"happy-dom": "npm:happy-dom@^20.10.5",
+		"prettier": "npm:prettier@^3.8.4"
 	},
 	"lint": {
 		"plugins": ["jsr:@coven/rules"],
