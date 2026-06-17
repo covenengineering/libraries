@@ -18,10 +18,7 @@ import { template } from "@coven/template";
 const moneyTemplate = template({
 	boolean: (payed) => (payed ? "it's payed" : "it's due"),
 	number: (cost) =>
-		cost.toLocaleString("en-US", {
-			style: "currency",
-			currency: "USD",
-		}),
+		cost.toLocaleString("en-US", { style: "currency", currency: "USD" }),
 });
 
 // And then we use it anywhere

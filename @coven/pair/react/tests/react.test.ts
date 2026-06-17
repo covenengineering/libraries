@@ -12,11 +12,7 @@ const Render = (usePairedState: typeof useState) => {
 		[],
 	);
 
-	return jsx("button", {
-		children: count,
-		onClick,
-		type: "button",
-	});
+	return jsx("button", { children: count, onClick, type: "button" });
 };
 
 const Wanted = ({ children }: PairedComponentProperties<typeof useState>) =>

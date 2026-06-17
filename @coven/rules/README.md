@@ -33,9 +33,7 @@ To use this from deno, update `deno.json`'s `lint` property and add the
 following:
 
 ```json
-{
-	"plugins": ["jsr:@coven/rules"]
-}
+{ "plugins": ["jsr:@coven/rules"] }
 ```
 
 ## Other links

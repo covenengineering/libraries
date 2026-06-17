@@ -132,13 +132,7 @@ Deno.test(
 Deno.test("all fields set return object with all properties set", () =>
 	assertStrictEquals(
 		parse("13 13 13 10 5"),
-		memo({
-			dayOfMonth: 13,
-			dayOfWeek: 5,
-			hour: 13,
-			minute: 13,
-			month: 10,
-		}),
+		memo({ dayOfMonth: 13, dayOfWeek: 5, hour: 13, minute: 13, month: 10 }),
 	),
 );
 

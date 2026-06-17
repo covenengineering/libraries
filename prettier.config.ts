@@ -52,6 +52,11 @@ export default {
 	jsxSingleQuote: false,
 
 	/**
+	 * Collapse all objects that can be collapsed.
+	 */
+	objectWrap: "collapse",
+
+	/**
 	 * Print width is ideal at 80 characters.
 	 */
 	printWidth: 80,
@@ -64,7 +69,7 @@ export default {
 	/**
 	 * Add quotes around properties of object if needed.
 	 */
-	quoteProps: "as-needed",
+	quoteProps: "consistent",
 
 	/**
 	 * Print semicolons at the ends of statements.

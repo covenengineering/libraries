@@ -8,9 +8,9 @@ type TestRegistry = { [TEST_EVENT]: never };
 
 Deno.test("Emit with handlers calls the handlers", () => {
 	let called = false;
-	emit<TestRegistry>({
-		[TEST_EVENT]: [() => (called = true)].values(),
-	})(TEST_EVENT)();
+	emit<TestRegistry>({ [TEST_EVENT]: [() => (called = true)].values() })(
+		TEST_EVENT,
+	)();
 
 	assert(called);
 });

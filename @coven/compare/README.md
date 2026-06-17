@@ -61,12 +61,7 @@ compare({ example: 13 })({ example: 42 });
 The yielded update will have values yielded from its `path`:
 
 ```typescript
-({
-	kind: "UPDATE",
-	left: 13,
-	right: 42,
-	path: ["example"],
-});
+({ kind: "UPDATE", left: 13, right: 42, path: ["example"] });
 ```
 
 ### Object delete
@@ -82,11 +77,7 @@ compare({ example: 13 })({});
 Yields this:
 
 ```typescript
-({
-	kind: "DELETE",
-	left: 13,
-	path: ["example"],
-});
+({ kind: "DELETE", left: 13, path: ["example"] });
 ```
 
 ### Object create
@@ -102,11 +93,7 @@ compare({})({ example: 42 });
 Yields this:
 
 ```typescript
-({
-	kind: "CREATE",
-	right: 42,
-	path: ["example"],
-});
+({ kind: "CREATE", right: 42, path: ["example"] });
 ```
 
 ### Multiple differences
@@ -117,10 +104,7 @@ differences:
 ```typescript
 import { compare } from "@coven/compare";
 
-compare({
-	original: "old",
-	updated: "old",
-})({
+compare({ original: "old", updated: "old" })({
 	created: "new",
 	updated: "new",
 });

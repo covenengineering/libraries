@@ -19,11 +19,6 @@ Deno.test(
 Deno.test("Setter doesn't mutate original object", () =>
 	assertEquals(
 		[setMagic(existingObject), existingObject],
-		[
-			{
-				"✨": true,
-			},
-			{ "✨": false },
-		],
+		[{ "✨": true }, { "✨": false }],
 	),
 );

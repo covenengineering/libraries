@@ -68,9 +68,7 @@ Deno.test(
 Deno.test("Broadcast's on handler is removed when unmounted", async () => {
 	const state1 = { calledTimes: 0 };
 	const state2 = { calledTimes: 0 };
-	const { registry } = broadcast<{
-		click: MouseEvent<HTMLButtonElement>;
-	}>();
+	const { registry } = broadcast<{ click: MouseEvent<HTMLButtonElement> }>();
 
 	const App = () => {
 		// deno-lint-ignore no-boolean-literal-for-arguments

@@ -14,9 +14,7 @@ import { broadcast } from "@simulcast/core";
 import { useBroadcast } from "@simulcast/react";
 import type { MouseEvent } from "react";
 
-const { registry } = broadcast<{
-	click: MouseEvent<HTMLButtonElement>;
-}>();
+const { registry } = broadcast<{ click: MouseEvent<HTMLButtonElement> }>();
 
 const Component = () => {
 	const { emitClick, onClick } = useBroadcast(registry);

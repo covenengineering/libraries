@@ -4,10 +4,7 @@ import { assertStrictEquals } from "@std/assert";
 const moneyTemplate = template({
 	boolean: (payed) => (payed ? "it's payed" : "it's due"),
 	number: (cost) =>
-		cost.toLocaleString("en-US", {
-			style: "currency",
-			currency: "USD",
-		}),
+		cost.toLocaleString("en-US", { style: "currency", currency: "USD" }),
 });
 const payed = false;
 

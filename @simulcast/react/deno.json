@@ -1,9 +1,6 @@
 {
 	"$schema": "https://raw.githubusercontent.com/denoland/deno/main/cli/schemas/config-file.v1.json",
-	"compilerOptions": {
-		"jsx": "react-jsx",
-		"jsxImportSource": "react"
-	},
+	"compilerOptions": { "jsx": "react-jsx", "jsxImportSource": "react" },
 	"exports": "./mod.ts",
 	"imports": {
 		"@testing-library/react": "npm:@testing-library/react@^16.3.2",

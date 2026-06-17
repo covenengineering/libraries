@@ -1,9 +1,6 @@
 {
 	"$schema": "https://raw.githubusercontent.com/denoland/deno/main/cli/schemas/config-file.v1.json",
-	"exports": {
-		"./preact": "./preact/mod.ts",
-		"./react": "./react/mod.ts"
-	},
+	"exports": { "./preact": "./preact/mod.ts", "./react": "./react/mod.ts" },
 	"imports": {
 		"@types/react": "npm:@types/react@^19.2.15",
 		"@types/react-dom": "npm:@types/react-dom@^19.2.3",
