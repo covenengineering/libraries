@@ -1,18 +1,17 @@
-![Coven Engineering Constants](https://raw.githubusercontent.com/covenengineering/libraries/main/@coven/constants/logo.svg)
+![Coven Engineering Constants][logo]
 
-[![JSR](https://jsr.io/badges/@coven/constants)](https://coven.to/constants)
-[![JSR Score](https://jsr.io/badges/@coven/constants/score)](https://coven.to/constants/score)
-[![Coverage Status](https://img.shields.io/codecov/c/github/covenengineering/libraries?color=%23083344&component=coven__constants&label=Codecov&labelColor=%23F01F7A&logo=Codecov&logoColor=%23fff)](https://app.codecov.io/github/covenengineering/libraries?components[0]=Coven%20Engineering%20Constants)
+[![JSR][jsr-version-badge]][jsr-link] [![JSR Score][jsr-score-badge]][jsr-score]
+[![Coverage Status][coverage-badge]][coverage]
 
 🧱 Common constants.
 
 This library provides constants commonly used for initial and default values as
 immutable structures to avoid accidental mutations.
 
-Like all [Coven Engineering](https://coven.engineering) libraries, it has 100%
-test coverage and it's built in top of modern tech compatible with all
-JavaScript runtimes. The tests for this library only make sure trying to do
-mutations throws.
+Like all [Coven Engineering][coven-engineering] libraries, it has 100% test
+coverage and it's built in top of modern tech compatible with all JavaScript
+runtimes. The tests for this library only make sure trying to do mutations
+throws.
 
 ## Exported constants
 
@@ -31,6 +30,16 @@ console.log(EMPTY_OBJECT); // {}
 console.log(SIGIL); // Symbol("⛧")
 ```
 
-## Other links
+<!-- Links -->
 
-- [Coverage](https://app.codecov.io/github/covenengineering/libraries).
+[coven-engineering]: https://coven.engineering
+[coverage]:
+	https://app.codecov.io/github/covenengineering/libraries%3Fcomponents%5B0%5D%3DCoven%2520Engineering%2520Constants
+[coverage-badge]:
+	https://img.shields.io/codecov/c/github/covenengineering/libraries?color=%23083344&component=coven__constants&label=Codecov&labelColor=%23F01F7A&logo=Codecov&logoColor=%23fff
+[jsr-link]: https://coven.to/constants
+[jsr-score]: https://coven.to/constants/score
+[jsr-score-badge]: https://jsr.io/badges/@coven/constants/score
+[jsr-version-badge]: https://jsr.io/badges/@coven/constants
+[logo]:
+	https://raw.githubusercontent.com/covenengineering/libraries/main/@coven/constants/logo.svg

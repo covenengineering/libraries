@@ -1,11 +1,9 @@
-<img alt="Simulcast Vue logo" src="https://raw.githubusercontent.com/covenengineering/libraries/main/@simulcast/vue/logo.svg" height="108" />
+![Simulcast Vue][logo]
 
-[![JSR](https://jsr.io/badges/@simulcast/vue)](https://simulcast.coven.to/vue)
-[![JSR Score](https://jsr.io/badges/@simulcast/vue/score)](https://simulcast.coven.to/vue/score)
-[![Coverage Status](https://img.shields.io/codecov/c/github/covenengineering/libraries?color=%23083344&component=simulcast__vue&label=Codecov&labelColor=%23F01F7A&logo=Codecov&logoColor=%23fff)](https://app.codecov.io/github/covenengineering/libraries?components[0]=Simulcast%20Vue)
+[![JSR][jsr-version-badge]][jsr-link] [![JSR Score][jsr-score-badge]][jsr-score]
+[![Coverage Status][coverage-badge]][coverage]
 
-📡 [Vue](https://vuejs.org/) hook for
-[`@simulcast/core`](https://simulcast.coven.to/core).
+📡 [Vue][vue] hook for [`@simulcast/core`][simulcast-core].
 
 ## Example
 
@@ -25,6 +23,18 @@
 </template>
 ```
 
-## Other links
+<!-- Links -->
 
-- [Coverage](https://app.codecov.io/github/covenengineering/libraries).
+[coven-engineering]: https://coven.engineering
+[coverage]:
+	https://app.codecov.io/github/covenengineering/libraries%3Fcomponents%5B0%5D%3DSimulcast%20vue
+[coverage-badge]:
+	https://img.shields.io/codecov/c/github/covenengineering/libraries?color=%23083344&component=simulcast__vue&label=Codecov&labelColor=%23F01F7A&logo=Codecov&logoColor=%23fff
+[jsr-link]: https://simulcast.coven.to/vue
+[jsr-score]: https://simulcast.coven.to/core/vue
+[jsr-score-badge]: https://jsr.io/badges/@simulcast/vue/score
+[jsr-version-badge]: https://jsr.io/badges/@simulcast/vue
+[logo]:
+	https://raw.githubusercontent.com/covenengineering/libraries/main/@simulcast/vue/logo.svg
+[vue]: https://vuejs.org/
+[simulcast-core]: https://simulcast.coven.to/core

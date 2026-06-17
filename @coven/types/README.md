@@ -1,13 +1,12 @@
-![Coven Engineering Types](https://raw.githubusercontent.com/covenengineering/libraries/main/@coven/types/logo.svg)
+![Coven Engineering Types][logo]
 
-[![JSR](https://jsr.io/badges/@coven/types)](https://coven.to/types)
-[![JSR Score](https://jsr.io/badges/@coven/types/score)](https://coven.to/types/score)
+[![JSR][jsr-version-badge]][jsr-link] [![JSR Score][jsr-score-badge]][jsr-score]
 
 🏷️ Collection of TypeScript types.
 
-This types are mainly meant as a way of centralizing types used by
-[Coven Engineering](https://coven.engineering/) libraries, but as the rest of
-the libraries, it's open source so anyone interested can use these.
+This types are mainly meant as a way of centralizing types used by [Coven
+Engineering][coven-engineering] libraries, but as the rest of the libraries,
+it's open source so anyone interested can use these.
 
 > [!CAUTION]
 >
@@ -23,6 +22,12 @@ import type { Unary } from "@coven/types";
 const next: Unary<[input: number], number> = (input) => input + 1;
 ```
 
-## Other links
+<!-- Links -->
 
-- [Coverage](https://app.codecov.io/github/covenengineering/libraries).
+[coven-engineering]: https://coven.engineering
+[jsr-link]: https://coven.to/types
+[jsr-score]: https://coven.to/types/score
+[jsr-score-badge]: https://jsr.io/badges/@coven/types/score
+[jsr-version-badge]: https://jsr.io/badges/@coven/types
+[logo]:
+	https://raw.githubusercontent.com/covenengineering/libraries/main/@coven/types/logo.svg

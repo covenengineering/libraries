@@ -1,8 +1,7 @@
-![Coven Engineering Iterables](https://raw.githubusercontent.com/covenengineering/libraries/main/@coven/iterables/logo.svg)
+![Coven Engineering Iterables][logo]
 
-[![JSR](https://jsr.io/badges/@coven/iterables)](https://coven.to/iterables)
-[![JSR Score](https://jsr.io/badges/@coven/iterables/score)](https://coven.to/iterables/score)
-[![Coverage Status](https://img.shields.io/codecov/c/github/covenengineering/libraries?color=%23083344&component=coven__iterables&label=Codecov&labelColor=%23F01F7A&logo=Codecov&logoColor=%23fff)](https://app.codecov.io/github/covenengineering/libraries?components[0]=Coven%20Engineering%20Iterables)
+[![JSR][jsr-version-badge]][jsr-link] [![JSR Score][jsr-score-badge]][jsr-score]
+[![Coverage Status][coverage-badge]][coverage]
 
 ♻️ `Iterable` and `AsyncIterable` utilities. iterables, which results in
 duplicated code.
@@ -12,9 +11,9 @@ then `@coven/iterables/async` for asynchronous iterables. All functions are
 curried to reduce code duplication, and they work with all iterables (generator
 functions, arrays, strings, Sets, Maps, etc.).
 
-Like all [Coven Engineering](https://coven.engineering) libraries, it has 100%
-test coverage and it's built in top of modern tech compatible with all
-JavaScript runtimes.
+Like all [Coven Engineering][coven-engineering] libraries, it has 100% test
+coverage and it's built in top of modern tech compatible with all JavaScript
+runtimes.
 
 ## Examples
 
@@ -53,6 +52,16 @@ forEach(console.log)(map(next)(map(double)([1, 2, 3, 4])));
 // 4. 8 → 9 → Logs 9
 ```
 
-## Other links
+<!-- Links -->
 
-- [Coverage](https://app.codecov.io/github/covenengineering/libraries).
+[coven-engineering]: https://coven.engineering
+[coverage]:
+	https://app.codecov.io/github/covenengineering/libraries%3Fcomponents%5B0%5D%3DCoven%2520Engineering%2520Iterables
+[coverage-badge]:
+	https://img.shields.io/codecov/c/github/covenengineering/libraries?color=%23083344&component=coven__iterables&label=Codecov&labelColor=%23F01F7A&logo=Codecov&logoColor=%23fff
+[jsr-link]: https://coven.to/iterables
+[jsr-score]: https://coven.to/iterables/score
+[jsr-score-badge]: https://jsr.io/badges/@coven/iterables/score
+[jsr-version-badge]: https://jsr.io/badges/@coven/iterables
+[logo]:
+	https://raw.githubusercontent.com/covenengineering/libraries/main/@coven/iterables/logo.svg
