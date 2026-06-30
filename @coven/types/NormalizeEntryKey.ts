@@ -10,5 +10,4 @@
  * @template EntryKey `PropertyKey` to be stringified.
  */
 export type NormalizeEntryKey<EntryKey extends PropertyKey> =
-	| Exclude<EntryKey, number>
-	| `${Extract<EntryKey, number>}`;
+	Exclude<EntryKey, number> | `${Extract<EntryKey, number>}`;

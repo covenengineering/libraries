@@ -25,7 +25,7 @@ export const initial = <IterableToGetInitial extends Iterable<unknown>>(
 		const iterator = getIterator(iterable);
 
 		// deno-lint-ignore coven/no-for
-		for (let item = iterator.next(); !item.done; ) {
+		for (let item = iterator.next(); !item.done;) {
 			const value = item.value;
 
 			item = iterator.next();

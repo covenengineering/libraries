@@ -11,6 +11,4 @@ import type { ValueOrRangeField } from "./ValueOrRangeField.ts";
  * @see {@linkcode ListField}
  */
 export type Field<Value extends number> =
-	| AllToken
-	| ListField<Value>
-	| ValueOrRangeField<Value>;
+	AllToken | ListField<Value> | ValueOrRangeField<Value>;

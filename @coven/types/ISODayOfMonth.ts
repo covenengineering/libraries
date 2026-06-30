@@ -11,6 +11,4 @@ import type { Digit } from "./Digit.ts";
  * @see {@linkcode https://coven.to/mdn/Date Date}
  */
 export type ISODayOfMonth =
-	| `${1 | 2}${Digit}`
-	| `0${Exclude<Digit, 0>}`
-	| `3${0 | 1}`;
+	`${1 | 2}${Digit}` | `0${Exclude<Digit, 0>}` | `3${0 | 1}`;
