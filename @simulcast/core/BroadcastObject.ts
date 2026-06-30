@@ -36,9 +36,9 @@ export type BroadcastObject<Events extends EventTypeDictionary> = Readonly<
 		/**
 		 * Dynamically generated `emit`.
 		 */
-		[Event in keyof Events as `emit${Capitalize<keyof Events & string>}`]: EventHandler<
-			Events[Event]
-		>;
+		[
+			Event in keyof Events as `emit${Capitalize<keyof Events & string>}`
+		]: EventHandler<Events[Event]>;
 	} & {
 		/**
 		 * Dynamically generated `on`.

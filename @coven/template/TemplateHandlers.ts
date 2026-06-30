@@ -15,6 +15,5 @@ import type { Stringable, TypeOfDictionary } from "@coven/types";
  */
 export type TemplateHandlers = {
 	readonly [Key in keyof TypeOfDictionary]?:
-		| ((expression: TypeOfDictionary[Key]) => Stringable)
-		| Stringable;
+		((expression: TypeOfDictionary[Key]) => Stringable) | Stringable;
 };

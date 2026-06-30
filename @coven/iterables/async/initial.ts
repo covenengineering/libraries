@@ -25,7 +25,7 @@ export const initial = <Iterable extends AwaitableIterable>(
 			let item = await iterator.next();
 
 			// deno-lint-ignore coven/no-for
-			for (; !item.done; ) {
+			for (; !item.done;) {
 				const value = item.value;
 
 				// deno-lint-ignore no-await-in-loop
