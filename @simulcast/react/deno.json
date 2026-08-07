@@ -9,5 +9,5 @@
 		"react": "npm:react@^19.2.7"
 	},
 	"name": "@simulcast/react",
-	"version": "0.9.9"
+	"version": "0.9.10"
 }

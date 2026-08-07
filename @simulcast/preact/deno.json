@@ -8,5 +8,5 @@
 		"preact": "npm:preact@^10.29.2"
 	},
 	"name": "@simulcast/preact",
-	"version": "0.9.9"
+	"version": "0.9.10"
 }
