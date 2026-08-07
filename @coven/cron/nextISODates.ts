@@ -24,6 +24,12 @@ const filterIsISODate = filter(
 /**
  * Get next ISO date string iterator for the given date and the given cron expression.
  *
+ * > [!NOTE]
+ * > This function is expensive. It goes minute by minute scanning for matches.
+ *
+ * > [!WARNING]
+ * > If user input will be passed to this function, make sure to validate it first because this has the potential to loop forever.
+ *
  * @example Using `take` from `@coven/iterables` to get some ISO Dates following the given one with the given cron expression
  * ```typescript
  * import { take } from "@coven/iterables";

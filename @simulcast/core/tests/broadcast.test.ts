@@ -1,7 +1,10 @@
 import { assert, assertStrictEquals } from "@std/assert";
 import { broadcast } from "../broadcast.ts";
 
-const { emitTest, onTest, on, emit } = broadcast<{ test: never }>();
+const { emitTest, onTest, on, emit } = broadcast<{
+	test: never;
+	other: string;
+}>();
 
 const customEmitTest = emit("test");
 const customOnTest = on("test");

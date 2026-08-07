@@ -21,7 +21,7 @@ export type UseBroadcastObject<Events extends EventTypeDictionary> = Readonly<
 		/**
 		 * @param handler Function to run when event is emitted.
 		 */
-		[Event in keyof Events as `on${Capitalize<keyof Events & string>}`]: (
+		[Event in keyof Events as `on${Capitalize<Event & string>}`]: (
 			handler: EventHandler<Events[Event]>,
 		) => void;
 	}

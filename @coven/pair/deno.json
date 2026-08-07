@@ -2,13 +2,13 @@
 	"$schema": "https://raw.githubusercontent.com/denoland/deno/main/cli/schemas/config-file.v1.json",
 	"exports": { "./preact": "./preact/mod.ts", "./react": "./react/mod.ts" },
 	"imports": {
-		"@types/react": "npm:@types/react@^19.2.17",
-		"@types/react-dom": "npm:@types/react-dom@^19.2.3",
-		"preact": "npm:preact@^10.29.2",
+		"@types/react": "npm:@types/react@^19.2.18",
+		"@types/react-dom": "npm:@types/react-dom@^19.2.4",
+		"preact": "npm:preact@^10.29.8",
 		"preact-render-to-string": "npm:preact-render-to-string@^6.7.0",
-		"react": "npm:react@^19.2.7",
-		"react-dom": "npm:react-dom@^19.2.7"
+		"react": "npm:react@^19.2.8",
+		"react-dom": "npm:react-dom@^19.2.8"
 	},
 	"name": "@coven/pair",
-	"version": "0.9.9"
+	"version": "0.9.10"
 }

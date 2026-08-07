@@ -64,6 +64,36 @@ Deno.test(
 );
 
 Deno.test(
+	"* * 31 2-2 * as object returns nothing because it's an invalid date",
+	() =>
+		assertStrictEquals(
+			testDate({ dayOfMonth: 31, month: { from: 2, to: 2 } }),
+			undefined,
+		),
+);
+
+Deno.test(
+	"* * 31-31 4 * as object returns nothing because it's an invalid date",
+	() =>
+		assertStrictEquals(
+			testDate({ dayOfMonth: { from: 31, to: 31 }, month: 4 }),
+			undefined,
+		),
+);
+
+Deno.test(
+	"* * 31-31 4-4 * as object returns nothing because it's an invalid date",
+	() =>
+		assertStrictEquals(
+			testDate({
+				dayOfMonth: { from: 31, to: 31 },
+				month: { from: 4, to: 4 },
+			}),
+			undefined,
+		),
+);
+
+Deno.test(
 	"* * 29,30,31 2 * as an object gets first minute of next february 29",
 	() =>
 		assertStrictEquals(
