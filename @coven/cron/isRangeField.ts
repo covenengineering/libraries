@@ -21,6 +21,5 @@ export const isRangeField: <Predicated extends number>(
 		&& hasFrom(value)
 		&& hasTo(value)
 		&& isNumber(value.from)
-		&& isNumber(value.to)
-		&& value.from < value.to,
+		&& isNumber(value.to),
 );
