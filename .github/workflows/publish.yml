@@ -5,10 +5,13 @@ on:
         branches:
             - "**"
 
+env:
+    DENO_UNSTABLE_TSGO: 1
+
 jobs:
     test:
         name: Run Tests
-        runs-on: ubuntu-slim
+        runs-on: ubuntu-latest
         permissions:
             contents: read
             id-token: write
