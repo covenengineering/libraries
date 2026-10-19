@@ -1,31 +1,39 @@
 {
 	"format_on_save": "on",
-	"formatter": [{ "code_action": "source.organizeImports" }, "prettier"],
+	"formatter": [
+		{ "code_action": "source.organizeImports" },
+		{
+			"external": {
+				"command": "node_modules/.bin/prettier",
+				"arguments": ["--stdin-filepath", "{buffer_path}"],
+			},
+		},
+	],
 	"languages": {
 		"JavaScript": {
 			"language_servers": [
 				"deno",
 				"!typescript-language-server",
 				"!vtsls",
-				"!eslint"
-			]
+				"!eslint",
+			],
 		},
 		"TSX": {
 			"language_servers": [
 				"deno",
 				"!typescript-language-server",
 				"!vtsls",
-				"!eslint"
-			]
+				"!eslint",
+			],
 		},
 		"TypeScript": {
 			"language_servers": [
 				"deno",
 				"!typescript-language-server",
 				"!vtsls",
-				"!eslint"
-			]
-		}
+				"!eslint",
+			],
+		},
 	},
 	"lsp": {
 		"deno": { "settings": { "deno": { "enable": true } } },
@@ -35,15 +43,15 @@
 					"schemas": [
 						{
 							"fileMatch": ["deno.json", "deno.jsonc"],
-							"url": "https://raw.githubusercontent.com/denoland/deno/refs/heads/main/cli/schemas/config-file.v1.json"
+							"url": "https://raw.githubusercontent.com/denoland/deno/refs/heads/main/cli/schemas/config-file.v1.json",
 						},
 						{
 							"fileMatch": ["package.json"],
-							"url": "https://www.schemastore.org/package"
-						}
-					]
-				}
-			}
-		}
-	}
+							"url": "https://www.schemastore.org/package",
+						},
+					],
+				},
+			},
+		},
+	},
 }
